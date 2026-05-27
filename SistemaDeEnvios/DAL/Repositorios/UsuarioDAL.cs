@@ -27,15 +27,15 @@ namespace DAL.Repositorios
                     {
                         if (r.Read())
                         {
-                            int IdUsuario = (int)r["id_usuario"];
                             int DNI = (int)r["dni"];
                             string Nombre = r["nombre"].ToString();
                             string Apellido = r["apellido"].ToString();
                             string Email = r["email"].ToString();
                             string Contraseña = r["password"].ToString();
-                            bool Estado = (bool)r["estado"];
                             int IdRol = (int)r["id_rol"];
-                            u = new Usuario(IdUsuario, DNI, Nombre, Apellido, Email, Contraseña, Estado, IdRol);
+                            bool Bloqueado = (bool)r["bloqueado"];
+                            bool Estado = (bool)r["estado"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado);
                         }
                     }
                 }
@@ -56,15 +56,15 @@ namespace DAL.Repositorios
                     {
                         if (r.Read())
                         {
-                            int IdUsuario = (int)r["id_usuario"];
                             int DNI = (int)r["dni"];
                             string Nombre = r["nombre"].ToString();
                             string Apellido = r["apellido"].ToString();
                             string Email = r["email"].ToString();
                             string Contraseña = r["password"].ToString();
-                            bool Estado = (bool)r["estado"];
                             int IdRol = (int)r["id_rol"];
-                            u = new Usuario(IdUsuario, DNI, Nombre, Apellido, Email, Contraseña, Estado, IdRol);
+                            bool Bloqueado = (bool)r["bloqueado"];
+                            bool Estado = (bool)r["estado"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado);
                         }
                     }
                 }
@@ -72,24 +72,23 @@ namespace DAL.Repositorios
             return u;
         }
 
-        public DataTable ObtenerUsuarios()
+        public DataTable ObtenerUsuarios(bool todos)
         {
-            DataTable dt = new DataTable();
-
-            string query = "select u.id_usuario, u.dni, u.nombre, u.apellido, u.email, r.descripcion as rol, u.estado from Usuario u inner join Rol r on u.id_rol = r.id_rol";
+            string query;
+            if (todos) query = "select dni, nombre, apellido, email, password, id_rol, bloqueado, estado from Usuario";
+            else query = "select dni, nombre, apellido, email, password, id_rol, bloqueado, estado from Usuario where estado = 1";
             using (SqlConnection cx = Conexion.ObtenerConexion())
-            {
-                using (SqlDataAdapter da = new SqlDataAdapter(query, cx))
                 {
+                    SqlDataAdapter da = new SqlDataAdapter(query, cx);
+                    DataTable dt = new DataTable();
                     da.Fill(dt);
+                    return dt;
                 }
-            }
-            return dt;
         }
 
         public void AltaUsuario(Usuario u)
         {
-            string query = "insert into Usuario (dni, nombre, apellido, email, password, estado, id_rol) values (@dni, @nombre, @apellido, @email, @password, @estado, @id_rol)";
+            string query = "insert into Usuario (dni, nombre, apellido, email, password, id_rol) values (@dni, @nombre, @apellido, @email, @password, @id_rol)";
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
                 using (SqlCommand cmd = new SqlCommand(query, cx))
@@ -99,13 +98,58 @@ namespace DAL.Repositorios
                     cmd.Parameters.AddWithValue("@apellido", u.Apellido);
                     cmd.Parameters.AddWithValue("@email", u.Email);
                     cmd.Parameters.AddWithValue("@password", u.Contraseña);
-                    cmd.Parameters.AddWithValue("@estado", u.Estado);
                     cmd.Parameters.AddWithValue("@id_rol", u.IdRol);
 
                     cx.Open();
 
                     cmd.ExecuteNonQuery();
                 }
+            }
+        }
+        public void ModificarUsuario(Usuario u)
+        {
+            string query = "update Usuario set nombre = @nombre, apellido = @apellido, email = @email, id_rol = @id_rol where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cx))
+                {
+                    cmd.Parameters.AddWithValue("@dni", u.DNI);
+                    cmd.Parameters.AddWithValue("@nombre", u.Nombre);
+                    cmd.Parameters.AddWithValue("@apellido", u.Apellido);
+                    cmd.Parameters.AddWithValue("@email", u.Email);
+                    cmd.Parameters.AddWithValue("@id_rol", u.IdRol);
+
+                    cx.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void ActivarDesactivarUsuario(int dni, bool ad)
+        {
+            string query;
+            if (ad) query = "update Usuario set estado = 1 where dni = @dni";
+            else query = "update Usuario set estado = 0 where dni = @dni";
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(query, cx);
+                cmd.Parameters.AddWithValue("@dni", dni);
+
+                cx.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void DesbloquearUsuario(int dni)
+        {
+            string query = "update Usuario set bloqueado = 0 where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(query, cx);
+                cmd.Parameters.AddWithValue("@dni", dni);
+
+                cx.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }
