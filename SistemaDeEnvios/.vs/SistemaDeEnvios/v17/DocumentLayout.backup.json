@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C62F8803-EDBD-4BC7-8C25-57345C00704E}|Servicios\\Servicios.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\servicios\\sesi\u00F3n\\sesionusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C62F8803-EDBD-4BC7-8C25-57345C00704E}|Servicios\\Servicios.csproj|solutionrelative:servicios\\sesi\u00F3n\\sesionusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\bll\\gestores\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|solutionrelative:bll\\gestores\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\dal\\repositorios\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|solutionrelative:dal\\repositorios\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\dal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|solutionrelative:dal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\bll\\gestores\\logingestor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|solutionrelative:bll\\gestores\\logingestor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\bll\\gestores\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|solutionrelative:bll\\gestores\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\formularios\\administrador\\admingestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\administrador\\admingestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\administrador\\admingestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,20 +31,32 @@
       "RelativeMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|solutionrelative:bll\\otros\\resultadooperacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\be\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|solutionrelative:be\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\administrador\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C62F8803-EDBD-4BC7-8C25-57345C00704E}|Servicios\\Servicios.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\servicios\\sesi\u00F3n\\sesionusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C62F8803-EDBD-4BC7-8C25-57345C00704E}|Servicios\\Servicios.csproj|solutionrelative:servicios\\sesi\u00F3n\\sesionusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\be\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|solutionrelative:be\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\be\\entidades\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99DB6349-BD0D-4D62-B5D6-8AC9699890C4}|BE\\BE.csproj|solutionrelative:be\\entidades\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\dal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|solutionrelative:dal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\formularios\\administrador\\admingestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\administrador\\admingestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\formularios\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,11 +66,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
+              "Title": "Evento.cs",
+              "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BE\\Entidades\\Evento.cs",
+              "RelativeDocumentMoniker": "BE\\Entidades\\Evento.cs",
+              "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BE\\Entidades\\Evento.cs",
+              "RelativeToolTip": "BE\\Entidades\\Evento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T21:44:41.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "SesionUsuario.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Sesi\u00F3n\\SesionUsuario.cs",
               "RelativeDocumentMoniker": "Servicios\\Sesi\u00F3n\\SesionUsuario.cs",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\Conexion.cs",
               "RelativeDocumentMoniker": "DAL\\Conexion.cs",
@@ -87,33 +104,31 @@
               "RelativeToolTip": "DAL\\Conexion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:49:05.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T01:49:05.427Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAIAwwCgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAASwB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T01:28:00.105Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "LoginForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\LoginForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\LoginForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:27:57.506Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-05-27T01:27:57.506Z"
             },
             {
               "$type": "Document",
@@ -123,91 +138,90 @@
               "RelativeDocumentMoniker": "BE\\Entidades\\Usuario.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BE\\Entidades\\Usuario.cs",
               "RelativeToolTip": "BE\\Entidades\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T01:26:16.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "ResultadoOperacion.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Otros\\ResultadoOperacion.cs",
               "RelativeDocumentMoniker": "BLL\\Otros\\ResultadoOperacion.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Otros\\ResultadoOperacion.cs",
               "RelativeToolTip": "BLL\\Otros\\ResultadoOperacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T00:24:58.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "LoginGestor.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Gestores\\LoginGestor.cs",
               "RelativeDocumentMoniker": "BLL\\Gestores\\LoginGestor.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Gestores\\LoginGestor.cs",
               "RelativeToolTip": "BLL\\Gestores\\LoginGestor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T00:41:42.122Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "AdminGestionUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAowDYAAAB0AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAgwCwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T22:45:59.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "UsuarioBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Gestores\\UsuarioBLL.cs",
               "RelativeDocumentMoniker": "BLL\\Gestores\\UsuarioBLL.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Gestores\\UsuarioBLL.cs",
               "RelativeToolTip": "BLL\\Gestores\\UsuarioBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T00:08:54.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "UsuarioDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\Repositorios\\UsuarioDAL.cs",
               "RelativeDocumentMoniker": "DAL\\Repositorios\\UsuarioDAL.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\Repositorios\\UsuarioDAL.cs",
               "RelativeToolTip": "DAL\\Repositorios\\UsuarioDAL.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAiwDoAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAmwHUAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T15:03:36.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "AdminGestionUsuarios.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs [Dise\u00F1o]",
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminGestionUsuarios.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T22:04:49.25Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-05-24T22:04:49.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "AdminForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
@@ -219,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "AdminForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
@@ -227,7 +241,8 @@
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAEAiwB8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T19:46:49.73Z"
+              "WhenOpened": "2026-05-24T19:46:49.73Z",
+              "EditorCaption": ""
             }
           ]
         }
