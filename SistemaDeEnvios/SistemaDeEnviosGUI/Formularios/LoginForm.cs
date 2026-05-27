@@ -26,7 +26,7 @@ namespace SistemaDeEnviosGUI.Formularios
             string mail = txtEmail.Text;
             string contra = txtContraseña.Text;
 
-            ResultadoLogin rl = gestor.IniciarSesion(mail, contra);
+            ResultadoOperacion rl = gestor.IniciarSesion(mail, contra);
 
             if (!rl.Exitoso)
             {
@@ -44,8 +44,13 @@ namespace SistemaDeEnviosGUI.Formularios
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            string hash = BCrypt.Net.BCrypt.HashPassword("admin123");
-            txtContraseña.Text = hash;
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            txtEmail.Text = "admin@sistema.com";
+            txtContraseña.Text = "admin123";
         }
     }
 }

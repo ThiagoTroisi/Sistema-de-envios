@@ -11,11 +11,11 @@ namespace BLL.Gestores
 {
     public class LoginGestor
     {
-        private UsuarioRep rep = new UsuarioRep();
-        public ResultadoLogin IniciarSesion(string mail, string contra)
+        private UsuarioDAL dal = new UsuarioDAL();
+        public ResultadoOperacion IniciarSesion(string mail, string contra)
         {
-            ResultadoLogin rl = new ResultadoLogin(false, "", null); ;
-            Usuario u = rep.ConsultaPorMail(mail);
+            ResultadoOperacion rl = new ResultadoOperacion(false, "", null); ;
+            Usuario u = dal.ConsultaPorMail(mail);
             if (u == null) { rl.Mensaje = "ERROR: Email no encontrado."; return rl; }
             if (!u.Estado) { rl.Mensaje = "ERROR: Usuario bloqueado."; return rl; }
             bool contraseñaok = BCrypt.Net.BCrypt.Verify(contra, u.Contraseña);

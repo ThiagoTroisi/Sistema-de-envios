@@ -16,5 +16,16 @@ namespace BE.Entidades
         public string Dimensiones { get; set; }
         public decimal Costo { get; set; }
         public string Estado { get; set; }
+        public Envio(int idEnvio, string codigoSeguimiento, string direccionOrigen, string direccionDestino, decimal peso, string dimensiones, decimal costo, string estado)
+        {
+            IdEnvio = idEnvio;
+            CodigoSeguimiento = codigoSeguimiento;
+            DireccionOrigen = direccionOrigen;
+            DireccionDestino = direccionDestino;
+            Peso = peso;
+            Dimensiones = dimensiones;
+            Costo = costo;
+            Estado = estado;
+        }
     }
 }
