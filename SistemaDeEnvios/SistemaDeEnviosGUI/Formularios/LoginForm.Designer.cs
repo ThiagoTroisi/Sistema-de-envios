@@ -111,6 +111,7 @@
             Controls.Add(txtEmail);
             Name = "LoginForm";
             Text = "LoginForm";
+            Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

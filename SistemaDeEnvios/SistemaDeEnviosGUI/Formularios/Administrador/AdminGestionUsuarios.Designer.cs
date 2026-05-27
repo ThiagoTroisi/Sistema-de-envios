@@ -40,12 +40,13 @@
             label5 = new Label();
             txtEmail = new TextBox();
             label6 = new Label();
-            rbRecepcionista = new RadioButton();
-            rbGestor = new RadioButton();
-            rbRepartidor = new RadioButton();
             btnActivar = new Button();
             btnDesactivar = new Button();
             btnModificar = new Button();
+            comboBox1 = new ComboBox();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             btnAlta.TabIndex = 1;
             btnAlta.Text = "Alta";
             btnAlta.UseVisualStyleBackColor = true;
+            btnAlta.Click += btnAlta_Click;
             // 
             // txtDni
             // 
@@ -142,44 +144,11 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 389);
+            label6.Location = new Point(12, 384);
             label6.Name = "label6";
             label6.Size = new Size(27, 15);
             label6.TabIndex = 11;
             label6.Text = "Rol:";
-            // 
-            // rbRecepcionista
-            // 
-            rbRecepcionista.AutoSize = true;
-            rbRecepcionista.Location = new Point(72, 389);
-            rbRecepcionista.Name = "rbRecepcionista";
-            rbRecepcionista.Size = new Size(98, 19);
-            rbRecepcionista.TabIndex = 12;
-            rbRecepcionista.TabStop = true;
-            rbRecepcionista.Text = "Recepcionista";
-            rbRecepcionista.UseVisualStyleBackColor = true;
-            // 
-            // rbGestor
-            // 
-            rbGestor.AutoSize = true;
-            rbGestor.Location = new Point(72, 414);
-            rbGestor.Name = "rbGestor";
-            rbGestor.Size = new Size(59, 19);
-            rbGestor.TabIndex = 13;
-            rbGestor.TabStop = true;
-            rbGestor.Text = "Gestor";
-            rbGestor.UseVisualStyleBackColor = true;
-            // 
-            // rbRepartidor
-            // 
-            rbRepartidor.AutoSize = true;
-            rbRepartidor.Location = new Point(72, 439);
-            rbRepartidor.Name = "rbRepartidor";
-            rbRepartidor.Size = new Size(80, 19);
-            rbRepartidor.TabIndex = 14;
-            rbRepartidor.TabStop = true;
-            rbRepartidor.Text = "Repartidor";
-            rbRepartidor.UseVisualStyleBackColor = true;
             // 
             // btnActivar
             // 
@@ -189,6 +158,7 @@
             btnActivar.TabIndex = 15;
             btnActivar.Text = "Activar usuario";
             btnActivar.UseVisualStyleBackColor = true;
+            btnActivar.Click += btnActivar_Click;
             // 
             // btnDesactivar
             // 
@@ -198,6 +168,7 @@
             btnDesactivar.TabIndex = 16;
             btnDesactivar.Text = "Desactivar usuario";
             btnDesactivar.UseVisualStyleBackColor = true;
+            btnDesactivar.Click += btnDesactivar_Click;
             // 
             // btnModificar
             // 
@@ -207,18 +178,57 @@
             btnModificar.TabIndex = 17;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Recepcionista", "Gestor", "Repartidor" });
+            comboBox1.Location = new Point(72, 381);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(158, 23);
+            comboBox1.TabIndex = 18;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(558, 264);
+            label7.Name = "label7";
+            label7.Size = new Size(86, 15);
+            label7.TabIndex = 19;
+            label7.Text = "Recordar que...";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(558, 287);
+            label8.Name = "label8";
+            label8.Size = new Size(102, 15);
+            label8.TabIndex = 20;
+            label8.Text = "1 = Usuario activo";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(558, 310);
+            label9.Name = "label9";
+            label9.Size = new Size(119, 15);
+            label9.TabIndex = 21;
+            label9.Text = "0 = Usuario no activo";
             // 
             // AdminGestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 467);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(comboBox1);
             Controls.Add(btnModificar);
             Controls.Add(btnDesactivar);
             Controls.Add(btnActivar);
-            Controls.Add(rbRepartidor);
-            Controls.Add(rbGestor);
-            Controls.Add(rbRecepcionista);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtEmail);
@@ -253,11 +263,12 @@
         private Label label5;
         private TextBox txtEmail;
         private Label label6;
-        private RadioButton rbRecepcionista;
-        private RadioButton rbGestor;
-        private RadioButton rbRepartidor;
         private Button btnActivar;
         private Button btnDesactivar;
         private Button btnModificar;
+        private ComboBox comboBox1;
+        private Label label7;
+        private Label label8;
+        private Label label9;
     }
 }

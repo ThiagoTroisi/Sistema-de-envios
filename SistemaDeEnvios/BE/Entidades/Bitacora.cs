@@ -14,5 +14,14 @@ namespace BE.Entidades
         public string Modulo { get; set; }
         public string Detalle { get; set; }
         public DateTime Fecha { get; set; }
+        public Bitacora(int idBitacora, int idUsuario, string accion, string modulo, string detalle, DateTime fecha)
+        {
+            IdBitacora = idBitacora;
+            IdUsuario = idUsuario;
+            Accion = accion;
+            Modulo = modulo;
+            Detalle = detalle;
+            Fecha = fecha;
+        }
     }
 }

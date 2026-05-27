@@ -10,5 +10,10 @@ namespace BE.Entidades
     {
         public int IdRol { get; set; }
         public string Descripcion { get; set; }
+        public Rol(int idRol, string descripcion)
+        {
+            IdRol = idRol;
+            Descripcion = descripcion;
+        }
     }
 }
