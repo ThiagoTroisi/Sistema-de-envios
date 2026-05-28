@@ -10,14 +10,15 @@ CREATE TABLE Rol (
 );
 
 CREATE TABLE Usuario (
-    id_usuario INT IDENTITY(1,1) PRIMARY KEY,
-    dni INT UNIQUE NOT NULL,
+    dni INT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    estado BIT NOT NULL DEFAULT 1,
     id_rol INT NOT NULL,
+    bloqueado BIT NOT NULL DEFAULT 0,
+    estado BIT NOT NULL DEFAULT 1,
+    intentos_fallidos INT NOT NULL DEFAULT 0,
 
     FOREIGN KEY (id_rol) REFERENCES Rol(id_rol)
 );
@@ -44,15 +45,15 @@ CREATE TABLE Pago (
     FOREIGN KEY (id_envio) REFERENCES Envio(id_envio)
 );
 
-CREATE TABLE Bitacora (
-    id_bitacora INT IDENTITY(1,1) PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    accion VARCHAR(100) NOT NULL,
-    modulo VARCHAR(100) NOT NULL,
-    detalle VARCHAR(255),
+CREATE TABLE Evento (
+    id_evento INT IDENTITY(1,1) PRIMARY KEY,
+    dni_usuario INT NOT NULL,
     fecha DATETIME NOT NULL DEFAULT GETDATE(),
+    modulo VARCHAR(100) NOT NULL,
+    evento VARCHAR(100) NOT NULL,
+    criticidad INT,
 
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+    FOREIGN KEY (dni_usuario) REFERENCES Usuario(dni)
 );
 
 INSERT INTO Rol (descripcion)
@@ -63,6 +64,6 @@ VALUES
 ('Repartidor'),
 ('Remitente/Destinatario');
 
-/* Administrador base */
-INSERT INTO Usuario VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1, 1);
-/* La contraseña en el programa es admin123
+-- Administrador base
+INSERT INTO Usuario VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1, 0 ,1);
+-- La contraseña en el programa es admin123
