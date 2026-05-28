@@ -16,7 +16,8 @@ namespace BE.Entidades
         public int IdRol { get; set; }
         public bool Bloqueado { get; set; }
         public bool Estado { get; set; }
-        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idRol, bool bloqueado, bool estado )
+        public int IntentosFallidos { get; set; }
+        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idRol, bool bloqueado, bool estado, int intentosFallidos)
         {
             DNI = dni;
             Nombre = nombre;
@@ -26,6 +27,7 @@ namespace BE.Entidades
             Estado = estado;
             IdRol = idRol;
             Bloqueado = bloqueado;
+            IntentosFallidos = intentosFallidos;
         }
     }
 }
