@@ -77,15 +77,15 @@ namespace DAL.Repositorios
         public DataTable ObtenerUsuarios(bool todos)
         {
             string query;
-            if (todos) query = "select dni, nombre, apellido, email, password, id_rol, bloqueado, estado from Usuario";
-            else query = "select dni, nombre, apellido, email, password, id_rol, bloqueado, estado from Usuario where estado = 1";
+            if (todos) query = "select * from Usuario";
+            else query = "select * from Usuario where estado = 1";
             using (SqlConnection cx = Conexion.ObtenerConexion())
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(query, cx);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    return dt;
-                }
+            {
+                SqlDataAdapter da = new SqlDataAdapter(query, cx);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
         }
 
         public void AltaUsuario(Usuario u)
@@ -151,7 +151,7 @@ namespace DAL.Repositorios
         }
         public void DesbloquearUsuario(int dni)
         {
-            string query = "update Usuario set bloqueado = 0 where dni = @dni";
+            string query = "update Usuario set bloqueado = 0, intentos_fallidos = 0 where dni = @dni";
 
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
@@ -160,6 +160,51 @@ namespace DAL.Repositorios
 
                 cx.Open();
                 cmd.ExecuteNonQuery();
+            }
+        }
+        public void BloquearUsuario(int dni)
+        {
+            string query = "update Usuario set bloqueado = 1 where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cx))
+                {
+                    cmd.Parameters.AddWithValue("@dni", dni);
+
+                    cx.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void IncrementarIntentos(int dni)
+        {
+            string query = "update Usuario set intentos_fallidos = intentos_fallidos + 1 where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cx))
+                {
+                    cmd.Parameters.AddWithValue("@dni", dni);
+
+                    cx.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void ReiniciarIntentos(int dni)
+        {
+            string query = "update Usuario set intentos_fallidos = 0 where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cx))
+                {
+                    cmd.Parameters.AddWithValue("@dni", dni);
+
+                    cx.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }
