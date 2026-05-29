@@ -43,6 +43,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         {
             if (radioButtonActivos.Checked) dataGridViewUsuarios.DataSource = bll.ObtenerUsuarios(false);
             else dataGridViewUsuarios.DataSource = bll.ObtenerUsuarios(true);
+            dataGridViewUsuarios.Columns["id_rol"].Visible = false;
             CargarDatos();
         }
 

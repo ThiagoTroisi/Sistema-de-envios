@@ -45,6 +45,7 @@ namespace SistemaDeEnviosGUI.Formularios
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Close();
+            MessageBox.Show("Se cerró la sesión del usuario");
         }
     }
 }

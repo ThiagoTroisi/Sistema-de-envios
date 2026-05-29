@@ -76,9 +76,8 @@ namespace DAL.Repositorios
 
         public DataTable ObtenerUsuarios(bool todos)
         {
-            string query;
-            if (todos) query = "select * from Usuario";
-            else query = "select * from Usuario where estado = 1";
+            string query = "select dni, nombre, apellido, email, u.id_rol, r.descripcion as rol, estado, bloqueado from Usuario u join Rol r on u.id_rol = r.id_rol";
+            if (!todos) query += " where estado = 1";
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
                 SqlDataAdapter da = new SqlDataAdapter(query, cx);
