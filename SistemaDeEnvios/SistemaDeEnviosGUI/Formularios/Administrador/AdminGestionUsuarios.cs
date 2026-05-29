@@ -28,7 +28,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
         private void RefrescarGrilla()
         {
-            dataGridView1.DataSource = bll.ObtenerUsuarios();
+            dataGridView1.DataSource = bll.ObtenerUsuarios(true);
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -73,6 +73,11 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         private void btnDesactivar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -35,7 +35,8 @@ namespace DAL.Repositorios
                             int IdRol = (int)r["id_rol"];
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado);
+                            int IntentosFallidos = (int)r["intentos_fallidos"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos);
                         }
                     }
                 }
@@ -64,7 +65,8 @@ namespace DAL.Repositorios
                             int IdRol = (int)r["id_rol"];
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado);
+                            int IntentosFallidos = (int)r["intentos_fallidos"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos);
                         }
                     }
                 }
@@ -125,7 +127,15 @@ namespace DAL.Repositorios
                 }
             }
         }
-        public void ActivarDesactivarUsuario(int dni, bool ad)
+        public void ActivarUsuario(int dni)
+        {
+            ADUsuario(dni, true);
+        }
+        public void DesactivarUsuario(int dni)
+        {
+            ADUsuario(dni, false);
+        }
+        private void ADUsuario(int dni, bool ad)
         {
             string query;
             if (ad) query = "update Usuario set estado = 1 where dni = @dni";

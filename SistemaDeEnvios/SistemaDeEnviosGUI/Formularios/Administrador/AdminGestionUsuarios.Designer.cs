@@ -47,6 +47,7 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
+            btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -217,11 +218,22 @@
             label9.TabIndex = 21;
             label9.Text = "0 = Usuario no activo";
             // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(663, 413);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(125, 42);
+            btnSalir.TabIndex = 22;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // AdminGestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 467);
+            Controls.Add(btnSalir);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -270,5 +282,6 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private Button btnSalir;
     }
 }

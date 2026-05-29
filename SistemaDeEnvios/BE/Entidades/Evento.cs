@@ -12,16 +12,15 @@ namespace BE.Entidades
         public int DNIUsuario { get; set; }
         public DateTime Fecha { get; set; }
         public string Modulo { get; set; }
-        public string evento { get; set; }
+        public string Descripcion { get; set; }
         public int Criticidad { get; set; }
-        public Evento(int idevento, int dni, DateTime fecha, string modulo, string ev, int crit)
+        public Evento(int dni, string modulo, string ev, int crit)
         {
-            IdEvento = idevento;
             DNIUsuario = dni;
-            Fecha = fecha;
             Modulo = modulo;
-            evento = ev;
+            Descripcion = ev;
             Criticidad = crit;
         }
+        public Evento() { }
     }
 }

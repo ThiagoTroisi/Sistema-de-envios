@@ -21,6 +21,7 @@ namespace SistemaDeEnviosGUI.Formularios
             InitializeComponent();
         }
         private LoginGestor gestor = new LoginGestor();
+        EventoBLL eventobll = new EventoBLL();
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string mail = txtEmail.Text;
@@ -36,8 +37,33 @@ namespace SistemaDeEnviosGUI.Formularios
             {
                 SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
                 MessageBox.Show("Login exitoso");
+                eventobll.RegistrarEvento("Usuarios", "Login", 1);
                 this.Hide();
-                new AdminForm().ShowDialog();
+                int rol = rl.Usuario.IdRol;
+                switch (rol)
+                {
+                    case 1: // Admin
+                        new AdminForm().ShowDialog();
+                        break;
+
+                    case 2: // Recepcionista
+
+                        break;
+
+                    case 3: // Gestor
+
+                        break;
+
+                    case 4: // Repartidor
+
+                        break;
+
+                    case 5: // Remitente / Destinatario
+
+                        break;
+                }
+                eventoBLL.RegistrarEvento("Usuarios", "Logout", 1);
+                SesionUsuario.GetInstancia().Cerrar();
                 this.Show();
             }
         }
