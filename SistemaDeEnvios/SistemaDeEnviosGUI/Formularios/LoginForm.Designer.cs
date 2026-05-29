@@ -35,6 +35,7 @@
             btnLogin = new Button();
             btnRegistro = new Button();
             lblError = new Label();
+            btnSalir = new Button();
             SuspendLayout();
             // 
             // txtEmail
@@ -97,11 +98,22 @@
             lblError.Size = new Size(0, 15);
             lblError.TabIndex = 6;
             // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(90, 225);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(104, 32);
+            btnSalir.TabIndex = 7;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 257);
+            ClientSize = new Size(284, 279);
+            Controls.Add(btnSalir);
             Controls.Add(lblError);
             Controls.Add(btnRegistro);
             Controls.Add(btnLogin);
@@ -125,5 +137,6 @@
         private Button btnLogin;
         private Button btnRegistro;
         private Label lblError;
+        private Button btnSalir;
     }
 }

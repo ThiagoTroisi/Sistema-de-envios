@@ -21,7 +21,7 @@ namespace SistemaDeEnviosGUI.Formularios
             InitializeComponent();
         }
         private LoginGestor gestor = new LoginGestor();
-        EventoBLL eventobll = new EventoBLL();
+        private EventoBLL eventobll = new EventoBLL();
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string mail = txtEmail.Text;
@@ -35,6 +35,7 @@ namespace SistemaDeEnviosGUI.Formularios
             }
             else
             {
+                lblError.Text = "";
                 SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
                 MessageBox.Show("Login exitoso");
                 eventobll.RegistrarEvento("Usuarios", "Login", 1);
@@ -62,7 +63,7 @@ namespace SistemaDeEnviosGUI.Formularios
 
                         break;
                 }
-                eventoBLL.RegistrarEvento("Usuarios", "Logout", 1);
+                eventobll.RegistrarEvento("Usuarios", "Logout", 1);
                 SesionUsuario.GetInstancia().Cerrar();
                 this.Show();
             }
@@ -70,13 +71,18 @@ namespace SistemaDeEnviosGUI.Formularios
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Funcionalidad en desarrollo. Este registro implica que se crea un usuario bajo el rol de remitente/destinatario");
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
             txtEmail.Text = "admin@sistema.com";
             txtContraseña.Text = "admin123";
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

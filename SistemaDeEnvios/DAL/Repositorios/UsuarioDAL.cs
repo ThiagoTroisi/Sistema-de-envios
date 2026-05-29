@@ -88,6 +88,33 @@ namespace DAL.Repositorios
             }
         }
 
+        public DataTable ObtenerRoles()
+        {
+            string query = "select * from Rol where descripcion in ('Recepcionista', 'Gestor', 'Repartidor')";
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(query, cx);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        public void CambiarContraseña(int dni, string contraseñanueva)
+        {
+            string query = "update Usuario set password = @pass where dni = @dni";
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cx))
+                {
+                    cmd.Parameters.AddWithValue("@dni", dni);
+                    cmd.Parameters.AddWithValue("@pass", contraseñanueva);
+
+                    cx.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public void AltaUsuario(Usuario u)
         {
             string query = "insert into Usuario (dni, nombre, apellido, email, password, id_rol) values (@dni, @nombre, @apellido, @email, @password, @id_rol)";

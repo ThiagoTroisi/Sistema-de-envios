@@ -75,4 +75,6 @@ C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Sist
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\BCrypt-Net-Next.dll
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.AdminForm.resources
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Properties.Resources.resources
-C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.Administrador.AdminGestionUsuarios.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.Administrador.BitacoraDeEventosForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.Administrador.GestionUsuariosForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.CambioContraseñaForm.resources

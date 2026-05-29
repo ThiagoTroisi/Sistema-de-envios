@@ -29,9 +29,22 @@ namespace SistemaDeEnviosGUI.Formularios
             switch (e.Node.Text)
             {
                 case "Gestión de usuarios":
-                    new AdminGestionUsuarios().ShowDialog();
+                    new GestionUsuariosForm().ShowDialog();
+                    break;
+
+                case "Bitácora de eventos":
+                    new BitacoraDeEventosForm().ShowDialog();
+                    break;
+
+                case "Cambiar contraseña":
+                    new CambioContraseñaForm().ShowDialog();
                     break;
             }
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

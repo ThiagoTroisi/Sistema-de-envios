@@ -4,7 +4,13 @@
     <Compile Update="Formularios\Administrador\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Formularios\Administrador\AdminGestionUsuarios.cs">
+    <Compile Update="Formularios\Administrador\GestionUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Administrador\BitacoraDeEventosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\CambioContraseñaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\LoginForm.cs">

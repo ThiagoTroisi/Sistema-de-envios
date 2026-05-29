@@ -62,6 +62,7 @@
             TreeNode treeNode32 = new TreeNode("Reporte", new TreeNode[] { treeNode26, treeNode27, treeNode28, treeNode29, treeNode30, treeNode31 });
             pictureBox1 = new PictureBox();
             treeView1 = new TreeView();
+            btnCerrarSesion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -148,11 +149,22 @@
             treeView1.TabIndex = 1;
             treeView1.AfterSelect += treeView1_AfterSelect;
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.Location = new Point(1104, 551);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(120, 47);
+            btnCerrarSesion.TabIndex = 2;
+            btnCerrarSesion.Text = "Cerrar sesión";
+            btnCerrarSesion.UseVisualStyleBackColor = true;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1236, 610);
+            Controls.Add(btnCerrarSesion);
             Controls.Add(treeView1);
             Controls.Add(pictureBox1);
             Name = "AdminForm";
@@ -166,5 +178,6 @@
 
         private PictureBox pictureBox1;
         private TreeView treeView1;
+        private Button btnCerrarSesion;
     }
 }
