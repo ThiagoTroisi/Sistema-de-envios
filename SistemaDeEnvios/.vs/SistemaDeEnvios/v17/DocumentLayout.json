@@ -78,8 +78,7 @@
               "RelativeToolTip": "BE\\Entidades\\Evento.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T21:44:41.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T21:44:41.488Z"
             },
             {
               "$type": "Document",
@@ -91,8 +90,7 @@
               "RelativeToolTip": "Servicios\\Sesi\u00F3n\\SesionUsuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:50:21.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T01:50:21.635Z"
             },
             {
               "$type": "Document",
@@ -140,8 +138,7 @@
               "RelativeToolTip": "BE\\Entidades\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:26:16.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T01:26:16.004Z"
             },
             {
               "$type": "Document",
@@ -153,8 +150,7 @@
               "RelativeToolTip": "BLL\\Otros\\ResultadoOperacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T00:24:58.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T00:24:58.1Z"
             },
             {
               "$type": "Document",
@@ -166,8 +162,7 @@
               "RelativeToolTip": "BLL\\Gestores\\LoginGestor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T00:41:42.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T00:41:42.122Z"
             },
             {
               "$type": "Document",
@@ -205,8 +200,7 @@
               "RelativeToolTip": "DAL\\Repositorios\\UsuarioDAL.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAmwHUAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T15:03:36.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T15:03:36.791Z"
             },
             {
               "$type": "Document",
@@ -228,8 +222,7 @@
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T19:45:05.425Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-05-24T19:45:05.425Z"
             },
             {
               "$type": "Document",
@@ -241,8 +234,7 @@
               "RelativeToolTip": "SistemaDeEnviosGUI\\Formularios\\Administrador\\AdminForm.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAEAiwB8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T19:46:49.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T19:46:49.73Z"
             }
           ]
         }
