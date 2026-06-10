@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WBLuFTG6r6I=",
+  "dgSpecHash": "hdgTvgCfhnw=",
   "success": true,
   "projectFilePath": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\trois\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\trois\\.nuget\\packages\\microsoft.bcl.cryptography\\8.0.0\\microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
     "C:\\Users\\trois\\.nuget\\packages\\microsoft.data.sqlclient\\7.0.1\\microsoft.data.sqlclient.7.0.1.nupkg.sha512",
     "C:\\Users\\trois\\.nuget\\packages\\microsoft.data.sqlclient.extensions.abstractions\\1.0.0\\microsoft.data.sqlclient.extensions.abstractions.1.0.0.nupkg.sha512",

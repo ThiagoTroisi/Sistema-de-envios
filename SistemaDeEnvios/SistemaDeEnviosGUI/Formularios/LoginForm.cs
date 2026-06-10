@@ -20,7 +20,7 @@ namespace SistemaDeEnviosGUI.Formularios
         {
             InitializeComponent();
         }
-        private LoginGestor gestor = new LoginGestor();
+        private SessionManager gestor = new SessionManager();
         private EventoBLL eventobll = new EventoBLL();
         private void btnLogin_Click(object sender, EventArgs e)
         {

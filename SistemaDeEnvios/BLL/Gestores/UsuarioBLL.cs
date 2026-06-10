@@ -1,6 +1,7 @@
 ﻿using BE.Entidades;
 using BLL.Otros;
 using DAL.Repositorios;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,16 +27,17 @@ namespace BLL.Gestores
         public ResultadoOperacion CambiarContraseña(int dni, string contraseñaactual, string contraseñanueva, string contraseñanueva2)
         {
             Usuario u = dal.ConsultaPorDNI(dni);
-            bool verificacion = BCrypt.Net.BCrypt.Verify(contraseñaactual, u.Contraseña);
+            bool verificacion = Encriptador.VerificarContraseña(contraseñaactual, u.Contraseña);
 
             if (!verificacion) return new ResultadoOperacion(false, "La contraseña actual es incorrecta");
 
             if (string.IsNullOrWhiteSpace(contraseñanueva)) return new ResultadoOperacion(false, "La contraseña nueva no puede estar vacía");
 
-            if (contraseñanueva != contraseñanueva2)
-                return new ResultadoOperacion(false, "Las contraseñas no coinciden");
+            if (contraseñanueva == contraseñaactual) return new ResultadoOperacion(false, "La contraseña nueva coincide con la actual");
 
-            string hash = BCrypt.Net.BCrypt.HashPassword(contraseñanueva);
+            if (contraseñanueva != contraseñanueva2) return new ResultadoOperacion(false, "Las contraseñas no coinciden");
+
+            string hash = Encriptador.Hash(contraseñanueva);
 
             dal.CambiarContraseña(dni, hash);
 
@@ -54,7 +56,7 @@ namespace BLL.Gestores
                 if (dal.ConsultaPorMail(email) != null) return new ResultadoOperacion(false, "El mail ya se encuentra registrado en el sistema");
 
                 string contraseñadefault = dni.ToString() + apellido;
-                string contraseña = BCrypt.Net.BCrypt.HashPassword(contraseñadefault);
+                string contraseña = Encriptador.Hash(contraseñadefault);
 
                 dal.AltaUsuario(new Usuario(dni, nombre, apellido, email, contraseña, rol, false, true, 0));
                 eventobll.RegistrarEvento("Usuarios", "Alta de usuario", 2);

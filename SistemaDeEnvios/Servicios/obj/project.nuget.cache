@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NkgUvrDsjss=",
+  "dgSpecHash": "iY2cP0WUDQI=",
   "success": true,
   "projectFilePath": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Servicios.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\trois\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

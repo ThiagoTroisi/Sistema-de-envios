@@ -1,6 +1,7 @@
 ﻿using BE.Entidades;
 using BLL.Otros;
 using DAL.Repositorios;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Gestores
 {
-    public class LoginGestor
+    public class SessionManager
     {
         private UsuarioDAL dal = new UsuarioDAL();
         public ResultadoOperacion IniciarSesion(string mail, string contra)
@@ -19,7 +20,7 @@ namespace BLL.Gestores
             if (u == null) { rl.Mensaje = "ERROR: Email no encontrado."; return rl; }
             if (!u.Estado) { rl.Mensaje = "ERROR: Usuario inactivo."; return rl; }
             if (u.Bloqueado) { rl.Mensaje = "ERROR: Usuario bloqueado."; return rl; }
-            bool contraseñaok = BCrypt.Net.BCrypt.Verify(contra, u.Contraseña);
+            bool contraseñaok = Encriptador.VerificarContraseña(contra, u.Contraseña);
             if (!contraseñaok)
             {
                 dal.IncrementarIntentos(u.DNI);
