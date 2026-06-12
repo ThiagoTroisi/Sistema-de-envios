@@ -47,5 +47,10 @@ namespace SistemaDeEnviosGUI.Formularios
             this.Close();
             MessageBox.Show("Se cerró la sesión del usuario");
         }
+
+        private void btnRelogin_Click(object sender, EventArgs e)
+        {
+            new LoginForm().ShowDialog();
+        }
     }
 }

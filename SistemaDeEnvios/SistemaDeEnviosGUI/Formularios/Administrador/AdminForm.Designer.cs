@@ -63,6 +63,7 @@
             pictureBox1 = new PictureBox();
             treeView1 = new TreeView();
             btnCerrarSesion = new Button();
+            btnRelogin = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -159,11 +160,22 @@
             btnCerrarSesion.UseVisualStyleBackColor = true;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
+            // btnRelogin
+            // 
+            btnRelogin.Location = new Point(978, 551);
+            btnRelogin.Name = "btnRelogin";
+            btnRelogin.Size = new Size(120, 47);
+            btnRelogin.TabIndex = 3;
+            btnRelogin.Text = "Relogin";
+            btnRelogin.UseVisualStyleBackColor = true;
+            btnRelogin.Click += btnRelogin_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1236, 610);
+            Controls.Add(btnRelogin);
             Controls.Add(btnCerrarSesion);
             Controls.Add(treeView1);
             Controls.Add(pictureBox1);
@@ -179,5 +191,6 @@
         private PictureBox pictureBox1;
         private TreeView treeView1;
         private Button btnCerrarSesion;
+        private Button btnRelogin;
     }
 }

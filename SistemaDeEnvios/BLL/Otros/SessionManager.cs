@@ -2,6 +2,7 @@
 using BLL.Otros;
 using DAL.Repositorios;
 using Servicios;
+using Servicios.Sesión;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace BLL.Gestores
         private UsuarioDAL dal = new UsuarioDAL();
         public ResultadoOperacion IniciarSesion(string mail, string contra)
         {
-            ResultadoOperacion rl = new ResultadoOperacion(false, "", null); ;
+            ResultadoOperacion rl = new ResultadoOperacion(false, "");
+            if (SesionUsuario.GetInstancia().UsuarioActual != null) { rl.Mensaje = "ERROR: Ya se encuentra una sesión iniciada."; return rl; }
             Usuario u = dal.ConsultaPorMail(mail);
             if (u == null) { rl.Mensaje = "ERROR: Email no encontrado."; return rl; }
             if (!u.Estado) { rl.Mensaje = "ERROR: Usuario inactivo."; return rl; }
