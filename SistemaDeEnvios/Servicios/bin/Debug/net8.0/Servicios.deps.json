@@ -9,7 +9,8 @@
       "Servicios/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.2.0",
-          "BE": "1.0.0"
+          "BE": "1.0.0",
+          "iTextSharp": "5.5.13.5"
         },
         "runtime": {
           "Servicios.dll": {}
@@ -20,6 +21,25 @@
           "lib/netstandard2.1/BCrypt-Net-Next.dll": {
             "assemblyVersion": "4.2.0.0",
             "fileVersion": "4.2.0.0"
+          }
+        }
+      },
+      "BouncyCastle.Cryptography/2.6.2": {
+        "runtime": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.6.2.46322"
+          }
+        }
+      },
+      "iTextSharp/5.5.13.5": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.6.2"
+        },
+        "runtime": {
+          "lib/net461/itextsharp.dll": {
+            "assemblyVersion": "5.5.13.5",
+            "fileVersion": "5.5.13.5"
           }
         }
       },
@@ -45,6 +65,20 @@
       "sha512": "sha512-gwLD2KfCuwQesP17aVh4h6lpiMPEVt5Lbpndo0ej903hNUUTtyxt3ARdDjmuydBRTAUICc7OVKVbaOvc6SQYXA==",
       "path": "bcrypt.net-next/4.2.0",
       "hashPath": "bcrypt.net-next.4.2.0.nupkg.sha512"
+    },
+    "BouncyCastle.Cryptography/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7oWOcvnntmMKNzDLsdxAYqApt+AjpRpP2CShjMfIa3umZ42UQMvH0tl1qAliYPNYO6vTdcGMqnRrCPmsfzTI1w==",
+      "path": "bouncycastle.cryptography/2.6.2",
+      "hashPath": "bouncycastle.cryptography.2.6.2.nupkg.sha512"
+    },
+    "iTextSharp/5.5.13.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+HPUqG1zZoMhzj6g6c/9fNViiUXi6/TZ4LiN4fZjg1rGWFFu4ZYKOY+YkhdkIL63DkaN75zR1hSGydBR2LgHzQ==",
+      "path": "itextsharp/5.5.13.5",
+      "hashPath": "itextsharp.5.5.13.5.nupkg.sha512"
     },
     "BE/1.0.0": {
       "type": "project",

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Servicios;
 
 namespace SistemaDeEnviosGUI.Formularios.Administrador
 {
@@ -84,8 +85,8 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
             int? criticidad = comboBoxCriticidad.SelectedIndex != -1 ? Convert.ToInt32(comboBoxCriticidad.Text) : null;
 
-            DateTime? desde = dateTimePickerDesde.Checked ? dateTimePickerDesde.Value : null;
-            DateTime? hasta = dateTimePickerHasta.Checked ? dateTimePickerHasta.Value : null;
+            DateTime? desde = dateTimePickerDesde.Checked ? dateTimePickerDesde.Value.Date : null;
+            DateTime? hasta = dateTimePickerHasta.Checked ? dateTimePickerHasta.Value.Date.AddDays(1).AddTicks(-1) : null;
 
             dataGridView1.DataSource = bll.FiltrarEventos(email, desde, hasta, modulo, evento, criticidad);
         }
@@ -98,7 +99,24 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Esta opción se encuentra en desarrollo", "En desarrollo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            List<string[]> filas = new List<string[]>();
+
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                filas.Add(new string[]
+                {
+                    fila.Cells["Email_Usuario"].Value?.ToString(),
+                    fila.Cells["Fecha"].Value?.ToString(),
+                    fila.Cells["Hora"].Value?.ToString(),
+                    fila.Cells["Módulo"].Value?.ToString(),
+                    fila.Cells["Evento"].Value?.ToString(),
+                    fila.Cells["Criticidad"].Value?.ToString()
+                });
+            }
+
+            GeneradorPDF.GenerarBitacora(filas);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

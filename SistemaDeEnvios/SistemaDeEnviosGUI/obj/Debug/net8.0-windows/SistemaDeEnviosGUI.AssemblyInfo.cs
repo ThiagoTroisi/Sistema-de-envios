@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaDeEnviosGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb225c1e49dc261a1f96d6e23134d38dd8d83150")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92811784d044d7b6c6ce3b171cafc217d5c1d34a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaDeEnviosGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaDeEnviosGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
