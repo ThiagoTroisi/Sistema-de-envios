@@ -1,4 +1,4 @@
-﻿using BLL.Gestores;
+﻿using BLL;
 using BLL.Otros;
 using System;
 using System.Collections.Generic;

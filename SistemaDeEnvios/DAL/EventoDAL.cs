@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Repositorios
+namespace DAL
 {
     public class EventoDAL
     {

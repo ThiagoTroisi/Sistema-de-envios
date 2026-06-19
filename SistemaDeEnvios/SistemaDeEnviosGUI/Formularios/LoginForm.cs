@@ -1,6 +1,8 @@
 ﻿using BE.Entidades;
+using BLL;
 using BLL.Gestores;
 using BLL.Otros;
+using Servicios.GestionIdiomas;
 using Servicios.Sesión;
 using System;
 using System.Collections.Generic;
@@ -14,14 +16,26 @@ using System.Windows.Forms;
 
 namespace SistemaDeEnviosGUI.Formularios
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : Form, IObserverIdioma
     {
         public LoginForm()
         {
             InitializeComponent();
+            GestorIdiomas.Instancia.Registrar(this);
+            CargarIdiomas();
+            ActualizarIdioma();
         }
         private SessionManager gestor = new SessionManager();
         private EventoBLL eventobll = new EventoBLL();
+        private IdiomaBLL idiomabll = new IdiomaBLL();
+        private string ultimoCodigoError;
+        private object[] ultimosParametros;
+        private void CargarIdiomas()
+        {
+            comboBoxIdioma.DataSource = idiomabll.ObtenerIdiomas();
+            comboBoxIdioma.DisplayMember = "Nombre";
+            comboBoxIdioma.ValueMember = "Id";
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string mail = txtEmail.Text;
@@ -31,13 +45,16 @@ namespace SistemaDeEnviosGUI.Formularios
 
             if (!rl.Exitoso)
             {
-                lblError.Text = rl.Mensaje;
+                ultimoCodigoError = rl.Mensaje;
+                ultimosParametros = rl.Parametros;
+
+                lblError.Text = string.Format(Traducciones.Traducir(ultimoCodigoError), ultimosParametros ?? Array.Empty<object>());
             }
             else
             {
                 lblError.Text = "";
                 SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
-                MessageBox.Show("Login exitoso");
+                MessageBox.Show(Traducciones.Traducir(rl.Mensaje));
                 eventobll.RegistrarEvento("Usuarios", "Login", 1);
                 this.Hide();
                 int rol = rl.Usuario.IdRol;
@@ -71,7 +88,7 @@ namespace SistemaDeEnviosGUI.Formularios
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Funcionalidad en desarrollo. Este registro implica que se crea un usuario bajo el rol de remitente/destinatario");
+
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -83,6 +100,28 @@ namespace SistemaDeEnviosGUI.Formularios
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void ActualizarIdioma()
+        {
+            lblEmail.Text = Traducciones.Traducir("lblEmail");
+            lblContraseña.Text = Traducciones.Traducir("lblContraseña");
+            lblIdioma.Text = Traducciones.Traducir("lblIdioma");
+            btnLogin.Text = Traducciones.Traducir("btnLogin");
+            btnRegistrarse.Text = Traducciones.Traducir("btnRegistrarse");
+            btnSalir.Text = Traducciones.Traducir("btnSalir");
+            if (!string.IsNullOrEmpty(ultimoCodigoError))
+            {
+                lblError.Text = string.Format(Traducciones.Traducir(ultimoCodigoError), ultimosParametros ?? Array.Empty<object>());
+            }
+        }
+
+        private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxIdioma.SelectedItem is Idioma idioma)
+            {
+                GestorIdiomas.Instancia.CambiarIdioma(idioma);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BE.Entidades;
+using Servicios.GestionIdiomas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,6 @@ namespace Servicios.Sesión
         {
             UsuarioActual = null;
         }
+        public Idioma IdiomaActual { get; set; }
     }
 }

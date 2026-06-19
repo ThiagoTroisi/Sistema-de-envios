@@ -9,6 +9,11 @@ CREATE TABLE Rol (
     descripcion VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE Idioma (
+    id_idioma INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(50)
+);
+
 CREATE TABLE Usuario (
     dni INT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -19,8 +24,10 @@ CREATE TABLE Usuario (
     bloqueado BIT NOT NULL DEFAULT 0,
     estado BIT NOT NULL DEFAULT 1,
     intentos_fallidos INT NOT NULL DEFAULT 0,
+    id_idioma INT NOT NULL DEFAULT 1,
 
-    FOREIGN KEY (id_rol) REFERENCES Rol(id_rol)
+    FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
+    FOREIGN KEY (id_idioma) REFERENCES Idioma(id_idioma)
 );
 
 CREATE TABLE Envio (
@@ -63,6 +70,12 @@ VALUES
 ('Gestor'),
 ('Repartidor'),
 ('Remitente/Destinatario');
+
+INSERT INTO Idioma (nombre)
+VALUES
+('Español'),
+('English'),
+('Português');
 
 -- Administrador base
 INSERT INTO Usuario (dni, nombre, apellido, email, password, id_rol) VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1);

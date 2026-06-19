@@ -29,66 +29,68 @@
         private void InitializeComponent()
         {
             txtEmail = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            lblEmail = new Label();
+            lblContraseña = new Label();
             txtContraseña = new TextBox();
             btnLogin = new Button();
-            btnRegistro = new Button();
+            btnRegistrarse = new Button();
             lblError = new Label();
             btnSalir = new Button();
+            lblIdioma = new Label();
+            comboBoxIdioma = new ComboBox();
             SuspendLayout();
             // 
             // txtEmail
             // 
             txtEmail.Location = new Point(12, 27);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(260, 23);
+            txtEmail.Size = new Size(302, 23);
             txtEmail.TabIndex = 0;
             // 
-            // label1
+            // lblEmail
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Email:";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(12, 9);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(39, 15);
+            lblEmail.TabIndex = 1;
+            lblEmail.Text = "Email:";
             // 
-            // label2
+            // lblContraseña
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 69);
-            label2.Name = "label2";
-            label2.Size = new Size(70, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Contraseña:";
+            lblContraseña.AutoSize = true;
+            lblContraseña.Location = new Point(12, 69);
+            lblContraseña.Name = "lblContraseña";
+            lblContraseña.Size = new Size(70, 15);
+            lblContraseña.TabIndex = 3;
+            lblContraseña.Text = "Contraseña:";
             // 
             // txtContraseña
             // 
             txtContraseña.Location = new Point(12, 87);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(260, 23);
+            txtContraseña.Size = new Size(302, 23);
             txtContraseña.TabIndex = 2;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(90, 149);
+            btnLogin.Location = new Point(70, 152);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(104, 32);
+            btnLogin.Size = new Size(186, 32);
             btnLogin.TabIndex = 4;
-            btnLogin.Text = "Iniciar Sesión";
+            btnLogin.Text = "Iniciar sesión";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
-            // btnRegistro
+            // btnRegistrarse
             // 
-            btnRegistro.Location = new Point(90, 187);
-            btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(104, 32);
-            btnRegistro.TabIndex = 5;
-            btnRegistro.Text = "Registrarse";
-            btnRegistro.UseVisualStyleBackColor = true;
-            btnRegistro.Click += btnRegistro_Click;
+            btnRegistrarse.Location = new Point(70, 190);
+            btnRegistrarse.Name = "btnRegistrarse";
+            btnRegistrarse.Size = new Size(186, 32);
+            btnRegistrarse.TabIndex = 5;
+            btnRegistrarse.Text = "Registrarse";
+            btnRegistrarse.UseVisualStyleBackColor = true;
+            btnRegistrarse.Click += btnRegistro_Click;
             // 
             // lblError
             // 
@@ -100,26 +102,46 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(90, 225);
+            btnSalir.Location = new Point(70, 228);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(104, 32);
+            btnSalir.Size = new Size(186, 32);
             btnSalir.TabIndex = 7;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // lblIdioma
+            // 
+            lblIdioma.AutoSize = true;
+            lblIdioma.Location = new Point(70, 276);
+            lblIdioma.Name = "lblIdioma";
+            lblIdioma.Size = new Size(47, 15);
+            lblIdioma.TabIndex = 8;
+            lblIdioma.Text = "Idioma:";
+            // 
+            // comboBoxIdioma
+            // 
+            comboBoxIdioma.FormattingEnabled = true;
+            comboBoxIdioma.Location = new Point(135, 276);
+            comboBoxIdioma.Name = "comboBoxIdioma";
+            comboBoxIdioma.Size = new Size(121, 23);
+            comboBoxIdioma.TabIndex = 9;
+            comboBoxIdioma.SelectedIndexChanged += comboBoxIdioma_SelectedIndexChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 279);
+            ClientSize = new Size(326, 341);
+            Controls.Add(comboBoxIdioma);
+            Controls.Add(lblIdioma);
             Controls.Add(btnSalir);
             Controls.Add(lblError);
-            Controls.Add(btnRegistro);
+            Controls.Add(btnRegistrarse);
             Controls.Add(btnLogin);
-            Controls.Add(label2);
+            Controls.Add(lblContraseña);
             Controls.Add(txtContraseña);
-            Controls.Add(label1);
+            Controls.Add(lblEmail);
             Controls.Add(txtEmail);
             Name = "LoginForm";
             Text = "LoginForm";
@@ -131,12 +153,14 @@
         #endregion
 
         private TextBox txtEmail;
-        private Label label1;
-        private Label label2;
+        private Label lblEmail;
+        private Label lblContraseña;
         private TextBox txtContraseña;
         private Button btnLogin;
-        private Button btnRegistro;
+        private Button btnRegistrarse;
         private Label lblError;
         private Button btnSalir;
+        private Label lblIdioma;
+        private ComboBox comboBoxIdioma;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BE.Entidades;
 using BLL.Otros;
-using DAL.Repositorios;
+using DAL;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace BLL.Gestores
+namespace BLL
 {
     public class UsuarioBLL
     {

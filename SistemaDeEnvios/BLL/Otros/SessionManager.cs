@@ -1,7 +1,8 @@
 ﻿using BE.Entidades;
 using BLL.Otros;
-using DAL.Repositorios;
+using DAL;
 using Servicios;
+using Servicios.GestionIdiomas;
 using Servicios.Sesión;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,11 @@ namespace BLL.Gestores
         public ResultadoOperacion IniciarSesion(string mail, string contra)
         {
             ResultadoOperacion rl = new ResultadoOperacion(false, "");
-            if (SesionUsuario.GetInstancia().UsuarioActual != null) { rl.Mensaje = "ERROR: Ya se encuentra una sesión iniciada."; return rl; }
+            if (SesionUsuario.GetInstancia().UsuarioActual != null) { rl.Mensaje = "sesion iniciada"; return rl; }
             Usuario u = dal.ConsultaPorMail(mail);
-            if (u == null) { rl.Mensaje = "ERROR: Email no encontrado."; return rl; }
-            if (!u.Estado) { rl.Mensaje = "ERROR: Usuario inactivo."; return rl; }
-            if (u.Bloqueado) { rl.Mensaje = "ERROR: Usuario bloqueado."; return rl; }
+            if (u == null) { rl.Mensaje = "email no encontrado"; return rl; }
+            if (!u.Estado) { rl.Mensaje = "usuario inactivo"; return rl; }
+            if (u.Bloqueado) { rl.Mensaje = "usuario bloqueado"; return rl; }
             bool contraseñaok = Encriptador.VerificarContraseña(contra, u.Contraseña);
             if (!contraseñaok)
             {
@@ -33,18 +34,19 @@ namespace BLL.Gestores
                 {
                     dal.BloquearUsuario(u.DNI);
 
-                    rl.Mensaje = "ERROR: Usuario bloqueado por demasiados intentos fallidos.";
+                    rl.Mensaje = "usuario bloqueado por intentos";
                     return rl;
                 }
 
-                rl.Mensaje = $"ERROR: Contraseña incorrecta. Intento {u.IntentosFallidos} de 3";
+                rl.Mensaje = "contraseña incorrecta";
+                rl.Parametros = new object[] { u.IntentosFallidos };
                 return rl;
             }
 
             dal.ReiniciarIntentos(u.DNI);
 
             rl.Exitoso = true;
-            rl.Mensaje = "Login exitoso.";
+            rl.Mensaje = "login exitoso";
             rl.Usuario = u;
             return rl;
         }
