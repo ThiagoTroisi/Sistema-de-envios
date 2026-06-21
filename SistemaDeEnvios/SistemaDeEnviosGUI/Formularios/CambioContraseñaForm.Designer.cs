@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblActual = new Label();
             txtActual = new TextBox();
             btnAceptar = new Button();
             txtNueva1 = new TextBox();
-            label2 = new Label();
+            lblNueva = new Label();
             txtNueva2 = new TextBox();
-            label3 = new Label();
+            lblNueva2 = new Label();
             btnCancelar = new Button();
-            labelError = new Label();
+            lblError = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lblActual
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(159, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Ingrese su contraseña actual:";
+            lblActual.AutoSize = true;
+            lblActual.Location = new Point(12, 9);
+            lblActual.Name = "lblActual";
+            lblActual.Size = new Size(159, 15);
+            lblActual.TabIndex = 0;
+            lblActual.Text = "Ingrese su contraseña actual:";
             // 
             // txtActual
             // 
             txtActual.Location = new Point(12, 27);
             txtActual.Name = "txtActual";
-            txtActual.Size = new Size(265, 23);
+            txtActual.Size = new Size(288, 23);
             txtActual.TabIndex = 1;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(35, 224);
+            btnAceptar.Location = new Point(47, 224);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(98, 32);
             btnAceptar.TabIndex = 2;
@@ -69,37 +69,37 @@
             // 
             txtNueva1.Location = new Point(12, 89);
             txtNueva1.Name = "txtNueva1";
-            txtNueva1.Size = new Size(265, 23);
+            txtNueva1.Size = new Size(288, 23);
             txtNueva1.TabIndex = 4;
             // 
-            // label2
+            // lblNueva
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(159, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Ingrese su nueva contraseña:";
+            lblNueva.AutoSize = true;
+            lblNueva.Location = new Point(12, 71);
+            lblNueva.Name = "lblNueva";
+            lblNueva.Size = new Size(159, 15);
+            lblNueva.TabIndex = 3;
+            lblNueva.Text = "Ingrese su nueva contraseña:";
             // 
             // txtNueva2
             // 
             txtNueva2.Location = new Point(12, 151);
             txtNueva2.Name = "txtNueva2";
-            txtNueva2.Size = new Size(265, 23);
+            txtNueva2.Size = new Size(288, 23);
             txtNueva2.TabIndex = 6;
             // 
-            // label3
+            // lblNueva2
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 133);
-            label3.Name = "label3";
-            label3.Size = new Size(190, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Ingrese nuevamente la contraseña:";
+            lblNueva2.AutoSize = true;
+            lblNueva2.Location = new Point(12, 133);
+            lblNueva2.Name = "lblNueva2";
+            lblNueva2.Size = new Size(190, 15);
+            lblNueva2.TabIndex = 5;
+            lblNueva2.Text = "Ingrese nuevamente la contraseña:";
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(155, 224);
+            btnCancelar.Location = new Point(167, 224);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(98, 32);
             btnCancelar.TabIndex = 7;
@@ -107,28 +107,28 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // labelError
+            // lblError
             // 
-            labelError.AutoSize = true;
-            labelError.Location = new Point(12, 191);
-            labelError.Name = "labelError";
-            labelError.Size = new Size(0, 15);
-            labelError.TabIndex = 8;
+            lblError.AutoSize = true;
+            lblError.Location = new Point(12, 191);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(0, 15);
+            lblError.TabIndex = 8;
             // 
             // CambioContraseñaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(289, 277);
-            Controls.Add(labelError);
+            ClientSize = new Size(312, 277);
+            Controls.Add(lblError);
             Controls.Add(btnCancelar);
             Controls.Add(txtNueva2);
-            Controls.Add(label3);
+            Controls.Add(lblNueva2);
             Controls.Add(txtNueva1);
-            Controls.Add(label2);
+            Controls.Add(lblNueva);
             Controls.Add(btnAceptar);
             Controls.Add(txtActual);
-            Controls.Add(label1);
+            Controls.Add(lblActual);
             Name = "CambioContraseñaForm";
             Text = "Cambio de contraseña";
             ResumeLayout(false);
@@ -137,14 +137,14 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblActual;
         private TextBox txtActual;
         private Button btnAceptar;
         private TextBox txtNueva1;
-        private Label label2;
+        private Label lblNueva;
         private TextBox txtNueva2;
-        private Label label3;
+        private Label lblNueva2;
         private Button btnCancelar;
-        private Label labelError;
+        private Label lblError;
     }
 }

@@ -15,5 +15,9 @@ namespace BLL
         {
             return dal.ObtenerIdiomas();
         }
+        public Idioma ObtenerPorId(int id)
+        {
+            return dal.ObtenerPorId(id);
+        }
     }
 }

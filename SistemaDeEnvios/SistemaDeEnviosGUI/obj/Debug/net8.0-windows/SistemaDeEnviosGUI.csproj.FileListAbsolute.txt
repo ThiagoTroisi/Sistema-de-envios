@@ -80,3 +80,5 @@ C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Sist
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.CambioContraseñaForm.resources
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.Formularios.CambiarIdiomaForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\traducciones.json

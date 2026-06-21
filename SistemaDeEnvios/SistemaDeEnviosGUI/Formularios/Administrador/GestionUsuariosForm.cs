@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BLL.Otros;
+using Servicios.GestionIdiomas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,11 +24,12 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         Desactivar,
         Desbloquear
     }
-    public partial class GestionUsuariosForm : Form
+    public partial class GestionUsuariosForm : Form, IObserverIdioma
     {
         public GestionUsuariosForm()
         {
             InitializeComponent();
+            GestorIdiomas.Instancia.Registrar(this);
         }
         private UsuarioBLL bll = new UsuarioBLL();
         private ModoFormulario modoactual = ModoFormulario.Consulta;
@@ -37,6 +39,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             CargarRoles();
             CambiarModo(ModoFormulario.Consulta);
             RefrescarGrilla();
+            ActualizarIdioma();
         }
 
         private void RefrescarGrilla()
@@ -44,6 +47,11 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             if (radioButtonActivos.Checked) dataGridViewUsuarios.DataSource = bll.ObtenerUsuarios(false);
             else dataGridViewUsuarios.DataSource = bll.ObtenerUsuarios(true);
             dataGridViewUsuarios.Columns["id_rol"].Visible = false;
+            foreach (DataGridViewRow fila in dataGridViewUsuarios.Rows)
+            {
+                if (fila.IsNewRow) continue;
+                fila.Cells["rol"].Value = TraducirRol(fila.Cells["rol"].Value.ToString());
+            }
             CargarDatos();
         }
 
@@ -53,7 +61,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             switch (modo)
             {
                 case ModoFormulario.Consulta:
-                    labelModo.Text = "Consulta";
+                    lblModo.Text = Traducciones.Traducir("modo_consulta");
                     btnAplicar.Enabled = false;
                     btnCancelar.Enabled = false;
                     btnAlta.Enabled = true;
@@ -67,7 +75,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
                     break;
 
                 case ModoFormulario.Alta:
-                    labelModo.Text = "Añadir";
+                    lblModo.Text = Traducciones.Traducir("modo_alta");
                     btnAplicar.Enabled = true;
                     btnCancelar.Enabled = true;
                     btnAlta.Enabled = false;
@@ -82,7 +90,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
                     break;
 
                 case ModoFormulario.Modificar:
-                    labelModo.Text = "Modificar";
+                    lblModo.Text = Traducciones.Traducir("modo_modificar");
                     btnAplicar.Enabled = true;
                     btnCancelar.Enabled = true;
                     btnAlta.Enabled = false;
@@ -97,7 +105,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
                     break;
 
                 case ModoFormulario.Desbloquear:
-                    labelModo.Text = "Desbloquear";
+                    lblModo.Text = Traducciones.Traducir("modo_desbloquear");
                     btnAplicar.Enabled = true;
                     btnCancelar.Enabled = true;
                     btnAlta.Enabled = false;
@@ -137,10 +145,40 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
         private void CargarRoles()
         {
-            comboBoxRol.DataSource = bll.ObtenerRoles();
+            DataTable dt = bll.ObtenerRoles();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                fila["descripcion"] = TraducirRol(fila["descripcion"].ToString());
+            }
+
+            comboBoxRol.DataSource = dt;
             comboBoxRol.DisplayMember = "descripcion";
             comboBoxRol.ValueMember = "id_rol";
             comboBoxRol.SelectedIndex = -1;
+        }
+        private string TraducirRol(string rol)
+        {
+            switch (rol)
+            {
+                case "Administrador":
+                    return Traducciones.Traducir("rol_administrador");
+
+                case "Recepcionista":
+                    return Traducciones.Traducir("rol_recepcionista");
+
+                case "Gestor":
+                    return Traducciones.Traducir("rol_gestor");
+
+                case "Repartidor":
+                    return Traducciones.Traducir("rol_repartidor");
+
+                case "Remitente / Destinatario":
+                    return Traducciones.Traducir("rol_cliente");
+
+                default:
+                    return rol;
+            }
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -155,15 +193,13 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
         private void btnActivar_Click(object sender, EventArgs e)
         {
-            var res = bll.ActivarUsuario(dniseleccionado);
-            MessageBox.Show(res.Mensaje);
+            MessageBox.Show(Traducciones.Traducir(bll.ActivarUsuario(dniseleccionado).Mensaje));
             RefrescarGrilla();
         }
 
         private void btnDesactivar_Click(object sender, EventArgs e)
         {
-            var res = bll.DesactivarUsuario(dniseleccionado);
-            MessageBox.Show(res.Mensaje);
+            MessageBox.Show(Traducciones.Traducir(bll.DesactivarUsuario(dniseleccionado).Mensaje));
             RefrescarGrilla();
         }
 
@@ -217,31 +253,74 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             switch (modoactual)
             {
                 case ModoFormulario.Alta:
-                    MessageBox.Show(bll.AltaUsuario(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtEmail.Text, Convert.ToInt32(comboBoxRol.SelectedValue)).Mensaje);
+                    MessageBox.Show(Traducciones.Traducir(bll.AltaUsuario(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtEmail.Text, Convert.ToInt32(comboBoxRol.SelectedValue)).Mensaje));
 
                     break;
 
                 case ModoFormulario.Modificar:
                     if (string.IsNullOrWhiteSpace(txtDni.Text))
                     {
-                        MessageBox.Show("Seleccione un usuario en la grilla", "Seleccione un usuario", MessageBoxButtons.OK);
+                        MessageBox.Show(Traducciones.Traducir("seleccionar usuario"), "", MessageBoxButtons.OK);
                         return;
                     }
-                    MessageBox.Show(bll.ModificarUsuario(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtEmail.Text, Convert.ToInt32(comboBoxRol.SelectedValue)).Mensaje);
+                    MessageBox.Show(Traducciones.Traducir(bll.ModificarUsuario(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtEmail.Text, Convert.ToInt32(comboBoxRol.SelectedValue)).Mensaje));
                     break;
 
                 case ModoFormulario.Desbloquear:
                     if (string.IsNullOrWhiteSpace(txtDni.Text))
                     {
-                        MessageBox.Show("Seleccione un usuario en la grilla", "Seleccione un usuario", MessageBoxButtons.OK);
+                        MessageBox.Show(Traducciones.Traducir("seleccionar usuario"), "", MessageBoxButtons.OK);
                         return;
                     }
-                    MessageBox.Show(bll.DesbloquearUsuario(dniseleccionado).Mensaje);
+                    MessageBox.Show(Traducciones.Traducir(bll.DesbloquearUsuario(dniseleccionado).Mensaje));
                     break;
             }
             LimpiarTextboxes();
             CambiarModo(ModoFormulario.Consulta);
             RefrescarGrilla();
+        }
+
+        public void ActualizarIdioma()
+        {
+            this.Text = Traducciones.Traducir("GestionUsuarios");
+
+            lblMostrar.Text = Traducciones.Traducir("Mostrar");
+            lblModoActual.Text = Traducciones.Traducir("ModoActual");
+
+            lblDNI.Text = Traducciones.Traducir("DNI");
+            lblNombre.Text = Traducciones.Traducir("Nombre");
+            lblApellido.Text = Traducciones.Traducir("Apellido");
+            lblEmail.Text = Traducciones.Traducir("Email");
+            lblRol.Text = Traducciones.Traducir("Rol");
+
+            radioButtonActivos.Text = Traducciones.Traducir("Activos");
+            radioButtonTodos.Text = Traducciones.Traducir("Todos");
+
+            checkBoxActivo.Text = Traducciones.Traducir("Activo");
+            checkBoxBloqueado.Text = Traducciones.Traducir("Bloqueado");
+
+            btnAlta.Text = Traducciones.Traducir("Alta");
+            btnModificar.Text = Traducciones.Traducir("Modificar");
+            btnActivar.Text = Traducciones.Traducir("Activar");
+            btnDesactivar.Text = Traducciones.Traducir("Desactivar");
+            btnDesbloquear.Text = Traducciones.Traducir("Desbloquear");
+            btnAplicar.Text = Traducciones.Traducir("Aplicar");
+            btnCancelar.Text = Traducciones.Traducir("Cancelar");
+            btnSalir.Text = Traducciones.Traducir("Salir");
+
+            dataGridViewUsuarios.Columns["dni"].HeaderText = Traducciones.Traducir("DNI");
+            dataGridViewUsuarios.Columns["nombre"].HeaderText = Traducciones.Traducir("Nombre");
+            dataGridViewUsuarios.Columns["apellido"].HeaderText = Traducciones.Traducir("Apellido");
+            dataGridViewUsuarios.Columns["email"].HeaderText = Traducciones.Traducir("Email");
+            dataGridViewUsuarios.Columns["estado"].HeaderText = Traducciones.Traducir("Activo");
+            dataGridViewUsuarios.Columns["bloqueado"].HeaderText = Traducciones.Traducir("Bloqueado");
+            dataGridViewUsuarios.Columns["rol"].HeaderText = Traducciones.Traducir("Rol");
+
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomas.Instancia.Desregistrar(this);
+            base.OnFormClosed(e);
         }
     }
 }

@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicios;
 using BLL;
+using Servicios.GestionIdiomas;
 
 namespace SistemaDeEnviosGUI.Formularios.Administrador
 {
-    public partial class BitacoraDeEventosForm : Form
+    public partial class BitacoraDeEventosForm : Form, IObserverIdioma
     {
         public BitacoraDeEventosForm()
         {
             InitializeComponent();
+            GestorIdiomas.Instancia.Registrar(this);
         }
         private EventoBLL bll = new EventoBLL();
         private void BitacoraDeEventosForm_Load(object sender, EventArgs e)
         {
             RefrescarGrilla();
             CargarFiltros();
+            ActualizarIdioma();
         }
         private void RefrescarGrilla()
         {
@@ -30,7 +33,26 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             dataGridView1.Columns["nombre"].Visible = false;
             dataGridView1.Columns["apellido"].Visible = false;
             dataGridView1.Columns["Email_Usuario"].Width = 150;
+            dataGridView1.Columns["Evento"].Width = 150;
+            TraducirDatosGrilla();
             MostrarNombreYApellido();
+        }
+        private void TraducirDatosGrilla()
+        {
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                if (fila.Cells["Módulo"].Value != null)
+                {
+                    fila.Cells["Módulo"].Value = Traducciones.Traducir(fila.Cells["Módulo"].Value.ToString());
+                }
+
+                if (fila.Cells["Evento"].Value != null)
+                {
+                    fila.Cells["Evento"].Value = Traducciones.Traducir(fila.Cells["Evento"].Value.ToString());
+                }
+            }
         }
         private void MostrarNombreYApellido()
         {
@@ -50,14 +72,26 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             comboBoxEmail.SelectedIndex = -1;
             comboBoxEmail.Text = "";
 
-            comboBoxEvento.DataSource = bll.ObtenerEventos();
-            comboBoxEvento.DisplayMember = "evento";
+            DataTable dtEventos = bll.ObtenerEventos();
+            dtEventos.Columns.Add("texto");
+            foreach (DataRow fila in dtEventos.Rows)
+            {
+                fila["texto"] = Traducciones.Traducir(fila["evento"].ToString());
+            }
+            comboBoxEvento.DataSource = dtEventos;
+            comboBoxEvento.DisplayMember = "texto";
             comboBoxEvento.ValueMember = "evento";
             comboBoxEvento.SelectedIndex = -1;
             comboBoxEvento.Text = "";
 
-            comboBoxModulo.DataSource = bll.ObtenerModulos();
-            comboBoxModulo.DisplayMember = "modulo";
+            DataTable dtModulos = bll.ObtenerModulos();
+            dtModulos.Columns.Add("texto");
+            foreach (DataRow fila in dtModulos.Rows)
+            {
+                fila["texto"] = Traducciones.Traducir(fila["modulo"].ToString());
+            }
+            comboBoxModulo.DataSource = dtModulos;
+            comboBoxModulo.DisplayMember = "texto";
             comboBoxModulo.ValueMember = "modulo";
             comboBoxModulo.SelectedIndex = -1;
             comboBoxModulo.Text = "";
@@ -79,9 +113,9 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         {
             string email = comboBoxEmail.SelectedIndex != -1 ? comboBoxEmail.Text : null;
 
-            string evento = comboBoxEvento.SelectedIndex != -1 ? comboBoxEvento.Text : null;
+            string evento = comboBoxEvento.SelectedIndex != -1 ? comboBoxEvento.SelectedValue.ToString() : null;
 
-            string modulo = comboBoxModulo.SelectedIndex != -1 ? comboBoxModulo.Text : null;
+            string modulo = comboBoxModulo.SelectedIndex != -1 ? comboBoxModulo.SelectedValue.ToString() : null;
 
             int? criticidad = comboBoxCriticidad.SelectedIndex != -1 ? Convert.ToInt32(comboBoxCriticidad.Text) : null;
 
@@ -89,6 +123,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             DateTime? hasta = dateTimePickerHasta.Checked ? dateTimePickerHasta.Value.Date.AddDays(1).AddTicks(-1) : null;
 
             dataGridView1.DataSource = bll.FiltrarEventos(email, desde, hasta, modulo, evento, criticidad);
+            TraducirDatosGrilla();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -107,12 +142,12 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
 
                 filas.Add(new string[]
                 {
-                    fila.Cells["Email_Usuario"].Value?.ToString(),
-                    fila.Cells["Fecha"].Value?.ToString(),
-                    fila.Cells["Hora"].Value?.ToString(),
-                    fila.Cells["Módulo"].Value?.ToString(),
-                    fila.Cells["Evento"].Value?.ToString(),
-                    fila.Cells["Criticidad"].Value?.ToString()
+                    fila.Cells[0].Value?.ToString(),
+                    ((DateTime)fila.Cells[1].Value).ToString("dd/MM/yyyy"),
+                    fila.Cells[2].Value?.ToString(),
+                    fila.Cells[3].Value?.ToString(),
+                    fila.Cells[4].Value?.ToString(),
+                    fila.Cells[5].Value?.ToString()
                 });
             }
 
@@ -122,6 +157,35 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void ActualizarIdioma()
+        {
+            this.Text = Traducciones.Traducir("Bitacora");
+            lblNombre.Text = Traducciones.Traducir("Nombre");
+            lblApellido.Text = Traducciones.Traducir("Apellido");
+            lblEmail.Text = Traducciones.Traducir("Email");
+            lblDesde.Text = Traducciones.Traducir("Desde");
+            lblHasta.Text = Traducciones.Traducir("Hasta");
+            lblModulo.Text = Traducciones.Traducir("Modulo");
+            lblEvento.Text = Traducciones.Traducir("Evento");
+            lblCriticidad.Text = Traducciones.Traducir("Criticidad");
+            btnAplicar.Text = Traducciones.Traducir("Aplicar");
+            btnLimpiar.Text = Traducciones.Traducir("Limpiar");
+            btnImprimir.Text = Traducciones.Traducir("Imprimir");
+            btnSalir.Text = Traducciones.Traducir("Salir");
+
+            dataGridView1.Columns["Email_Usuario"].HeaderText = Traducciones.Traducir("Email");
+            dataGridView1.Columns["Fecha"].HeaderText = Traducciones.Traducir("Fecha");
+            dataGridView1.Columns["Hora"].HeaderText = Traducciones.Traducir("Hora");
+            dataGridView1.Columns["Módulo"].HeaderText = Traducciones.Traducir("Modulo");
+            dataGridView1.Columns["Evento"].HeaderText = Traducciones.Traducir("Evento");
+            dataGridView1.Columns["Criticidad"].HeaderText = Traducciones.Traducir("Criticidad");
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomas.Instancia.Desregistrar(this);
+            base.OnFormClosed(e);
         }
     }
 }

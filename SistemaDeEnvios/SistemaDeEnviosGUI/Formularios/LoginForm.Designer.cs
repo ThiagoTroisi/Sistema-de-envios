@@ -38,6 +38,7 @@
             btnSalir = new Button();
             lblIdioma = new Label();
             comboBoxIdioma = new ComboBox();
+            btnAplicar = new Button();
             SuspendLayout();
             // 
             // txtEmail
@@ -113,7 +114,7 @@
             // lblIdioma
             // 
             lblIdioma.AutoSize = true;
-            lblIdioma.Location = new Point(70, 276);
+            lblIdioma.Location = new Point(12, 292);
             lblIdioma.Name = "lblIdioma";
             lblIdioma.Size = new Size(47, 15);
             lblIdioma.TabIndex = 8;
@@ -122,17 +123,28 @@
             // comboBoxIdioma
             // 
             comboBoxIdioma.FormattingEnabled = true;
-            comboBoxIdioma.Location = new Point(135, 276);
+            comboBoxIdioma.Location = new Point(77, 292);
             comboBoxIdioma.Name = "comboBoxIdioma";
             comboBoxIdioma.Size = new Size(121, 23);
             comboBoxIdioma.TabIndex = 9;
             comboBoxIdioma.SelectedIndexChanged += comboBoxIdioma_SelectedIndexChanged;
             // 
+            // btnAplicar
+            // 
+            btnAplicar.Location = new Point(204, 292);
+            btnAplicar.Name = "btnAplicar";
+            btnAplicar.Size = new Size(110, 23);
+            btnAplicar.TabIndex = 10;
+            btnAplicar.Text = "Aplicar";
+            btnAplicar.UseVisualStyleBackColor = true;
+            btnAplicar.Click += btnAplicar_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(326, 341);
+            ClientSize = new Size(326, 365);
+            Controls.Add(btnAplicar);
             Controls.Add(comboBoxIdioma);
             Controls.Add(lblIdioma);
             Controls.Add(btnSalir);
@@ -162,5 +174,6 @@
         private Button btnSalir;
         private Label lblIdioma;
         private ComboBox comboBoxIdioma;
+        private Button btnAplicar;
     }
 }

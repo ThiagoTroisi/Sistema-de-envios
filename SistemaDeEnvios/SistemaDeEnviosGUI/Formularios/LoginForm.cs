@@ -2,6 +2,7 @@
 using BLL;
 using BLL.Gestores;
 using BLL.Otros;
+using DAL;
 using Servicios.GestionIdiomas;
 using Servicios.Sesión;
 using System;
@@ -18,15 +19,23 @@ namespace SistemaDeEnviosGUI.Formularios
 {
     public partial class LoginForm : Form, IObserverIdioma
     {
-        public LoginForm()
+        public LoginForm(bool relogin = false)
         {
             InitializeComponent();
+            modoRelogin = relogin;
+            if (modoRelogin)
+            {
+                comboBoxIdioma.Enabled = false;
+                btnRegistrarse.Enabled = false;
+                btnAplicar.Enabled = false;
+            }
             GestorIdiomas.Instancia.Registrar(this);
-            CargarIdiomas();
             ActualizarIdioma();
         }
+        private bool modoRelogin;
         private SessionManager gestor = new SessionManager();
         private EventoBLL eventobll = new EventoBLL();
+        UsuarioBLL usuariobll = new UsuarioBLL();
         private IdiomaBLL idiomabll = new IdiomaBLL();
         private string ultimoCodigoError;
         private object[] ultimosParametros;
@@ -53,9 +62,14 @@ namespace SistemaDeEnviosGUI.Formularios
             else
             {
                 lblError.Text = "";
+                ultimoCodigoError = "";
+                ultimosParametros = null;
                 SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
+                Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
+                GestorIdiomas.Instancia.CambiarIdioma(idioma);
+                comboBoxIdioma.SelectedValue = idioma.Id;
                 MessageBox.Show(Traducciones.Traducir(rl.Mensaje));
-                eventobll.RegistrarEvento("Usuarios", "Login", 1);
+                eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
                 this.Hide();
                 int rol = rl.Usuario.IdRol;
                 switch (rol)
@@ -80,7 +94,9 @@ namespace SistemaDeEnviosGUI.Formularios
 
                         break;
                 }
-                eventobll.RegistrarEvento("Usuarios", "Logout", 1);
+                Usuario usuario = SesionUsuario.GetInstancia().UsuarioActual;
+                usuariobll.ActualizarIdioma(usuario.DNI, GestorIdiomas.Instancia.IdiomaActual.Id);
+                eventobll.RegistrarEvento("mod_usuarios", "ev_logout", 1);
                 SesionUsuario.GetInstancia().Cerrar();
                 this.Show();
             }
@@ -95,6 +111,9 @@ namespace SistemaDeEnviosGUI.Formularios
         {
             txtEmail.Text = "admin@sistema.com";
             txtContraseña.Text = "admin123";
+            CargarIdiomas();
+            Idioma actual = GestorIdiomas.Instancia.IdiomaActual;
+            if (actual != null) comboBoxIdioma.SelectedValue = actual.Id;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -104,12 +123,13 @@ namespace SistemaDeEnviosGUI.Formularios
 
         public void ActualizarIdioma()
         {
-            lblEmail.Text = Traducciones.Traducir("lblEmail");
-            lblContraseña.Text = Traducciones.Traducir("lblContraseña");
-            lblIdioma.Text = Traducciones.Traducir("lblIdioma");
-            btnLogin.Text = Traducciones.Traducir("btnLogin");
-            btnRegistrarse.Text = Traducciones.Traducir("btnRegistrarse");
-            btnSalir.Text = Traducciones.Traducir("btnSalir");
+            this.Text = Traducciones.Traducir("Login");
+            lblEmail.Text = Traducciones.Traducir("Email");
+            lblContraseña.Text = Traducciones.Traducir("Contraseña");
+            lblIdioma.Text = Traducciones.Traducir("Idioma");
+            btnLogin.Text = Traducciones.Traducir("Login");
+            btnRegistrarse.Text = Traducciones.Traducir("Registrarse");
+            btnSalir.Text = Traducciones.Traducir("Salir");
             if (!string.IsNullOrEmpty(ultimoCodigoError))
             {
                 lblError.Text = string.Format(Traducciones.Traducir(ultimoCodigoError), ultimosParametros ?? Array.Empty<object>());
@@ -118,10 +138,21 @@ namespace SistemaDeEnviosGUI.Formularios
 
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GestorIdiomas.Instancia.Desregistrar(this);
+            base.OnFormClosed(e);
+        }
+
+        private void btnAplicar_Click(object sender, EventArgs e)
+        {
             if (comboBoxIdioma.SelectedItem is Idioma idioma)
             {
                 GestorIdiomas.Instancia.CambiarIdioma(idioma);
             }
         }
+
     }
 }

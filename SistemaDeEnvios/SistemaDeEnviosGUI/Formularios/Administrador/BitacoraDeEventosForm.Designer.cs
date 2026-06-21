@@ -30,17 +30,17 @@
         {
             dataGridView1 = new DataGridView();
             txtNombre = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            lblNombre = new Label();
+            lblApellido = new Label();
             txtApellido = new TextBox();
-            label4 = new Label();
+            lblDesde = new Label();
             dateTimePickerDesde = new DateTimePicker();
             dateTimePickerHasta = new DateTimePicker();
-            label5 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label3 = new Label();
-            label6 = new Label();
+            lblHasta = new Label();
+            lblEvento = new Label();
+            lblCriticidad = new Label();
+            lblModulo = new Label();
+            lblEmail = new Label();
             btnAplicar = new Button();
             btnLimpiar = new Button();
             btnImprimir = new Button();
@@ -72,23 +72,23 @@
             txtNombre.Size = new Size(129, 23);
             txtNombre.TabIndex = 1;
             // 
-            // label1
+            // lblNombre
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 285);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Nombre:";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(12, 285);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(54, 15);
+            lblNombre.TabIndex = 2;
+            lblNombre.Text = "Nombre:";
             // 
-            // label2
+            // lblApellido
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(148, 285);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Apellido:";
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(148, 285);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(54, 15);
+            lblApellido.TabIndex = 4;
+            lblApellido.Text = "Apellido:";
             // 
             // txtApellido
             // 
@@ -98,14 +98,14 @@
             txtApellido.Size = new Size(129, 23);
             txtApellido.TabIndex = 3;
             // 
-            // label4
+            // lblDesde
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(296, 368);
-            label4.Name = "label4";
-            label4.Size = new Size(42, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Desde:";
+            lblDesde.AutoSize = true;
+            lblDesde.Location = new Point(296, 368);
+            lblDesde.Name = "lblDesde";
+            lblDesde.Size = new Size(42, 15);
+            lblDesde.TabIndex = 8;
+            lblDesde.Text = "Desde:";
             // 
             // dateTimePickerDesde
             // 
@@ -125,50 +125,50 @@
             dateTimePickerHasta.Size = new Size(229, 23);
             dateTimePickerHasta.TabIndex = 11;
             // 
-            // label5
+            // lblHasta
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(579, 368);
-            label5.Name = "label5";
-            label5.Size = new Size(40, 15);
-            label5.TabIndex = 10;
-            label5.Text = "Hasta:";
+            lblHasta.AutoSize = true;
+            lblHasta.Location = new Point(579, 368);
+            lblHasta.Name = "lblHasta";
+            lblHasta.Size = new Size(40, 15);
+            lblHasta.TabIndex = 10;
+            lblHasta.Text = "Hasta:";
             // 
-            // label7
+            // lblEvento
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(296, 423);
-            label7.Name = "label7";
-            label7.Size = new Size(46, 15);
-            label7.TabIndex = 15;
-            label7.Text = "Evento:";
+            lblEvento.AutoSize = true;
+            lblEvento.Location = new Point(296, 423);
+            lblEvento.Name = "lblEvento";
+            lblEvento.Size = new Size(46, 15);
+            lblEvento.TabIndex = 15;
+            lblEvento.Text = "Evento:";
             // 
-            // label8
+            // lblCriticidad
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(579, 423);
-            label8.Name = "label8";
-            label8.Size = new Size(58, 15);
-            label8.TabIndex = 17;
-            label8.Text = "Criticidad";
+            lblCriticidad.AutoSize = true;
+            lblCriticidad.Location = new Point(579, 423);
+            lblCriticidad.Name = "lblCriticidad";
+            lblCriticidad.Size = new Size(61, 15);
+            lblCriticidad.TabIndex = 17;
+            lblCriticidad.Text = "Criticidad:";
             // 
-            // label3
+            // lblModulo
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 424);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 21;
-            label3.Text = "Módulo:";
+            lblModulo.AutoSize = true;
+            lblModulo.Location = new Point(12, 424);
+            lblModulo.Name = "lblModulo";
+            lblModulo.Size = new Size(52, 15);
+            lblModulo.TabIndex = 21;
+            lblModulo.Text = "Módulo:";
             // 
-            // label6
+            // lblEmail
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(12, 369);
-            label6.Name = "label6";
-            label6.Size = new Size(39, 15);
-            label6.TabIndex = 18;
-            label6.Text = "Email:";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(12, 369);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(39, 15);
+            lblEmail.TabIndex = 18;
+            lblEmail.Text = "Email:";
             // 
             // btnAplicar
             // 
@@ -255,17 +255,17 @@
             Controls.Add(btnImprimir);
             Controls.Add(btnLimpiar);
             Controls.Add(btnAplicar);
-            Controls.Add(label3);
-            Controls.Add(label6);
-            Controls.Add(label8);
-            Controls.Add(label7);
+            Controls.Add(lblModulo);
+            Controls.Add(lblEmail);
+            Controls.Add(lblCriticidad);
+            Controls.Add(lblEvento);
             Controls.Add(dateTimePickerHasta);
-            Controls.Add(label5);
+            Controls.Add(lblHasta);
             Controls.Add(dateTimePickerDesde);
-            Controls.Add(label4);
-            Controls.Add(label2);
+            Controls.Add(lblDesde);
+            Controls.Add(lblApellido);
             Controls.Add(txtApellido);
-            Controls.Add(label1);
+            Controls.Add(lblNombre);
             Controls.Add(txtNombre);
             Controls.Add(dataGridView1);
             Name = "BitacoraDeEventosForm";
@@ -280,17 +280,17 @@
 
         private DataGridView dataGridView1;
         private TextBox txtNombre;
-        private Label label1;
-        private Label label2;
+        private Label lblNombre;
+        private Label lblApellido;
         private TextBox txtApellido;
-        private Label label4;
+        private Label lblDesde;
         private DateTimePicker dateTimePickerDesde;
         private DateTimePicker dateTimePickerHasta;
-        private Label label5;
-        private Label label7;
-        private Label label8;
-        private Label label3;
-        private Label label6;
+        private Label lblHasta;
+        private Label lblEvento;
+        private Label lblCriticidad;
+        private Label lblModulo;
+        private Label lblEmail;
         private Button btnAplicar;
         private Button btnLimpiar;
         private Button btnImprimir;

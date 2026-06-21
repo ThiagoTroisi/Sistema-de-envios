@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Servicios.GestionIdiomas;
 
 namespace Servicios
 {
@@ -22,7 +23,7 @@ namespace Servicios
 
             doc.Open();
 
-            Paragraph titulo = new Paragraph("BITÁCORA DE EVENTOS");
+            Paragraph titulo = new Paragraph(Traducciones.Traducir("Bitacora").ToUpper());
 
             titulo.Alignment = Element.ALIGN_CENTER;
 
@@ -30,19 +31,19 @@ namespace Servicios
 
             doc.Add(new Paragraph(" "));
 
-            doc.Add(new Paragraph($"Fecha de emisión: {DateTime.Now:dd/MM/yyyy HH:mm:ss}"));
+            doc.Add(new Paragraph($"{Traducciones.Traducir("fecha_emision")}: {DateTime.Now:dd/MM/yyyy HH:mm:ss}"));
 
             doc.Add(new Paragraph(" "));
 
             PdfPTable tabla = new PdfPTable(6);
             tabla.WidthPercentage = 100;
 
-            tabla.AddCell("Email");
-            tabla.AddCell("Fecha");
-            tabla.AddCell("Hora");
-            tabla.AddCell("Módulo");
-            tabla.AddCell("Evento");
-            tabla.AddCell("Criticidad");
+            tabla.AddCell(Traducciones.Traducir("Email"));
+            tabla.AddCell(Traducciones.Traducir("Fecha"));
+            tabla.AddCell(Traducciones.Traducir("Hora"));
+            tabla.AddCell(Traducciones.Traducir("Modulo"));
+            tabla.AddCell(Traducciones.Traducir("Evento"));
+            tabla.AddCell(Traducciones.Traducir("Criticidad"));
 
             foreach (string[] fila in filas)
             {

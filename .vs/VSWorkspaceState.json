@@ -3,9 +3,7 @@
     "",
     "\\SistemaDeEnvios",
     "\\SistemaDeEnvios\\BE",
-    "\\SistemaDeEnvios\\SistemaDeEnviosGUI",
-    "\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios",
-    "\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador"
+    "\\SistemaDeEnvios\\SistemaDeEnviosGUI"
   ],
   "SelectedNode": "\\SistemaDeEnvios\\SistemaDeEnvios.sln",
   "PreviewInSolutionExplorer": false

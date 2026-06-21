@@ -70,7 +70,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.png_logo;
-            pictureBox1.Location = new Point(449, 12);
+            pictureBox1.Location = new Point(281, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(775, 263);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -146,13 +146,13 @@
             treeNode32.Name = "Nodo24";
             treeNode32.Text = "Reporte";
             treeView1.Nodes.AddRange(new TreeNode[] { treeNode3, treeNode6, treeNode12, treeNode15, treeNode19, treeNode23, treeNode25, treeNode32 });
-            treeView1.Size = new Size(203, 586);
+            treeView1.Size = new Size(262, 586);
             treeView1.TabIndex = 1;
             treeView1.AfterSelect += treeView1_AfterSelect;
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.Location = new Point(1104, 551);
+            btnCerrarSesion.Location = new Point(936, 551);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(120, 47);
             btnCerrarSesion.TabIndex = 2;
@@ -162,7 +162,7 @@
             // 
             // btnRelogin
             // 
-            btnRelogin.Location = new Point(978, 551);
+            btnRelogin.Location = new Point(810, 551);
             btnRelogin.Name = "btnRelogin";
             btnRelogin.Size = new Size(120, 47);
             btnRelogin.TabIndex = 3;
@@ -174,7 +174,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1236, 610);
+            ClientSize = new Size(1068, 610);
             Controls.Add(btnRelogin);
             Controls.Add(btnCerrarSesion);
             Controls.Add(treeView1);

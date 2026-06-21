@@ -31,14 +31,14 @@
             dataGridViewUsuarios = new DataGridView();
             btnAlta = new Button();
             txtDni = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
+            lblDNI = new Label();
+            lblNombre = new Label();
             txtNombre = new TextBox();
-            label4 = new Label();
+            lblApellido = new Label();
             txtApellido = new TextBox();
-            label5 = new Label();
+            lblEmail = new Label();
             txtEmail = new TextBox();
-            label6 = new Label();
+            lblRol = new Label();
             btnActivar = new Button();
             btnDesactivar = new Button();
             btnModificar = new Button();
@@ -46,14 +46,14 @@
             btnSalir = new Button();
             btnDesbloquear = new Button();
             radioButtonTodos = new RadioButton();
-            label1 = new Label();
+            lblMostrar = new Label();
             radioButtonActivos = new RadioButton();
             btnAplicar = new Button();
             btnCancelar = new Button();
             checkBoxBloqueado = new CheckBox();
             checkBoxActivo = new CheckBox();
-            label7 = new Label();
-            labelModo = new Label();
+            lblModoActual = new Label();
+            lblModo = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -81,76 +81,76 @@
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(72, 338);
+            txtDni.Location = new Point(82, 338);
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(158, 23);
             txtDni.TabIndex = 2;
             // 
-            // label2
+            // lblDNI
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(13, 341);
-            label2.Name = "label2";
-            label2.Size = new Size(30, 15);
-            label2.TabIndex = 4;
-            label2.Text = "DNI:";
+            lblDNI.AutoSize = true;
+            lblDNI.Location = new Point(13, 341);
+            lblDNI.Name = "lblDNI";
+            lblDNI.Size = new Size(30, 15);
+            lblDNI.TabIndex = 4;
+            lblDNI.Text = "DNI:";
             // 
-            // label3
+            // lblNombre
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 370);
-            label3.Name = "label3";
-            label3.Size = new Size(54, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Nombre:";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(12, 370);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(54, 15);
+            lblNombre.TabIndex = 6;
+            lblNombre.Text = "Nombre:";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(72, 367);
+            txtNombre.Location = new Point(82, 367);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(158, 23);
             txtNombre.TabIndex = 5;
             // 
-            // label4
+            // lblApellido
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(12, 399);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Apellido:";
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(12, 399);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(54, 15);
+            lblApellido.TabIndex = 8;
+            lblApellido.Text = "Apellido:";
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(72, 396);
+            txtApellido.Location = new Point(82, 396);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(158, 23);
             txtApellido.TabIndex = 7;
             // 
-            // label5
+            // lblEmail
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(12, 428);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 15);
-            label5.TabIndex = 10;
-            label5.Text = "Email:";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(12, 428);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(39, 15);
+            lblEmail.TabIndex = 10;
+            lblEmail.Text = "Email:";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(72, 425);
+            txtEmail.Location = new Point(82, 425);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(158, 23);
             txtEmail.TabIndex = 9;
             // 
-            // label6
+            // lblRol
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(12, 458);
-            label6.Name = "label6";
-            label6.Size = new Size(27, 15);
-            label6.TabIndex = 11;
-            label6.Text = "Rol:";
+            lblRol.AutoSize = true;
+            lblRol.Location = new Point(12, 458);
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(27, 15);
+            lblRol.TabIndex = 11;
+            lblRol.Text = "Rol:";
             // 
             // btnActivar
             // 
@@ -187,7 +187,7 @@
             comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRol.FormattingEnabled = true;
             comboBoxRol.Items.AddRange(new object[] { "Recepcionista", "Gestor", "Repartidor" });
-            comboBoxRol.Location = new Point(72, 455);
+            comboBoxRol.Location = new Point(82, 455);
             comboBoxRol.Name = "comboBoxRol";
             comboBoxRol.Size = new Size(158, 23);
             comboBoxRol.TabIndex = 18;
@@ -223,14 +223,14 @@
             radioButtonTodos.UseVisualStyleBackColor = true;
             radioButtonTodos.CheckedChanged += radioButtonTodos_CheckedChanged;
             // 
-            // label1
+            // lblMostrar
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(13, 242);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 25;
-            label1.Text = "Mostrar:";
+            lblMostrar.AutoSize = true;
+            lblMostrar.Location = new Point(13, 242);
+            lblMostrar.Name = "lblMostrar";
+            lblMostrar.Size = new Size(51, 15);
+            lblMostrar.TabIndex = 25;
+            lblMostrar.Text = "Mostrar:";
             // 
             // radioButtonActivos
             // 
@@ -268,7 +268,7 @@
             // checkBoxBloqueado
             // 
             checkBoxBloqueado.AutoSize = true;
-            checkBoxBloqueado.Location = new Point(72, 484);
+            checkBoxBloqueado.Location = new Point(82, 484);
             checkBoxBloqueado.Name = "checkBoxBloqueado";
             checkBoxBloqueado.Size = new Size(83, 19);
             checkBoxBloqueado.TabIndex = 29;
@@ -278,43 +278,43 @@
             // checkBoxActivo
             // 
             checkBoxActivo.AutoSize = true;
-            checkBoxActivo.Location = new Point(72, 509);
+            checkBoxActivo.Location = new Point(82, 509);
             checkBoxActivo.Name = "checkBoxActivo";
             checkBoxActivo.Size = new Size(60, 19);
             checkBoxActivo.TabIndex = 30;
             checkBoxActivo.Text = "Activo";
             checkBoxActivo.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // lblModoActual
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(323, 242);
-            label7.Name = "label7";
-            label7.Size = new Size(77, 15);
-            label7.TabIndex = 31;
-            label7.Text = "Modo actual:";
+            lblModoActual.AutoSize = true;
+            lblModoActual.Location = new Point(323, 242);
+            lblModoActual.Name = "lblModoActual";
+            lblModoActual.Size = new Size(77, 15);
+            lblModoActual.TabIndex = 31;
+            lblModoActual.Text = "Modo actual:";
             // 
-            // labelModo
+            // lblModo
             // 
-            labelModo.AutoSize = true;
-            labelModo.Location = new Point(406, 242);
-            labelModo.Name = "labelModo";
-            labelModo.Size = new Size(0, 15);
-            labelModo.TabIndex = 32;
+            lblModo.AutoSize = true;
+            lblModo.Location = new Point(406, 242);
+            lblModo.Name = "lblModo";
+            lblModo.Size = new Size(0, 15);
+            lblModo.TabIndex = 32;
             // 
             // GestionUsuariosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(788, 564);
-            Controls.Add(labelModo);
-            Controls.Add(label7);
+            Controls.Add(lblModo);
+            Controls.Add(lblModoActual);
             Controls.Add(checkBoxActivo);
             Controls.Add(checkBoxBloqueado);
             Controls.Add(btnCancelar);
             Controls.Add(btnAplicar);
             Controls.Add(radioButtonActivos);
-            Controls.Add(label1);
+            Controls.Add(lblMostrar);
             Controls.Add(radioButtonTodos);
             Controls.Add(btnDesbloquear);
             Controls.Add(btnSalir);
@@ -322,14 +322,14 @@
             Controls.Add(btnModificar);
             Controls.Add(btnDesactivar);
             Controls.Add(btnActivar);
-            Controls.Add(label6);
-            Controls.Add(label5);
+            Controls.Add(lblRol);
+            Controls.Add(lblEmail);
             Controls.Add(txtEmail);
-            Controls.Add(label4);
+            Controls.Add(lblApellido);
             Controls.Add(txtApellido);
-            Controls.Add(label3);
+            Controls.Add(lblNombre);
             Controls.Add(txtNombre);
-            Controls.Add(label2);
+            Controls.Add(lblDNI);
             Controls.Add(txtDni);
             Controls.Add(btnAlta);
             Controls.Add(dataGridViewUsuarios);
@@ -346,14 +346,14 @@
         private DataGridView dataGridViewUsuarios;
         private Button btnAlta;
         private TextBox txtDni;
-        private Label label2;
-        private Label label3;
+        private Label lblDNI;
+        private Label lblNombre;
         private TextBox txtNombre;
-        private Label label4;
+        private Label lblApellido;
         private TextBox txtApellido;
-        private Label label5;
+        private Label lblEmail;
         private TextBox txtEmail;
-        private Label label6;
+        private Label lblRol;
         private Button btnActivar;
         private Button btnDesactivar;
         private Button btnModificar;
@@ -361,13 +361,13 @@
         private Button btnSalir;
         private Button btnDesbloquear;
         private RadioButton radioButtonTodos;
-        private Label label1;
+        private Label lblMostrar;
         private RadioButton radioButtonActivos;
         private Button btnAplicar;
         private Button btnCancelar;
         private CheckBox checkBoxBloqueado;
         private CheckBox checkBoxActivo;
-        private Label label7;
-        private Label labelModo;
+        private Label lblModoActual;
+        private Label lblModo;
     }
 }

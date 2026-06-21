@@ -36,7 +36,8 @@ namespace DAL
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
                             int IntentosFallidos = (int)r["intentos_fallidos"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos);
+                            int ididioma = (int)r["id_idioma"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos, ididioma);
                         }
                     }
                 }
@@ -66,7 +67,8 @@ namespace DAL
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
                             int IntentosFallidos = (int)r["intentos_fallidos"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos);
+                            int ididioma = (int)r["id_idioma"];
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos, ididioma);
                         }
                     }
                 }
@@ -231,6 +233,20 @@ namespace DAL
                     cx.Open();
                     cmd.ExecuteNonQuery();
                 }
+            }
+        }
+        public void ActualizarIdioma(int dni, int idIdioma)
+        {
+            string query = "update Usuario set id_idioma = @idIdioma where dni = @dni";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            using (SqlCommand cmd = new SqlCommand(query, cx))
+            {
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@idIdioma", idIdioma);
+
+                cx.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }

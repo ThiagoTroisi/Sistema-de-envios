@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios.GestionIdiomas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace BE.Entidades
         public bool Bloqueado { get; set; }
         public bool Estado { get; set; }
         public int IntentosFallidos { get; set; }
-        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idRol, bool bloqueado, bool estado, int intentosFallidos)
+        public int IdIdioma { get; set; }
+        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idRol, bool bloqueado, bool estado, int intentosFallidos, int ididioma)
         {
             DNI = dni;
             Nombre = nombre;
@@ -28,6 +30,7 @@ namespace BE.Entidades
             IdRol = idRol;
             Bloqueado = bloqueado;
             IntentosFallidos = intentosFallidos;
+            IdIdioma = ididioma;
         }
     }
 }
