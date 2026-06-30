@@ -280,34 +280,34 @@
     "Português": "Relatórios"
   },
   "node_reporte_envios": {
-    "Español": "Envíos",
-    "English": "Shipments",
-    "Português": "Envios"
+    "Español": "Reporte de envíos",
+    "English": "Shipment report",
+    "Português": "Relatório de envios"
   },
   "node_reporte_entregas": {
-    "Español": "Entregas",
-    "English": "Deliveries",
-    "Português": "Entregas"
+    "Español": "Reporte de entregas",
+    "English": "Delivery report",
+    "Português": "Relatório de entregas"
   },
   "node_reporte_inconvenientes": {
-    "Español": "Inconvenientes",
-    "English": "Issues",
-    "Português": "Problemas"
+    "Español": "Reporte de inconvenientes",
+    "English": "Issue report",
+    "Português": "Relatório de problemas"
   },
   "node_reporte_repartidores": {
-    "Español": "Repartidores",
-    "English": "Couriers",
-    "Português": "Entregadores"
+    "Español": "Reporte de repartidores",
+    "English": "Courier report",
+    "Português": "Relatório de entregadores"
   },
   "node_reporte_pagos": {
-    "Español": "Pagos",
-    "English": "Payments",
-    "Português": "Pagamentos"
+    "Español": "Reporte de pagos",
+    "English": "Payment report",
+    "Português": "Relatório de pagamentos"
   },
   "node_reporte_analiticas": {
-    "Español": "Analíticas operativas",
-    "English": "Operational analytics",
-    "Português": "Análises operacionais"
+    "Español": "Reporte de analíticas operativas",
+    "English": "Operational analytics report",
+    "Português": "Relatório de análises operacionais"
   },
 
 

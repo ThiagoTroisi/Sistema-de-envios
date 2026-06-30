@@ -15,6 +15,8 @@ namespace BLL.Gestores
     public class SessionManager
     {
         private UsuarioDAL dal = new UsuarioDAL();
+        private IdiomaBLL idiomabll = new IdiomaBLL();
+        private EventoBLL eventobll = new EventoBLL();
         public ResultadoOperacion IniciarSesion(string mail, string contra)
         {
             ResultadoOperacion rl = new ResultadoOperacion(false, "");
@@ -43,11 +45,14 @@ namespace BLL.Gestores
                 return rl;
             }
 
-            dal.ReiniciarIntentos(u.DNI);
-
             rl.Exitoso = true;
             rl.Mensaje = "login exitoso";
             rl.Usuario = u;
+            dal.ReiniciarIntentos(u.DNI);
+            SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
+            Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
+            GestorIdiomas.Instancia.CambiarIdioma(idioma);
+            eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
             return rl;
         }
     }

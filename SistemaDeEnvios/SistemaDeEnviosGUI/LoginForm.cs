@@ -64,12 +64,8 @@ namespace SistemaDeEnviosGUI.Formularios
                 lblError.Text = "";
                 ultimoCodigoError = "";
                 ultimosParametros = null;
-                SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
-                Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
-                GestorIdiomas.Instancia.CambiarIdioma(idioma);
-                comboBoxIdioma.SelectedValue = idioma.Id;
+                comboBoxIdioma.SelectedValue = GestorIdiomas.Instancia.IdiomaActual.Id;
                 MessageBox.Show(Traducciones.Traducir(rl.Mensaje));
-                eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
                 this.Hide();
                 int rol = rl.Usuario.IdRol;
                 switch (rol)
