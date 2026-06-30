@@ -14,12 +14,12 @@ namespace BE.Entidades
         public string Apellido { get; set; }
         public string Email { get; set; }
         public string Contraseña { get; set; }
-        public int IdRol { get; set; }
+        public int IdPerfil { get; set; }
         public bool Bloqueado { get; set; }
         public bool Estado { get; set; }
         public int IntentosFallidos { get; set; }
         public int IdIdioma { get; set; }
-        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idRol, bool bloqueado, bool estado, int intentosFallidos, int ididioma)
+        public Usuario(int dni, string nombre, string apellido, string email, string contraseña, int idperfil, bool bloqueado, bool estado, int intentosFallidos, int ididioma)
         {
             DNI = dni;
             Nombre = nombre;
@@ -27,7 +27,7 @@ namespace BE.Entidades
             Email = email;
             Contraseña = contraseña;
             Estado = estado;
-            IdRol = idRol;
+            IdPerfil = idperfil;
             Bloqueado = bloqueado;
             IntentosFallidos = intentosFallidos;
             IdIdioma = ididioma;

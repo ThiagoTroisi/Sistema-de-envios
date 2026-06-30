@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeEnviosGUI.Formularios
 {
-    partial class AdminForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.

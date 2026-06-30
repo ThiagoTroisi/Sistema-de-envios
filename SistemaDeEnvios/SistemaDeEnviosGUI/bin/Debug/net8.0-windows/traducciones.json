@@ -123,10 +123,10 @@
     "English": "Login again",
     "Português": "Fazer login novamente"
   },
-  "Admin": {
-    "Español": "Panel de administración",
-    "English": "Admin panel",
-    "Português": "Painel administrativo"
+  "MenuMain": {
+    "Español": "Menú principal",
+    "English": "Main menu",
+    "Português": "Menu principal"
   },
   "logout_exitoso": {
     "Español": "Se cerró la sesión correctamente",
@@ -166,6 +166,11 @@
     "Español": "Bitácora de eventos",
     "English": "Event log",
     "Português": "Registro de eventos"
+  },
+  "node_gestion_perfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfiles"
   },
 
 
@@ -438,10 +443,10 @@
     "Português": "Sobrenome"
   },
 
-  "Rol": {
-    "Español": "Rol",
-    "English": "Role",
-    "Português": "Função"
+  "Perfil": {
+    "Español": "Perfil",
+    "English": "Profile",
+    "Português": "Perfil"
   },
 
   "Activos": {
@@ -507,36 +512,6 @@
 
 
 
-
-  "rol_administrador": {
-    "Español": "Administrador",
-    "English": "Administrator",
-    "Português": "Administrador"
-  },
-
-  "rol_recepcionista": {
-    "Español": "Recepcionista",
-    "English": "Receptionist",
-    "Português": "Recepcionista"
-  },
-
-  "rol_gestor": {
-    "Español": "Gestor",
-    "English": "Manager",
-    "Português": "Gestor"
-  },
-
-  "rol_repartidor": {
-    "Español": "Repartidor",
-    "English": "Delivery Driver",
-    "Português": "Entregador"
-  },
-
-  "rol_cliente": {
-    "Español": "Remitente / Destinatario",
-    "English": "Sender / Recipient",
-    "Português": "Remetente / Destinatário"
-  },
 
   "dni_invalido": {
     "Español": "No se ingresó un DNI válido",

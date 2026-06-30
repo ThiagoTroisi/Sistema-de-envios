@@ -14,7 +14,7 @@ namespace Servicios
             return BCrypt.Net.BCrypt.HashPassword(texto);
         }
 
-        public static bool VerificarContraseña(string texto, string hash)
+        public static bool Verificar(string texto, string hash)
         {
             return BCrypt.Net.BCrypt.Verify(texto, hash);
         }

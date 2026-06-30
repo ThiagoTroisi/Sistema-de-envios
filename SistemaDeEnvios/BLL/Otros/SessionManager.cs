@@ -14,27 +14,27 @@ namespace BLL.Gestores
 {
     public class SessionManager
     {
-        private UsuarioDAL dal = new UsuarioDAL();
+        private UsuarioBLL usuariobll = new UsuarioBLL();
         private IdiomaBLL idiomabll = new IdiomaBLL();
         private EventoBLL eventobll = new EventoBLL();
         public ResultadoOperacion IniciarSesion(string mail, string contra)
         {
             ResultadoOperacion rl = new ResultadoOperacion(false, "");
             if (SesionUsuario.GetInstancia().UsuarioActual != null) { rl.Mensaje = "sesion iniciada"; return rl; }
-            Usuario u = dal.ConsultaPorMail(mail);
+            Usuario u = usuariobll.ConsultaPorMail(mail);
             if (u == null) { rl.Mensaje = "email no encontrado"; return rl; }
             if (!u.Estado) { rl.Mensaje = "usuario inactivo"; return rl; }
             if (u.Bloqueado) { rl.Mensaje = "usuario bloqueado"; return rl; }
-            bool contraseñaok = Encriptador.VerificarContraseña(contra, u.Contraseña);
+            bool contraseñaok = Encriptador.Verificar(contra, u.Contraseña);
             if (!contraseñaok)
             {
-                dal.IncrementarIntentos(u.DNI);
+                usuariobll.IncrementarIntentos(u.DNI);
 
                 u.IntentosFallidos++;
 
                 if (u.IntentosFallidos >= 3)
                 {
-                    dal.BloquearUsuario(u.DNI);
+                    usuariobll.BloquearUsuario(u.DNI);
 
                     rl.Mensaje = "usuario bloqueado por intentos";
                     return rl;
@@ -48,12 +48,19 @@ namespace BLL.Gestores
             rl.Exitoso = true;
             rl.Mensaje = "login exitoso";
             rl.Usuario = u;
-            dal.ReiniciarIntentos(u.DNI);
+            usuariobll.ReiniciarIntentos(u.DNI);
             SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
             Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
             GestorIdiomas.Instancia.CambiarIdioma(idioma);
             eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
             return rl;
+        }
+        public void CerrarSesion()
+        {
+            Usuario usuario = SesionUsuario.GetInstancia().UsuarioActual;
+            usuariobll.ActualizarIdioma(usuario.DNI, GestorIdiomas.Instancia.IdiomaActual.Id);
+            eventobll.RegistrarEvento("mod_usuarios", "ev_logout", 1);
+            SesionUsuario.GetInstancia().Cerrar();
         }
     }
 }

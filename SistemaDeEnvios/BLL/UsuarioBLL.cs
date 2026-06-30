@@ -20,9 +20,21 @@ namespace BLL
         {
             return dal.ObtenerUsuarios(todos);
         }
-        public DataTable ObtenerRoles()
+        public Usuario ConsultaPorMail(string mail)
         {
-            return dal.ObtenerRoles();
+            return dal.ConsultaPorMail(mail);
+        }
+        public void IncrementarIntentos(int dni)
+        {
+            dal.IncrementarIntentos(dni);
+        }
+        public void BloquearUsuario(int dni)
+        {
+            dal.BloquearUsuario(dni);
+        }
+        public void ReiniciarIntentos(int dni)
+        {
+            dal.ReiniciarIntentos(dni);
         }
         public void ActualizarIdioma(int dni, int idIdioma)
         {
@@ -31,7 +43,7 @@ namespace BLL
         public ResultadoOperacion CambiarContraseña(int dni, string contraseñaactual, string contraseñanueva, string contraseñanueva2)
         {
             Usuario u = dal.ConsultaPorDNI(dni);
-            bool verificacion = Encriptador.VerificarContraseña(contraseñaactual, u.Contraseña);
+            bool verificacion = Encriptador.Verificar(contraseñaactual, u.Contraseña);
 
             if (!verificacion) return new ResultadoOperacion(false, "contraseña_actual_incorrecta");
 
@@ -47,7 +59,7 @@ namespace BLL
 
             return new ResultadoOperacion(true, "contraseña_actualizada");
         }
-        public ResultadoOperacion AltaUsuario(int dni, string nombre, string apellido, string email, int rol)
+        public ResultadoOperacion AltaUsuario(int dni, string nombre, string apellido, string email, int perfil)
         {
             try
             {
@@ -62,7 +74,7 @@ namespace BLL
                 string contraseñadefault = dni.ToString() + apellido;
                 string contraseña = Encriptador.Hash(contraseñadefault);
 
-                dal.AltaUsuario(new Usuario(dni, nombre, apellido, email, contraseña, rol, false, true, 0, 1));
+                dal.AltaUsuario(new Usuario(dni, nombre, apellido, email, contraseña, perfil, false, true, 0, 1));
                 eventobll.RegistrarEvento("mod_usuarios", "ev_alta_usuario", 2);
                 return new ResultadoOperacion(true, "alta_exitosa");
             }
@@ -76,7 +88,7 @@ namespace BLL
             return valido;
         }
 
-        public ResultadoOperacion ModificarUsuario(int dni, string nombre, string apellido, string email, int rol)
+        public ResultadoOperacion ModificarUsuario(int dni, string nombre, string apellido, string email, int perfil)
         {
             try
             {
@@ -94,7 +106,7 @@ namespace BLL
                 existente.Nombre = nombre;
                 existente.Apellido = apellido;
                 existente.Email = email;
-                existente.IdRol = rol;
+                existente.IdPerfil = perfil;
 
                 dal.ModificarUsuario(existente);
                 eventobll.RegistrarEvento("mod_usuarios", "ev_modificacion_usuario", 3);

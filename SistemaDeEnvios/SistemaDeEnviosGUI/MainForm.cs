@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace SistemaDeEnviosGUI.Formularios
 {
-    public partial class AdminForm : Form, IObserverIdioma
+    public partial class MainForm : Form, IObserverIdioma
     {
-        public AdminForm()
+        public MainForm()
         {
             InitializeComponent();
             GestorIdiomas.Instancia.Registrar(this);
@@ -46,6 +46,8 @@ namespace SistemaDeEnviosGUI.Formularios
 
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_usuarios"), Tag = "GestionUsuarios" });
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_bitacora"), Tag = "Bitacora" });
+            admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_perfiles"), Tag = "GestionPerfiles" });
+            
 
             treeView1.Nodes.Add(admin);
 
@@ -130,6 +132,7 @@ namespace SistemaDeEnviosGUI.Formularios
             this.BackColor = Color.Beige;
         }
 
+        // ACÁ HAY QUE PONER LO DE LOS PERFILES!
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Parent == null) return;
@@ -150,6 +153,10 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "Bitacora":
                     new BitacoraDeEventosForm().ShowDialog();
                     break;
+
+                case "GestionPerfiles":
+                    new PerfilesForm().ShowDialog();
+                    break;
             }
         }
 
@@ -165,7 +172,7 @@ namespace SistemaDeEnviosGUI.Formularios
 
         public void ActualizarIdioma()
         {
-            this.Text = Traducciones.Traducir("Admin");
+            this.Text = Traducciones.Traducir("MenuMain");
             btnCerrarSesion.Text = Traducciones.Traducir("CerrarSesion");
             btnRelogin.Text = Traducciones.Traducir("Relogin");
             ActualizarTreeView();

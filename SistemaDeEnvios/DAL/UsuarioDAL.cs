@@ -32,12 +32,12 @@ namespace DAL
                             string Apellido = r["apellido"].ToString();
                             string Email = r["email"].ToString();
                             string Contraseña = r["password"].ToString();
-                            int IdRol = (int)r["id_rol"];
+                            int idperfil = (int)r["id_perfil"];
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
                             int IntentosFallidos = (int)r["intentos_fallidos"];
                             int ididioma = (int)r["id_idioma"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos, ididioma);
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, idperfil, Bloqueado, Estado, IntentosFallidos, ididioma);
                         }
                     }
                 }
@@ -63,12 +63,12 @@ namespace DAL
                             string Apellido = r["apellido"].ToString();
                             string Email = r["email"].ToString();
                             string Contraseña = r["password"].ToString();
-                            int IdRol = (int)r["id_rol"];
+                            int idperfil = (int)r["id_perfil"];
                             bool Bloqueado = (bool)r["bloqueado"];
                             bool Estado = (bool)r["estado"];
                             int IntentosFallidos = (int)r["intentos_fallidos"];
                             int ididioma = (int)r["id_idioma"];
-                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, IdRol, Bloqueado, Estado, IntentosFallidos, ididioma);
+                            u = new Usuario(DNI, Nombre, Apellido, Email, Contraseña, idperfil, Bloqueado, Estado, IntentosFallidos, ididioma);
                         }
                     }
                 }
@@ -78,7 +78,7 @@ namespace DAL
 
         public DataTable ObtenerUsuarios(bool todos)
         {
-            string query = "select dni, nombre, apellido, email, u.id_rol, r.descripcion as rol, estado, bloqueado from Usuario u join Rol r on u.id_rol = r.id_rol";
+            string query = "select dni, u.nombre, apellido, email, u.id_perfil, p.nombre as perfil, estado, bloqueado from Usuario u join Perfil p on u.id_perfil = p.id_perfil";
             if (!todos) query += " where estado = 1";
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
@@ -88,19 +88,6 @@ namespace DAL
                 return dt;
             }
         }
-
-        public DataTable ObtenerRoles()
-        {
-            string query = "select * from Rol where descripcion in ('Recepcionista', 'Gestor', 'Repartidor')";
-            using (SqlConnection cx = Conexion.ObtenerConexion())
-            {
-                SqlDataAdapter da = new SqlDataAdapter(query, cx);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
-        }
-
         public void CambiarContraseña(int dni, string contraseñanueva)
         {
             string query = "update Usuario set password = @pass where dni = @dni";
@@ -118,7 +105,7 @@ namespace DAL
         }
         public void AltaUsuario(Usuario u)
         {
-            string query = "insert into Usuario (dni, nombre, apellido, email, password, id_rol) values (@dni, @nombre, @apellido, @email, @password, @id_rol)";
+            string query = "insert into Usuario (dni, nombre, apellido, email, password, id_perfil) values (@dni, @nombre, @apellido, @email, @password, @id_perfil)";
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
                 using (SqlCommand cmd = new SqlCommand(query, cx))
@@ -128,7 +115,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@apellido", u.Apellido);
                     cmd.Parameters.AddWithValue("@email", u.Email);
                     cmd.Parameters.AddWithValue("@password", u.Contraseña);
-                    cmd.Parameters.AddWithValue("@id_rol", u.IdRol);
+                    cmd.Parameters.AddWithValue("@id_perfil", u.IdPerfil);
 
                     cx.Open();
 
@@ -138,7 +125,7 @@ namespace DAL
         }
         public void ModificarUsuario(Usuario u)
         {
-            string query = "update Usuario set nombre = @nombre, apellido = @apellido, email = @email, id_rol = @id_rol where dni = @dni";
+            string query = "update Usuario set nombre = @nombre, apellido = @apellido, email = @email, id_perfil = @id_perfil where dni = @dni";
 
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
@@ -148,7 +135,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@nombre", u.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", u.Apellido);
                     cmd.Parameters.AddWithValue("@email", u.Email);
-                    cmd.Parameters.AddWithValue("@id_rol", u.IdRol);
+                    cmd.Parameters.AddWithValue("@id_perfil", u.IdPerfil);
 
                     cx.Open();
                     cmd.ExecuteNonQuery();

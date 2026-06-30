@@ -38,11 +38,11 @@
             txtApellido = new TextBox();
             lblEmail = new Label();
             txtEmail = new TextBox();
-            lblRol = new Label();
+            lblPerfil = new Label();
             btnActivar = new Button();
             btnDesactivar = new Button();
             btnModificar = new Button();
-            comboBoxRol = new ComboBox();
+            comboBoxPerfil = new ComboBox();
             btnSalir = new Button();
             btnDesbloquear = new Button();
             radioButtonTodos = new RadioButton();
@@ -143,14 +143,14 @@
             txtEmail.Size = new Size(158, 23);
             txtEmail.TabIndex = 9;
             // 
-            // lblRol
+            // lblPerfil
             // 
-            lblRol.AutoSize = true;
-            lblRol.Location = new Point(12, 458);
-            lblRol.Name = "lblRol";
-            lblRol.Size = new Size(27, 15);
-            lblRol.TabIndex = 11;
-            lblRol.Text = "Rol:";
+            lblPerfil.AutoSize = true;
+            lblPerfil.Location = new Point(12, 458);
+            lblPerfil.Name = "lblPerfil";
+            lblPerfil.Size = new Size(37, 15);
+            lblPerfil.TabIndex = 11;
+            lblPerfil.Text = "Perfil:";
             // 
             // btnActivar
             // 
@@ -182,15 +182,15 @@
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
-            // comboBoxRol
+            // comboBoxPerfil
             // 
-            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxRol.FormattingEnabled = true;
-            comboBoxRol.Items.AddRange(new object[] { "Recepcionista", "Gestor", "Repartidor" });
-            comboBoxRol.Location = new Point(82, 455);
-            comboBoxRol.Name = "comboBoxRol";
-            comboBoxRol.Size = new Size(158, 23);
-            comboBoxRol.TabIndex = 18;
+            comboBoxPerfil.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPerfil.FormattingEnabled = true;
+            comboBoxPerfil.Items.AddRange(new object[] { "Recepcionista", "Gestor", "Repartidor" });
+            comboBoxPerfil.Location = new Point(82, 455);
+            comboBoxPerfil.Name = "comboBoxPerfil";
+            comboBoxPerfil.Size = new Size(158, 23);
+            comboBoxPerfil.TabIndex = 18;
             // 
             // btnSalir
             // 
@@ -318,11 +318,11 @@
             Controls.Add(radioButtonTodos);
             Controls.Add(btnDesbloquear);
             Controls.Add(btnSalir);
-            Controls.Add(comboBoxRol);
+            Controls.Add(comboBoxPerfil);
             Controls.Add(btnModificar);
             Controls.Add(btnDesactivar);
             Controls.Add(btnActivar);
-            Controls.Add(lblRol);
+            Controls.Add(lblPerfil);
             Controls.Add(lblEmail);
             Controls.Add(txtEmail);
             Controls.Add(lblApellido);
@@ -353,11 +353,11 @@
         private TextBox txtApellido;
         private Label lblEmail;
         private TextBox txtEmail;
-        private Label lblRol;
+        private Label lblPerfil;
         private Button btnActivar;
         private Button btnDesactivar;
         private Button btnModificar;
-        private ComboBox comboBoxRol;
+        private ComboBox comboBoxPerfil;
         private Button btnSalir;
         private Button btnDesbloquear;
         private RadioButton radioButtonTodos;

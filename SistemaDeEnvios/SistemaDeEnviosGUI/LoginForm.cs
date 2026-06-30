@@ -67,33 +67,8 @@ namespace SistemaDeEnviosGUI.Formularios
                 comboBoxIdioma.SelectedValue = GestorIdiomas.Instancia.IdiomaActual.Id;
                 MessageBox.Show(Traducciones.Traducir(rl.Mensaje));
                 this.Hide();
-                int rol = rl.Usuario.IdRol;
-                switch (rol)
-                {
-                    case 1: // Admin
-                        new AdminForm().ShowDialog();
-                        break;
-
-                    case 2: // Recepcionista
-
-                        break;
-
-                    case 3: // Gestor
-
-                        break;
-
-                    case 4: // Repartidor
-
-                        break;
-
-                    case 5: // Remitente / Destinatario
-
-                        break;
-                }
-                Usuario usuario = SesionUsuario.GetInstancia().UsuarioActual;
-                usuariobll.ActualizarIdioma(usuario.DNI, GestorIdiomas.Instancia.IdiomaActual.Id);
-                eventobll.RegistrarEvento("mod_usuarios", "ev_logout", 1);
-                SesionUsuario.GetInstancia().Cerrar();
+                new MainForm().ShowDialog();
+                gestor.CerrarSesion();
                 this.Show();
             }
         }
