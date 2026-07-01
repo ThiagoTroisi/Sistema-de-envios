@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\bll\\dvbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F30930B-E760-46B7-9DE8-C8209042F12F}|BLL\\BLL.csproj|solutionrelative:bll\\dvbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\dal\\familiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|solutionrelative:dal\\familiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,11 +35,11 @@
       "RelativeMoniker": "D:0:0:{DC5F5DB0-59CB-4D5A-A034-AEE61C23BAEC}|DAL\\DAL.csproj|solutionrelative:dal\\permisodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|c:\\users\\trois\\onedrive\\documentos\\github\\sistema-de-envios\\sistemadeenvios\\sistemadeenviosgui\\perfilesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\sistemadeenviosgui\\perfilesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35C00C6A-3144-46FE-8FDE-D0AFA006B1CD}|SistemaDeEnviosGUI\\SistemaDeEnviosGUI.csproj|solutionrelative:sistemadeenviosgui\\perfilesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -174,11 +178,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "DVBLL.cs",
+              "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\DVBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DVBLL.cs",
+              "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\DVBLL.cs",
+              "RelativeToolTip": "BLL\\DVBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T21:47:45.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Familia.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Perfiles\\Familia.cs",
               "RelativeDocumentMoniker": "Servicios\\Perfiles\\Familia.cs",
@@ -186,12 +203,11 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Familia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T18:29:48.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T18:29:48.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FamiliaBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\FamiliaBLL.cs",
               "RelativeDocumentMoniker": "BLL\\FamiliaBLL.cs",
@@ -199,12 +215,11 @@
               "RelativeToolTip": "BLL\\FamiliaBLL.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:30:15.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:30:15.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FamiliaDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\FamiliaDAL.cs",
               "RelativeDocumentMoniker": "DAL\\FamiliaDAL.cs",
@@ -217,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PermisoBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\PermisoBLL.cs",
               "RelativeDocumentMoniker": "BLL\\PermisoBLL.cs",
@@ -225,12 +240,11 @@
               "RelativeToolTip": "BLL\\PermisoBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:29:06.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:29:06.91Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PermisoDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\PermisoDAL.cs",
               "RelativeDocumentMoniker": "DAL\\PermisoDAL.cs",
@@ -238,12 +252,11 @@
               "RelativeToolTip": "DAL\\PermisoDAL.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAswC0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:27:11.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:27:11.869Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PerfilesForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\PerfilesForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\PerfilesForm.cs",
@@ -256,19 +269,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PerfilesForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\PerfilesForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\PerfilesForm.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\PerfilesForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "SistemaDeEnviosGUI\\PerfilesForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T16:34:07.066Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-06-30T16:34:07.066Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PerfilDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\PerfilDAL.cs",
               "RelativeDocumentMoniker": "DAL\\PerfilDAL.cs",
@@ -276,12 +288,11 @@
               "RelativeToolTip": "DAL\\PerfilDAL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:28:28.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:28:28.451Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PerfilBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\PerfilBLL.cs",
               "RelativeDocumentMoniker": "BLL\\PerfilBLL.cs",
@@ -289,12 +300,11 @@
               "RelativeToolTip": "BLL\\PerfilBLL.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAIwBUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:28:17.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:28:17.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "GestionUsuariosForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\GestionUsuariosForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\GestionUsuariosForm.cs",
@@ -302,12 +312,11 @@
               "RelativeToolTip": "SistemaDeEnviosGUI\\GestionUsuariosForm.cs",
               "ViewState": "AgIAAHwAAAAAAAAAAAAAAI8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T02:55:07.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-29T02:55:07.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "BitacoraDeEventosForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\BitacoraDeEventosForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\BitacoraDeEventosForm.cs",
@@ -315,12 +324,11 @@
               "RelativeToolTip": "SistemaDeEnviosGUI\\BitacoraDeEventosForm.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAcwCMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T01:20:26.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-29T01:20:26.226Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "traducciones.json",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\traducciones.json",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\traducciones.json",
@@ -328,12 +336,11 @@
               "RelativeToolTip": "SistemaDeEnviosGUI\\traducciones.json",
               "ViewState": "AgIAAJoBAAAAAAAAAAAMwLEBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-20T17:03:08.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-20T17:03:08.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\MainForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\MainForm.cs",
@@ -346,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Perfil.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Perfiles\\Perfil.cs",
               "RelativeDocumentMoniker": "Servicios\\Perfiles\\Perfil.cs",
@@ -354,12 +361,11 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Perfil.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:31:17.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:31:17.831Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "UsuarioDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\UsuarioDAL.cs",
               "RelativeDocumentMoniker": "DAL\\UsuarioDAL.cs",
@@ -367,12 +373,11 @@
               "RelativeToolTip": "DAL\\UsuarioDAL.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAqwD8AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T15:03:36.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T15:03:36.791Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "UsuarioBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\UsuarioBLL.cs",
               "RelativeDocumentMoniker": "BLL\\UsuarioBLL.cs",
@@ -380,24 +385,22 @@
               "RelativeToolTip": "BLL\\UsuarioBLL.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAowH8AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T00:08:54.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T00:08:54.182Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MainForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\MainForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\MainForm.cs",
               "ToolTip": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\MainForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "SistemaDeEnviosGUI\\MainForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:10:13.21Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-06-30T13:10:13.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Permiso.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Perfiles\\Permiso.cs",
               "RelativeDocumentMoniker": "Servicios\\Perfiles\\Permiso.cs",
@@ -405,12 +408,11 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Permiso.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:09:51.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:09:51.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\LoginForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\LoginForm.cs",
@@ -422,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "SessionManager.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Otros\\SessionManager.cs",
               "RelativeDocumentMoniker": "BLL\\Otros\\SessionManager.cs",
@@ -434,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "LoginForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\LoginForm.cs",
@@ -445,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IdiomaBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\IdiomaBLL.cs",
               "RelativeDocumentMoniker": "BLL\\IdiomaBLL.cs",
@@ -457,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Usuario.cs",
               "RelativeDocumentMoniker": "Servicios\\Usuario.cs",
@@ -465,12 +467,11 @@
               "RelativeToolTip": "Servicios\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAACrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T18:56:11.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T18:56:11.784Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "IdiomaDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\IdiomaDAL.cs",
               "RelativeDocumentMoniker": "DAL\\IdiomaDAL.cs",
@@ -482,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Traducciones.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\GestionIdiomas\\Traducciones.cs",
               "RelativeDocumentMoniker": "Servicios\\GestionIdiomas\\Traducciones.cs",
@@ -494,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "CambiarIdiomaForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\CambiarIdiomaForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\CambiarIdiomaForm.cs",
@@ -506,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "IObserverIdioma.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\GestionIdiomas\\IObserverIdioma.cs",
               "RelativeDocumentMoniker": "Servicios\\GestionIdiomas\\IObserverIdioma.cs",
@@ -518,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Idioma.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\GestionIdiomas\\Idioma.cs",
               "RelativeDocumentMoniker": "Servicios\\GestionIdiomas\\Idioma.cs",
@@ -530,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "CambiarIdiomaForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\CambiarIdiomaForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\CambiarIdiomaForm.cs",
@@ -541,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "GestorIdiomas.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\GestionIdiomas\\GestorIdiomas.cs",
               "RelativeDocumentMoniker": "Servicios\\GestionIdiomas\\GestorIdiomas.cs",
@@ -553,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "GeneradorPDF.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\GeneradorPDF.cs",
               "RelativeDocumentMoniker": "Servicios\\GeneradorPDF.cs",
@@ -565,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Encriptador.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\Encriptador.cs",
               "RelativeDocumentMoniker": "Servicios\\Encriptador.cs",
@@ -577,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "CambioContrase\u00F1aForm.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\CambioContrase\u00F1aForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\CambioContrase\u00F1aForm.cs",
@@ -589,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "CambioContrase\u00F1aForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\CambioContrase\u00F1aForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\CambioContrase\u00F1aForm.cs",
@@ -600,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "GestionUsuariosForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\GestionUsuariosForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\GestionUsuariosForm.cs",
@@ -611,7 +612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "BitacoraDeEventosForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\SistemaDeEnviosGUI\\Formularios\\Administrador\\BitacoraDeEventosForm.cs",
               "RelativeDocumentMoniker": "SistemaDeEnviosGUI\\Formularios\\Administrador\\BitacoraDeEventosForm.cs",
@@ -622,7 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "EventoBLL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\EventoBLL.cs",
               "RelativeDocumentMoniker": "BLL\\EventoBLL.cs",
@@ -634,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "EventoDAL.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\EventoDAL.cs",
               "RelativeDocumentMoniker": "DAL\\EventoDAL.cs",
@@ -646,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "SesionUsuario.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\Servicios\\SesionUsuario.cs",
               "RelativeDocumentMoniker": "Servicios\\SesionUsuario.cs",
@@ -658,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\DAL\\Conexion.cs",
               "RelativeDocumentMoniker": "DAL\\Conexion.cs",
@@ -670,7 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "ResultadoOperacion.cs",
               "DocumentMoniker": "C:\\Users\\trois\\OneDrive\\Documentos\\GitHub\\Sistema-de-envios\\SistemaDeEnvios\\BLL\\Otros\\ResultadoOperacion.cs",
               "RelativeDocumentMoniker": "BLL\\Otros\\ResultadoOperacion.cs",
