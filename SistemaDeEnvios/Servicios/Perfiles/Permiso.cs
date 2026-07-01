@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Servicios.Perfiles
 {
-    public class Permiso
+    public class Permiso : Componente
     {
-        public int IdPermiso { get; set; }
+        public int IdPermiso
+        {
+            get => Id;
+            set => Id = value;
+        }
         public string Nombre { get; set; }
         public override string ToString()
         {

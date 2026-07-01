@@ -12,6 +12,7 @@ namespace BLL
     public class FamiliaBLL
     {
         private FamiliaDAL dal = new FamiliaDAL();
+        private PermisoBLL permisoBLL = new PermisoBLL();
 
         public DataTable ObtenerFamilias()
         {
@@ -34,11 +35,18 @@ namespace BLL
         {
             return dal.ObtenerSubfamilias(idFamilia);
         }
-        public void CrearFamilia(string nombre)
+        public void CrearFamilia(string nombre, List<int> permisos)
         {
             if (string.IsNullOrWhiteSpace(nombre)) throw new Exception("Debe ingresar un nombre");
             if (ObtenerPorNombre(nombre) != null) throw new Exception("Ya existe una familia con el nombre ingresado");
+            if (permisos.Count == 0) throw new Exception("La familia debe tener al menos un permiso");
             dal.CrearFamilia(nombre);
+
+            Familia familia = ObtenerPorNombre(nombre);
+            foreach (int idPermiso in permisos)
+            {
+                dal.AgregarPermiso(familia.IdFamilia, idPermiso);
+            }
         }
 
         public void EliminarFamilia(int id)
@@ -48,6 +56,7 @@ namespace BLL
         }
         public void ActualizarFamilia(Familia familia, List<int> permisos, List<int> subfamilias)
         {
+            if (permisos.Count == 0) throw new Exception("La familia debe tener al menos un permiso");
             if (string.IsNullOrWhiteSpace(familia.Nombre)) throw new Exception("Debe ingresar un nombre");
             
             Familia existente = ObtenerPorNombre(familia.Nombre);
@@ -68,6 +77,32 @@ namespace BLL
             {
                 dal.AgregarSubfamilia(familia.IdFamilia, idFamilia);
             }
+        }
+
+        public Familia ObtenerComposite(int idFamilia)
+        {
+            Familia familia = ObtenerPorId(idFamilia);
+
+            if (familia == null)
+                return null;
+
+            // Agrego permisos
+            foreach (int idPermiso in ObtenerPermisosFamilia(idFamilia))
+            {
+                Permiso permiso = permisoBLL.ObtenerPorId(idPermiso);
+
+                if (permiso != null) familia.Agregar(permiso);
+            }
+
+            // Agrego subfamilias
+            foreach (int idSubfamilia in ObtenerSubfamilias(idFamilia))
+            {
+                Familia sub = ObtenerComposite(idSubfamilia);
+
+                if (sub != null) familia.Agregar(sub);
+            }
+
+            return familia;
         }
     }
 }

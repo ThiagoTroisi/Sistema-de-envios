@@ -15,5 +15,10 @@ namespace Servicios.Perfiles
         {
             return Nombre;
         }
+        public List<Componente> Componentes { get; } = new();
+        public void Agregar(Componente componente)
+        {
+            Componentes.Add(componente);
+        }
     }
 }

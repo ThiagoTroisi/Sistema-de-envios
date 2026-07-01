@@ -17,6 +17,7 @@ namespace SistemaDeEnviosGUI.Formularios
 {
     public partial class MainForm : Form, IObserverIdioma
     {
+        PerfilBLL perfilBLL = new PerfilBLL();
         public MainForm()
         {
             InitializeComponent();
@@ -126,7 +127,76 @@ namespace SistemaDeEnviosGUI.Formularios
             treeView1.Nodes.Add(rep);
 
             treeView1.EndUpdate();
+
+            AplicarPermisos();
         }
+        private void AplicarPermisos()
+        {
+            Usuario usuario = SesionUsuario.GetInstancia().UsuarioActual;
+
+            HashSet<string> permisos = perfilBLL.ObtenerPermisosEfectivos(usuario.IdPerfil);
+
+            FiltrarNodos(treeView1.Nodes, permisos);
+        }
+        private void FiltrarNodos(TreeNodeCollection nodos, HashSet<string> permisos)
+        {
+            for (int i = nodos.Count - 1; i >= 0; i--)
+            {
+                TreeNode nodo = nodos[i];
+
+                if (nodo.Nodes.Count > 0)
+                {
+                    FiltrarNodos(nodo.Nodes, permisos);
+
+                    if (nodo.Nodes.Count == 0)
+                    {
+                        nodos.RemoveAt(i);
+                    }
+                }
+                else
+                {
+                    string permiso = ObtenerNombrePermiso(nodo.Tag?.ToString());
+
+                    if (permiso != null && !permisos.Contains(permiso))
+                    {
+                        nodos.RemoveAt(i);
+                    }
+                }
+            }
+        }
+        private string ObtenerNombrePermiso(string tag)
+        {
+            switch (tag)
+            {
+                case "CambiarPassword": return "Cambiar contraseña";
+                case "CambiarIdioma": return "Cambiar idioma";
+                case "GestionUsuarios": return "Gestión de usuarios";
+                case "Bitacora": return "Bitácora de eventos";
+                case "GestionPerfiles": return "Gestión de perfiles";
+                case "SolicitarEnvio": return "Solicitar envío";
+                case "RegistrarEnvio": return "Registrar envío";
+                case "ConsultarEstado": return "Consultar estado";
+                case "ModificarDestino": return "Modificar destino";
+                case "CancelarEnvio": return "Cancelar envío";
+                case "RegistrarPago": return "Registrar pago";
+                case "ConsultarComprobantes": return "Consultar comprobantes";
+                case "GenerarRutas": return "Generar rutas";
+                case "AsignarRutas": return "Asignar rutas";
+                case "ConsultarRutas": return "Consultar rutas";
+                case "RegistrarEntrega": return "Registrar entrega";
+                case "SolicitarDevolucion": return "Solicitar devolución";
+                case "CalificarRepartidor": return "Calificar repartidor";
+                case "ReportarInconveniente": return "Reportar inconveniente";
+                case "ReporteEnvios": return "Reporte de envíos";
+                case "ReporteEntregas": return "Reporte de entregas";
+                case "ReporteInconvenientes": return "Reporte de inconvenientes";
+                case "ReporteRepartidores": return "Reporte de repartidores";
+                case "ReportePagos": return "Reporte de pagos";
+                case "ReporteAnaliticas": return "Reporte de analíticas operativas";
+                default: return null;
+            }
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.Beige;

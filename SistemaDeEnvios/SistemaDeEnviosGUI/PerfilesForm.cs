@@ -163,13 +163,14 @@ namespace SistemaDeEnviosGUI
         {
             try
             {
+                List<int> permisos = ObtenerPermisosSeleccionados();
                 if (radioButtonPerfiles.Checked)
                 {
-                    perfilBLL.CrearPerfil(textBoxNombre.Text);
+                    perfilBLL.CrearPerfil(textBoxNombre.Text, permisos);
                 }
                 else
                 {
-                    familiaBLL.CrearFamilia(textBoxNombre.Text);
+                    familiaBLL.CrearFamilia(textBoxNombre.Text, permisos);
                 }
                 textBoxNombre.Clear();
                 CargarModo();
@@ -268,6 +269,75 @@ namespace SistemaDeEnviosGUI
 
             return familias;
         }
+
+        // COMPOSITE PARA CARGAR TREEVIEW
+
+        private void CargarTreePerfil(int idPerfil)
+        {
+            treeViewOrganizacion.Nodes.Clear();
+
+            Perfil perfil = perfilBLL.ObtenerComposite(idPerfil);
+
+            TreeNode raiz = new TreeNode(perfil.Nombre);
+            raiz.Tag = perfil;
+
+            treeViewOrganizacion.Nodes.Add(raiz);
+
+            foreach (Componente componente in perfil.Componentes)
+            {
+                AgregarNodo(raiz, componente);
+            }
+
+            raiz.ExpandAll();
+        }
+
+        private void CargarTreeFamilia(int idFamilia)
+        {
+            treeViewOrganizacion.Nodes.Clear();
+
+            Familia familia = familiaBLL.ObtenerComposite(idFamilia);
+
+            TreeNode raiz = new TreeNode(familia.Nombre);
+            raiz.Tag = familia;
+
+            treeViewOrganizacion.Nodes.Add(raiz);
+
+            foreach (Componente componente in familia.ObtenerHijos())
+            {
+                AgregarNodo(raiz, componente);
+            }
+
+            raiz.ExpandAll();
+        }
+
+        private void AgregarNodo(TreeNode padre, Componente componente)
+        {
+            TreeNode nodo = new TreeNode(componente.Nombre);
+            nodo.Tag = componente;
+
+            if (componente is Permiso)
+            {
+                nodo.ForeColor = Color.Blue;
+            }
+            else if (componente is Familia familia)
+            {
+                nodo.ForeColor = Color.DarkOrange;
+
+                foreach (Componente hijo in familia.ObtenerHijos())
+                {
+                    AgregarNodo(nodo, hijo);
+                }
+            }
+
+            padre.Nodes.Add(nodo);
+        }
+
+
+
+
+
+
+        /*
         private void CargarTreePerfil(int idPerfil)
         {
             treeViewOrganizacion.Nodes.Clear();
@@ -370,5 +440,6 @@ namespace SistemaDeEnviosGUI
 
             nodoFamilia.Expand();
         }
+        */
     }
 }
