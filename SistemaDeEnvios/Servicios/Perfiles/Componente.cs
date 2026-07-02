@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 namespace Servicios.Perfiles
 {
     public abstract class Componente
-{
-    public int Id { get; set; }
-
-    public string Nombre { get; set; }
-
-    public virtual void Agregar(Componente componente)
     {
-        throw new NotSupportedException();
-    }
+        public int Id { get; set; }
 
-    public virtual void Quitar(Componente componente)
-    {
-        throw new NotSupportedException();
-    }
+        public string Nombre { get; set; }
 
-    public virtual IList<Componente> ObtenerHijos()
-    {
-        return new List<Componente>();
+        public virtual void Agregar(Componente componente)
+        {
+            throw new NotSupportedException();
+        }
+
+        public virtual void Quitar(Componente componente)
+        {
+            throw new NotSupportedException();
+        }
+
+        public virtual IList<Componente> ObtenerHijos()
+        {
+            return new List<Componente>();
+        }
     }
-}
 }

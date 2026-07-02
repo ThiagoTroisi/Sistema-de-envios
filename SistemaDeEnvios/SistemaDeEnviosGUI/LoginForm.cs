@@ -3,6 +3,7 @@ using BLL;
 using BLL.Gestores;
 using BLL.Otros;
 using DAL;
+using Servicios;
 using Servicios.GestionIdiomas;
 using Servicios.Sesión;
 using System;
@@ -23,22 +24,22 @@ namespace SistemaDeEnviosGUI.Formularios
         {
             InitializeComponent();
             modoRelogin = relogin;
+            btnRegistrarse.Enabled = false;
             if (modoRelogin)
             {
                 comboBoxIdioma.Enabled = false;
-                btnRegistrarse.Enabled = false;
                 btnAplicar.Enabled = false;
             }
             GestorIdiomas.Instancia.Registrar(this);
             ActualizarIdioma();
         }
-        private bool modoRelogin;
-        private SessionManager gestor = new SessionManager();
-        private EventoBLL eventobll = new EventoBLL();
-        UsuarioBLL usuariobll = new UsuarioBLL();
-        private IdiomaBLL idiomabll = new IdiomaBLL();
-        private string ultimoCodigoError;
-        private object[] ultimosParametros;
+        bool modoRelogin;
+        SessionManager sessionmanager = new SessionManager();
+        IdiomaBLL idiomabll = new IdiomaBLL();
+        EventoBLL eventobll = new EventoBLL();
+        string ultimoCodigoError;
+        object[] ultimosParametros;
+        DVBLL dvbll = new DVBLL();
         private void CargarIdiomas()
         {
             comboBoxIdioma.DataSource = idiomabll.ObtenerIdiomas();
@@ -50,7 +51,7 @@ namespace SistemaDeEnviosGUI.Formularios
             string mail = txtEmail.Text;
             string contra = txtContraseña.Text;
 
-            ResultadoOperacion rl = gestor.IniciarSesion(mail, contra);
+            ResultadoOperacion rl = sessionmanager.IniciarSesion(mail, contra);
 
             if (!rl.Exitoso)
             {
@@ -65,12 +66,44 @@ namespace SistemaDeEnviosGUI.Formularios
                 ultimoCodigoError = "";
                 ultimosParametros = null;
                 comboBoxIdioma.SelectedValue = GestorIdiomas.Instancia.IdiomaActual.Id;
+
+                List<ErrorTabla> errores = dvbll.VerificarIntegridadSistema();
+
+                if (errores.Count > 0)
+                {
+                    GestionarErrorIntegridad(errores);
+                    return;
+                }
+
                 MessageBox.Show(Traducciones.Traducir(rl.Mensaje));
+                sessionmanager.ContinuarLogin(mail);
                 this.Hide();
                 new MainForm().ShowDialog();
-                gestor.CerrarSesion();
-                this.Show();
+                sessionmanager.CerrarSesion();
+                try
+                {
+                    this.Show();
+                }
+                catch (Exception) { }
             }
+        }
+        private void GestionarErrorIntegridad(List<ErrorTabla> errores)
+        {
+            MessageBox.Show(Traducciones.Traducir("integridad afectada"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (SesionUsuario.GetInstancia().UsuarioActual.IdPerfil != 1)
+            {
+                MessageBox.Show(Traducciones.Traducir("contacte administrador integridad"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.Hide();
+                new ErrorIntegridadForm(errores).ShowDialog();
+                if (dvbll.VerificarIntegridadSistema().Count() != 0)
+                {
+                    MessageBox.Show(Traducciones.Traducir("integridad no solucionada"));
+                }
+            }
+            Application.Restart();
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -80,8 +113,6 @@ namespace SistemaDeEnviosGUI.Formularios
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            txtEmail.Text = "admin@sistema.com";
-            txtContraseña.Text = "admin123";
             CargarIdiomas();
             Idioma actual = GestorIdiomas.Instancia.IdiomaActual;
             if (actual != null) comboBoxIdioma.SelectedValue = actual.Id;

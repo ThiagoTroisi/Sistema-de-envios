@@ -13,7 +13,6 @@ namespace Servicios.Perfiles
             get => Id;
             set => Id = value;
         }
-        public string Nombre { get; set; }
         public override string ToString()
         {
             return Nombre;

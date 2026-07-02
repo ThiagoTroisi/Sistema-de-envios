@@ -48,7 +48,8 @@ namespace SistemaDeEnviosGUI.Formularios
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_usuarios"), Tag = "GestionUsuarios" });
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_bitacora"), Tag = "Bitacora" });
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_perfiles"), Tag = "GestionPerfiles" });
-            
+            admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_backup"), Tag = "GestionBackup" });
+
 
             treeView1.Nodes.Add(admin);
 
@@ -173,6 +174,7 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "GestionUsuarios": return "Gestión de usuarios";
                 case "Bitacora": return "Bitácora de eventos";
                 case "GestionPerfiles": return "Gestión de perfiles";
+                case "GestionBackup": return "Gestión de backup";
                 case "SolicitarEnvio": return "Solicitar envío";
                 case "RegistrarEnvio": return "Registrar envío";
                 case "ConsultarEstado": return "Consultar estado";
@@ -202,7 +204,6 @@ namespace SistemaDeEnviosGUI.Formularios
             this.BackColor = Color.Beige;
         }
 
-        // ACÁ HAY QUE PONER LO DE LOS PERFILES!
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Parent == null) return;
@@ -226,6 +227,11 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "GestionPerfiles":
                     new PerfilesForm().ShowDialog();
+                    ActualizarTreeView();
+                    break;
+
+                case "GestionBackup":
+                    new BackupForm().ShowDialog();
                     break;
             }
         }

@@ -9,7 +9,7 @@ namespace DAL
 {
     public class Conexion
     {
-        private static string cx = "Server=.;Database=SistemaDeEnvios1;Trusted_Connection=true;TrustServerCertificate=true;";
+        private static string cx = "Server=.;Database=SistemaDeEnvios;Trusted_Connection=true;TrustServerCertificate=true;";
         public static SqlConnection ObtenerConexion() => new SqlConnection(cx);
     }
 }

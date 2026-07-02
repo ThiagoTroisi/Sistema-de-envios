@@ -48,12 +48,17 @@ namespace BLL.Gestores
             rl.Exitoso = true;
             rl.Mensaje = "login exitoso";
             rl.Usuario = u;
-            usuariobll.ReiniciarIntentos(u.DNI);
+            
             SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
             Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
             GestorIdiomas.Instancia.CambiarIdioma(idioma);
-            eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
             return rl;
+        }
+        public void ContinuarLogin(string mail)
+        {
+            Usuario u = usuariobll.ConsultaPorMail(mail);
+            usuariobll.ReiniciarIntentos(u.DNI);
+            eventobll.RegistrarEvento("mod_usuarios", "ev_login", 1);
         }
         public void CerrarSesion()
         {

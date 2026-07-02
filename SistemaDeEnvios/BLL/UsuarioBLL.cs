@@ -16,6 +16,7 @@ namespace BLL
     {
         private UsuarioDAL dal = new UsuarioDAL();
         private EventoBLL eventobll = new EventoBLL();
+        DVBLL dvBLL = new DVBLL();
         public DataTable ObtenerUsuarios(bool todos)
         {
             return dal.ObtenerUsuarios(todos);
@@ -27,18 +28,26 @@ namespace BLL
         public void IncrementarIntentos(int dni)
         {
             dal.IncrementarIntentos(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
         }
         public void BloquearUsuario(int dni)
         {
             dal.BloquearUsuario(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
         }
         public void ReiniciarIntentos(int dni)
         {
             dal.ReiniciarIntentos(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
         }
         public void ActualizarIdioma(int dni, int idIdioma)
         {
             dal.ActualizarIdioma(dni, idIdioma);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
         }
         public ResultadoOperacion CambiarContraseña(int dni, string contraseñaactual, string contraseñanueva, string contraseñanueva2)
         {
@@ -56,6 +65,8 @@ namespace BLL
             string hash = Encriptador.Hash(contraseñanueva);
 
             dal.CambiarContraseña(dni, hash);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
 
             return new ResultadoOperacion(true, "contraseña_actualizada");
         }
@@ -75,6 +86,8 @@ namespace BLL
                 string contraseña = Encriptador.Hash(contraseñadefault);
 
                 dal.AltaUsuario(new Usuario(dni, nombre, apellido, email, contraseña, perfil, false, true, 0, 1));
+                dvBLL.ActualizarDVH("Usuario", "dni", dni);
+                dvBLL.ActualizarDVV("Usuario");
                 eventobll.RegistrarEvento("mod_usuarios", "ev_alta_usuario", 2);
                 return new ResultadoOperacion(true, "alta_exitosa");
             }
@@ -109,6 +122,8 @@ namespace BLL
                 existente.IdPerfil = perfil;
 
                 dal.ModificarUsuario(existente);
+                dvBLL.ActualizarDVH("Usuario", "dni", dni);
+                dvBLL.ActualizarDVV("Usuario");
                 eventobll.RegistrarEvento("mod_usuarios", "ev_modificacion_usuario", 3);
                 return new ResultadoOperacion(true, "usuario_modificado");
             }
@@ -119,6 +134,8 @@ namespace BLL
             Usuario u = dal.ConsultaPorDNI(dni);
             if (u.Estado == true) return new ResultadoOperacion(false, "usuario_ya_activado");
             dal.ActivarUsuario(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
             eventobll.RegistrarEvento("mod_usuarios", "ev_activacion_usuario", 2);
             return new ResultadoOperacion(true, "usuario_activado");
         }
@@ -127,6 +144,8 @@ namespace BLL
             Usuario u = dal.ConsultaPorDNI(dni);
             if (u.Estado == false) return new ResultadoOperacion(false, "usuario_ya_desactivado");
             dal.DesactivarUsuario(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
             eventobll.RegistrarEvento("mod_usuarios", "ev_desactivacion_usuario", 2);
             return new ResultadoOperacion(true, "usuario_desactivado");
         }
@@ -137,6 +156,8 @@ namespace BLL
             if (!u.Bloqueado) return new ResultadoOperacion(false, "usuario_no_bloqueado");
 
             dal.DesbloquearUsuario(dni);
+            dvBLL.ActualizarDVH("Usuario", "dni", dni);
+            dvBLL.ActualizarDVV("Usuario");
             eventobll.RegistrarEvento("mod_usuarios", "ev_desbloqueo_usuario", 2);
             return new ResultadoOperacion(true, "usuario_desbloqueado");
         }

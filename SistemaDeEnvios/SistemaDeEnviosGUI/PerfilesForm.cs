@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Servicios.GestionIdiomas;
 using Servicios.Perfiles;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace SistemaDeEnviosGUI
 {
-    public partial class PerfilesForm : Form
+    public partial class PerfilesForm : Form, IObserverIdioma
     {
         PerfilBLL perfilBLL = new PerfilBLL();
         FamiliaBLL familiaBLL = new FamiliaBLL();
@@ -23,6 +24,7 @@ namespace SistemaDeEnviosGUI
             InitializeComponent();
             radioButtonPerfiles.Checked = true;
             CargarModo();
+            ActualizarIdioma();
         }
         private void CargarModo()
         {
@@ -39,7 +41,12 @@ namespace SistemaDeEnviosGUI
                 listBoxTipo.ValueMember = "id_familia";
             }
 
-            checkedListBoxPermisos.DataSource = permisoBLL.ObtenerPermisos();
+            DataTable dt = permisoBLL.ObtenerPermisos();
+            foreach (DataRow fila in dt.Rows)
+            {
+                fila["nombre"] = Traducciones.Traducir(fila["nombre"].ToString());
+            }
+            checkedListBoxPermisos.DataSource = dt;
             checkedListBoxPermisos.DisplayMember = "nombre";
             checkedListBoxPermisos.ValueMember = "id_permiso";
 
@@ -164,17 +171,18 @@ namespace SistemaDeEnviosGUI
             try
             {
                 List<int> permisos = ObtenerPermisosSeleccionados();
+                List<int> familias = ObtenerFamiliasSeleccionadas();
                 if (radioButtonPerfiles.Checked)
                 {
-                    perfilBLL.CrearPerfil(textBoxNombre.Text, permisos);
+                    perfilBLL.CrearPerfil(textBoxNombre.Text, permisos, familias);
                 }
                 else
                 {
-                    familiaBLL.CrearFamilia(textBoxNombre.Text, permisos);
+                    familiaBLL.CrearFamilia(textBoxNombre.Text, permisos, familias);
                 }
                 textBoxNombre.Clear();
                 CargarModo();
-                MessageBox.Show("Alta realizada");
+                MessageBox.Show(Traducciones.Traducir("altarealizada"));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -183,8 +191,8 @@ namespace SistemaDeEnviosGUI
         {
             try
             {
-                if (listBoxTipo.SelectedIndex == -1) throw new Exception("Seleccione el registro a eliminar");
-                DialogResult r = MessageBox.Show("¿Seguro/a que desea eliminar el registro seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (listBoxTipo.SelectedIndex == -1) throw new Exception(Traducciones.Traducir("seleccioneelregistroaeliminar"));
+                DialogResult r = MessageBox.Show(Traducciones.Traducir("confirmareliminacion"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r != DialogResult.Yes) return;
 
                 int id = Convert.ToInt32(listBoxTipo.SelectedValue);
@@ -199,7 +207,7 @@ namespace SistemaDeEnviosGUI
                 textBoxNombre.Clear();
                 treeViewOrganizacion.Nodes.Clear();
                 CargarModo();
-                MessageBox.Show("Eliminación realizada");
+                MessageBox.Show(Traducciones.Traducir("eliminacionrealizada"));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -208,7 +216,7 @@ namespace SistemaDeEnviosGUI
         {
             try
             {
-                if (listBoxTipo.SelectedItem == null) throw new Exception("Seleccione un elemento");
+                if (listBoxTipo.SelectedItem == null) throw new Exception(Traducciones.Traducir("seleccioneelemento"));
 
                 List<int> permisos = ObtenerPermisosSeleccionados();
                 List<int> familias = ObtenerFamiliasSeleccionadas();
@@ -238,7 +246,7 @@ namespace SistemaDeEnviosGUI
 
                 CargarModo();
 
-                MessageBox.Show("Actualización realizada");
+                MessageBox.Show(Traducciones.Traducir("actualizacionrealizada"));
             }
             catch (Exception ex)
             {
@@ -269,8 +277,6 @@ namespace SistemaDeEnviosGUI
 
             return familias;
         }
-
-        // COMPOSITE PARA CARGAR TREEVIEW
 
         private void CargarTreePerfil(int idPerfil)
         {
@@ -312,15 +318,16 @@ namespace SistemaDeEnviosGUI
 
         private void AgregarNodo(TreeNode padre, Componente componente)
         {
-            TreeNode nodo = new TreeNode(componente.Nombre);
-            nodo.Tag = componente;
+            TreeNode nodo;
 
             if (componente is Permiso)
             {
+                nodo = new TreeNode(Traducciones.Traducir(componente.Nombre));
                 nodo.ForeColor = Color.Blue;
             }
             else if (componente is Familia familia)
             {
+                nodo = new TreeNode(familia.Nombre);
                 nodo.ForeColor = Color.DarkOrange;
 
                 foreach (Componente hijo in familia.ObtenerHijos())
@@ -328,118 +335,40 @@ namespace SistemaDeEnviosGUI
                     AgregarNodo(nodo, hijo);
                 }
             }
+            else
+            {
+                nodo = new TreeNode(componente.Nombre);
+            }
 
+            nodo.Tag = componente;
             padre.Nodes.Add(nodo);
         }
-
-
-
-
-
-
-        /*
-        private void CargarTreePerfil(int idPerfil)
+        protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            treeViewOrganizacion.Nodes.Clear();
-
-            Perfil perfil = perfilBLL.ObtenerPorId(idPerfil);
-
-            TreeNode nodoPerfil = new TreeNode(perfil.Nombre);
-            nodoPerfil.Tag = perfil;
-
-            treeViewOrganizacion.Nodes.Add(nodoPerfil);
-
-            CargarPermisosPerfil(nodoPerfil, idPerfil);
-            CargarFamiliasPerfil(nodoPerfil, idPerfil);
-
-            nodoPerfil.Expand();
+            GestorIdiomas.Instancia.Desregistrar(this);
+            base.OnFormClosed(e);
         }
 
-        private void CargarPermisosPerfil(TreeNode nodoPerfil, int idPerfil)
+        public void ActualizarIdioma()
         {
-            List<int> permisos = perfilBLL.ObtenerPermisosPerfil(idPerfil);
-
-            foreach (int idPermiso in permisos)
-            {
-                Permiso p = permisoBLL.ObtenerPorId(idPermiso);
-
-                TreeNode nodo = new TreeNode(p.Nombre);
-                nodo.Tag = p;
-
-                nodo.ForeColor = Color.Blue;
-
-                nodoPerfil.Nodes.Add(nodo);
-            }
+            this.Text = Traducciones.Traducir("gestiondeperfiles");
+            btnAgregar.Text = Traducciones.Traducir("agregar");
+            btnActualizar.Text = Traducciones.Traducir("actualizar");
+            btnEliminar.Text = Traducciones.Traducir("eliminar");
+            lblFamilias.Text = Traducciones.Traducir("familias");
+            lblGestionar.Text = Traducciones.Traducir("gestionar");
+            lblNombre.Text = Traducciones.Traducir("Nombre");
+            lblOrganizacion.Text = Traducciones.Traducir("organizacion");
+            lblPermisos.Text = Traducciones.Traducir("permisos");
+            lblTipo.Text = Traducciones.Traducir("tipo");
+            radioButtonPerfiles.Text = Traducciones.Traducir("perfiles");
+            radioButtonFamilias.Text = Traducciones.Traducir("familias");
+            btnSalir.Text = Traducciones.Traducir("Salir");
         }
 
-        private void CargarFamiliasPerfil(TreeNode nodoPerfil, int idPerfil)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            List<int> familias = perfilBLL.ObtenerFamiliasPerfil(idPerfil);
-
-            foreach (int idFamilia in familias)
-            {
-                Familia f = familiaBLL.ObtenerPorId(idFamilia);
-
-                if (f == null) continue;
-                TreeNode nodoFam = new TreeNode(f.Nombre);
-                nodoFam.Tag = f;
-
-                nodoFam.ForeColor = Color.DarkOrange;
-
-                CargarFamiliaRecursiva(nodoFam, f.IdFamilia);
-
-                nodoPerfil.Nodes.Add(nodoFam);
-            }
+            this.Close();
         }
-
-        private void CargarFamiliaRecursiva(TreeNode nodoPadre, int idFamilia)
-        {
-            List<int> permisos = familiaBLL.ObtenerPermisosFamilia(idFamilia);
-            foreach (int idPermiso in permisos)
-            {
-                Permiso p = permisoBLL.ObtenerPorId(idPermiso);
-
-                TreeNode nodoPermiso = new TreeNode(p.Nombre);
-                nodoPermiso.Tag = p;
-
-                nodoPermiso.ForeColor = Color.Blue;
-
-                nodoPadre.Nodes.Add(nodoPermiso);
-            }
-
-            List<int> subfamilias = familiaBLL.ObtenerSubfamilias(idFamilia);
-            foreach (int idSub in subfamilias)
-            {
-                Familia sub = familiaBLL.ObtenerPorId(idSub);
-
-                if (sub == null) break;
-
-                TreeNode nodoSub = new TreeNode(sub.Nombre);
-                nodoSub.Tag = sub;
-
-                nodoSub.ForeColor = Color.DarkOrange;
-
-                CargarFamiliaRecursiva(nodoSub, sub.IdFamilia);
-
-                nodoPadre.Nodes.Add(nodoSub);
-            }
-        }
-
-        private void CargarTreeFamilia(int idFamilia)
-        {
-            treeViewOrganizacion.Nodes.Clear();
-
-            Familia familia = familiaBLL.ObtenerPorId(idFamilia);
-
-            TreeNode nodoFamilia = new TreeNode(familia.Nombre);
-            nodoFamilia.Tag = familia;
-
-            treeViewOrganizacion.Nodes.Add(nodoFamilia);
-
-            CargarFamiliaRecursiva(nodoFamilia, idFamilia);
-
-            nodoFamilia.Expand();
-        }
-        */
     }
 }

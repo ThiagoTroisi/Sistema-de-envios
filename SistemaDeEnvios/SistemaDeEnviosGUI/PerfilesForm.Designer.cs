@@ -44,6 +44,7 @@
             lblFamilias = new Label();
             checkedListBoxFamilias = new CheckedListBox();
             lblOrganizacion = new Label();
+            btnSalir = new Button();
             SuspendLayout();
             // 
             // lblGestionar
@@ -192,11 +193,22 @@
             lblOrganizacion.TabIndex = 15;
             lblOrganizacion.Text = "Organización";
             // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(12, 553);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(126, 40);
+            btnSalir.TabIndex = 16;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // PerfilesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1191, 608);
+            Controls.Add(btnSalir);
             Controls.Add(lblOrganizacion);
             Controls.Add(lblFamilias);
             Controls.Add(checkedListBoxFamilias);
@@ -237,5 +249,6 @@
         private Label lblFamilias;
         private CheckedListBox checkedListBoxFamilias;
         private Label lblOrganizacion;
+        private Button btnSalir;
     }
 }

@@ -172,6 +172,11 @@
     "English": "Profile management",
     "Português": "Gestão de perfiles"
   },
+  "node_gestion_backup": {
+    "Español": "Gestión de backup",
+    "English": "Backup management",
+    "Português": "Gestão de backup"
+  },
 
 
   "node_envio": {
@@ -742,5 +747,379 @@
     "Español": "Fecha y hora de emisión",
     "English": "Date and time of issue",
     "Português": "Data e hora de emissão"
+  },
+
+
+
+
+
+  "gestionbackup": {
+    "Español": "Gestión de backup",
+    "English": "Backup Management",
+    "Português": "Gerenciamento de Backup"
+  },
+
+  "crearbackup": {
+    "Español": "Crear backup",
+    "English": "Create Backup",
+    "Português": "Criar Backup"
+  },
+
+  "realizarrestore": {
+    "Español": "Realizar restore",
+    "English": "Restore Backup",
+    "Português": "Restaurar Backup"
+  },
+
+  "backupcorrecto": {
+    "Español": "Backup realizado correctamente",
+    "English": "Backup completed successfully",
+    "Português": "Backup realizado com sucesso"
+  },
+
+  "restorecorrecto": {
+    "Español": "Restore realizado correctamente. El sistema se cerrará.",
+    "English": "Restore completed successfully. The application will now close.",
+    "Português": "Restauração concluída com sucesso. O sistema será fechado."
+  },
+
+
+
+
+
+  "gestionerror": {
+    "Español": "Gestión de error de integridad",
+    "English": "Integrity error management",
+    "Português": "Gestão de erros de integridade"
+  },
+
+  "integridadrestaurada": {
+    "Español": "Integridad restaurada correctamente",
+    "English": "Integrity restored successfully",
+    "Português": "Integridade restaurada com sucesso"
+  },
+
+  "recalculardv": {
+    "Español": "Recalcular DVH y DVV",
+    "English": "Recalculate DVH and DVV",
+    "Português": "Recalcular DVH e DVV"
+  },
+
+  "seleccioneopcion": {
+    "Español": "Seleccione una opción:",
+    "English": "Select an option:",
+    "Português": "Selecione uma opção:"
+  },
+
+  "tablasafectadas": {
+    "Español": "Tablas afectadas:",
+    "English": "Affected tables:",
+    "Português": "Tabelas afetadas:"
+  },
+
+  "registrosafectados": {
+    "Español": "Registros afectados:",
+    "English": "Affected records:",
+    "Português": "Registros afetados:"
+  },
+
+  "tipo": {
+    "Español": "Tipo",
+    "English": "Type",
+    "Português": "Tipo"
+  },
+
+  "registro": {
+    "Español": "Registro",
+    "English": "Record",
+    "Português": "Registro"
+  },
+
+  "valorguardado": {
+    "Español": "Valor guardado",
+    "English": "Stored value",
+    "Português": "Valor armazenado"
+  },
+
+  "valorcalculado": {
+    "Español": "Valor calculado",
+    "English": "Calculated value",
+    "Português": "Valor calculado"
+  },
+
+
+
+
+
+  "seleccioneelregistroaeliminar": {
+    "Español": "Seleccione el registro a eliminar",
+    "English": "Select the record to delete",
+    "Português": "Selecione o registro para excluir"
+  },
+
+  "confirmareliminacion": {
+    "Español": "¿Seguro/a que desea eliminar el registro seleccionado?",
+    "English": "Are you sure you want to delete the selected record?",
+    "Português": "Tem certeza de que deseja excluir o registro selecionado?"
+  },
+
+  "eliminacionrealizada": {
+    "Español": "Eliminación realizada",
+    "English": "Deletion completed",
+    "Português": "Exclusão realizada"
+  },
+
+  "seleccioneelemento": {
+    "Español": "Seleccione un elemento",
+    "English": "Select an item",
+    "Português": "Selecione um item"
+  },
+
+  "altarealizada": {
+    "Español": "Alta realizada",
+    "English": "Record created",
+    "Português": "Cadastro realizado"
+  },
+
+  "actualizacionrealizada": {
+    "Español": "Actualización realizada",
+    "English": "Update completed",
+    "Português": "Atualização realizada"
+  },
+
+  "gestiondeperfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfis"
+  },
+
+  "agregar": {
+    "Español": "Agregar",
+    "English": "Add",
+    "Português": "Adicionar"
+  },
+
+  "actualizar": {
+    "Español": "Actualizar",
+    "English": "Update",
+    "Português": "Atualizar"
+  },
+
+  "eliminar": {
+    "Español": "Eliminar",
+    "English": "Delete",
+    "Português": "Excluir"
+  },
+
+  "permisos": {
+    "Español": "Permisos",
+    "English": "Permissions",
+    "Português": "Permissões"
+  },
+
+  "familias": {
+    "Español": "Familias",
+    "English": "Families",
+    "Português": "Famílias"
+  },
+
+  "organizacion": {
+    "Español": "Organización",
+    "English": "Organization",
+    "Português": "Organização"
+  },
+
+  "gestionar": {
+    "Español": "Gestionar:",
+    "English": "Manage:",
+    "Português": "Gerenciar:"
+  },
+
+  "perfiles": {
+    "Español": "Perfiles",
+    "English": "Profiles",
+    "Português": "Perfis"
+  },
+
+
+
+
+
+  "Cambiar contraseña": {
+    "Español": "Cambiar contraseña",
+    "English": "Change password",
+    "Português": "Alterar senha"
+  },
+
+  "Cambiar idioma": {
+    "Español": "Cambiar idioma",
+    "English": "Change language",
+    "Português": "Alterar idioma"
+  },
+
+  "Gestión de usuarios": {
+    "Español": "Gestión de usuarios",
+    "English": "User management",
+    "Português": "Gestão de usuários"
+  },
+
+  "Bitácora de eventos": {
+    "Español": "Bitácora de eventos",
+    "English": "Event log",
+    "Português": "Registro de eventos"
+  },
+
+  "Gestión de perfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfis"
+  },
+
+  "Gestión de backup": {
+    "Español": "Gestión de backup",
+    "English": "Backup management",
+    "Português": "Gestão de backup"
+  },
+
+  "Solicitar envío": {
+    "Español": "Solicitar envío",
+    "English": "Request shipment",
+    "Português": "Solicitar envio"
+  },
+
+  "Registrar envío": {
+    "Español": "Registrar envío",
+    "English": "Register shipment",
+    "Português": "Registrar envio"
+  },
+
+  "Consultar estado": {
+    "Español": "Consultar estado",
+    "English": "Check status",
+    "Português": "Consultar status"
+  },
+
+  "Modificar destino": {
+    "Español": "Modificar destino",
+    "English": "Modify destination",
+    "Português": "Modificar destino"
+  },
+
+  "Cancelar envío": {
+    "Español": "Cancelar envío",
+    "English": "Cancel shipment",
+    "Português": "Cancelar envio"
+  },
+
+  "Registrar pago": {
+    "Español": "Registrar pago",
+    "English": "Register payment",
+    "Português": "Registrar pagamento"
+  },
+
+  "Consultar comprobantes": {
+    "Español": "Consultar comprobantes",
+    "English": "View receipts",
+    "Português": "Consultar comprovantes"
+  },
+
+  "Generar rutas": {
+    "Español": "Generar rutas",
+    "English": "Generate routes",
+    "Português": "Gerar rotas"
+  },
+
+  "Asignar rutas": {
+    "Español": "Asignar rutas",
+    "English": "Assign routes",
+    "Português": "Atribuir rotas"
+  },
+
+  "Consultar rutas": {
+    "Español": "Consultar rutas",
+    "English": "View routes",
+    "Português": "Consultar rotas"
+  },
+
+  "Registrar entrega": {
+    "Español": "Registrar entrega",
+    "English": "Register delivery",
+    "Português": "Registrar entrega"
+  },
+
+  "Solicitar devolución": {
+    "Español": "Solicitar devolución",
+    "English": "Request return",
+    "Português": "Solicitar devolução"
+  },
+
+  "Calificar repartidor": {
+    "Español": "Calificar repartidor",
+    "English": "Rate delivery driver",
+    "Português": "Avaliar entregador"
+  },
+
+  "Reportar inconveniente": {
+    "Español": "Reportar inconveniente",
+    "English": "Report issue",
+    "Português": "Reportar problema"
+  },
+
+  "Reporte de envíos": {
+    "Español": "Reporte de envíos",
+    "English": "Shipment report",
+    "Português": "Relatório de envios"
+  },
+
+  "Reporte de entregas": {
+    "Español": "Reporte de entregas",
+    "English": "Delivery report",
+    "Português": "Relatório de entregas"
+  },
+
+  "Reporte de inconvenientes": {
+    "Español": "Reporte de inconvenientes",
+    "English": "Issue report",
+    "Português": "Relatório de problemas"
+  },
+
+  "Reporte de repartidores": {
+    "Español": "Reporte de repartidores",
+    "English": "Delivery drivers report",
+    "Português": "Relatório de entregadores"
+  },
+
+  "Reporte de pagos": {
+    "Español": "Reporte de pagos",
+    "English": "Payments report",
+    "Português": "Relatório de pagamentos"
+  },
+
+  "Reporte de analíticas operativas": {
+    "Español": "Reporte de analíticas operativas",
+    "English": "Operational analytics report",
+    "Português": "Relatório de análises operacionais"
+  },
+
+
+
+
+
+  "integridad afectada": {
+    "Español": "La integridad de la base de datos se encuentra afectada y debe resolverse",
+    "English": "The database integrity has been compromised and must be resolved",
+    "Português": "A integridade do banco de dados foi comprometida e deve ser corrigida"
+  },
+
+  "contacte administrador integridad": {
+    "Español": "Contacte a un administrador para resolver el problema",
+    "English": "Contact an administrator to resolve the problem",
+    "Português": "Entre em contato com um administrador para resolver o problema"
+  },
+
+  "integridad no solucionada": {
+    "Español": "No se solucionaron los problemas de integridad",
+    "English": "The integrity issues were not resolved",
+    "Português": "Os problemas de integridade não foram resolvidos"
   }
 }

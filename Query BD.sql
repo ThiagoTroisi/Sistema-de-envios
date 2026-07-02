@@ -1,7 +1,7 @@
-CREATE DATABASE SistemaDeEnvios1;
+CREATE DATABASE SistemaDeEnvios;
 GO
 
-USE SistemaDeEnvios1;
+USE SistemaDeEnvios;
 GO
 
 CREATE TABLE Perfil (
@@ -130,6 +130,8 @@ VALUES
 ('Cambiar idioma'),
 ('Gestión de usuarios'),
 ('Bitácora de eventos'),
+('Gestión de perfiles'),
+('Gestión de backup'),
 ('Solicitar envío'),
 ('Registrar envío'),
 ('Consultar estado'),
@@ -167,3 +169,6 @@ VALUES
 -- Administrador base
 INSERT INTO Usuario (dni, nombre, apellido, email, password, id_perfil) VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1);
 -- La contraseña en el programa es admin123
+INSERT INTO Perfil_Permiso (id_perfil, id_permiso)
+SELECT 1, id_permiso
+FROM Permiso;

@@ -11,9 +11,9 @@ namespace DAL
 {
     public class EventoDAL
     {
-        public void RegistrarEvento(Evento e)
+        public int RegistrarEvento(Evento e)
         {
-            string query = "insert into Evento (dni_usuario, modulo, evento, criticidad) values (@dni_usuario, @modulo, @evento, @criticidad)";
+            string query = "insert into Evento (dni_usuario, modulo, evento, criticidad) values (@dni_usuario, @modulo, @evento, @criticidad); SELECT SCOPE_IDENTITY();";
 
             using (SqlConnection cx = Conexion.ObtenerConexion())
             {
@@ -25,7 +25,8 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@criticidad", e.Criticidad);
 
                     cx.Open();
-                    cmd.ExecuteNonQuery();
+                    object result = cmd.ExecuteScalar();
+                    return Convert.ToInt32(result);
                 }
             }
         }

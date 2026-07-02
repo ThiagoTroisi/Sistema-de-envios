@@ -11,9 +11,10 @@ namespace BLL
 {
     public class PerfilBLL
     {
-        private PerfilDAL perfildal = new PerfilDAL();
-        private FamiliaBLL familiaBLL = new FamiliaBLL();
-        private PermisoBLL permisoBLL = new PermisoBLL();
+        PerfilDAL perfildal = new PerfilDAL();
+        FamiliaBLL familiaBLL = new FamiliaBLL();
+        PermisoBLL permisoBLL = new PermisoBLL();
+        DVBLL dvBLL = new DVBLL();
 
         public DataTable ObtenerPerfiles()
         {
@@ -35,11 +36,11 @@ namespace BLL
         {
             return perfildal.ObtenerFamiliasPerfil(idPerfil);
         }
-        public void CrearPerfil(string nombre, List<int> permisos)
+        public void CrearPerfil(string nombre, List<int> permisos, List<int> familias)
         {
             if (string.IsNullOrWhiteSpace(nombre)) throw new Exception("Debe ingresar un nombre");
             if (ObtenerPorNombre(nombre) != null) throw new Exception("Ya existe un perfil con el nombre ingresado");
-            if (permisos.Count == 0) throw new Exception("El perfil debe tener al menos un permiso");
+            if (permisos.Count == 0 && familias.Count == 0) throw new Exception("El perfil debe tener al menos un permiso o familia");
             perfildal.CrearPerfil(nombre);
 
             Perfil perfil = ObtenerPorNombre(nombre);
@@ -47,15 +48,27 @@ namespace BLL
             {
                 perfildal.AgregarPermiso(perfil.IdPerfil, idPermiso);
             }
-        }
+            foreach (int idFamilia in familias)
+            {
+                perfildal.AgregarFamilia(perfil.IdPerfil, idFamilia);
+            }
+            dvBLL.ActualizarDVH("Perfil", "id_perfil", perfil.IdPerfil);
+            dvBLL.ActualizarDVV("Perfil");
 
+            dvBLL.ActualizarTodosLosDVH("Perfil_Permiso");
+
+            dvBLL.ActualizarTodosLosDVH("Perfil_Familia");
+        }
         public void EliminarPerfil(int idPerfil)
         {
+            if (perfildal.ExisteUsuariosConPerfil(idPerfil)) throw new Exception("No se puede eliminar el perfil porque está asignado a usuarios");
             perfildal.EliminarPerfil(idPerfil);
+            dvBLL.ActualizarDVH("Perfil", "id_perfil", idPerfil);
+            dvBLL.ActualizarDVV("Perfil");
         }
         public void ActualizarPerfil(Perfil perfil, List<int> permisos, List<int> familias)
         {
-            if (permisos.Count == 0) throw new Exception("El perfil debe tener al menos un permiso");
+            if (permisos.Count == 0 && familias.Count == 0) throw new Exception("El perfil debe tener al menos un permiso o familia");
             if (string.IsNullOrWhiteSpace(perfil.Nombre)) throw new Exception("Debe ingresar un nombre");
 
             Perfil existente = ObtenerPorNombre(perfil.Nombre);
@@ -77,16 +90,21 @@ namespace BLL
             {
                 perfildal.AgregarFamilia(perfil.IdPerfil, idFamilia);
             }
+            
+            dvBLL.ActualizarDVH("Perfil", "id_perfil", perfil.IdPerfil);
+            dvBLL.ActualizarDVV("Perfil");
+
+            dvBLL.ActualizarTodosLosDVH("Perfil_Permiso");
+
+            dvBLL.ActualizarTodosLosDVH("Perfil_Familia");
         }
 
         public Perfil ObtenerComposite(int idPerfil)
         {
             Perfil perfil = ObtenerPorId(idPerfil);
 
-            if (perfil == null)
-                return null;
+            if (perfil == null) return null;
 
-            // Permisos directos
             foreach (int idPermiso in ObtenerPermisosPerfil(idPerfil))
             {
                 Permiso permiso = permisoBLL.ObtenerPorId(idPermiso);
@@ -94,7 +112,6 @@ namespace BLL
                 if (permiso != null) perfil.Componentes.Add(permiso);
             }
 
-            // Familias completas
             foreach (int idFamilia in ObtenerFamiliasPerfil(idPerfil))
             {
                 Familia familia = familiaBLL.ObtenerComposite(idFamilia);

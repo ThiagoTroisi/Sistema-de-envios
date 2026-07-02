@@ -83,7 +83,20 @@ namespace DAL
                 }
             }
         }
+        public bool EstaAsignadaAPerfil(int idFamilia)
+        {
+            string query = "select 1 from Perfil_Familia where id_familia = @id";
 
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            using (SqlCommand cmd = new SqlCommand(query, cx))
+            {
+                cmd.Parameters.AddWithValue("@id", idFamilia);
+
+                cx.Open();
+
+                return cmd.ExecuteScalar() != null;
+            }
+        }
         public List<int> ObtenerPermisosFamilia(int idFamilia)
         {
             List<int> lista = new List<int>();

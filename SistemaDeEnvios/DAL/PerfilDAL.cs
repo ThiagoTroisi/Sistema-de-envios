@@ -102,6 +102,22 @@ namespace DAL
             }
             return lista;
         }
+        public bool ExisteUsuariosConPerfil(int idPerfil)
+        {
+            string query = "select 1 from Usuario where id_perfil = @id";
+
+            using (SqlConnection cx = Conexion.ObtenerConexion())
+            using (SqlCommand cmd = new SqlCommand(query, cx))
+            {
+                cmd.Parameters.AddWithValue("@id", idPerfil);
+
+                cx.Open();
+                var result = cmd.ExecuteScalar();
+
+                return result != null;
+            }
+        }
+
         public void CrearPerfil(string nombre)
         {
             string query = "insert into Perfil (nombre) values (@nombre)";

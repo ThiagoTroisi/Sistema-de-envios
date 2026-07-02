@@ -13,6 +13,7 @@ namespace BLL
     {
         private FamiliaDAL dal = new FamiliaDAL();
         private PermisoBLL permisoBLL = new PermisoBLL();
+        DVBLL dvBLL = new DVBLL();
 
         public DataTable ObtenerFamilias()
         {
@@ -35,11 +36,11 @@ namespace BLL
         {
             return dal.ObtenerSubfamilias(idFamilia);
         }
-        public void CrearFamilia(string nombre, List<int> permisos)
+        public void CrearFamilia(string nombre, List<int> permisos, List<int> familias)
         {
             if (string.IsNullOrWhiteSpace(nombre)) throw new Exception("Debe ingresar un nombre");
             if (ObtenerPorNombre(nombre) != null) throw new Exception("Ya existe una familia con el nombre ingresado");
-            if (permisos.Count == 0) throw new Exception("La familia debe tener al menos un permiso");
+            if (permisos.Count == 0 && familias.Count == 0) throw new Exception("La familia debe tener al menos un permiso o familia");
             dal.CrearFamilia(nombre);
 
             Familia familia = ObtenerPorNombre(nombre);
@@ -47,36 +48,58 @@ namespace BLL
             {
                 dal.AgregarPermiso(familia.IdFamilia, idPermiso);
             }
+            foreach (int idFamilia in familias)
+            {
+                dal.AgregarSubfamilia(familia.IdFamilia, idFamilia);
+            }
+
+            dvBLL.ActualizarDVH("Familia", "id_familia", familia.IdFamilia);
+            dvBLL.ActualizarDVV("Familia");
+            dvBLL.ActualizarTodosLosDVH("Familia_Permiso");
+            dvBLL.ActualizarTodosLosDVH("Familia_Familia");
         }
 
         public void EliminarFamilia(int id)
         {
             if (dal.TienePadre(id)) throw new Exception("No se puede eliminar la familia porque está contenida dentro de otra");
+            if (dal.EstaAsignadaAPerfil(id)) throw new Exception("No se puede eliminar la familia porque está asignada a uno o más perfiles");
+
             dal.EliminarFamilia(id);
+
+            dvBLL.ActualizarDVH("Familia", "id_familia", id);
+            dvBLL.ActualizarDVV("Familia");
         }
         public void ActualizarFamilia(Familia familia, List<int> permisos, List<int> subfamilias)
         {
             if (permisos.Count == 0) throw new Exception("La familia debe tener al menos un permiso");
+            if (subfamilias.Contains(familia.IdFamilia)) throw new Exception("Una familia no puede contenerse a sí misma");
             if (string.IsNullOrWhiteSpace(familia.Nombre)) throw new Exception("Debe ingresar un nombre");
             
             Familia existente = ObtenerPorNombre(familia.Nombre);
             if (existente != null && existente.IdFamilia != familia.IdFamilia) throw new Exception("Ya existe una familia activa con ese nombre");
 
-            if (subfamilias.Contains(familia.IdFamilia)) throw new Exception("Una familia no puede contenerse a sí misma");
-
             dal.ActualizarNombre(familia.IdFamilia, familia.Nombre);
 
             dal.EliminarPermisos(familia.IdFamilia);
+
             foreach (int idPermiso in permisos)
             {
                 dal.AgregarPermiso(familia.IdFamilia, idPermiso);
             }
 
             dal.EliminarSubfamilias(familia.IdFamilia);
+
             foreach (int idFamilia in subfamilias)
             {
                 dal.AgregarSubfamilia(familia.IdFamilia, idFamilia);
             }
+
+            dvBLL.ActualizarDVH("Familia", "id_familia", familia.IdFamilia);
+            dvBLL.ActualizarDVV("Familia");
+
+            dvBLL.ActualizarTodosLosDVH("Familia_Permiso");
+
+            dvBLL.ActualizarTodosLosDVH("Familia_Familia");
         }
 
         public Familia ObtenerComposite(int idFamilia)
@@ -86,7 +109,6 @@ namespace BLL
             if (familia == null)
                 return null;
 
-            // Agrego permisos
             foreach (int idPermiso in ObtenerPermisosFamilia(idFamilia))
             {
                 Permiso permiso = permisoBLL.ObtenerPorId(idPermiso);
@@ -94,7 +116,6 @@ namespace BLL
                 if (permiso != null) familia.Agregar(permiso);
             }
 
-            // Agrego subfamilias
             foreach (int idSubfamilia in ObtenerSubfamilias(idFamilia))
             {
                 Familia sub = ObtenerComposite(idSubfamilia);

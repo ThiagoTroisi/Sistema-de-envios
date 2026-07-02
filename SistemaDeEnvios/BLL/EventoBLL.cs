@@ -12,7 +12,8 @@ namespace BLL
 {
     public class EventoBLL
     {
-        private EventoDAL dal = new EventoDAL();
+        EventoDAL dal = new EventoDAL();
+        DVBLL dvbll = new DVBLL();
 
         public void RegistrarEvento(string modulo, string descripcion, int criticidad)
         {
@@ -20,7 +21,9 @@ namespace BLL
 
             Evento e = new Evento(dni, modulo, descripcion, criticidad);
 
-            dal.RegistrarEvento(e);
+            int idEvento = dal.RegistrarEvento(e);
+            dvbll.ActualizarDVH("Evento", "id_evento", idEvento);
+            dvbll.ActualizarDVV("Evento");
         }
         public DataTable ObtenerTodosLosEventos()
         {
