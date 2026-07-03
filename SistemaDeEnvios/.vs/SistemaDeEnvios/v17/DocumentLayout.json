@@ -242,8 +242,7 @@
               "RelativeToolTip": "Servicios\\Evento.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T23:42:56.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T23:42:56.035Z"
             },
             {
               "$type": "Document",
@@ -255,8 +254,7 @@
               "RelativeToolTip": "BLL\\DVBLL.cs",
               "ViewState": "AgIAAF4AAAAAAAAAAAAAAFgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-01T21:47:45.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-01T21:47:45.208Z"
             },
             {
               "$type": "Document",
@@ -281,8 +279,7 @@
               "RelativeToolTip": "BLL\\PermisoBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:29:06.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:29:06.91Z"
             },
             {
               "$type": "Document",
@@ -294,8 +291,7 @@
               "RelativeToolTip": "DAL\\PermisoDAL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:27:11.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:27:11.869Z"
             },
             {
               "$type": "Document",
@@ -307,8 +303,7 @@
               "RelativeToolTip": "Servicios\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T18:56:11.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T18:56:11.784Z"
             },
             {
               "$type": "Document",
@@ -320,8 +315,7 @@
               "RelativeToolTip": "DAL\\Conexion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:49:05.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T01:49:05.427Z"
             },
             {
               "$type": "Document",
@@ -333,8 +327,7 @@
               "RelativeToolTip": "DAL\\DVDAL.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAEwHsAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-01T21:49:54.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-01T21:49:54.417Z"
             },
             {
               "$type": "Document",
@@ -346,8 +339,7 @@
               "RelativeToolTip": "Servicios\\SesionUsuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T01:50:21.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T01:50:21.635Z"
             },
             {
               "$type": "Document",
@@ -359,8 +351,7 @@
               "RelativeToolTip": "Servicios\\GeneradorPDF.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAqwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T01:24:40.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T01:24:40.017Z"
             },
             {
               "$type": "Document",
@@ -372,8 +363,7 @@
               "RelativeToolTip": "Servicios\\ErrorIntegridad.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T13:09:41.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T13:09:41.002Z"
             },
             {
               "$type": "Document",
@@ -385,8 +375,7 @@
               "RelativeToolTip": "Servicios\\Encriptador.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T18:25:35.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T18:25:35.058Z"
             },
             {
               "$type": "Document",
@@ -398,8 +387,7 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Permiso.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:09:51.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:09:51.269Z"
             },
             {
               "$type": "Document",
@@ -411,8 +399,7 @@
               "RelativeToolTip": "Servicios\\ErrorTabla.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T13:09:52.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T13:09:52.108Z"
             },
             {
               "$type": "Document",
@@ -424,8 +411,7 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Perfil.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:31:17.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:31:17.831Z"
             },
             {
               "$type": "Document",
@@ -437,8 +423,7 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Familia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T18:29:48.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T18:29:48.572Z"
             },
             {
               "$type": "Document",
@@ -450,8 +435,7 @@
               "RelativeToolTip": "Servicios\\Perfiles\\Componente.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-01T23:55:35.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-01T23:55:35.263Z"
             },
             {
               "$type": "Document",
@@ -463,8 +447,7 @@
               "RelativeToolTip": "Servicios\\GestionIdiomas\\Traducciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T15:25:58.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-18T15:25:58.332Z"
             },
             {
               "$type": "Document",
@@ -476,8 +459,7 @@
               "RelativeToolTip": "Servicios\\GestionIdiomas\\IObserverIdioma.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T23:42:07.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T23:42:07.861Z"
             },
             {
               "$type": "Document",
@@ -489,8 +471,7 @@
               "RelativeToolTip": "Servicios\\GestionIdiomas\\GestorIdiomas.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T23:41:57.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T23:41:57.774Z"
             },
             {
               "$type": "Document",
@@ -502,8 +483,7 @@
               "RelativeToolTip": "DAL\\UsuarioDAL.cs",
               "ViewState": "AgIAAL0AAAAAAAAAAAAUwPAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T15:03:36.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T15:03:36.791Z"
             },
             {
               "$type": "Document",
@@ -515,8 +495,7 @@
               "RelativeToolTip": "Servicios\\GestionIdiomas\\Idioma.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T15:25:42.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-18T15:25:42.921Z"
             },
             {
               "$type": "Document",
@@ -528,8 +507,7 @@
               "RelativeToolTip": "DAL\\PerfilDAL.cs",
               "ViewState": "AgIAAJ8AAAAAAAAAAADwv9EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:28:28.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:28:28.451Z"
             },
             {
               "$type": "Document",
@@ -541,8 +519,7 @@
               "RelativeToolTip": "DAL\\BackupDAL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T17:38:27.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T17:38:27.968Z"
             },
             {
               "$type": "Document",
@@ -554,8 +531,7 @@
               "RelativeToolTip": "DAL\\IdiomaDAL.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAUwDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T19:31:48.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-18T19:31:48.312Z"
             },
             {
               "$type": "Document",
@@ -567,8 +543,7 @@
               "RelativeToolTip": "DAL\\FamiliaDAL.cs",
               "ViewState": "AgIAALsAAAAAAAAAAAAUwO4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:29:25.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:29:25.318Z"
             },
             {
               "$type": "Document",
@@ -580,8 +555,7 @@
               "RelativeToolTip": "DAL\\EventoDAL.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAqwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T23:25:00.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-28T23:25:00.037Z"
             },
             {
               "$type": "Document",
@@ -593,8 +567,7 @@
               "RelativeToolTip": "BLL\\UsuarioBLL.cs",
               "ViewState": "AgIAAHIAAAAAAAAAAAAUwKUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T00:08:54.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T00:08:54.182Z"
             },
             {
               "$type": "Document",
@@ -606,8 +579,7 @@
               "RelativeToolTip": "BLL\\PerfilBLL.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAiwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T13:28:17.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T13:28:17.102Z"
             },
             {
               "$type": "Document",
@@ -619,8 +591,7 @@
               "RelativeToolTip": "BLL\\IdiomaBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T19:35:50.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-18T19:35:50.278Z"
             },
             {
               "$type": "Document",
@@ -632,8 +603,7 @@
               "RelativeToolTip": "BLL\\FamiliaBLL.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAqwIEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T17:30:15.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T17:30:15.68Z"
             },
             {
               "$type": "Document",
@@ -645,8 +615,7 @@
               "RelativeToolTip": "BLL\\EventoBLL.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T23:28:30.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-28T23:28:30.68Z"
             },
             {
               "$type": "Document",
@@ -658,8 +627,7 @@
               "RelativeToolTip": "BLL\\Otros\\SessionManager.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T18:39:04.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T18:39:04.315Z"
             },
             {
               "$type": "Document",
@@ -671,8 +639,7 @@
               "RelativeToolTip": "BLL\\Otros\\ResultadoOperacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T00:24:58.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T00:24:58.1Z"
             },
             {
               "$type": "Document",
@@ -684,8 +651,7 @@
               "RelativeToolTip": "BLL\\BackupBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T17:39:45.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T17:39:45.408Z"
             },
             {
               "$type": "Document",
