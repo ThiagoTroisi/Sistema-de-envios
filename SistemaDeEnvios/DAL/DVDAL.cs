@@ -114,8 +114,6 @@ namespace DAL
         {
             string dvv = CalcularDVV(tabla);
 
-            if (dvv == null) throw new Exception("No se pudo calcular DVV");
-
             GuardarDVV(tabla, dvv);
         }
 
@@ -123,7 +121,7 @@ namespace DAL
         {
             string concatenacion = ObtenerConcatenacionDVH(tabla);
 
-            if (string.IsNullOrWhiteSpace(concatenacion)) return null;
+            if (string.IsNullOrWhiteSpace(concatenacion)) return "";
 
             return CalcularHash(concatenacion);
         }
@@ -303,5 +301,6 @@ namespace DAL
                 return resultado.ToString();
             }
         }
+
     }
 }

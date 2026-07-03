@@ -23,6 +23,7 @@ namespace SistemaDeEnviosGUI.Formularios
         public LoginForm(bool relogin = false)
         {
             InitializeComponent();
+            InicializacionSistema();
             modoRelogin = relogin;
             btnRegistrarse.Enabled = false;
             if (modoRelogin)
@@ -36,10 +37,29 @@ namespace SistemaDeEnviosGUI.Formularios
         bool modoRelogin;
         SessionManager sessionmanager = new SessionManager();
         IdiomaBLL idiomabll = new IdiomaBLL();
-        EventoBLL eventobll = new EventoBLL();
         string ultimoCodigoError;
         object[] ultimosParametros;
         DVBLL dvbll = new DVBLL();
+        public void InicializacionSistema()
+        {
+            if (EsPrimeraEjecucion())
+            {
+                dvbll.InicializarIntegridadSiPrimeraVez();
+                MarcarInstalado();
+            }
+        }
+        private bool EsPrimeraEjecucion()
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "install_state.txt");
+
+            return !File.Exists(path);
+        }
+        private void MarcarInstalado()
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "install_state.txt");
+
+            File.WriteAllText(path, "OK");
+        }
         private void CargarIdiomas()
         {
             comboBoxIdioma.DataSource = idiomabll.ObtenerIdiomas();

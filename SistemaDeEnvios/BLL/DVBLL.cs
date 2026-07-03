@@ -1,5 +1,6 @@
 using DAL;
 using Servicios;
+using System.Data;
 
 namespace BLL
 {
@@ -96,6 +97,40 @@ namespace BLL
             }
 
             return resultado;
+        }
+
+        public void InicializarIntegridadSiPrimeraVez()
+        {
+            if (IntegridadYaInicializada()) return;
+
+            InicializarDVH();
+            InicializarDVV();
+        }
+        private bool IntegridadYaInicializada()
+        {
+            foreach (string tabla in tablas)
+            {
+                string dvv = dal.ObtenerDVVGuardado(tabla);
+
+                if (string.IsNullOrEmpty(dvv))
+                    return false;
+            }
+
+            return true;
+        }
+        private void InicializarDVH()
+        {
+            foreach (string tabla in tablas)
+            {
+                dal.ActualizarTodosLosDVH(tabla);
+            }
+        }
+        private void InicializarDVV()
+        {
+            foreach (string tabla in tablas)
+            {
+                dal.ActualizarDVV(tabla);
+            }
         }
     }
 }

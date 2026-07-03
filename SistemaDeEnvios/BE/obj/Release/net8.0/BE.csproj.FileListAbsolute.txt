@@ -1,0 +1,12 @@
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\bin\Release\net8.0\BE.deps.json
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\bin\Release\net8.0\BE.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\bin\Release\net8.0\BE.pdb
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.AssemblyInfoInputs.cache
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.AssemblyInfo.cs
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.csproj.CoreCompileInputs.cache
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.sourcelink.json
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\refint\BE.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\BE.pdb
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\BE\obj\Release\net8.0\ref\BE.dll

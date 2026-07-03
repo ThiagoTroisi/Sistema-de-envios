@@ -1,0 +1,1125 @@
+{
+  "Email": {
+    "Español": "Email",
+    "English": "Email",
+    "Português": "Email"
+  },
+
+  "Contraseña": {
+    "Español": "Contraseña",
+    "English": "Password",
+    "Português": "Senha"
+  },
+
+  "Idioma": {
+    "Español": "Idioma",
+    "English": "Language",
+    "Português": "Idioma"
+  },
+
+  "Login": {
+    "Español": "Iniciar sesión",
+    "English": "Login",
+    "Português": "Entrar"
+  },
+
+  "Registrarse": {
+    "Español": "Registrarse",
+    "English": "Register",
+    "Português": "Registrar-se"
+  },
+
+  "Salir": {
+    "Español": "Salir",
+    "English": "Exit",
+    "Português": "Sair"
+  },
+
+
+
+
+
+  "sesion iniciada": {
+    "Español": "ERROR: Ya se encuentra una sesión iniciada.",
+    "English": "ERROR: A session is already active.",
+    "Português": "ERRO: Já existe uma sessão ativa."
+  },
+
+  "email no encontrado": {
+    "Español": "ERROR: Email no encontrado.",
+    "English": "ERROR: Email not found.",
+    "Português": "ERRO: E-mail não encontrado."
+  },
+
+  "usuario inactivo": {
+    "Español": "ERROR: Usuario inactivo.",
+    "English": "ERROR: Inactive user.",
+    "Português": "ERRO: Usuário inativo."
+  },
+
+  "usuario bloqueado": {
+    "Español": "ERROR: Usuario bloqueado.",
+    "English": "ERROR: User blocked.",
+    "Português": "ERRO: Usuário bloqueado."
+  },
+
+  "usuario bloqueado por intentos": {
+    "Español": "ERROR: Usuario bloqueado por demasiados intentos fallidos.",
+    "English": "ERROR: User blocked due to too many failed attempts.",
+    "Português": "ERRO: Usuário bloqueado devido a muitas tentativas falhas."
+  },
+
+  "contraseña incorrecta": {
+    "Español": "ERROR: Contraseña incorrecta. Intento {0} de 3",
+    "English": "ERROR: Incorrect password. Attempt {0} of 3",
+    "Português": "ERRO: Senha incorreta. Tentativa {0} de 3"
+  },
+
+  "login exitoso": {
+    "Español": "Inicio de sesión exitoso",
+    "English": "Login successful",
+    "Português": "Login bem-sucedido"
+  },
+
+
+
+
+
+  "CambiarIdioma": {
+    "Español": "Cambiar Idioma",
+    "English": "Change Language",
+    "Português": "Alterar Idioma"
+  },
+
+  "Aplicar": {
+    "Español": "Aplicar",
+    "English": "Apply",
+    "Português": "Aplicar"
+  },
+
+  "Cancelar": {
+    "Español": "Cancelar",
+    "English": "Cancel",
+    "Português": "Cancelar"
+  },
+
+  "idioma_cambiado": {
+    "Español": "Idioma cambiado correctamente.",
+    "English": "Language changed successfully.",
+    "Português": "Idioma alterado com sucesso."
+  },
+
+
+
+
+
+  "CerrarSesion": {
+    "Español": "Cerrar sesión",
+    "English": "Log out",
+    "Português": "Encerrar sessão"
+  },
+  "Relogin": {
+    "Español": "Volver a iniciar sesión",
+    "English": "Login again",
+    "Português": "Fazer login novamente"
+  },
+  "MenuMain": {
+    "Español": "Menú principal",
+    "English": "Main menu",
+    "Português": "Menu principal"
+  },
+  "logout_exitoso": {
+    "Español": "Se cerró la sesión correctamente",
+    "English": "Session closed successfully",
+    "Português": "Sessão encerrada com sucesso"
+  },
+
+
+  "node_usuario": {
+    "Español": "Usuario",
+    "English": "User",
+    "Português": "Usuário"
+  },
+  "node_cambiar_password": {
+    "Español": "Cambiar contraseña",
+    "English": "Change password",
+    "Português": "Alterar senha"
+  },
+  "node_cambiar_idioma": {
+    "Español": "Cambiar idioma",
+    "English": "Change language",
+    "Português": "Alterar idioma"
+  },
+
+
+  "node_administracion": {
+    "Español": "Administración",
+    "English": "Administration",
+    "Português": "Administração"
+  },
+  "node_gestion_usuarios": {
+    "Español": "Gestión de usuarios",
+    "English": "User management",
+    "Português": "Gestão de usuários"
+  },
+  "node_bitacora": {
+    "Español": "Bitácora de eventos",
+    "English": "Event log",
+    "Português": "Registro de eventos"
+  },
+  "node_gestion_perfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfiles"
+  },
+  "node_gestion_backup": {
+    "Español": "Gestión de backup",
+    "English": "Backup management",
+    "Português": "Gestão de backup"
+  },
+
+
+  "node_envio": {
+    "Español": "Envío",
+    "English": "Shipping",
+    "Português": "Envio"
+  },
+  "node_solicitar_envio": {
+    "Español": "Solicitar envío",
+    "English": "Request shipping",
+    "Português": "Solicitar envio"
+  },
+  "node_registrar_envio": {
+    "Español": "Registrar envío",
+    "English": "Register shipping",
+    "Português": "Registrar envio"
+  },
+  "node_consultar_estado": {
+    "Español": "Consultar estado",
+    "English": "Check status",
+    "Português": "Consultar status"
+  },
+  "node_modificar_destino": {
+    "Español": "Modificar destino",
+    "English": "Modify destination",
+    "Português": "Modificar destino"
+  },
+  "node_cancelar_envio": {
+    "Español": "Cancelar envío",
+    "English": "Cancel shipping",
+    "Português": "Cancelar envio"
+  },
+
+
+  "node_pago": {
+    "Español": "Pago",
+    "English": "Payment",
+    "Português": "Pagamento"
+  },
+  "node_registrar_pago": {
+    "Español": "Registrar pago",
+    "English": "Register payment",
+    "Português": "Registrar pagamento"
+  },
+  "node_consultar_comprobantes": {
+    "Español": "Consultar comprobantes",
+    "English": "View receipts",
+    "Português": "Consultar comprovantes"
+  },
+
+
+  "node_logistica": {
+    "Español": "Logística",
+    "English": "Logistics",
+    "Português": "Logística"
+  },
+  "node_generar_rutas": {
+    "Español": "Generar rutas",
+    "English": "Generate routes",
+    "Português": "Gerar rotas"
+  },
+  "node_asignar_rutas": {
+    "Español": "Asignar rutas",
+    "English": "Assign routes",
+    "Português": "Atribuir rotas"
+  },
+  "node_consultar_rutas": {
+    "Español": "Consultar rutas",
+    "English": "View routes",
+    "Português": "Consultar rotas"
+  },
+
+
+  "node_entrega": {
+    "Español": "Entrega",
+    "English": "Delivery",
+    "Português": "Entrega"
+  },
+  "node_registrar_entrega": {
+    "Español": "Registrar entrega",
+    "English": "Register delivery",
+    "Português": "Registrar entrega"
+  },
+  "node_solicitar_devolucion": {
+    "Español": "Solicitar devolución",
+    "English": "Request return",
+    "Português": "Solicitar devolução"
+  },
+  "node_calificar_repartidor": {
+    "Español": "Calificar repartidor",
+    "English": "Rate courier",
+    "Português": "Avaliar entregador"
+  },
+
+
+  "node_inconveniente": {
+    "Español": "Inconvenientes",
+    "English": "Issues",
+    "Português": "Problemas"
+  },
+  "node_reportar_inconveniente": {
+    "Español": "Reportar inconveniente",
+    "English": "Report issue",
+    "Português": "Reportar problema"
+  },
+
+
+  "node_reporte": {
+    "Español": "Reportes",
+    "English": "Reports",
+    "Português": "Relatórios"
+  },
+  "node_reporte_envios": {
+    "Español": "Reporte de envíos",
+    "English": "Shipment report",
+    "Português": "Relatório de envios"
+  },
+  "node_reporte_entregas": {
+    "Español": "Reporte de entregas",
+    "English": "Delivery report",
+    "Português": "Relatório de entregas"
+  },
+  "node_reporte_inconvenientes": {
+    "Español": "Reporte de inconvenientes",
+    "English": "Issue report",
+    "Português": "Relatório de problemas"
+  },
+  "node_reporte_repartidores": {
+    "Español": "Reporte de repartidores",
+    "English": "Courier report",
+    "Português": "Relatório de entregadores"
+  },
+  "node_reporte_pagos": {
+    "Español": "Reporte de pagos",
+    "English": "Payment report",
+    "Português": "Relatório de pagamentos"
+  },
+  "node_reporte_analiticas": {
+    "Español": "Reporte de analíticas operativas",
+    "English": "Operational analytics report",
+    "Português": "Relatório de análises operacionais"
+  },
+
+
+
+
+
+  "CambioContraseña": {
+    "Español": "Cambiar Contraseña",
+    "English": "Change Password",
+    "Português": "Alterar Senha"
+  },
+
+  "Actual": {
+    "Español": "Contraseña actual",
+    "English": "Current password",
+    "Português": "Senha atual"
+  },
+
+  "Nueva": {
+    "Español": "Nueva contraseña",
+    "English": "New password",
+    "Português": "Nova senha"
+  },
+
+  "Nueva2": {
+    "Español": "Confirmar contraseña",
+    "English": "Confirm password",
+    "Português": "Confirmar senha"
+  },
+
+  "Aceptar": {
+    "Español": "Aceptar",
+    "English": "Accept",
+    "Português": "Aceitar"
+  },
+
+  "contraseña_actual_incorrecta": {
+    "Español": "ERROR: La contraseña actual es incorrecta.",
+    "English": "ERROR: The current password is incorrect.",
+    "Português": "ERRO: A senha atual está incorreta."
+  },
+
+  "contraseña_vacia": {
+    "Español": "ERROR: La nueva contraseña no puede estar vacía.",
+    "English": "ERROR: The new password cannot be empty.",
+    "Português": "ERRO: A nova senha não pode estar vazia."
+  },
+
+  "contraseña_igual": {
+    "Español": "ERROR: La nueva contraseña coincide con la actual.",
+    "English": "ERROR: The new password matches the current one.",
+    "Português": "ERRO: A nova senha coincide com a atual."
+  },
+
+  "contraseñas_no_coinciden": {
+    "Español": "ERROR: Las contraseñas no coinciden.",
+    "English": "ERROR: Passwords do not match.",
+    "Português": "ERRO: As senhas não coincidem."
+  },
+
+  "contraseña_actualizada": {
+    "Español": "Contraseña actualizada correctamente.",
+    "English": "Password updated successfully.",
+    "Português": "Senha atualizada com sucesso."
+  },
+
+
+
+
+
+  "GestionUsuarios": {
+    "Español": "Gestión de Usuarios",
+    "English": "User Management",
+    "Português": "Gerenciamento de Usuários"
+  },
+
+  "Mostrar": {
+    "Español": "Mostrar:",
+    "English": "Show:",
+    "Português": "Mostrar:"
+  },
+
+  "ModoActual": {
+    "Español": "Modo actual:",
+    "English": "Current mode:",
+    "Português": "Modo atual:"
+  },
+
+  "modo_consulta": {
+    "Español": "Consulta",
+    "English": "View",
+    "Português": "Consulta"
+  },
+
+  "modo_alta": {
+    "Español": "Añadir",
+    "English": "Add",
+    "Português": "Adicionar"
+  },
+
+  "modo_modificar": {
+    "Español": "Modificar",
+    "English": "Modify",
+    "Português": "Modificar"
+  },
+
+  "modo_desbloquear": {
+    "Español": "Desbloquear",
+    "English": "Unlock",
+    "Português": "Desbloquear"
+  },
+
+  "DNI": {
+    "Español": "DNI",
+    "English": "ID",
+    "Português": "CPF"
+  },
+
+  "Nombre": {
+    "Español": "Nombre",
+    "English": "Name",
+    "Português": "Nome"
+  },
+
+  "Apellido": {
+    "Español": "Apellido",
+    "English": "Surname",
+    "Português": "Sobrenome"
+  },
+
+  "Perfil": {
+    "Español": "Perfil",
+    "English": "Profile",
+    "Português": "Perfil"
+  },
+
+  "Activos": {
+    "Español": "Activos",
+    "English": "Active",
+    "Português": "Ativos"
+  },
+
+  "Todos": {
+    "Español": "Todos",
+    "English": "All",
+    "Português": "Todos"
+  },
+
+  "Bloqueado": {
+    "Español": "Bloqueado",
+    "English": "Blocked",
+    "Português": "Bloqueado"
+  },
+
+  "Activo": {
+    "Español": "Activo",
+    "English": "Active",
+    "Português": "Ativo"
+  },
+
+  "Alta": {
+    "Español": "Alta",
+    "English": "Add",
+    "Português": "Adicionar"
+  },
+
+  "Modificar": {
+    "Español": "Modificar",
+    "English": "Modify",
+    "Português": "Modificar"
+  },
+
+  "Activar": {
+    "Español": "Activar",
+    "English": "Activate",
+    "Português": "Ativar"
+  },
+
+  "Desactivar": {
+    "Español": "Desactivar",
+    "English": "Deactivate",
+    "Português": "Desativar"
+  },
+
+  "Desbloquear": {
+    "Español": "Desbloquear",
+    "English": "Unlock",
+    "Português": "Desbloquear"
+  },
+
+  "seleccionar usuario": {
+    "Español": "Seleccione un usuario en la grilla!",
+    "English": "Select a user from the grid!",
+    "Português": "Selecione um usuário na grade!"
+  },
+
+
+
+
+
+  "dni_invalido": {
+    "Español": "No se ingresó un DNI válido",
+    "English": "A valid ID number was not entered",
+    "Português": "Não foi informado um CPF válido"
+  },
+
+  "nombre_vacio": {
+    "Español": "No se ingresó un nombre",
+    "English": "No name was entered",
+    "Português": "Nenhum nome foi informado"
+  },
+
+  "apellido_vacio": {
+    "Español": "No se ingresó un apellido",
+    "English": "No surname was entered",
+    "Português": "Nenhum sobrenome foi informado"
+  },
+
+  "email_vacio": {
+    "Español": "No se ingresó un email",
+    "English": "No email was entered",
+    "Português": "Nenhum e-mail foi informado"
+  },
+
+  "email_formato_invalido": {
+    "Español": "El formato del email no es válido",
+    "English": "The email format is not valid",
+    "Português": "O formato do e-mail não é válido"
+  },
+
+  "dni_registrado": {
+    "Español": "El DNI ya se encuentra registrado en el sistema",
+    "English": "The ID number is already registered in the system",
+    "Português": "O CPF já está registrado no sistema"
+  },
+
+  "email_registrado": {
+    "Español": "El email ya se encuentra registrado en el sistema",
+    "English": "The email is already registered in the system",
+    "Português": "O e-mail já está registrado no sistema"
+  },
+
+  "alta_exitosa": {
+    "Español": "Alta exitosa",
+    "English": "User created successfully",
+    "Português": "Cadastro realizado com sucesso"
+  },
+
+  "email_en_uso": {
+    "Español": "El email ya está en uso",
+    "English": "The email is already in use",
+    "Português": "O e-mail já está em uso"
+  },
+
+  "usuario_modificado": {
+    "Español": "Usuario modificado correctamente",
+    "English": "User modified successfully",
+    "Português": "Usuário alterado com sucesso"
+  },
+
+  "usuario_ya_activado": {
+    "Español": "El usuario ya se encuentra activado",
+    "English": "The user is already active",
+    "Português": "O usuário já está ativo"
+  },
+
+  "usuario_activado": {
+    "Español": "El usuario fue activado",
+    "English": "The user was activated",
+    "Português": "O usuário foi ativado"
+  },
+
+  "usuario_ya_desactivado": {
+    "Español": "El usuario ya se encuentra desactivado",
+    "English": "The user is already inactive",
+    "Português": "O usuário já está inativo"
+  },
+
+  "usuario_desactivado": {
+    "Español": "El usuario fue desactivado",
+    "English": "The user was deactivated",
+    "Português": "O usuário foi desativado"
+  },
+
+  "usuario_no_bloqueado": {
+    "Español": "El usuario no se encuentra bloqueado",
+    "English": "The user is not blocked",
+    "Português": "O usuário não está bloqueado"
+  },
+
+  "usuario_desbloqueado": {
+    "Español": "Usuario desbloqueado correctamente",
+    "English": "User unlocked successfully",
+    "Português": "Usuário desbloqueado com sucesso"
+  },
+
+
+
+
+  "Bitacora": {
+    "Español": "Bitácora de eventos",
+    "English": "Event log",
+    "Português": "Registro de eventos"
+  },
+
+  "Limpiar": {
+    "Español": "Limpiar",
+    "English": "Clean",
+    "Português": "Limpar"
+  },
+
+  "Imprimir": {
+    "Español": "Imprimir",
+    "English": "Print",
+    "Português": "Imprimir"
+  },
+
+  "Modulo": {
+    "Español": "Módulo",
+    "English": "Module",
+    "Português": "Módulo"
+  },
+
+  "Evento": {
+    "Español": "Evento",
+    "English": "Event",
+    "Português": "Evento"
+  },
+
+  "Desde": {
+    "Español": "Desde",
+    "English": "From",
+    "Português": "De"
+  },
+
+  "Hasta": {
+    "Español": "Hasta",
+    "English": "To",
+    "Português": "Até"
+  },
+
+  "Criticidad": {
+    "Español": "Criticidad",
+    "English": "Criticality",
+    "Português": "Criticidade"
+  },
+
+  "Fecha": {
+    "Español": "Fecha",
+    "English": "Date",
+    "Português": "Data"
+  },
+
+  "Hora": {
+    "Español": "Hora",
+    "English": "Time",
+    "Português": "Hora"
+  },
+
+  "mod_usuarios": {
+    "Español": "Usuarios",
+    "English": "Users",
+    "Português": "Usuários"
+  },
+
+  "mod_seguridad": {
+    "Español": "Seguridad",
+    "English": "Security",
+    "Português": "Segurança"
+  },
+
+  "ev_activacion_usuario": {
+    "Español": "Activación de usuario",
+    "English": "User activation",
+    "Português": "Ativação de usuário"
+  },
+
+  "ev_alta_usuario": {
+    "Español": "Alta de usuario",
+    "English": "User creation",
+    "Português": "Cadastro de usuário"
+  },
+
+  "ev_desactivacion_usuario": {
+    "Español": "Desactivación de usuario",
+    "English": "User deactivation",
+    "Português": "Desativação de usuário"
+  },
+
+  "ev_modificacion_usuario": {
+    "Español": "Modificación de usuario",
+    "English": "User modification",
+    "Português": "Alteração de usuário"
+  },
+
+  "ev_desbloqueo_usuario": {
+    "Español": "Desbloqueo de usuario",
+    "English": "User unlock",
+    "Português": "Desbloqueio de usuário"
+  },
+
+  "ev_cambio_contraseña": {
+    "Español": "Cambio de contraseña",
+    "English": "Password change",
+    "Português": "Alteração de senha"
+  },
+
+  "ev_login": {
+    "Español": "Inicio de sesión",
+    "English": "Login",
+    "Português": "Início de sessão"
+  },
+
+  "ev_logout": {
+    "Español": "Cierre de sesión",
+    "English": "Logout",
+    "Português": "Encerramento de sessão"
+  },
+
+  "ev_cambio_idioma": {
+    "Español": "Cambio de idioma",
+    "English": "Language change",
+    "Português": "Alteração de idioma"
+  },
+
+  "fecha_emision": {
+    "Español": "Fecha y hora de emisión",
+    "English": "Date and time of issue",
+    "Português": "Data e hora de emissão"
+  },
+
+
+
+
+
+  "gestionbackup": {
+    "Español": "Gestión de backup",
+    "English": "Backup Management",
+    "Português": "Gerenciamento de Backup"
+  },
+
+  "crearbackup": {
+    "Español": "Crear backup",
+    "English": "Create Backup",
+    "Português": "Criar Backup"
+  },
+
+  "realizarrestore": {
+    "Español": "Realizar restore",
+    "English": "Restore Backup",
+    "Português": "Restaurar Backup"
+  },
+
+  "backupcorrecto": {
+    "Español": "Backup realizado correctamente",
+    "English": "Backup completed successfully",
+    "Português": "Backup realizado com sucesso"
+  },
+
+  "restorecorrecto": {
+    "Español": "Restore realizado correctamente. El sistema se cerrará.",
+    "English": "Restore completed successfully. The application will now close.",
+    "Português": "Restauração concluída com sucesso. O sistema será fechado."
+  },
+
+
+
+
+
+  "gestionerror": {
+    "Español": "Gestión de error de integridad",
+    "English": "Integrity error management",
+    "Português": "Gestão de erros de integridade"
+  },
+
+  "integridadrestaurada": {
+    "Español": "Integridad restaurada correctamente",
+    "English": "Integrity restored successfully",
+    "Português": "Integridade restaurada com sucesso"
+  },
+
+  "recalculardv": {
+    "Español": "Recalcular DVH y DVV",
+    "English": "Recalculate DVH and DVV",
+    "Português": "Recalcular DVH e DVV"
+  },
+
+  "seleccioneopcion": {
+    "Español": "Seleccione una opción:",
+    "English": "Select an option:",
+    "Português": "Selecione uma opção:"
+  },
+
+  "tablasafectadas": {
+    "Español": "Tablas afectadas:",
+    "English": "Affected tables:",
+    "Português": "Tabelas afetadas:"
+  },
+
+  "registrosafectados": {
+    "Español": "Registros afectados:",
+    "English": "Affected records:",
+    "Português": "Registros afetados:"
+  },
+
+  "tipo": {
+    "Español": "Tipo",
+    "English": "Type",
+    "Português": "Tipo"
+  },
+
+  "registro": {
+    "Español": "Registro",
+    "English": "Record",
+    "Português": "Registro"
+  },
+
+  "valorguardado": {
+    "Español": "Valor guardado",
+    "English": "Stored value",
+    "Português": "Valor armazenado"
+  },
+
+  "valorcalculado": {
+    "Español": "Valor calculado",
+    "English": "Calculated value",
+    "Português": "Valor calculado"
+  },
+
+
+
+
+
+  "seleccioneelregistroaeliminar": {
+    "Español": "Seleccione el registro a eliminar",
+    "English": "Select the record to delete",
+    "Português": "Selecione o registro para excluir"
+  },
+
+  "confirmareliminacion": {
+    "Español": "¿Seguro/a que desea eliminar el registro seleccionado?",
+    "English": "Are you sure you want to delete the selected record?",
+    "Português": "Tem certeza de que deseja excluir o registro selecionado?"
+  },
+
+  "eliminacionrealizada": {
+    "Español": "Eliminación realizada",
+    "English": "Deletion completed",
+    "Português": "Exclusão realizada"
+  },
+
+  "seleccioneelemento": {
+    "Español": "Seleccione un elemento",
+    "English": "Select an item",
+    "Português": "Selecione um item"
+  },
+
+  "altarealizada": {
+    "Español": "Alta realizada",
+    "English": "Record created",
+    "Português": "Cadastro realizado"
+  },
+
+  "actualizacionrealizada": {
+    "Español": "Actualización realizada",
+    "English": "Update completed",
+    "Português": "Atualização realizada"
+  },
+
+  "gestiondeperfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfis"
+  },
+
+  "agregar": {
+    "Español": "Agregar",
+    "English": "Add",
+    "Português": "Adicionar"
+  },
+
+  "actualizar": {
+    "Español": "Actualizar",
+    "English": "Update",
+    "Português": "Atualizar"
+  },
+
+  "eliminar": {
+    "Español": "Eliminar",
+    "English": "Delete",
+    "Português": "Excluir"
+  },
+
+  "permisos": {
+    "Español": "Permisos",
+    "English": "Permissions",
+    "Português": "Permissões"
+  },
+
+  "familias": {
+    "Español": "Familias",
+    "English": "Families",
+    "Português": "Famílias"
+  },
+
+  "organizacion": {
+    "Español": "Organización",
+    "English": "Organization",
+    "Português": "Organização"
+  },
+
+  "gestionar": {
+    "Español": "Gestionar:",
+    "English": "Manage:",
+    "Português": "Gerenciar:"
+  },
+
+  "perfiles": {
+    "Español": "Perfiles",
+    "English": "Profiles",
+    "Português": "Perfis"
+  },
+
+
+
+
+
+  "Cambiar contraseña": {
+    "Español": "Cambiar contraseña",
+    "English": "Change password",
+    "Português": "Alterar senha"
+  },
+
+  "Cambiar idioma": {
+    "Español": "Cambiar idioma",
+    "English": "Change language",
+    "Português": "Alterar idioma"
+  },
+
+  "Gestión de usuarios": {
+    "Español": "Gestión de usuarios",
+    "English": "User management",
+    "Português": "Gestão de usuários"
+  },
+
+  "Bitácora de eventos": {
+    "Español": "Bitácora de eventos",
+    "English": "Event log",
+    "Português": "Registro de eventos"
+  },
+
+  "Gestión de perfiles": {
+    "Español": "Gestión de perfiles",
+    "English": "Profile management",
+    "Português": "Gestão de perfis"
+  },
+
+  "Gestión de backup": {
+    "Español": "Gestión de backup",
+    "English": "Backup management",
+    "Português": "Gestão de backup"
+  },
+
+  "Solicitar envío": {
+    "Español": "Solicitar envío",
+    "English": "Request shipment",
+    "Português": "Solicitar envio"
+  },
+
+  "Registrar envío": {
+    "Español": "Registrar envío",
+    "English": "Register shipment",
+    "Português": "Registrar envio"
+  },
+
+  "Consultar estado": {
+    "Español": "Consultar estado",
+    "English": "Check status",
+    "Português": "Consultar status"
+  },
+
+  "Modificar destino": {
+    "Español": "Modificar destino",
+    "English": "Modify destination",
+    "Português": "Modificar destino"
+  },
+
+  "Cancelar envío": {
+    "Español": "Cancelar envío",
+    "English": "Cancel shipment",
+    "Português": "Cancelar envio"
+  },
+
+  "Registrar pago": {
+    "Español": "Registrar pago",
+    "English": "Register payment",
+    "Português": "Registrar pagamento"
+  },
+
+  "Consultar comprobantes": {
+    "Español": "Consultar comprobantes",
+    "English": "View receipts",
+    "Português": "Consultar comprovantes"
+  },
+
+  "Generar rutas": {
+    "Español": "Generar rutas",
+    "English": "Generate routes",
+    "Português": "Gerar rotas"
+  },
+
+  "Asignar rutas": {
+    "Español": "Asignar rutas",
+    "English": "Assign routes",
+    "Português": "Atribuir rotas"
+  },
+
+  "Consultar rutas": {
+    "Español": "Consultar rutas",
+    "English": "View routes",
+    "Português": "Consultar rotas"
+  },
+
+  "Registrar entrega": {
+    "Español": "Registrar entrega",
+    "English": "Register delivery",
+    "Português": "Registrar entrega"
+  },
+
+  "Solicitar devolución": {
+    "Español": "Solicitar devolución",
+    "English": "Request return",
+    "Português": "Solicitar devolução"
+  },
+
+  "Calificar repartidor": {
+    "Español": "Calificar repartidor",
+    "English": "Rate delivery driver",
+    "Português": "Avaliar entregador"
+  },
+
+  "Reportar inconveniente": {
+    "Español": "Reportar inconveniente",
+    "English": "Report issue",
+    "Português": "Reportar problema"
+  },
+
+  "Reporte de envíos": {
+    "Español": "Reporte de envíos",
+    "English": "Shipment report",
+    "Português": "Relatório de envios"
+  },
+
+  "Reporte de entregas": {
+    "Español": "Reporte de entregas",
+    "English": "Delivery report",
+    "Português": "Relatório de entregas"
+  },
+
+  "Reporte de inconvenientes": {
+    "Español": "Reporte de inconvenientes",
+    "English": "Issue report",
+    "Português": "Relatório de problemas"
+  },
+
+  "Reporte de repartidores": {
+    "Español": "Reporte de repartidores",
+    "English": "Delivery drivers report",
+    "Português": "Relatório de entregadores"
+  },
+
+  "Reporte de pagos": {
+    "Español": "Reporte de pagos",
+    "English": "Payments report",
+    "Português": "Relatório de pagamentos"
+  },
+
+  "Reporte de analíticas operativas": {
+    "Español": "Reporte de analíticas operativas",
+    "English": "Operational analytics report",
+    "Português": "Relatório de análises operacionais"
+  },
+
+
+
+
+
+  "integridad afectada": {
+    "Español": "La integridad de la base de datos se encuentra afectada y debe resolverse",
+    "English": "The database integrity has been compromised and must be resolved",
+    "Português": "A integridade do banco de dados foi comprometida e deve ser corrigida"
+  },
+
+  "contacte administrador integridad": {
+    "Español": "Contacte a un administrador para resolver el problema",
+    "English": "Contact an administrator to resolve the problem",
+    "Português": "Entre em contato com um administrador para resolver o problema"
+  },
+
+  "integridad no solucionada": {
+    "Español": "No se solucionaron los problemas de integridad",
+    "English": "The integrity issues were not resolved",
+    "Português": "Os problemas de integridade não foram resolvidos"
+  }
+}

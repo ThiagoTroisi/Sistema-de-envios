@@ -1,0 +1,16 @@
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\bin\Release\net8.0\Servicios.deps.json
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\bin\Release\net8.0\Servicios.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\bin\Release\net8.0\Servicios.pdb
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\bin\Release\net8.0\BE.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\bin\Release\net8.0\BE.pdb
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.csproj.AssemblyReference.cache
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.AssemblyInfoInputs.cache
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.AssemblyInfo.cs
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.sourcelink.json
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.csproj.Up2Date
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\refint\Servicios.dll
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\Servicios.pdb
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Servicios\obj\Release\net8.0\ref\Servicios.dll
