@@ -32,6 +32,8 @@ namespace SistemaDeEnviosGUI.Formularios
             }
             GestorIdiomas.Instancia.Registrar(this);
             ActualizarIdioma();
+            txtEmail.Text = "admin@sistema.com";
+            txtContraseña.Text = "admin123";
         }
         bool modoRelogin;
         SessionManager sessionmanager = new SessionManager();

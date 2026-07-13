@@ -1121,5 +1121,17 @@
     "Español": "No se solucionaron los problemas de integridad",
     "English": "The integrity issues were not resolved",
     "Português": "Os problemas de integridade não foram resolvidos"
+  },
+
+  "error backup": {
+    "Español": "Usted no dispone de los permisos necesarios para crear el backup en la ubicación especificada",
+    "English": "You do not have the necessary permissions to create the backup in the specified location",
+    "Português": "Você não possui as permissões necessárias para criar o backup no local especificado"
+  },
+
+  "error usuario bd": {
+    "Español": "ERROR: No se puede crear un usuario desde la base de datos",
+    "English": "ERROR: A user cannot be created from the database",
+    "Português": "ERRO: Não foi possível criar um usuário a partir do banco de dados."
   }
 }

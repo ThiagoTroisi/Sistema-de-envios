@@ -43,7 +43,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(12, 27);
+            txtEmail.Location = new Point(59, 34);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(302, 23);
             txtEmail.TabIndex = 0;
@@ -51,7 +51,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(12, 9);
+            lblEmail.Location = new Point(59, 16);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(39, 15);
             lblEmail.TabIndex = 1;
@@ -60,7 +60,7 @@
             // lblContraseña
             // 
             lblContraseña.AutoSize = true;
-            lblContraseña.Location = new Point(12, 69);
+            lblContraseña.Location = new Point(59, 76);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(70, 15);
             lblContraseña.TabIndex = 3;
@@ -68,14 +68,14 @@
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(12, 87);
+            txtContraseña.Location = new Point(59, 94);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(302, 23);
             txtContraseña.TabIndex = 2;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(70, 152);
+            btnLogin.Location = new Point(117, 159);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(186, 32);
             btnLogin.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(70, 190);
+            btnRegistrarse.Location = new Point(117, 197);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(186, 32);
             btnRegistrarse.TabIndex = 5;
@@ -103,7 +103,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(70, 228);
+            btnSalir.Location = new Point(117, 235);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(186, 32);
             btnSalir.TabIndex = 7;
@@ -114,7 +114,7 @@
             // lblIdioma
             // 
             lblIdioma.AutoSize = true;
-            lblIdioma.Location = new Point(12, 292);
+            lblIdioma.Location = new Point(59, 299);
             lblIdioma.Name = "lblIdioma";
             lblIdioma.Size = new Size(47, 15);
             lblIdioma.TabIndex = 8;
@@ -123,7 +123,7 @@
             // comboBoxIdioma
             // 
             comboBoxIdioma.FormattingEnabled = true;
-            comboBoxIdioma.Location = new Point(77, 292);
+            comboBoxIdioma.Location = new Point(124, 299);
             comboBoxIdioma.Name = "comboBoxIdioma";
             comboBoxIdioma.Size = new Size(121, 23);
             comboBoxIdioma.TabIndex = 9;
@@ -131,7 +131,7 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.Location = new Point(204, 292);
+            btnAplicar.Location = new Point(251, 299);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(110, 23);
             btnAplicar.TabIndex = 10;
@@ -143,7 +143,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(326, 365);
+            ClientSize = new Size(421, 372);
             Controls.Add(btnAplicar);
             Controls.Add(comboBoxIdioma);
             Controls.Add(lblIdioma);

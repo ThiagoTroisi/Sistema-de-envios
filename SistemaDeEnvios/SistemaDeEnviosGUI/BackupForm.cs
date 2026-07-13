@@ -23,18 +23,23 @@ namespace SistemaDeEnviosGUI
         BackupBLL backupBLL = new BackupBLL();
         private void btnCrearBackup_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.Filter = "Backup (*.bak)|*.bak";
-
-            string nombre = $"Backup_{DateTime.Now:yyyy-MM-dd_HH-mm}.bak";
-            sfd.FileName = nombre;
-
-            if (sfd.ShowDialog() == DialogResult.OK)
+            try
             {
-                backupBLL.HacerBackup(sfd.FileName);
-                MessageBox.Show(Traducciones.Traducir("backupcorrecto"));
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                sfd.Filter = "Backup (*.bak)|*.bak";
+
+                string nombre = $"Backup_{DateTime.Now:yyyy-MM-dd_HH-mm}.bak";
+                sfd.FileName = nombre;
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    backupBLL.HacerBackup(sfd.FileName);
+                    MessageBox.Show(Traducciones.Traducir("backupcorrecto"));
+                }
             }
+            catch (Microsoft.Data.SqlClient.SqlException) { MessageBox.Show(Traducciones.Traducir("error backup"), "", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnRealizarRestore_Click(object sender, EventArgs e)

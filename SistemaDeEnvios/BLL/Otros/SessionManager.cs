@@ -25,34 +25,38 @@ namespace BLL.Gestores
             if (u == null) { rl.Mensaje = "email no encontrado"; return rl; }
             if (!u.Estado) { rl.Mensaje = "usuario inactivo"; return rl; }
             if (u.Bloqueado) { rl.Mensaje = "usuario bloqueado"; return rl; }
-            bool contraseñaok = Encriptador.Verificar(contra, u.Contraseña);
-            if (!contraseñaok)
+            try
             {
-                usuariobll.IncrementarIntentos(u.DNI);
-
-                u.IntentosFallidos++;
-
-                if (u.IntentosFallidos >= 3)
+                bool contraseñaok = Encriptador.Verificar(contra, u.Contraseña);
+                if (!contraseñaok)
                 {
-                    usuariobll.BloquearUsuario(u.DNI);
+                    usuariobll.IncrementarIntentos(u.DNI);
 
-                    rl.Mensaje = "usuario bloqueado por intentos";
+                    u.IntentosFallidos++;
+
+                    if (u.IntentosFallidos >= 3)
+                    {
+                        usuariobll.BloquearUsuario(u.DNI);
+
+                        rl.Mensaje = "usuario bloqueado por intentos";
+                        return rl;
+                    }
+
+                    rl.Mensaje = "contraseña incorrecta";
+                    rl.Parametros = new object[] { u.IntentosFallidos };
                     return rl;
                 }
 
-                rl.Mensaje = "contraseña incorrecta";
-                rl.Parametros = new object[] { u.IntentosFallidos };
+                rl.Exitoso = true;
+                rl.Mensaje = "login exitoso";
+                rl.Usuario = u;
+
+                SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
+                Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
+                GestorIdiomas.Instancia.CambiarIdioma(idioma);
                 return rl;
             }
-
-            rl.Exitoso = true;
-            rl.Mensaje = "login exitoso";
-            rl.Usuario = u;
-            
-            SesionUsuario.GetInstancia().Iniciar(rl.Usuario);
-            Idioma idioma = idiomabll.ObtenerPorId(rl.Usuario.IdIdioma);
-            GestorIdiomas.Instancia.CambiarIdioma(idioma);
-            return rl;
+            catch (BCrypt.Net.SaltParseException) { rl.Mensaje = "error usuario bd"; return rl; }
         }
         public void ContinuarLogin(string mail)
         {
