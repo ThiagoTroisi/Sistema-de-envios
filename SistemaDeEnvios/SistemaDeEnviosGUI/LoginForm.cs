@@ -23,7 +23,6 @@ namespace SistemaDeEnviosGUI.Formularios
         public LoginForm(bool relogin = false)
         {
             InitializeComponent();
-            dvbll.InicializarIntegridadSiPrimeraVez();
             modoRelogin = relogin;
             btnRegistrarse.Enabled = false;
             if (modoRelogin)
