@@ -85,3 +85,5 @@ C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Sist
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.PerfilesForm.resources
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.ErrorIntegridadForm.resources
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.BackupForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.MaestroPersonasForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.GestionEnviosForm.resources

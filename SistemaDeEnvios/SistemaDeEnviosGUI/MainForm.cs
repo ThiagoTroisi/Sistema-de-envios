@@ -127,6 +127,17 @@ namespace SistemaDeEnviosGUI.Formularios
 
             treeView1.Nodes.Add(rep);
 
+
+            // MAESTRO
+            TreeNode maestro = new TreeNode();
+            maestro.Text = "1ra entrega";
+            maestro.Tag = "1ra entrega";
+
+            maestro.Nodes.Add(new TreeNode() { Text = "Registro de clientes", Tag = "Registro de clientes" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Registro de envíos", Tag = "Registro de envíos" });
+
+            treeView1.Nodes.Add(maestro);
+
             treeView1.EndUpdate();
 
             AplicarPermisos();
@@ -232,6 +243,14 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "GestionBackup":
                     new BackupForm().ShowDialog();
+                    break;
+
+                case "Registro de clientes":
+                    new MaestroPersonasForm().ShowDialog();
+                    break;
+
+                case "Registro de envíos":
+                    new GestionEnviosForm().ShowDialog();
                     break;
             }
         }

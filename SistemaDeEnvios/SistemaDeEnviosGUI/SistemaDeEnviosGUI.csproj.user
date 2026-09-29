@@ -10,6 +10,12 @@
     <Compile Update="ErrorIntegridadForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GestionEnviosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MaestroPersonasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

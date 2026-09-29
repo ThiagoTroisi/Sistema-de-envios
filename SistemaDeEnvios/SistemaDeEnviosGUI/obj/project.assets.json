@@ -608,6 +608,7 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.2.0",
           "BE": "1.0.0",
+          "Microsoft.Data.SqlClient": "7.0.1",
           "iTextSharp": "5.5.13.5"
         },
         "compile": {
@@ -1608,7 +1609,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
