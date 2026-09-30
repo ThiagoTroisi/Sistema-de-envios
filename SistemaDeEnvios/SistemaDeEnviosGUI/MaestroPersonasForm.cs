@@ -43,6 +43,9 @@ namespace SistemaDeEnviosGUI
             {
                 CambiarModo(modoactual);
                 txtDni.Text = dniInicial.Value.ToString();
+                RefrescarGrilla();
+                dataGridViewPersonas.Enabled = false;
+                btnCancelar.Enabled = false;
             }
             else
             {
@@ -55,7 +58,7 @@ namespace SistemaDeEnviosGUI
         private void RefrescarGrilla()
         {
             dataGridViewPersonas.DataSource = personabll.ObtenerPersonas(radioButtonTodos.Checked);
-            CargarDatos();
+            if (!dniInicial.HasValue) CargarDatos();
         }
 
         private void CambiarModo(ModoFormulario modo)

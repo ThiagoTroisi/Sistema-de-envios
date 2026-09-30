@@ -18,6 +18,20 @@ namespace SistemaDeEnviosGUI
     {
         private EnvioBLL enviobll = new EnvioBLL();
         private PersonaBLL personabll = new PersonaBLL();
+        private PaqueteBLL paquetebll = new PaqueteBLL();
+        private DestinoBLL destinobll = new DestinoBLL();
+
+        private ModoGestionEnvio modoactual = ModoGestionEnvio.Consulta;
+
+        private enum ModoGestionEnvio
+        {
+            Consulta,
+            Alta,
+            Modificacion,
+            Baja
+        }
+
+        private EnvioBE envioSeleccionado;
 
         private int? dniRemitenteCargado;
         private int? dniDestinatarioCargado;
@@ -30,91 +44,575 @@ namespace SistemaDeEnviosGUI
 
         private void GestionEnviosForm_Load(object sender, EventArgs e)
         {
+            ConfigurarFiltros();
+            dataGridViewEnvios.ReadOnly = true;
+            dataGridViewEnvios.AllowUserToAddRows = false;
+            dataGridViewEnvios.AllowUserToDeleteRows = false;
+            dataGridViewEnvios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewEnvios.MultiSelect = false;
+            CambiarModo(ModoGestionEnvio.Consulta);
+            CargarEnvios();
+        }
 
+        private void ConfigurarFiltros()
+        {
+            cboEstado.Items.Clear();
+
+            cboEstado.Items.Add("Todos");
+            cboEstado.Items.Add("Registrado");
+            cboEstado.Items.Add("Pagado");
+            cboEstado.Items.Add("Aprobado");
+            cboEstado.Items.Add("Asignado");
+            cboEstado.Items.Add("En distribución");
+            cboEstado.Items.Add("En sucursal");
+            cboEstado.Items.Add("En devolución");
+            cboEstado.Items.Add("Entregado");
+            cboEstado.Items.Add("Cancelado");
+
+            cboEstado.SelectedIndex = 0;
+
+            dateTimePickerDesde.ShowCheckBox = true;
+            dateTimePickerHasta.ShowCheckBox = true;
+        }
+
+        private void CargarEnvios()
+        {
+            DateTime? fechaDesde = dateTimePickerDesde.Checked
+                ? dateTimePickerDesde.Value.Date
+                : null;
+
+            DateTime? fechaHasta = dateTimePickerHasta.Checked
+                ? dateTimePickerHasta.Value.Date.AddDays(1)
+                : null;
+
+            DataTable tabla = enviobll.ObtenerEnvios(
+                cboEstado.Text,
+                txtCodigoSeguimiento.Text,
+                txtDNIRFiltro.Text,
+                txtDNIDFiltro.Text,
+                fechaDesde,
+                fechaHasta);
+
+            dataGridViewEnvios.DataSource = tabla;
+
+            dataGridViewEnvios.ReadOnly = true;
+            dataGridViewEnvios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewEnvios.MultiSelect = false;
+
+            if (dataGridViewEnvios.Columns["id_envio"] != null)
+                dataGridViewEnvios.Columns["id_envio"].Visible = false;
+
+            if (dataGridViewEnvios.Columns["codigo_seguimiento"] != null)
+                dataGridViewEnvios.Columns["codigo_seguimiento"].HeaderText = "Código";
+
+            if (dataGridViewEnvios.Columns["fecha_registro"] != null)
+                dataGridViewEnvios.Columns["fecha_registro"].HeaderText = "Fecha";
+
+            if (dataGridViewEnvios.Columns["remitente"] != null)
+                dataGridViewEnvios.Columns["remitente"].HeaderText = "Remitente";
+
+            if (dataGridViewEnvios.Columns["destinatario"] != null)
+                dataGridViewEnvios.Columns["destinatario"].HeaderText = "Destinatario";
+
+            if (dataGridViewEnvios.Columns["destino"] != null)
+                dataGridViewEnvios.Columns["destino"].HeaderText = "Destino";
+
+            if (dataGridViewEnvios.Columns["estado"] != null)
+                dataGridViewEnvios.Columns["estado"].HeaderText = "Estado";
+
+            ActualizarBotonesConsulta();
+        }
+        private void ActualizarBotonesConsulta()
+        {
+            if (modoactual != ModoGestionEnvio.Consulta)
+                return;
+
+            btnRegistrarEnvio.Enabled = true;
+
+            if (envioSeleccionado == null)
+            {
+                btnModificarEnvio.Enabled = true;
+                btnCancelarEnvio.Enabled = true;
+                return;
+            }
+
+            btnModificarEnvio.Enabled =
+                envioSeleccionado.Estado == "Registrado" ||
+                envioSeleccionado.Estado == "Pagado" ||
+                envioSeleccionado.Estado == "Aprobado";
+
+            btnCancelarEnvio.Enabled =
+                envioSeleccionado.Estado != "En distribución" &&
+                envioSeleccionado.Estado != "Entregado" &&
+                envioSeleccionado.Estado != "Cancelado";
+        }
+        private void CambiarModo(ModoGestionEnvio modo)
+        {
+            modoactual = modo;
+
+            switch (modoactual)
+            {
+                case ModoGestionEnvio.Consulta:
+                    ConfigurarModoConsulta();
+                    break;
+
+                case ModoGestionEnvio.Alta:
+                    ConfigurarModoAlta();
+                    break;
+
+                case ModoGestionEnvio.Modificacion:
+                    ConfigurarModoModificacion();
+                    break;
+
+                case ModoGestionEnvio.Baja:
+                    ConfigurarModoBaja();
+                    break;
+            }
+        }
+
+        private void ConfigurarModoConsulta()
+        {
+            HabilitarDatos(false);
+
+            txtDNIR.ReadOnly = true;
+            txtDNID.ReadOnly = true;
+
+            txtNombreR.ReadOnly = true;
+            txtApellidoR.ReadOnly = true;
+            txtTelefonoR.ReadOnly = true;
+            txtEmailR.ReadOnly = true;
+
+            txtNombreD.ReadOnly = true;
+            txtApellidoD.ReadOnly = true;
+            txtTelefonoD.ReadOnly = true;
+            txtEmailD.ReadOnly = true;
+
+            btnRegistrarEnvio.Enabled = true;
+            btnModificarEnvio.Enabled = true;
+            btnCancelarEnvio.Enabled = true;
+
+            btnAplicar.Enabled = false;
+            btnCancelar.Enabled = false;
+
+            dataGridViewEnvios.Enabled = true;
+
+            ActualizarBotonesConsulta();
+        }
+
+        private void ConfigurarModoAlta()
+        {
+            envioSeleccionado = null;
+
+            LimpiarFormulario();
+
+            HabilitarDatos(true);
+
+            txtDNIR.ReadOnly = false;
+            txtDNID.ReadOnly = false;
+
+            txtNombreR.ReadOnly = true;
+            txtApellidoR.ReadOnly = true;
+            txtTelefonoR.ReadOnly = true;
+            txtEmailR.ReadOnly = true;
+
+            txtNombreD.ReadOnly = true;
+            txtApellidoD.ReadOnly = true;
+            txtTelefonoD.ReadOnly = true;
+            txtEmailD.ReadOnly = true;
+
+            btnRegistrarEnvio.Enabled = false;
+            btnModificarEnvio.Enabled = false;
+            btnCancelarEnvio.Enabled = false;
+
+            btnBuscarRemitente.Enabled = true;
+            btnBuscarDestinatario.Enabled = true;
+
+            btnAplicar.Enabled = true;
+            btnCancelar.Enabled = true;
+
+            dataGridViewEnvios.Enabled = false;
+        }
+
+        private void ConfigurarModoModificacion()
+        {
+            HabilitarDatos(true);
+
+            btnBuscarRemitente.Enabled = false;
+            btnBuscarDestinatario.Enabled = false;
+
+            txtDNIR.ReadOnly = true;
+            txtDNID.ReadOnly = true;
+
+            txtNombreR.ReadOnly = true;
+            txtApellidoR.ReadOnly = true;
+            txtTelefonoR.ReadOnly = true;
+            txtEmailR.ReadOnly = true;
+
+            txtNombreD.ReadOnly = true;
+            txtApellidoD.ReadOnly = true;
+            txtTelefonoD.ReadOnly = true;
+            txtEmailD.ReadOnly = true;
+
+            btnRegistrarEnvio.Enabled = false;
+            btnModificarEnvio.Enabled = false;
+            btnCancelarEnvio.Enabled = false;
+
+            btnAplicar.Enabled = true;
+            btnCancelar.Enabled = true;
+
+            dataGridViewEnvios.Enabled = true;
+        }
+
+        private void ConfigurarModoBaja()
+        {
+            HabilitarDatos(false);
+
+            btnBuscarRemitente.Enabled = false;
+            btnBuscarDestinatario.Enabled = false;
+
+            txtDNIR.ReadOnly = true;
+            txtDNID.ReadOnly = true;
+
+            txtNombreR.ReadOnly = true;
+            txtApellidoR.ReadOnly = true;
+            txtTelefonoR.ReadOnly = true;
+            txtEmailR.ReadOnly = true;
+
+            txtNombreD.ReadOnly = true;
+            txtApellidoD.ReadOnly = true;
+            txtTelefonoD.ReadOnly = true;
+            txtEmailD.ReadOnly = true;
+
+            btnRegistrarEnvio.Enabled = false;
+            btnModificarEnvio.Enabled = false;
+            btnCancelarEnvio.Enabled = false;
+
+            btnAplicar.Enabled = true;
+            btnCancelar.Enabled = true;
+
+            dataGridViewEnvios.Enabled = true;
+        }
+
+        private void HabilitarDatos(bool habilitar)
+        {
+            txtDescripcion.Enabled = habilitar;
+            txtPeso.Enabled = habilitar;
+            txtAlto.Enabled = habilitar;
+            txtAncho.Enabled = habilitar;
+            txtLargo.Enabled = habilitar;
+
+            txtProvincia.Enabled = habilitar;
+            txtCP.Enabled = habilitar;
+            txtCiudad.Enabled = habilitar;
+            txtDireccion.Enabled = habilitar;
+
+            btnBuscarRemitente.Enabled = habilitar;
+            btnBuscarDestinatario.Enabled = habilitar;
         }
 
         private void btnRegistrarEnvio_Click(object sender, EventArgs e)
         {
+            CambiarModo(ModoGestionEnvio.Alta);
+        }
+
+        private void btnCancelarEnvio_Click(object sender, EventArgs e)
+        {
+            if (envioSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un envío.", "Cancelar envío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (envioSeleccionado.Estado == "En distribución" ||
+                envioSeleccionado.Estado == "Entregado" ||
+                envioSeleccionado.Estado == "Cancelado")
+            {
+                MessageBox.Show("El envío no puede cancelarse en su estado actual.", "Cancelar envío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            CambiarModo(ModoGestionEnvio.Baja);
+        }
+
+        private void btnModificarEnvio_Click(object sender, EventArgs e)
+        {
+            if (envioSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un envío.", "Modificar envío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (envioSeleccionado.Estado != "Registrado" &&
+                envioSeleccionado.Estado != "Pagado" &&
+                envioSeleccionado.Estado != "Aprobado")
+            {
+                MessageBox.Show("El envío no puede modificarse en su estado actual.", "Modificar envío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            CambiarModo(ModoGestionEnvio.Modificacion);
+        }
+
+        private void dataGridViewEnvios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Alta) return;
+
+            if (dataGridViewEnvios.CurrentRow == null)
+            {
+                envioSeleccionado = null;
+                LimpiarFormulario();
+
+                if (modoactual == ModoGestionEnvio.Consulta) ActualizarBotonesConsulta();
+
+                return;
+            }
+
+            if (dataGridViewEnvios.CurrentRow.Cells["id_envio"].Value == null)
+            {
+                envioSeleccionado = null;
+                return;
+            }
+
+            int idEnvio = Convert.ToInt32(dataGridViewEnvios.CurrentRow.Cells["id_envio"].Value);
+
+            envioSeleccionado = enviobll.ConsultaPorId(idEnvio);
+
+            if (envioSeleccionado == null)
+            {
+                LimpiarFormulario();
+                return;
+            }
+
+            CargarDatosEnvio(envioSeleccionado);
+
+            if (modoactual == ModoGestionEnvio.Consulta) ActualizarBotonesConsulta();
+        }
+
+        private void CargarDatosEnvio(EnvioBE envio)
+        {
+            PaqueteBE paquete = paquetebll.ConsultaPorId(envio.IdPaquete);
+            DestinoBE destino = destinobll.ConsultaPorId(envio.IdDestino);
+
+            PersonaBE remitente = personabll.ConsultaPorDNI(envio.IdRemitente);
+            PersonaBE destinatario = personabll.ConsultaPorDNI(envio.IdDestinatario);
+
+            txtDescripcion.Text = paquete.Descripcion;
+            txtPeso.Text = paquete.Peso.ToString();
+            txtAlto.Text = paquete.Alto.ToString();
+            txtAncho.Text = paquete.Ancho.ToString();
+            txtLargo.Text = paquete.Largo.ToString();
+
+            txtProvincia.Text = destino.Provincia;
+            txtCP.Text = destino.CodigoPostal;
+            txtCiudad.Text = destino.Ciudad;
+            txtDireccion.Text = destino.Direccion;
+
+            txtDNIR.Text = remitente.DNI.ToString();
+            txtNombreR.Text = remitente.Nombre;
+            txtApellidoR.Text = remitente.Apellido;
+            txtTelefonoR.Text = remitente.Telefono;
+            txtEmailR.Text = remitente.Email;
+
+            txtDNID.Text = destinatario.DNI.ToString();
+            txtNombreD.Text = destinatario.Nombre;
+            txtApellidoD.Text = destinatario.Apellido;
+            txtTelefonoD.Text = destinatario.Telefono;
+            txtEmailD.Text = destinatario.Email;
+
+            dniRemitenteCargado = remitente.DNI;
+            dniDestinatarioCargado = destinatario.DNI;
+        }
+
+        private void btnAplicar_Click(object sender, EventArgs e)
+        {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
-                    throw new Exception("La descripción del paquete es obligatoria.");
-
-                if (!decimal.TryParse(txtPeso.Text, out decimal peso) || peso <= 0)
-                    throw new Exception("El peso debe ser un número mayor a cero.");
-
-                if (!decimal.TryParse(txtAlto.Text, out decimal alto) || alto <= 0)
-                    throw new Exception("El alto debe ser un número mayor a cero.");
-
-                if (!decimal.TryParse(txtAncho.Text, out decimal ancho) || ancho <= 0)
-                    throw new Exception("El ancho debe ser un número mayor a cero.");
-
-                if (!decimal.TryParse(txtLargo.Text, out decimal largo) || largo <= 0)
-                    throw new Exception("El largo debe ser un número mayor a cero.");
-
-                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-                    throw new Exception("La dirección de destino es obligatoria.");
-
-                if (string.IsNullOrWhiteSpace(txtCiudad.Text))
-                    throw new Exception("La ciudad de destino es obligatoria.");
-
-                if (string.IsNullOrWhiteSpace(txtCP.Text))
-                    throw new Exception("El código postal es obligatorio.");
-
-                if (string.IsNullOrWhiteSpace(txtProvincia.Text))
-                    throw new Exception("La provincia es obligatoria.");
-
-                if (!dniRemitenteCargado.HasValue)
-                    throw new Exception("Debe buscar al remitente antes de registrar el envío.");
-
-                if (!dniDestinatarioCargado.HasValue)
-                    throw new Exception("Debe buscar al destinatario antes de registrar el envío.");
-
-                int dniRemitente = dniRemitenteCargado.Value;
-                int dniDestinatario = dniDestinatarioCargado.Value;
-
-                if (dniRemitente == dniDestinatario)
+                switch (modoactual)
                 {
-                    DialogResult resultado = MessageBox.Show("El remitente y el destinatario son la misma persona. ¿Desea continuar con el registro del envío?", "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    case ModoGestionEnvio.Alta:
+                        AplicarAlta();
+                        break;
 
-                    if (resultado != DialogResult.Yes) return;
+                    case ModoGestionEnvio.Modificacion:
+                        AplicarModificacion();
+                        break;
+
+                    case ModoGestionEnvio.Baja:
+                        AplicarBaja();
+                        break;
                 }
-
-                PaqueteBE paquete = new PaqueteBE
-                {
-                    Descripcion = txtDescripcion.Text,
-                    Peso = peso,
-                    Alto = alto,
-                    Ancho = ancho,
-                    Largo = largo
-                };
-
-                DestinoBE destino = new DestinoBE
-                {
-                    Direccion = txtDireccion.Text,
-                    Ciudad = txtCiudad.Text,
-                    CodigoPostal = txtCP.Text,
-                    Provincia = txtProvincia.Text
-                };
-
-                EnvioBE envio = new EnvioBE(
-                    "Sucursal Central",
-                    0,
-                    0,
-                    dniRemitente,
-                    dniDestinatario
-                );
-
-                enviobll.RegistrarEnvio(paquete, destino, envio);
-
-                MessageBox.Show($"El envío se registró correctamente.\nCódigo de seguimiento: {envio.CodigoSeguimiento}","Registro de envío", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                LimpiarFormulario();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
+        }
+        private void AplicarAlta()
+        {
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                throw new Exception("La descripción del paquete es obligatoria.");
+
+            if (!decimal.TryParse(txtPeso.Text, out decimal peso) || peso <= 0)
+                throw new Exception("El peso debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtAlto.Text, out decimal alto) || alto <= 0)
+                throw new Exception("El alto debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtAncho.Text, out decimal ancho) || ancho <= 0)
+                throw new Exception("El ancho debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtLargo.Text, out decimal largo) || largo <= 0)
+                throw new Exception("El largo debe ser un número mayor a cero.");
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                throw new Exception("La dirección de destino es obligatoria.");
+
+            if (string.IsNullOrWhiteSpace(txtCiudad.Text))
+                throw new Exception("La ciudad de destino es obligatoria.");
+
+            if (string.IsNullOrWhiteSpace(txtCP.Text))
+                throw new Exception("El código postal es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtProvincia.Text))
+                throw new Exception("La provincia es obligatoria.");
+
+            if (!dniRemitenteCargado.HasValue)
+                throw new Exception("Debe buscar al remitente antes de registrar el envío.");
+
+            if (!dniDestinatarioCargado.HasValue)
+                throw new Exception("Debe buscar al destinatario antes de registrar el envío.");
+
+            int dniRemitente = dniRemitenteCargado.Value;
+            int dniDestinatario = dniDestinatarioCargado.Value;
+
+            if (dniRemitente == dniDestinatario)
+            {
+                DialogResult resultado = MessageBox.Show("El remitente y el destinatario son la misma persona. ¿Desea continuar con el registro del envío?", "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado != DialogResult.Yes)
+                    return;
+            }
+
+            PaqueteBE paquete = new PaqueteBE
+            {
+                Descripcion = txtDescripcion.Text,
+                Peso = peso,
+                Alto = alto,
+                Ancho = ancho,
+                Largo = largo
+            };
+
+            DestinoBE destino = new DestinoBE
+            {
+                Direccion = txtDireccion.Text,
+                Ciudad = txtCiudad.Text,
+                CodigoPostal = txtCP.Text,
+                Provincia = txtProvincia.Text
+            };
+
+            EnvioBE envio = new EnvioBE(
+                "Sucursal Central",
+                0,
+                0,
+                dniRemitente,
+                dniDestinatario);
+
+            enviobll.RegistrarEnvio(paquete, destino, envio);
+
+            MessageBox.Show($"El envío se registró correctamente.\nCódigo de seguimiento: {envio.CodigoSeguimiento}", "Registro de envío", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarEnvios();
+            CambiarModo(ModoGestionEnvio.Consulta);
+        }
+
+        private void AplicarModificacion()
+        {
+            if (envioSeleccionado == null)
+                throw new Exception("No hay un envío seleccionado.");
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                throw new Exception("La descripción del paquete es obligatoria.");
+
+            if (!decimal.TryParse(txtPeso.Text, out decimal peso) || peso <= 0)
+                throw new Exception("El peso debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtAlto.Text, out decimal alto) || alto <= 0)
+                throw new Exception("El alto debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtAncho.Text, out decimal ancho) || ancho <= 0)
+                throw new Exception("El ancho debe ser un número mayor a cero.");
+
+            if (!decimal.TryParse(txtLargo.Text, out decimal largo) || largo <= 0)
+                throw new Exception("El largo debe ser un número mayor a cero.");
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                throw new Exception("La dirección de destino es obligatoria.");
+
+            if (string.IsNullOrWhiteSpace(txtCiudad.Text))
+                throw new Exception("La ciudad de destino es obligatoria.");
+
+            if (string.IsNullOrWhiteSpace(txtCP.Text))
+                throw new Exception("El código postal es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtProvincia.Text))
+                throw new Exception("La provincia es obligatoria.");
+
+            PaqueteBE paquete = new PaqueteBE
+            {
+                IdPaquete = envioSeleccionado.IdPaquete,
+                Descripcion = txtDescripcion.Text,
+                Peso = peso,
+                Alto = alto,
+                Ancho = ancho,
+                Largo = largo
+            };
+
+            DestinoBE destino = new DestinoBE
+            {
+                IdDestino = envioSeleccionado.IdDestino,
+                Direccion = txtDireccion.Text,
+                Ciudad = txtCiudad.Text,
+                CodigoPostal = txtCP.Text,
+                Provincia = txtProvincia.Text
+            };
+
+            enviobll.ModificarEnvio(envioSeleccionado, paquete, destino);
+
+            MessageBox.Show("El envío se modificó correctamente.", "Modificar envío", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarEnvios();
+            CambiarModo(ModoGestionEnvio.Consulta);
+        }
+
+        private void AplicarBaja()
+        {
+            if (envioSeleccionado == null) throw new Exception("No hay un envío seleccionado.");
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea cancelar el envío seleccionado?", "Cancelar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado != DialogResult.Yes) return;
+
+            enviobll.CancelarEnvio(envioSeleccionado.IdEnvio);
+
+            MessageBox.Show("El envío fue cancelado correctamente.", "Cancelar envío", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarEnvios();
+            CambiarModo(ModoGestionEnvio.Consulta);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            CambiarModo(ModoGestionEnvio.Consulta);
+            dataGridViewEnvios_SelectionChanged(sender, e);
         }
 
         private bool BuscarPersona(int dni, bool remitente)
@@ -170,7 +668,7 @@ namespace SistemaDeEnviosGUI
         {
             if (!int.TryParse(txtDNIR.Text, out int dni) || dni <= 0)
             {
-                MessageBox.Show("Ingrese un DNI válido.","Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un DNI válido.", "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -188,13 +686,11 @@ namespace SistemaDeEnviosGUI
             BuscarPersona(dni, false);
         }
 
-        public void ActualizarIdioma()
-        {
-
-        }
-
         private void txtDNIR_TextChanged(object sender, EventArgs e)
         {
+            if (modoactual != ModoGestionEnvio.Alta)
+                return;
+
             if (dniRemitenteCargado.HasValue && txtDNIR.Text != dniRemitenteCargado.Value.ToString())
             {
                 LimpiarRemitente();
@@ -212,6 +708,9 @@ namespace SistemaDeEnviosGUI
 
         private void txtDNID_TextChanged(object sender, EventArgs e)
         {
+            if (modoactual != ModoGestionEnvio.Alta)
+                return;
+
             if (dniDestinatarioCargado.HasValue && txtDNID.Text != dniDestinatarioCargado.Value.ToString())
             {
                 LimpiarDestinatario();
@@ -255,6 +754,60 @@ namespace SistemaDeEnviosGUI
 
             dniRemitenteCargado = null;
             dniDestinatarioCargado = null;
+        }
+        
+        private void txtCodigoSeguimiento_TextChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void txtDNIRFiltro_TextChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void txtDNIDFiltro_TextChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void dateTimePickerDesde_ValueChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void dateTimePickerHasta_ValueChanged(object sender, EventArgs e)
+        {
+            if (modoactual == ModoGestionEnvio.Consulta)
+                CargarEnvios();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            cboEstado.SelectedIndex = 0;
+
+            txtCodigoSeguimiento.Clear();
+            txtDNIRFiltro.Clear();
+            txtDNIDFiltro.Clear();
+
+            dateTimePickerDesde.Checked = false;
+            dateTimePickerHasta.Checked = false;
+
+            CargarEnvios();
+        }
+        public void ActualizarIdioma()
+        {
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

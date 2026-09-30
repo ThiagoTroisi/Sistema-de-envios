@@ -3,6 +3,7 @@ using BLL.Otros;
 using DAL;
 using Servicios;
 using System;
+using System.Data;
 
 namespace BLL
 {
@@ -79,6 +80,60 @@ namespace BLL
 
             if (envio.IdDestinatario <= 0)
                 throw new Exception("El destinatario seleccionado no es válido.");
+        }
+
+        public DataTable ObtenerEnvios(string estado, string codigo, string dniRemitente, string dniDestinatario, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            return dal.ObtenerEnvios(estado, codigo, dniRemitente, dniDestinatario, fechaDesde, fechaHasta);
+        }
+
+        public void ModificarEnvio(EnvioBE envio, PaqueteBE paquete, DestinoBE destino)
+        {
+            if (envio == null)
+                throw new Exception("El envío no puede ser nulo.");
+
+            if (paquete == null)
+                throw new Exception("El paquete no puede ser nulo.");
+
+            if (destino == null)
+                throw new Exception("El destino no puede ser nulo.");
+
+            if (envio.IdEnvio <= 0)
+                throw new Exception("El envío seleccionado no es válido.");
+
+            if (envio.Estado != "Registrado" && envio.Estado != "Pagado" && envio.Estado != "Aprobado")
+            {
+                throw new Exception("El envío no puede modificarse en su estado actual.");
+            }
+
+            paquete.IdPaquete = envio.IdPaquete;
+            destino.IdDestino = envio.IdDestino;
+
+            paquetebll.ModificarPaquete(paquete);
+            destinobll.ModificarDestino(destino);
+
+            eventobll.RegistrarEvento("envios", "ev_modificacion_envio", 2);
+        }
+
+        public void CancelarEnvio(int idEnvio)
+        {
+            if (idEnvio <= 0) throw new Exception("El envío seleccionado no es válido.");
+
+            EnvioBE envio = ConsultaPorId(idEnvio);
+
+            if (envio == null) throw new Exception("El envío seleccionado no existe.");
+
+            if (envio.Estado == "En distribución" || envio.Estado == "Entregado" || envio.Estado == "Cancelado")
+            {
+                throw new Exception("El envío no puede cancelarse en su estado actual.");
+            }
+
+            dal.CancelarEnvio(idEnvio);
+
+            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
+            dvBLL.ActualizarDVV("Envio");
+
+            eventobll.RegistrarEvento("envios", "ev_baja_envio", 2);
         }
     }
 }

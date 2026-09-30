@@ -58,5 +58,26 @@ namespace DAL
                 }
             }
         }
+
+        public void ModificarDestino(DestinoBE destino)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Destino set direccion = @direccion, ciudad = @ciudad, codigo_postal = @codigo_postal, provincia = @provincia where id_destino = @id_destino";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_destino", destino.IdDestino);
+                    comando.Parameters.AddWithValue("@direccion", destino.Direccion);
+                    comando.Parameters.AddWithValue("@ciudad", destino.Ciudad);
+                    comando.Parameters.AddWithValue("@codigo_postal", destino.CodigoPostal);
+                    comando.Parameters.AddWithValue("@provincia", destino.Provincia);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

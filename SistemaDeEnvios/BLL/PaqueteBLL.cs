@@ -52,5 +52,36 @@ namespace BLL
             if (paquete.Largo <= 0)
                 throw new Exception("El largo debe ser mayor a cero.");
         }
+
+        public void ModificarPaquete(PaqueteBE paquete)
+        {
+            if (paquete == null)
+                throw new Exception("El paquete no puede ser nulo.");
+
+            if (paquete.IdPaquete <= 0)
+                throw new Exception("El paquete seleccionado no es válido.");
+
+            if (string.IsNullOrWhiteSpace(paquete.Descripcion))
+                throw new Exception("La descripción del paquete es obligatoria.");
+
+            if (paquete.Peso <= 0)
+                throw new Exception("El peso debe ser mayor a cero.");
+
+            if (paquete.Alto <= 0)
+                throw new Exception("El alto debe ser mayor a cero.");
+
+            if (paquete.Ancho <= 0)
+                throw new Exception("El ancho debe ser mayor a cero.");
+
+            if (paquete.Largo <= 0)
+                throw new Exception("El largo debe ser mayor a cero.");
+
+            dal.ModificarPaquete(paquete);
+
+            dvBLL.ActualizarDVH("Paquete", "id_paquete", paquete.IdPaquete);
+            dvBLL.ActualizarDVV("Paquete");
+
+            eventobll.RegistrarEvento("paquetes",  "ev_modificacion_paquete", 2);
+        }
     }
 }

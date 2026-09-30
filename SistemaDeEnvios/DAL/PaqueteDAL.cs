@@ -60,5 +60,26 @@ namespace DAL
                 }
             }
         }
+        public void ModificarPaquete(PaqueteBE paquete)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Paquete set descripcion = @descripcion, peso = @peso, alto = @alto, ancho = @ancho, largo = @largo where id_paquete = @id_paquete";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_paquete", paquete.IdPaquete);
+                    comando.Parameters.AddWithValue("@descripcion", paquete.Descripcion);
+                    comando.Parameters.AddWithValue("@peso", paquete.Peso);
+                    comando.Parameters.AddWithValue("@alto", paquete.Alto);
+                    comando.Parameters.AddWithValue("@ancho", paquete.Ancho);
+                    comando.Parameters.AddWithValue("@largo", paquete.Largo);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
