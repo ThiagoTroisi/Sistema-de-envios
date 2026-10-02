@@ -7,10 +7,19 @@
     <Compile Update="BackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CobroEnviosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DatosTarjetaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ErrorIntegridadForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GestionEnviosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GestionFacturasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MaestroPersonasForm.cs">

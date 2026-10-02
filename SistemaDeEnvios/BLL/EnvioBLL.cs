@@ -135,5 +135,98 @@ namespace BLL
 
             eventobll.RegistrarEvento("envios", "ev_baja_envio", 2);
         }
+        public decimal ObtenerImporteEnvio(int idEnvio)
+        {
+            EnvioBE envio = ConsultaPorId(idEnvio);
+
+            if (envio == null)
+                throw new Exception("El envío no existe.");
+
+            if (envio.Estado != "Registrado")
+                throw new Exception("El envío no se encuentra pendiente de pago.");
+
+            PaqueteBE paquete = paquetebll.ConsultaPorId(envio.IdPaquete);
+
+            if (paquete == null)
+                throw new Exception("No se encontró el paquete asociado al envío.");
+
+            return CalcularImporte(paquete);
+        }
+
+        public decimal CalcularImporte(PaqueteBE paquete)
+        {
+            if (paquete == null)
+                throw new Exception("El paquete no puede ser nulo.");
+
+            decimal tarifaBase = 4000m;
+            decimal tarifaPorKg = 700m;
+            decimal recargoDimensiones = 0m;
+
+            decimal volumen = paquete.Alto * paquete.Ancho * paquete.Largo;
+
+            if (volumen > 0.05m)
+                recargoDimensiones = 1000m;
+
+            if (volumen > 0.10m)
+                recargoDimensiones = 2000m;
+
+            if (volumen > 0.20m)
+                recargoDimensiones = 4000m;
+
+            return tarifaBase + (paquete.Peso * tarifaPorKg) + recargoDimensiones;
+        }
+
+        public void MarcarComoPagado(int idEnvio)
+        {
+            EnvioBE envio = ConsultaPorId(idEnvio);
+
+            if (envio == null)
+                throw new Exception("El envío no existe.");
+
+            if (envio.Estado != "Registrado")
+                throw new Exception("El envío no se encuentra pendiente de pago.");
+
+            dal.MarcarComoPagado(idEnvio);
+            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
+            dvBLL.ActualizarDVV("Envio");
+        }
+
+        public void MarcarComoFacturado(int idEnvio)
+        {
+            EnvioBE envio = ConsultaPorId(idEnvio);
+
+            if (envio == null)
+                throw new Exception("El envío no existe.");
+
+            if (envio.Estado != "Pagado")
+                throw new Exception("El envío no se encuentra pagado.");
+
+            dal.MarcarComoFacturado(idEnvio);
+
+            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
+            dvBLL.ActualizarDVV("Envio");
+        }
+
+        public void AutorizarEnvio(int idEnvio)
+        {
+            EnvioBE envio = ConsultaPorId(idEnvio);
+
+            if (envio == null)
+                throw new Exception("El envío no existe.");
+
+            if (envio.Estado != "Facturado")
+                throw new Exception("El envío no se encuentra facturado.");
+
+            dal.AutorizarEnvio(idEnvio);
+
+            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
+            dvBLL.ActualizarDVV("Envio");
+
+            eventobll.RegistrarEvento("envios", "ev_autorizacion_envio", 2);
+        }
+        public DataTable ObtenerEnviosParaFacturacion()
+        {
+            return dal.ObtenerEnviosParaFacturacion();
+        }
     }
 }

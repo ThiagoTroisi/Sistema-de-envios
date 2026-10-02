@@ -122,7 +122,7 @@ VALUES
 ('Recepcionista', 'tYXOx6u0bLtp3zY+XEspvDl/11j+lg6iJfEH+tlainc='),
 ('Gestor', '3PiXTLcpL/j8+cT0hGnYoZjdvYg+/EeMnI1v+L4AduM='),
 ('Repartidor', '6fHC2zzOl3yy6+1UeNSymO8B8OmPjlh8qw3pj9tVjF8='),
-('Remitente/Destinatario', 'g9E+8pShjFo2U6CI9qk45f4ZZyJYLmH0V4e0vmSmWf4=');
+('Cajero', 'HdA/mao8rWuG/gUsbVoVeSzY11QHQxe+YD/WvKWUHuM=');
 
 INSERT INTO Permiso (nombre, dvh)
 VALUES
@@ -151,7 +151,11 @@ VALUES
 ('Reporte de inconvenientes', 'ZzxcK7xMduOHohLrSDse7XQWXUc4mNomv7+G4MOIgj8='),
 ('Reporte de repartidores', 'HJIBxQLNjB4Z3QZxmduhEbw/Y2PeHBHbnobsBhcimi8='),
 ('Reporte de pagos', 'fvY+YY5RqLEoz2BTsyj9jEdX8hEb0jumkDWyi4n6s1A='),
-('Reporte de analíticas operativas', 'PrAdtPb1hnUj7TtlV2gguyG4U3jBJZWlBr1lGqGS5Mc=');
+('Reporte de analíticas operativas', 'PrAdtPb1hnUj7TtlV2gguyG4U3jBJZWlBr1lGqGS5Mc='),
+('Registro de clientes', 'JrOoT7UsibQg5kuEFQQA0XOGwjP/PrJrw9S9ny6tW3A='),
+('Registro de envíos', 'c3hoSqYCVw1Ab7+XqHDTcChHt7WsJXOxEJ+XaBeiapU='),
+('Cobro de envíos', 'nh/yIWPQQ27I/j1VNBjRkiiN6iNlD3IRXHDG9ax56WA='),
+('Gestión de facturas', 'Fq60AUqQFTa0P1Dwm2xGBs6U7xDHid1OL564GtqqUPw=');
 
 INSERT INTO DVV(tabla, dvv)
 VALUES
@@ -164,7 +168,13 @@ VALUES
 ('Familia_Familia', ''),
 ('Idioma', '11RGkmmGmKxFdtPT72JnyBSE4qBNhdFZBrTmw8mfZIM='),
 ('Usuario', 'V2cmMqAlpNq0WEf0eoVpn0p90+6Pa/gUqNz9mq2NT7g='),
-('Evento', '');
+('Evento', ''),
+('Persona', ''),
+('Paquete', ''),
+('Destino', ''),
+('Envio', ''),
+('Pago', ''),
+('Factura', '');
 
 -- Administrador base
 INSERT INTO Usuario (dni, nombre, apellido, email, password, id_perfil, dvh) VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1, 'ki7e9KBIii3mEKYZQUf+eoZKHC8n5Kd02xU7O7WHsVI=');
@@ -198,3 +208,82 @@ VALUES
 (1, 24, 'av/a47PBqmqnaJ6bansyJaY2qhrAAl9JDMoShc6vFIc='),
 (1, 25, 'D47zN3sw/Ef5a0gkf0Y6cmqAL2Lz+qA9VkA3UdL2bGc='),
 (1, 26, 'ZaaZkFwCYZNwvPkgf1pHfD1nEwynHsb3UOB/6NUQsIQ=');
+
+CREATE TABLE Persona (
+    dni INT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    telefono VARCHAR(30) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    estado BIT NOT NULL DEFAULT 1,
+    dvh VARCHAR(255) NULL
+);
+
+CREATE TABLE Paquete (
+    id_paquete INT IDENTITY(1,1) PRIMARY KEY,
+    descripcion VARCHAR(200) NOT NULL,
+    peso DECIMAL(10,2) NOT NULL,
+    alto DECIMAL(10,2) NOT NULL,
+    ancho DECIMAL(10,2) NOT NULL,
+    largo DECIMAL(10,2) NOT NULL,
+    dvh VARCHAR(255) NULL
+);
+
+CREATE TABLE Destino (
+    id_destino INT IDENTITY(1,1) PRIMARY KEY,
+    direccion VARCHAR(200) NOT NULL,
+    ciudad VARCHAR(100) NOT NULL,
+    codigo_postal VARCHAR(10) NOT NULL,
+    provincia VARCHAR(100) NOT NULL,
+    dvh VARCHAR(255) NULL
+);
+
+CREATE TABLE Envio (
+    id_envio INT IDENTITY(1,1) PRIMARY KEY,
+    codigo_seguimiento VARCHAR(20) NULL UNIQUE,
+    origen VARCHAR(200) NOT NULL,
+    fecha_registro DATETIME NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    id_paquete INT NOT NULL,
+    id_destino INT NOT NULL,
+    id_remitente INT NOT NULL,
+    id_destinatario INT NOT NULL,
+    dvh VARCHAR(255) NULL,
+
+    CONSTRAINT FK_Envio_Paquete
+        FOREIGN KEY (id_paquete) REFERENCES Paquete(id_paquete),
+
+    CONSTRAINT FK_Envio_Destino
+        FOREIGN KEY (id_destino) REFERENCES Destino(id_destino),
+
+    CONSTRAINT FK_Envio_Remitente
+        FOREIGN KEY (id_remitente) REFERENCES Persona(dni),
+
+    CONSTRAINT FK_Envio_Destinatario
+        FOREIGN KEY (id_destinatario) REFERENCES Persona(dni)
+);
+
+CREATE TABLE Pago (
+    id_pago INT IDENTITY(1,1) PRIMARY KEY,
+    id_envio INT NOT NULL,
+    dni_cliente INT NOT NULL,
+    importe DECIMAL(10,2) NOT NULL,
+    fecha_pago DATETIME NOT NULL,
+    estado VARCHAR(30) NOT NULL,
+    dvh VARCHAR(255) NULL,
+    CONSTRAINT FK_Pago_Envio FOREIGN KEY (id_envio) REFERENCES Envio(id_envio),
+    CONSTRAINT FK_Pago_Cliente FOREIGN KEY (dni_cliente) REFERENCES Persona(dni)
+);
+
+CREATE TABLE Factura (
+    id_factura INT IDENTITY(1,1) PRIMARY KEY,
+    id_envio INT NOT NULL,
+    id_pago INT NOT NULL,
+    dni_cliente INT NOT NULL,
+    importe DECIMAL(10,2) NOT NULL,
+    fecha DATETIME NOT NULL,
+    dvh VARCHAR(255) NULL,
+    CONSTRAINT FK_Factura_Envio FOREIGN KEY (id_envio) REFERENCES Envio(id_envio),
+    CONSTRAINT FK_Factura_Pago FOREIGN KEY (id_pago) REFERENCES Pago(id_pago),
+    CONSTRAINT UQ_Factura_Pago UNIQUE (id_pago)
+);

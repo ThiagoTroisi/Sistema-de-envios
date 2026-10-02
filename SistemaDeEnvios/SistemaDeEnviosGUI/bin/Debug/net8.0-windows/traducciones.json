@@ -1133,5 +1133,434 @@
     "Español": "ERROR: No se puede crear un usuario desde la base de datos",
     "English": "ERROR: A user cannot be created from the database",
     "Português": "ERRO: Não foi possível criar um usuário a partir do banco de dados."
+  },
+
+  "GestionPersonas": {
+    "Español": "Gestión de Personas",
+    "English": "People Management",
+    "Português": "Gestão de Pessoas"
+  },
+
+  "Telefono": {
+    "Español": "Teléfono",
+    "English": "Phone",
+    "Português": "Telefone"
+  },
+
+  "Baja": {
+    "Español": "Baja",
+    "English": "Deactivate",
+    "Português": "Desativar"
+  },
+
+  "Reactivar": {
+    "Español": "Reactivar",
+    "English": "Reactivate",
+    "Português": "Reativar"
+  },
+  "seleccionar_persona": {
+    "Español": "Debe seleccionar una persona.",
+    "English": "You must select a person.",
+    "Português": "Você deve selecionar uma pessoa."
+  },
+  "alta_persona_exitosa": {
+    "Español": "La persona fue registrada correctamente.",
+    "English": "The person was registered successfully.",
+    "Português": "A pessoa foi cadastrada com sucesso."
+  },
+  "baja_persona_exitosa": {
+    "Español": "La persona fue dada de baja correctamente.",
+    "English": "The person was deactivated successfully.",
+    "Português": "A pessoa foi desativada com sucesso."
+  },
+  "reactivacion_persona_exitosa": {
+    "Español": "La persona fue reactivada correctamente.",
+    "English": "The person was reactivated successfully.",
+    "Português": "A pessoa foi reativada com sucesso."
+  },
+  "modificacion_persona_exitosa": {
+    "Español": "La persona fue modificada correctamente.",
+    "English": "The person was updated successfully.",
+    "Português": "A pessoa foi atualizada com sucesso."
+  },
+  "GestionEnvios": {
+    "Español": "Gestión de Envíos",
+    "English": "Shipment Management",
+    "Português": "Gestão de Envios"
+  },
+  "RegistrarEnvio": {
+    "Español": "Registrar envío",
+    "English": "Register shipment",
+    "Português": "Registrar envio"
+  },
+  "ModificarEnvio": {
+    "Español": "Modificar envío",
+    "English": "Modify shipment",
+    "Português": "Modificar envio"
+  },
+  "CancelarEnvio": {
+    "Español": "Cancelar envío",
+    "English": "Cancel shipment",
+    "Português": "Cancelar envio"
+  },
+  "Codigo": {
+    "Español": "Código",
+    "English": "Code",
+    "Português": "Código"
+  },
+  "Fecha": {
+    "Español": "Fecha",
+    "English": "Date",
+    "Português": "Data"
+  },
+  "Remitente": {
+    "Español": "Remitente",
+    "English": "Sender",
+    "Português": "Remetente"
+  },
+  "Destinatario": {
+    "Español": "Destinatario",
+    "English": "Recipient",
+    "Português": "Destinatário"
+  },
+  "Destino": {
+    "Español": "Destino",
+    "English": "Destination",
+    "Português": "Destino"
+  },
+  "Estado": {
+    "Español": "Estado",
+    "English": "Status",
+    "Português": "Status"
+  },
+  "Descripcion": {
+    "Español": "Descripción",
+    "English": "Description",
+    "Português": "Descrição"
+  },
+  "Peso": {
+    "Español": "Peso",
+    "English": "Weight",
+    "Português": "Peso"
+  },
+  "Alto": {
+    "Español": "Alto",
+    "English": "Height",
+    "Português": "Altura"
+  },
+  "Ancho": {
+    "Español": "Ancho",
+    "English": "Width",
+    "Português": "Largura"
+  },
+  "Largo": {
+    "Español": "Largo",
+    "English": "Length",
+    "Português": "Comprimento"
+  },
+  "Provincia": {
+    "Español": "Provincia",
+    "English": "Province",
+    "Português": "Província"
+  },
+  "CodigoPostal": {
+    "Español": "Código postal",
+    "English": "Postal code",
+    "Português": "Código postal"
+  },
+  "Ciudad": {
+    "Español": "Ciudad",
+    "English": "City",
+    "Português": "Cidade"
+  },
+  "Direccion": {
+    "Español": "Dirección",
+    "English": "Address",
+    "Português": "Endereço"
+  },
+  "Buscar": {
+    "Español": "Buscar",
+    "English": "Search",
+    "Português": "Buscar"
+  },
+  "LimpiarFiltros": {
+    "Español": "Limpiar filtros",
+    "English": "Clear filters",
+    "Português": "Limpar filtros"
+  },
+  "SeleccionarEnvio": {
+    "Español": "Seleccione un envío.",
+    "English": "Select a shipment.",
+    "Português": "Selecione um envio."
+  },
+  "EnvioNoPuedeCancelarse": {
+    "Español": "El envío no puede cancelarse en su estado actual.",
+    "English": "The shipment cannot be canceled in its current status.",
+    "Português": "O envio não pode ser cancelado em seu estado atual."
+  },
+  "EnvioNoPuedeModificarse": {
+    "Español": "El envío no puede modificarse en su estado actual.",
+    "English": "The shipment cannot be modified in its current status.",
+    "Português": "O envio não pode ser modificado em seu estado atual."
+  },
+  "DescripcionObligatoria": {
+    "Español": "La descripción del paquete es obligatoria.",
+    "English": "The package description is required.",
+    "Português": "A descrição do pacote é obrigatória."
+  },
+  "PesoInvalido": {
+    "Español": "El peso debe ser un número mayor a cero.",
+    "English": "Weight must be a number greater than zero.",
+    "Português": "O peso deve ser um número maior que zero."
+  },
+  "AltoInvalido": {
+    "Español": "El alto debe ser un número mayor a cero.",
+    "English": "Height must be a number greater than zero.",
+    "Português": "A altura deve ser um número maior que zero."
+  },
+  "AnchoInvalido": {
+    "Español": "El ancho debe ser un número mayor a cero.",
+    "English": "Width must be a number greater than zero.",
+    "Português": "A largura deve ser um número maior que zero."
+  },
+  "LargoInvalido": {
+    "Español": "El largo debe ser un número mayor a cero.",
+    "English": "Length must be a number greater than zero.",
+    "Português": "O comprimento deve ser um número maior que zero."
+  },
+  "DireccionObligatoria": {
+    "Español": "La dirección de destino es obligatoria.",
+    "English": "The destination address is required.",
+    "Português": "O endereço de destino é obrigatório."
+  },
+  "CiudadObligatoria": {
+    "Español": "La ciudad de destino es obligatoria.",
+    "English": "The destination city is required.",
+    "Português": "A cidade de destino é obrigatória."
+  },
+  "CodigoPostalObligatorio": {
+    "Español": "El código postal es obligatorio.",
+    "English": "The postal code is required.",
+    "Português": "O código postal é obrigatório."
+  },
+  "ProvinciaObligatoria": {
+    "Español": "La provincia es obligatoria.",
+    "English": "The province is required.",
+    "Português": "A província é obrigatória."
+  },
+  "BuscarRemitente": {
+    "Español": "Debe buscar al remitente antes de registrar el envío.",
+    "English": "You must search for the sender before registering the shipment.",
+    "Português": "Você deve buscar o remetente antes de registrar o envio."
+  },
+  "BuscarDestinatario": {
+    "Español": "Debe buscar al destinatario antes de registrar el envío.",
+    "English": "You must search for the recipient before registering the shipment.",
+    "Português": "Você deve buscar o destinatário antes de registrar o envio."
+  },
+  "DimensionesExcedidas": {
+    "Español": "Las dimensiones del paquete superan el tamaño máximo permitido.",
+    "English": "The package dimensions exceed the maximum allowed size.",
+    "Português": "As dimensões do pacote excedem o tamanho máximo permitido."
+  },
+  "RemitenteDestinatarioIguales": {
+    "Español": "El remitente y el destinatario son la misma persona. ¿Desea continuar con el registro del envío?",
+    "English": "The sender and recipient are the same person. Do you want to continue registering the shipment?",
+    "Português": "O remetente e o destinatário são a mesma pessoa. Deseja continuar com o registro do envio?"
+  },
+  "EnvioRegistradoExitosamente": {
+    "Español": "El envío se registró correctamente.\nCódigo de seguimiento: {0}",
+    "English": "The shipment was registered successfully.\nTracking code: {0}",
+    "Português": "O envio foi registrado com sucesso.\nCódigo de rastreamento: {0}"
+  },
+  "NoEnvioSeleccionado": {
+    "Español": "No hay un envío seleccionado.",
+    "English": "No shipment is selected.",
+    "Português": "Nenhum envio foi selecionado."
+  },
+  "EnvioModificadoExitosamente": {
+    "Español": "El envío se modificó correctamente.",
+    "English": "The shipment was modified successfully.",
+    "Português": "O envio foi modificado com sucesso."
+  },
+  "ConfirmarEnvio": {
+    "Español": "Confirmar envío",
+    "English": "Confirm shipment",
+    "Português": "Confirmar envio"
+  },
+  "ConfirmarCancelacionEnvio": {
+    "Español": "¿Está seguro de que desea cancelar el envío seleccionado?",
+    "English": "Are you sure you want to cancel the selected shipment?",
+    "Português": "Tem certeza de que deseja cancelar o envio selecionado?"
+  },
+  "EnvioCanceladoExitosamente": {
+    "Español": "El envío fue cancelado correctamente.",
+    "English": "The shipment was canceled successfully.",
+    "Português": "O envio foi cancelado com sucesso."
+  },
+  "PersonaNoEncontrada": {
+    "Español": "No existe una persona registrada con ese DNI. ¿Desea registrarla?",
+    "English": "There is no person registered with that ID. Do you want to register them?",
+    "Português": "Não existe uma pessoa cadastrada com esse CPF. Deseja cadastrá-la?"
+  },
+  "PersonaDadaDeBaja": {
+    "Español": "La persona se encuentra dada de baja. ¿Desea reactivarla?",
+    "English": "The person is deactivated. Do you want to reactivate them?",
+    "Português": "A pessoa está desativada. Deseja reativá-la?"
+  },
+  "DNIInvalido": {
+    "Español": "Ingrese un DNI válido.",
+    "English": "Enter a valid ID.",
+    "Português": "Digite um CPF válido."
+  },
+  "DatosInvalidos": {
+    "Español": "Datos inválidos",
+    "English": "Invalid data",
+    "Português": "Dados inválidos"
+  },
+  "Error": {
+    "Español": "Error",
+    "English": "Error",
+    "Português": "Erro"
+  },
+  "PersonaNoEncontradaTitulo": {
+    "Español": "Persona no encontrada",
+    "English": "Person not found",
+    "Português": "Pessoa não encontrada"
+  },
+  "PersonaDadaDeBajaTitulo": {
+    "Español": "Persona dada de baja",
+    "English": "Deactivated person",
+    "Português": "Pessoa desativada"
+  },
+  "RegistroEnvio": {
+    "Español": "Registro de envío",
+    "English": "Shipment registration",
+    "Português": "Registro de envio"
+  },
+  "GestionCobros": {
+    "Español": "Cobrar envío",
+    "English": "Charge shipment",
+    "Português": "Cobrar envio"
+  },
+  "DNIRemitente": {
+    "Español": "DNI remitente",
+    "English": "Sender ID",
+    "Português": "CPF do remetente"
+  },
+  "CodigoSeguimiento": {
+    "Español": "Código de seguimiento",
+    "English": "Tracking code",
+    "Português": "Código de rastreamento"
+  },
+  "EnvioSeleccionado": {
+    "Español": "Envío seleccionado",
+    "English": "Selected shipment",
+    "Português": "Envio selecionado"
+  },
+  "ImporteAAbonar": {
+    "Español": "Importe a abonar",
+    "English": "Amount to pay",
+    "Português": "Valor a pagar"
+  },
+  "Cobrar": {
+    "Español": "Cobrar",
+    "English": "Charge",
+    "Português": "Cobrar"
+  },
+  "DatosTarjeta": {
+    "Español": "Datos de tarjeta",
+    "English": "Card details",
+    "Português": "Dados do cartão"
+  },
+  "ImporteAPagar": {
+    "Español": "Importe a pagar",
+    "English": "Amount to pay",
+    "Português": "Valor a pagar"
+  },
+  "NombreTarjeta": {
+    "Español": "Titular de la tarjeta",
+    "English": "Cardholder name",
+    "Português": "Nome do titular"
+  },
+  "NumeroTarjeta": {
+    "Español": "Número de tarjeta",
+    "English": "Card number",
+    "Português": "Número do cartão"
+  },
+  "CodigoSeguridad": {
+    "Español": "Código de seguridad",
+    "English": "Security code",
+    "Português": "Código de segurança"
+  },
+  "Vencimiento": {
+    "Español": "Vencimiento",
+    "English": "Expiration",
+    "Português": "Validade"
+  },
+  "Pagar": {
+    "Español": "Pagar",
+    "English": "Pay",
+    "Português": "Pagar"
+  },
+  "GestionFacturas": {
+    "Español": "Gestión de facturas",
+    "English": "Invoice management",
+    "Português": "Gestão de faturas"
+  },
+  "SinFactura": {
+    "Español": "Sin factura",
+    "English": "Without invoice",
+    "Português": "Sem fatura"
+  },
+  "ConFactura": {
+    "Español": "Con factura",
+    "English": "With invoice",
+    "Português": "Com fatura"
+  },
+  "GenerarFactura": {
+    "Español": "Generar factura",
+    "English": "Generate invoice",
+    "Português": "Gerar fatura"
+  },
+  "ImprimirFactura": {
+    "Español": "Imprimir factura",
+    "English": "Print invoice",
+    "Português": "Imprimir fatura"
+  },
+  "Envio": {
+    "Español": "Envío",
+    "English": "Shipment",
+    "Português": "Envio"
+  },
+  "Origen": {
+    "Español": "Origen",
+    "English": "Origin",
+    "Português": "Origem"
+  },
+  "FechaRegistro": {
+    "Español": "Fecha de registro",
+    "English": "Registration date",
+    "Português": "Data de registro"
+  },
+  "Facturado": {
+    "Español": "Facturado",
+    "English": "Invoiced",
+    "Português": "Faturado"
+  },
+  "Paquete": {
+    "Español": "Paquete",
+    "English": "Package",
+    "Português": "Pacote"
+  },
+  "CP": {
+    "Español": "Código postal",
+    "English": "Postal code",
+    "Português": "Código postal"
+  },
+  "TodosLosEnvios": {
+    "Español": "Todos los envíos",
+    "English": "All shipments",
+    "Português": "Todos os envios"
   }
 }

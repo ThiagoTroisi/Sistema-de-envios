@@ -135,6 +135,8 @@ namespace SistemaDeEnviosGUI.Formularios
 
             maestro.Nodes.Add(new TreeNode() { Text = "Registro de clientes", Tag = "Registro de clientes" });
             maestro.Nodes.Add(new TreeNode() { Text = "Registro de envíos", Tag = "Registro de envíos" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Cobro de envíos", Tag = "Cobro de envíos" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Gestión de facturas", Tag = "Gestión de facturas" });
 
             treeView1.Nodes.Add(maestro);
 
@@ -206,6 +208,10 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "ReporteRepartidores": return "Reporte de repartidores";
                 case "ReportePagos": return "Reporte de pagos";
                 case "ReporteAnaliticas": return "Reporte de analíticas operativas";
+                case "Registro de clientes": return "Registro de clientes";
+                case "Registro de envíos": return "Registro de envíos";
+                case "Cobro de envíos": return "Cobro de envíos";
+                case "Gestión de facturas": return "Gestión de facturas";
                 default: return null;
             }
         }
@@ -251,6 +257,14 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "Registro de envíos":
                     new GestionEnviosForm().ShowDialog();
+                    break;
+
+                case "Cobro de envíos":
+                    new CobroEnviosForm().ShowDialog();
+                    break;
+
+                case "Gestión de facturas":
+                    new GestionFacturasForm().ShowDialog();
                     break;
             }
         }

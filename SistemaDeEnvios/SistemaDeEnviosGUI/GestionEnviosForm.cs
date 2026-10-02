@@ -52,6 +52,7 @@ namespace SistemaDeEnviosGUI
             dataGridViewEnvios.MultiSelect = false;
             CambiarModo(ModoGestionEnvio.Consulta);
             CargarEnvios();
+            ActualizarIdioma();
         }
 
         private void ConfigurarFiltros()
@@ -115,7 +116,10 @@ namespace SistemaDeEnviosGUI
                 dataGridViewEnvios.Columns["destinatario"].HeaderText = "Destinatario";
 
             if (dataGridViewEnvios.Columns["destino"] != null)
+            {
                 dataGridViewEnvios.Columns["destino"].HeaderText = "Destino";
+                dataGridViewEnvios.Columns["destino"].Width = 200;
+            }
 
             if (dataGridViewEnvios.Columns["estado"] != null)
                 dataGridViewEnvios.Columns["estado"].HeaderText = "Estado";
@@ -448,11 +452,7 @@ namespace SistemaDeEnviosGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void AplicarAlta()
@@ -493,14 +493,6 @@ namespace SistemaDeEnviosGUI
             int dniRemitente = dniRemitenteCargado.Value;
             int dniDestinatario = dniDestinatarioCargado.Value;
 
-            if (dniRemitente == dniDestinatario)
-            {
-                DialogResult resultado = MessageBox.Show("El remitente y el destinatario son la misma persona. ¿Desea continuar con el registro del envío?", "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultado != DialogResult.Yes)
-                    return;
-            }
-
             PaqueteBE paquete = new PaqueteBE
             {
                 Descripcion = txtDescripcion.Text,
@@ -509,6 +501,17 @@ namespace SistemaDeEnviosGUI
                 Ancho = ancho,
                 Largo = largo
             };
+
+            if (paquete.Alto > 2.50m || paquete.Ancho > 2.50m || paquete.Largo > 3.00m)
+                throw new Exception("Las dimensiones del paquete superan el tamaño máximo permitido.");
+
+            if (dniRemitente == dniDestinatario)
+            {
+                DialogResult resultado = MessageBox.Show("El remitente y el destinatario son la misma persona. ¿Desea continuar con el registro del envío?", "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado != DialogResult.Yes)
+                    return;
+            }
 
             DestinoBE destino = new DestinoBE
             {
@@ -807,7 +810,71 @@ namespace SistemaDeEnviosGUI
         }
         public void ActualizarIdioma()
         {
+            this.Text = Traducciones.Traducir("GestionEnvios");
 
+            lblCodigoSeguimiento.Text = Traducciones.Traducir("Codigo");
+            lblDNIRFiltro.Text = Traducciones.Traducir("DNI");
+            lblDNIDFiltro.Text = Traducciones.Traducir("DNI");
+            lblEstado.Text = Traducciones.Traducir("Estado");
+            lblDesde.Text = Traducciones.Traducir("Desde");
+            lblHasta.Text = Traducciones.Traducir("Hasta");
+
+            lblPaquete.Text = Traducciones.Traducir("Paquete");
+            lblDescripcion.Text = Traducciones.Traducir("Descripcion");
+            lblPeso.Text = Traducciones.Traducir("Peso");
+            lblAlto.Text = Traducciones.Traducir("Alto");
+            lblAncho.Text = Traducciones.Traducir("Ancho");
+            lblLargo.Text = Traducciones.Traducir("Largo");
+
+            lblDestino.Text = Traducciones.Traducir("Destino");
+            lblProvincia.Text = Traducciones.Traducir("Provincia");
+            lblCP.Text = Traducciones.Traducir("CodigoPostal");
+            lblCiudad.Text = Traducciones.Traducir("Ciudad");
+            lblDireccion.Text = Traducciones.Traducir("Direccion");
+
+            lblRemitente.Text = Traducciones.Traducir("Remitente");
+            lblDNIR.Text = Traducciones.Traducir("DNI");
+            lblNombreR.Text = Traducciones.Traducir("Nombre");
+            lblApellidoR.Text = Traducciones.Traducir("Apellido");
+            lblTelefonoR.Text = Traducciones.Traducir("Telefono");
+            lblEmailR.Text = Traducciones.Traducir("Email");
+
+            lblDestinatario.Text = Traducciones.Traducir("Destinatario");
+            lblDNID.Text = Traducciones.Traducir("DNI");
+            lblNombreD.Text = Traducciones.Traducir("Nombre");
+            lblApellidoD.Text = Traducciones.Traducir("Apellido");
+            lblTelefonoD.Text = Traducciones.Traducir("Telefono");
+            lblEmailD.Text = Traducciones.Traducir("Email");
+
+            btnRegistrarEnvio.Text = Traducciones.Traducir("RegistrarEnvio");
+            btnModificarEnvio.Text = Traducciones.Traducir("ModificarEnvio");
+            btnCancelarEnvio.Text = Traducciones.Traducir("CancelarEnvio");
+            btnAplicar.Text = Traducciones.Traducir("Aplicar");
+            btnCancelar.Text = Traducciones.Traducir("Cancelar");
+            btnLimpiarFiltros.Text = Traducciones.Traducir("LimpiarFiltros");
+            btnSalir.Text = Traducciones.Traducir("Salir");
+            lblTodosLosEnvios.Text = Traducciones.Traducir("TodosLosEnvios");
+
+            if (dataGridViewEnvios.DataSource != null)
+            {
+                if (dataGridViewEnvios.Columns["codigo_seguimiento"] != null)
+                    dataGridViewEnvios.Columns["codigo_seguimiento"].HeaderText = Traducciones.Traducir("Codigo");
+
+                if (dataGridViewEnvios.Columns["fecha_registro"] != null)
+                    dataGridViewEnvios.Columns["fecha_registro"].HeaderText = Traducciones.Traducir("Fecha");
+
+                if (dataGridViewEnvios.Columns["remitente"] != null)
+                    dataGridViewEnvios.Columns["remitente"].HeaderText = Traducciones.Traducir("Remitente");
+
+                if (dataGridViewEnvios.Columns["destinatario"] != null)
+                    dataGridViewEnvios.Columns["destinatario"].HeaderText = Traducciones.Traducir("Destinatario");
+
+                if (dataGridViewEnvios.Columns["destino"] != null)
+                    dataGridViewEnvios.Columns["destino"].HeaderText = Traducciones.Traducir("Destino");
+
+                if (dataGridViewEnvios.Columns["estado"] != null)
+                    dataGridViewEnvios.Columns["estado"].HeaderText = Traducciones.Traducir("Estado");
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

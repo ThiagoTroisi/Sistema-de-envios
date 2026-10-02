@@ -162,5 +162,72 @@ namespace DAL
                 }
             }
         }
+
+        public void MarcarComoPagado(int idEnvio)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Envio set estado = 'Pagado' where id_envio = @id_envio and estado = 'Registrado'";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public void MarcarComoFacturado(int idEnvio)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Envio set estado = 'Facturado' where id_envio = @id_envio";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void AutorizarEnvio(int idEnvio)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Envio set estado = 'Autorizado' where id_envio = @id_envio";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public DataTable ObtenerEnviosParaFacturacion()
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "select e.id_envio, e.codigo_seguimiento, e.origen, e.fecha_registro, e.estado, e.id_remitente, p.nombre + ' ' + p.apellido as remitente, case when exists (select 1 from Factura f where f.id_envio = e.id_envio) then cast(1 as bit) else cast(0 as bit) end as facturado from Envio e inner join Persona p on e.id_remitente = p.dni where e.estado = 'Pagado' or exists (select 1 from Factura f where f.id_envio = e.id_envio) order by e.id_envio desc";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        DataTable tabla = new DataTable();
+                        adapter.Fill(tabla);
+                        return tabla;
+                    }
+                }
+            }
+        }
     }
 }
