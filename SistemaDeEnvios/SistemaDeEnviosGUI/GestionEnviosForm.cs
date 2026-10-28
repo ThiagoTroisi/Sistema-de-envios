@@ -17,7 +17,7 @@ namespace SistemaDeEnviosGUI
     public partial class GestionEnviosForm : Form, IObserverIdioma
     {
         private EnvioBLL enviobll = new EnvioBLL();
-        private PersonaBLL personabll = new PersonaBLL();
+        private ClienteBLL clientebll = new ClienteBLL();
         private PaqueteBLL paquetebll = new PaqueteBLL();
         private DestinoBLL destinobll = new DestinoBLL();
 
@@ -219,17 +219,16 @@ namespace SistemaDeEnviosGUI
             txtTelefonoR.ReadOnly = true;
             txtEmailR.ReadOnly = true;
 
-            txtNombreD.ReadOnly = true;
-            txtApellidoD.ReadOnly = true;
-            txtTelefonoD.ReadOnly = true;
-            txtEmailD.ReadOnly = true;
+            txtNombreD.ReadOnly = false;
+            txtApellidoD.ReadOnly = false;
+            txtTelefonoD.ReadOnly = false;
+            txtEmailD.ReadOnly = false;
 
             btnRegistrarEnvio.Enabled = false;
             btnModificarEnvio.Enabled = false;
             btnCancelarEnvio.Enabled = false;
 
             btnBuscarRemitente.Enabled = true;
-            btnBuscarDestinatario.Enabled = true;
 
             btnAplicar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -242,7 +241,6 @@ namespace SistemaDeEnviosGUI
             HabilitarDatos(true);
 
             btnBuscarRemitente.Enabled = false;
-            btnBuscarDestinatario.Enabled = false;
 
             txtDNIR.ReadOnly = true;
             txtDNID.ReadOnly = true;
@@ -272,7 +270,6 @@ namespace SistemaDeEnviosGUI
             HabilitarDatos(false);
 
             btnBuscarRemitente.Enabled = false;
-            btnBuscarDestinatario.Enabled = false;
 
             txtDNIR.ReadOnly = true;
             txtDNID.ReadOnly = true;
@@ -311,7 +308,12 @@ namespace SistemaDeEnviosGUI
             txtDireccion.Enabled = habilitar;
 
             btnBuscarRemitente.Enabled = habilitar;
-            btnBuscarDestinatario.Enabled = habilitar;
+
+            txtDNID.Enabled = habilitar;
+            txtNombreD.Enabled = habilitar;
+            txtApellidoD.Enabled = habilitar;
+            txtTelefonoD.Enabled = habilitar;
+            txtEmailD.Enabled = habilitar;
         }
 
         private void btnRegistrarEnvio_Click(object sender, EventArgs e)
@@ -400,9 +402,7 @@ namespace SistemaDeEnviosGUI
         {
             PaqueteBE paquete = paquetebll.ConsultaPorId(envio.IdPaquete);
             DestinoBE destino = destinobll.ConsultaPorId(envio.IdDestino);
-
-            PersonaBE remitente = personabll.ConsultaPorDNI(envio.IdRemitente);
-            PersonaBE destinatario = personabll.ConsultaPorDNI(envio.IdDestinatario);
+            ClienteBE remitente = clientebll.ConsultaPorDNI(envio.IdRemitente);
 
             txtDescripcion.Text = paquete.Descripcion;
             txtPeso.Text = paquete.Peso.ToString();
@@ -421,14 +421,14 @@ namespace SistemaDeEnviosGUI
             txtTelefonoR.Text = remitente.Telefono;
             txtEmailR.Text = remitente.Email;
 
-            txtDNID.Text = destinatario.DNI.ToString();
-            txtNombreD.Text = destinatario.Nombre;
-            txtApellidoD.Text = destinatario.Apellido;
-            txtTelefonoD.Text = destinatario.Telefono;
-            txtEmailD.Text = destinatario.Email;
+            txtDNID.Text = destino.DniDestinatario.ToString();
+            txtNombreD.Text = destino.NombreDestinatario;
+            txtApellidoD.Text = destino.ApellidoDestinatario;
+            txtTelefonoD.Text = destino.TelefonoDestinatario;
+            txtEmailD.Text = destino.EmailDestinatario;
 
             dniRemitenteCargado = remitente.DNI;
-            dniDestinatarioCargado = destinatario.DNI;
+            dniDestinatarioCargado = destino.DniDestinatario;
         }
 
         private void btnAplicar_Click(object sender, EventArgs e)
@@ -488,7 +488,7 @@ namespace SistemaDeEnviosGUI
                 throw new Exception("Debe buscar al remitente antes de registrar el envío.");
 
             if (!dniDestinatarioCargado.HasValue)
-                throw new Exception("Debe buscar al destinatario antes de registrar el envío.");
+                throw new Exception("Debe ingresar los datos del destinatario antes de registrar el envío.");
 
             int dniRemitente = dniRemitenteCargado.Value;
             int dniDestinatario = dniDestinatarioCargado.Value;
@@ -518,15 +518,15 @@ namespace SistemaDeEnviosGUI
                 Direccion = txtDireccion.Text,
                 Ciudad = txtCiudad.Text,
                 CodigoPostal = txtCP.Text,
-                Provincia = txtProvincia.Text
+                Provincia = txtProvincia.Text,
+                DniDestinatario = dniDestinatario,
+                NombreDestinatario = txtNombreD.Text,
+                ApellidoDestinatario = txtApellidoD.Text,
+                TelefonoDestinatario = txtTelefonoD.Text,
+                EmailDestinatario = txtEmailD.Text
             };
 
-            EnvioBE envio = new EnvioBE(
-                "Sucursal Central",
-                0,
-                0,
-                dniRemitente,
-                dniDestinatario);
+            EnvioBE envio = new EnvioBE("Sucursal Central", 0, 0, dniRemitente);
 
             enviobll.RegistrarEnvio(paquete, destino, envio);
 
@@ -584,7 +584,12 @@ namespace SistemaDeEnviosGUI
                 Direccion = txtDireccion.Text,
                 Ciudad = txtCiudad.Text,
                 CodigoPostal = txtCP.Text,
-                Provincia = txtProvincia.Text
+                Provincia = txtProvincia.Text,
+                DniDestinatario = Convert.ToInt32(txtDNID.Text),
+                NombreDestinatario = txtNombreD.Text,
+                ApellidoDestinatario = txtApellidoD.Text,
+                TelefonoDestinatario = txtTelefonoD.Text,
+                EmailDestinatario = txtEmailD.Text
             };
 
             enviobll.ModificarEnvio(envioSeleccionado, paquete, destino);
@@ -620,49 +625,47 @@ namespace SistemaDeEnviosGUI
 
         private bool BuscarPersona(int dni, bool remitente)
         {
-            PersonaBE persona = personabll.ConsultaPorDNI(dni);
+            if (!remitente)
+            {
+                txtDNID.Text = dni.ToString();
+                dniDestinatarioCargado = dni;
+                return true;
+            }
+
+            ClienteBE persona = clientebll.ConsultaPorDNI(dni);
 
             if (persona == null)
             {
-                DialogResult resultado = MessageBox.Show("No existe una persona registrada con ese DNI. ¿Desea registrarla?", "Persona no encontrada", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("No existe un cliente registrado con ese DNI. ¿Desea registrarlo?", "Cliente no encontrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (resultado != DialogResult.Yes) return false;
+                if (resultado != DialogResult.Yes)
+                    return false;
 
                 MaestroPersonasForm form = new MaestroPersonasForm(ModoFormulario.Alta, dni);
                 form.ShowDialog();
 
-                persona = personabll.ConsultaPorDNI(dni);
+                persona = clientebll.ConsultaPorDNI(dni);
 
-                if (persona == null) return false;
+                if (persona == null)
+                    return false;
             }
 
-            if (!personabll.EstaActiva(dni))
+            if (!clientebll.EstaActiva(dni))
             {
-                DialogResult resultado = MessageBox.Show("La persona se encuentra dada de baja. ¿Desea reactivarla?", "Persona dada de baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("El cliente se encuentra dado de baja. ¿Desea reactivarlo?", "Cliente dado de baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (resultado != DialogResult.Yes) return false;
+                if (resultado != DialogResult.Yes)
+                    return false;
 
-                personabll.ReactivarPersona(dni);
+                clientebll.ReactivarPersona(dni);
             }
 
-            if (remitente)
-            {
-                txtNombreR.Text = persona.Nombre;
-                txtApellidoR.Text = persona.Apellido;
-                txtTelefonoR.Text = persona.Telefono;
-                txtEmailR.Text = persona.Email;
+            txtNombreR.Text = persona.Nombre;
+            txtApellidoR.Text = persona.Apellido;
+            txtTelefonoR.Text = persona.Telefono;
+            txtEmailR.Text = persona.Email;
 
-                dniRemitenteCargado = dni;
-            }
-            else
-            {
-                txtNombreD.Text = persona.Nombre;
-                txtApellidoD.Text = persona.Apellido;
-                txtTelefonoD.Text = persona.Telefono;
-                txtEmailD.Text = persona.Email;
-
-                dniDestinatarioCargado = dni;
-            }
+            dniRemitenteCargado = dni;
 
             return true;
         }
@@ -676,17 +679,6 @@ namespace SistemaDeEnviosGUI
             }
 
             BuscarPersona(dni, true);
-        }
-
-        private void btnBuscarDestinatario_Click(object sender, EventArgs e)
-        {
-            if (!int.TryParse(txtDNID.Text, out int dni) || dni <= 0)
-            {
-                MessageBox.Show("Ingrese un DNI válido.", "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            BuscarPersona(dni, false);
         }
 
         private void txtDNIR_TextChanged(object sender, EventArgs e)

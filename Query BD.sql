@@ -209,7 +209,7 @@ VALUES
 (1, 25, 'D47zN3sw/Ef5a0gkf0Y6cmqAL2Lz+qA9VkA3UdL2bGc='),
 (1, 26, 'ZaaZkFwCYZNwvPkgf1pHfD1nEwynHsb3UOB/6NUQsIQ=');
 
-CREATE TABLE Persona (
+CREATE TABLE Cliente (
     dni INT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
@@ -231,10 +231,18 @@ CREATE TABLE Paquete (
 
 CREATE TABLE Destino (
     id_destino INT IDENTITY(1,1) PRIMARY KEY,
+
     direccion VARCHAR(200) NOT NULL,
     ciudad VARCHAR(100) NOT NULL,
     codigo_postal VARCHAR(10) NOT NULL,
     provincia VARCHAR(100) NOT NULL,
+
+    dni_destinatario INT NOT NULL,
+    nombre_destinatario VARCHAR(50) NOT NULL,
+    apellido_destinatario VARCHAR(50) NOT NULL,
+    telefono_destinatario VARCHAR(30) NOT NULL,
+    email_destinatario VARCHAR(100) NOT NULL,
+
     dvh VARCHAR(255) NULL
 );
 
@@ -247,20 +255,19 @@ CREATE TABLE Envio (
     id_paquete INT NOT NULL,
     id_destino INT NOT NULL,
     id_remitente INT NOT NULL,
-    id_destinatario INT NOT NULL,
     dvh VARCHAR(255) NULL,
 
     CONSTRAINT FK_Envio_Paquete
-        FOREIGN KEY (id_paquete) REFERENCES Paquete(id_paquete),
+        FOREIGN KEY (id_paquete)
+        REFERENCES Paquete(id_paquete),
 
     CONSTRAINT FK_Envio_Destino
-        FOREIGN KEY (id_destino) REFERENCES Destino(id_destino),
+        FOREIGN KEY (id_destino)
+        REFERENCES Destino(id_destino),
 
     CONSTRAINT FK_Envio_Remitente
-        FOREIGN KEY (id_remitente) REFERENCES Persona(dni),
-
-    CONSTRAINT FK_Envio_Destinatario
-        FOREIGN KEY (id_destinatario) REFERENCES Persona(dni)
+        FOREIGN KEY (id_remitente)
+        REFERENCES Cliente(dni)
 );
 
 CREATE TABLE Pago (
@@ -272,7 +279,7 @@ CREATE TABLE Pago (
     estado VARCHAR(30) NOT NULL,
     dvh VARCHAR(255) NULL,
     CONSTRAINT FK_Pago_Envio FOREIGN KEY (id_envio) REFERENCES Envio(id_envio),
-    CONSTRAINT FK_Pago_Cliente FOREIGN KEY (dni_cliente) REFERENCES Persona(dni)
+    CONSTRAINT FK_Pago_Cliente FOREIGN KEY (dni_cliente) REFERENCES Cliente(dni)
 );
 
 CREATE TABLE Factura (
@@ -287,3 +294,59 @@ CREATE TABLE Factura (
     CONSTRAINT FK_Factura_Pago FOREIGN KEY (id_pago) REFERENCES Pago(id_pago),
     CONSTRAINT UQ_Factura_Pago UNIQUE (id_pago)
 );
+
+CREATE TABLE Ruta (
+    id_ruta INT IDENTITY(1,1) PRIMARY KEY,
+    descripcion VARCHAR(150) NULL,
+    fecha_creacion DATETIME NOT NULL DEFAULT GETDATE(),
+    estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente',
+    dvh VARCHAR(64) NOT NULL DEFAULT ''
+);
+
+CREATE TABLE Ruta_Envio (
+    id_ruta_envio INT IDENTITY(1,1) PRIMARY KEY,
+    id_ruta INT NOT NULL,
+    id_envio INT NOT NULL,
+    orden_entrega INT NOT NULL,
+    dvh VARCHAR(64) NOT NULL DEFAULT '',
+    CONSTRAINT FK_RutaEnvio_Ruta FOREIGN KEY (id_ruta) REFERENCES Ruta(id_ruta),
+    CONSTRAINT FK_RutaEnvio_Envio FOREIGN KEY (id_envio) REFERENCES Envio(id_envio),
+    CONSTRAINT UQ_RutaEnvio_Orden UNIQUE (id_ruta, orden_entrega),
+    CONSTRAINT CK_RutaEnvio_Orden CHECK (orden_entrega > 0)
+);
+
+CREATE TABLE AsignacionRuta (
+    id_asignacion INT IDENTITY(1,1) PRIMARY KEY,
+    id_ruta INT NOT NULL,
+    dni_repartidor INT NOT NULL,
+    fecha_asignacion DATETIME NOT NULL DEFAULT GETDATE(),
+    fecha_inicio DATETIME NULL,
+    fecha_fin DATETIME NULL,
+    estado VARCHAR(20) NOT NULL DEFAULT 'Activa',
+    motivo_cancelacion VARCHAR(250) NULL,
+    dni_gestor_cancelacion INT NULL,
+    dvh VARCHAR(64) NOT NULL DEFAULT '',
+    CONSTRAINT FK_AsignacionRuta_Ruta FOREIGN KEY (id_ruta) REFERENCES Ruta(id_ruta),
+    CONSTRAINT FK_AsignacionRuta_Repartidor FOREIGN KEY (dni_repartidor) REFERENCES Usuario(dni),
+    CONSTRAINT FK_AsignacionRuta_Gestor FOREIGN KEY (dni_gestor_cancelacion) REFERENCES Usuario(dni),
+    CONSTRAINT CK_AsignacionRuta_Estado CHECK (estado IN ('Activa', 'Finalizada', 'Cancelada'))
+);
+
+CREATE TABLE IntentoEntrega (
+    id_intento INT IDENTITY(1,1) PRIMARY KEY,
+    id_ruta_envio INT NOT NULL,
+    fecha_intento DATETIME NOT NULL DEFAULT GETDATE(),
+    resultado VARCHAR(20) NOT NULL,
+    tipo_inconveniente VARCHAR(150) NULL,
+    observaciones VARCHAR(500) NULL,
+    dvh VARCHAR(64) NOT NULL DEFAULT '',
+    CONSTRAINT FK_IntentoEntrega_RutaEnvio FOREIGN KEY (id_ruta_envio) REFERENCES Ruta_Envio(id_ruta_envio),
+    CONSTRAINT CK_IntentoEntrega_Resultado CHECK (resultado IN ('Entregado', 'Fallido'))
+);
+
+INSERT INTO DVV (tabla, dvv)
+VALUES
+('Ruta', ''),
+('Ruta_Envio', ''),
+('AsignacionRuta', ''),
+('IntentoEntrega', '');

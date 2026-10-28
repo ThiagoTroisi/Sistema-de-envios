@@ -8,29 +8,29 @@ using System.Text.RegularExpressions;
 
 namespace BLL
 {
-    public class PersonaBLL
+    public class ClienteBLL
     {
-        private PersonaDAL dal = new PersonaDAL();
+        private ClienteDAL dal = new ClienteDAL();
         private EventoBLL eventobll = new EventoBLL();
         private DVBLL dvBLL = new DVBLL();
 
-        public PersonaBE ConsultaPorDNI(int dni)
+        public ClienteBE ConsultaPorDNI(int dni)
         {
             if (dni <= 0) throw new Exception("El DNI ingresado no es válido.");
 
             return dal.ConsultaPorDNI(dni);
         }
 
-        public List<PersonaBE> ObtenerPersonas(bool todos)
+        public List<ClienteBE> ObtenerPersonas(bool todos)
         {
             return dal.ObtenerPersonas(todos);
         }
 
-        public void AltaPersona(PersonaBE persona)
+        public void AltaPersona(ClienteBE persona)
         {
             ValidarPersona(persona);
 
-            PersonaBE existente = dal.ConsultaPorDNI(persona.DNI);
+            ClienteBE existente = dal.ConsultaPorDNI(persona.DNI);
 
             if (existente != null)
             {
@@ -41,17 +41,17 @@ namespace BLL
 
             dal.AltaPersona(persona);
 
-            dvBLL.ActualizarDVH("Persona", "dni", persona.DNI);
-            dvBLL.ActualizarDVV("Persona");
+            dvBLL.ActualizarDVH("Cliente", "dni", persona.DNI);
+            dvBLL.ActualizarDVV("Cliente");
 
             eventobll.RegistrarEvento("maestro_personas", "ev_alta_persona", 2);
         }
 
-        public void ModificarPersona(PersonaBE persona)
+        public void ModificarPersona(ClienteBE persona)
         {
             ValidarPersona(persona);
 
-            PersonaBE existente = dal.ConsultaPorDNI(persona.DNI);
+            ClienteBE existente = dal.ConsultaPorDNI(persona.DNI);
 
             if (existente == null) throw new Exception("No existe una persona registrada con ese DNI.");
 
@@ -59,8 +59,8 @@ namespace BLL
 
             dal.ModificarPersona(persona);
 
-            dvBLL.ActualizarDVH("Persona", "dni", persona.DNI);
-            dvBLL.ActualizarDVV("Persona");
+            dvBLL.ActualizarDVH("Cliente", "dni", persona.DNI);
+            dvBLL.ActualizarDVV("Cliente");
 
             eventobll.RegistrarEvento("maestro_personas", "ev_modificacion_persona", 3);
         }
@@ -69,7 +69,7 @@ namespace BLL
         {
             if (dni <= 0) throw new Exception("El DNI ingresado no es válido.");
 
-            PersonaBE persona = dal.ConsultaPorDNI(dni);
+            ClienteBE persona = dal.ConsultaPorDNI(dni);
 
             if (persona == null) throw new Exception("No existe una persona registrada con ese DNI.");
 
@@ -77,8 +77,8 @@ namespace BLL
 
             dal.BajaPersona(dni);
 
-            dvBLL.ActualizarDVH("Persona", "dni", dni);
-            dvBLL.ActualizarDVV("Persona");
+            dvBLL.ActualizarDVH("Cliente", "dni", dni);
+            dvBLL.ActualizarDVV("Cliente");
 
             eventobll.RegistrarEvento("maestro_personas", "ev_baja_persona", 2);
         }
@@ -87,7 +87,7 @@ namespace BLL
         {
             if (dni <= 0) throw new Exception("El DNI ingresado no es válido.");
 
-            PersonaBE persona = dal.ConsultaPorDNI(dni);
+            ClienteBE persona = dal.ConsultaPorDNI(dni);
 
             if (persona == null) throw new Exception("No existe una persona registrada con ese DNI.");
 
@@ -95,13 +95,13 @@ namespace BLL
 
             dal.ReactivarPersona(dni);
 
-            dvBLL.ActualizarDVH("Persona", "dni", dni);
-            dvBLL.ActualizarDVV("Persona");
+            dvBLL.ActualizarDVH("Cliente", "dni", dni);
+            dvBLL.ActualizarDVV("Cliente");
 
             eventobll.RegistrarEvento("maestro_personas", "ev_reactivar_persona", 2);
         }
 
-        private void ValidarPersona(PersonaBE persona)
+        private void ValidarPersona(ClienteBE persona)
         {
             if (persona == null) throw new Exception("La persona no puede ser nula.");
 

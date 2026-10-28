@@ -1,4 +1,5 @@
-﻿using BE;
+﻿
+using BE;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
@@ -15,7 +16,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "select id_envio, codigo_seguimiento, origen, fecha_registro, estado, id_paquete, id_destino, id_remitente, id_destinatario from Envio where id_envio = @id_envio";
+                string query = @"select id_envio, codigo_seguimiento, origen, fecha_registro, estado, id_paquete, id_destino, id_remitente from Envio where id_envio = @id_envio";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -33,8 +34,7 @@ namespace DAL
                                 reader["estado"].ToString(),
                                 Convert.ToInt32(reader["id_paquete"]),
                                 Convert.ToInt32(reader["id_destino"]),
-                                Convert.ToInt32(reader["id_remitente"]),
-                                Convert.ToInt32(reader["id_destinatario"])
+                                Convert.ToInt32(reader["id_remitente"])
                             );
                         }
                     }
@@ -50,7 +50,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "insert into Envio (origen, fecha_registro, estado, id_paquete, id_destino, id_remitente, id_destinatario) values (@origen, @fecha_registro, @estado, @id_paquete, @id_destino, @id_remitente, @id_destinatario); select cast(scope_identity() as int)";
+                string query = @"insert into Envio (origen, fecha_registro, estado, id_paquete, id_destino, id_remitente) values (@origen, @fecha_registro, @estado, @id_paquete, @id_destino, @id_remitente); select cast(scope_identity() as int)";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -60,7 +60,6 @@ namespace DAL
                     comando.Parameters.AddWithValue("@id_paquete", envio.IdPaquete);
                     comando.Parameters.AddWithValue("@id_destino", envio.IdDestino);
                     comando.Parameters.AddWithValue("@id_remitente", envio.IdRemitente);
-                    comando.Parameters.AddWithValue("@id_destinatario", envio.IdDestinatario);
 
                     return Convert.ToInt32(comando.ExecuteScalar());
                 }
@@ -85,7 +84,13 @@ namespace DAL
             }
         }
 
-        public DataTable ObtenerEnvios(string estado, string codigo, string dniRemitente, string dniDestinatario, DateTime? fechaDesde, DateTime? fechaHasta)
+        public DataTable ObtenerEnvios(
+            string estado,
+            string codigo,
+            string dniRemitente,
+            string dniDestinatario,
+            DateTime? fechaDesde,
+            DateTime? fechaHasta)
         {
             DataTable tabla = new DataTable();
 
@@ -93,7 +98,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "select e.id_envio, e.codigo_seguimiento, e.fecha_registro, pr.nombre + ' ' + pr.apellido as remitente, pd.nombre + ' ' + pd.apellido as destinatario, d.ciudad + ', ' + d.provincia as destino, e.estado from Envio e inner join Persona pr on e.id_remitente = pr.dni inner join Persona pd on e.id_destinatario = pd.dni inner join Destino d on e.id_destino = d.id_destino where 1 = 1";
+                string query = @"select e.id_envio, e.codigo_seguimiento, e.fecha_registro, cr.nombre + ' ' + cr.apellido as remitente, d.nombre_destinatario + ' ' + d.apellido_destinatario as destinatario, d.ciudad + ', ' + d.provincia as destino, e.estado from Envio e inner join Cliente cr on e.id_remitente = cr.dni inner join Destino d on e.id_destino = d.id_destino where 1 = 1";
 
                 if (!string.IsNullOrWhiteSpace(estado) && estado != "Todos")
                     query += " and e.estado = @estado";
@@ -102,10 +107,10 @@ namespace DAL
                     query += " and e.codigo_seguimiento like @codigo";
 
                 if (!string.IsNullOrWhiteSpace(dniRemitente))
-                    query += " and cast(e.id_remitente as varchar) like @dniRemitente";
+                    query += " and cast(e.id_remitente as varchar(8)) like @dniRemitente";
 
                 if (!string.IsNullOrWhiteSpace(dniDestinatario))
-                    query += " and cast(e.id_destinatario as varchar) like @dniDestinatario";
+                    query += " and cast(d.dni_destinatario as varchar(8)) like @dniDestinatario";
 
                 if (fechaDesde.HasValue)
                     query += " and e.fecha_registro >= @fechaDesde";
@@ -178,6 +183,7 @@ namespace DAL
                 }
             }
         }
+
         public void MarcarComoFacturado(int idEnvio)
         {
             using (SqlConnection conexion = Conexion.ObtenerConexion())
@@ -216,16 +222,14 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "select e.id_envio, e.codigo_seguimiento, e.origen, e.fecha_registro, e.estado, e.id_remitente, p.nombre + ' ' + p.apellido as remitente, case when exists (select 1 from Factura f where f.id_envio = e.id_envio) then cast(1 as bit) else cast(0 as bit) end as facturado from Envio e inner join Persona p on e.id_remitente = p.dni where e.estado = 'Pagado' or exists (select 1 from Factura f where f.id_envio = e.id_envio) order by e.id_envio desc";
+                string query = @"select e.id_envio, e.codigo_seguimiento, e.origen, e.fecha_registro, e.estado, e.id_remitente, c.nombre + ' ' + c.apellido as remitente, case when exists (select 1 from Factura f where f.id_envio = e.id_envio) then cast(1 as bit) else cast(0 as bit) end as facturado from Envio e inner join Cliente c on e.id_remitente = c.dni where e.estado = 'Pagado' or exists (select 1 from Factura f where f.id_envio = e.id_envio) order by e.id_envio desc";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
-                    {
-                        DataTable tabla = new DataTable();
-                        adapter.Fill(tabla);
-                        return tabla;
-                    }
+                    DataTable tabla = new DataTable();
+                    adapter.Fill(tabla);
+                    return tabla;
                 }
             }
         }

@@ -51,7 +51,6 @@
             lblTelefonoR = new Label();
             txtTelefonoR = new TextBox();
             btnBuscarRemitente = new Button();
-            btnBuscarDestinatario = new Button();
             lblTelefonoD = new Label();
             txtTelefonoD = new TextBox();
             lblEmailD = new Label();
@@ -193,7 +192,7 @@
             // lblEmailR
             // 
             lblEmailR.AutoSize = true;
-            lblEmailR.Location = new Point(12, 365);
+            lblEmailR.Location = new Point(357, 151);
             lblEmailR.Name = "lblEmailR";
             lblEmailR.Size = new Size(36, 15);
             lblEmailR.TabIndex = 22;
@@ -202,7 +201,7 @@
             // txtEmailR
             // 
             txtEmailR.Enabled = false;
-            txtEmailR.Location = new Point(70, 362);
+            txtEmailR.Location = new Point(415, 148);
             txtEmailR.Name = "txtEmailR";
             txtEmailR.Size = new Size(128, 23);
             txtEmailR.TabIndex = 21;
@@ -210,7 +209,7 @@
             // lblApellidoR
             // 
             lblApellidoR.AutoSize = true;
-            lblApellidoR.Location = new Point(12, 307);
+            lblApellidoR.Location = new Point(357, 93);
             lblApellidoR.Name = "lblApellidoR";
             lblApellidoR.Size = new Size(51, 15);
             lblApellidoR.TabIndex = 20;
@@ -219,7 +218,7 @@
             // txtApellidoR
             // 
             txtApellidoR.Enabled = false;
-            txtApellidoR.Location = new Point(70, 304);
+            txtApellidoR.Location = new Point(415, 90);
             txtApellidoR.Name = "txtApellidoR";
             txtApellidoR.Size = new Size(128, 23);
             txtApellidoR.TabIndex = 19;
@@ -227,7 +226,7 @@
             // lblNombreR
             // 
             lblNombreR.AutoSize = true;
-            lblNombreR.Location = new Point(12, 278);
+            lblNombreR.Location = new Point(357, 64);
             lblNombreR.Name = "lblNombreR";
             lblNombreR.Size = new Size(51, 15);
             lblNombreR.TabIndex = 18;
@@ -236,7 +235,7 @@
             // txtNombreR
             // 
             txtNombreR.Enabled = false;
-            txtNombreR.Location = new Point(70, 275);
+            txtNombreR.Location = new Point(415, 61);
             txtNombreR.Name = "txtNombreR";
             txtNombreR.Size = new Size(128, 23);
             txtNombreR.TabIndex = 17;
@@ -244,7 +243,7 @@
             // lblDNIR
             // 
             lblDNIR.AutoSize = true;
-            lblDNIR.Location = new Point(12, 249);
+            lblDNIR.Location = new Point(357, 35);
             lblDNIR.Name = "lblDNIR";
             lblDNIR.Size = new Size(27, 15);
             lblDNIR.TabIndex = 16;
@@ -252,7 +251,7 @@
             // 
             // txtDNIR
             // 
-            txtDNIR.Location = new Point(70, 246);
+            txtDNIR.Location = new Point(415, 32);
             txtDNIR.Name = "txtDNIR";
             txtDNIR.Size = new Size(128, 23);
             txtDNIR.TabIndex = 15;
@@ -261,7 +260,7 @@
             // lblRemitente
             // 
             lblRemitente.AutoSize = true;
-            lblRemitente.Location = new Point(12, 224);
+            lblRemitente.Location = new Point(357, 10);
             lblRemitente.Name = "lblRemitente";
             lblRemitente.Size = new Size(67, 15);
             lblRemitente.TabIndex = 13;
@@ -270,7 +269,7 @@
             // lblTelefonoR
             // 
             lblTelefonoR.AutoSize = true;
-            lblTelefonoR.Location = new Point(12, 336);
+            lblTelefonoR.Location = new Point(357, 122);
             lblTelefonoR.Name = "lblTelefonoR";
             lblTelefonoR.Size = new Size(52, 15);
             lblTelefonoR.TabIndex = 24;
@@ -279,14 +278,14 @@
             // txtTelefonoR
             // 
             txtTelefonoR.Enabled = false;
-            txtTelefonoR.Location = new Point(70, 333);
+            txtTelefonoR.Location = new Point(415, 119);
             txtTelefonoR.Name = "txtTelefonoR";
             txtTelefonoR.Size = new Size(128, 23);
             txtTelefonoR.TabIndex = 23;
             // 
             // btnBuscarRemitente
             // 
-            btnBuscarRemitente.Location = new Point(204, 246);
+            btnBuscarRemitente.Location = new Point(549, 32);
             btnBuscarRemitente.Name = "btnBuscarRemitente";
             btnBuscarRemitente.Size = new Size(82, 23);
             btnBuscarRemitente.TabIndex = 25;
@@ -294,20 +293,10 @@
             btnBuscarRemitente.UseVisualStyleBackColor = true;
             btnBuscarRemitente.Click += btnBuscarRemitente_Click;
             // 
-            // btnBuscarDestinatario
-            // 
-            btnBuscarDestinatario.Location = new Point(533, 246);
-            btnBuscarDestinatario.Name = "btnBuscarDestinatario";
-            btnBuscarDestinatario.Size = new Size(82, 23);
-            btnBuscarDestinatario.TabIndex = 37;
-            btnBuscarDestinatario.Text = "Buscar";
-            btnBuscarDestinatario.UseVisualStyleBackColor = true;
-            btnBuscarDestinatario.Click += btnBuscarDestinatario_Click;
-            // 
             // lblTelefonoD
             // 
             lblTelefonoD.AutoSize = true;
-            lblTelefonoD.Location = new Point(341, 336);
+            lblTelefonoD.Location = new Point(931, 122);
             lblTelefonoD.Name = "lblTelefonoD";
             lblTelefonoD.Size = new Size(52, 15);
             lblTelefonoD.TabIndex = 36;
@@ -316,7 +305,7 @@
             // txtTelefonoD
             // 
             txtTelefonoD.Enabled = false;
-            txtTelefonoD.Location = new Point(399, 333);
+            txtTelefonoD.Location = new Point(989, 119);
             txtTelefonoD.Name = "txtTelefonoD";
             txtTelefonoD.Size = new Size(128, 23);
             txtTelefonoD.TabIndex = 35;
@@ -324,7 +313,7 @@
             // lblEmailD
             // 
             lblEmailD.AutoSize = true;
-            lblEmailD.Location = new Point(341, 365);
+            lblEmailD.Location = new Point(931, 151);
             lblEmailD.Name = "lblEmailD";
             lblEmailD.Size = new Size(36, 15);
             lblEmailD.TabIndex = 34;
@@ -333,7 +322,7 @@
             // txtEmailD
             // 
             txtEmailD.Enabled = false;
-            txtEmailD.Location = new Point(399, 362);
+            txtEmailD.Location = new Point(989, 148);
             txtEmailD.Name = "txtEmailD";
             txtEmailD.Size = new Size(128, 23);
             txtEmailD.TabIndex = 33;
@@ -341,7 +330,7 @@
             // lblApellidoD
             // 
             lblApellidoD.AutoSize = true;
-            lblApellidoD.Location = new Point(341, 307);
+            lblApellidoD.Location = new Point(931, 93);
             lblApellidoD.Name = "lblApellidoD";
             lblApellidoD.Size = new Size(51, 15);
             lblApellidoD.TabIndex = 32;
@@ -350,7 +339,7 @@
             // txtApellidoD
             // 
             txtApellidoD.Enabled = false;
-            txtApellidoD.Location = new Point(399, 304);
+            txtApellidoD.Location = new Point(989, 90);
             txtApellidoD.Name = "txtApellidoD";
             txtApellidoD.Size = new Size(128, 23);
             txtApellidoD.TabIndex = 31;
@@ -358,7 +347,7 @@
             // lblNombreD
             // 
             lblNombreD.AutoSize = true;
-            lblNombreD.Location = new Point(341, 278);
+            lblNombreD.Location = new Point(931, 64);
             lblNombreD.Name = "lblNombreD";
             lblNombreD.Size = new Size(51, 15);
             lblNombreD.TabIndex = 30;
@@ -367,7 +356,7 @@
             // txtNombreD
             // 
             txtNombreD.Enabled = false;
-            txtNombreD.Location = new Point(399, 275);
+            txtNombreD.Location = new Point(989, 61);
             txtNombreD.Name = "txtNombreD";
             txtNombreD.Size = new Size(128, 23);
             txtNombreD.TabIndex = 29;
@@ -375,7 +364,7 @@
             // lblDNID
             // 
             lblDNID.AutoSize = true;
-            lblDNID.Location = new Point(341, 249);
+            lblDNID.Location = new Point(931, 35);
             lblDNID.Name = "lblDNID";
             lblDNID.Size = new Size(27, 15);
             lblDNID.TabIndex = 28;
@@ -383,7 +372,7 @@
             // 
             // txtDNID
             // 
-            txtDNID.Location = new Point(399, 246);
+            txtDNID.Location = new Point(989, 32);
             txtDNID.Name = "txtDNID";
             txtDNID.Size = new Size(128, 23);
             txtDNID.TabIndex = 27;
@@ -392,7 +381,7 @@
             // lblDestinatario
             // 
             lblDestinatario.AutoSize = true;
-            lblDestinatario.Location = new Point(341, 224);
+            lblDestinatario.Location = new Point(931, 10);
             lblDestinatario.Name = "lblDestinatario";
             lblDestinatario.Size = new Size(84, 15);
             lblDestinatario.TabIndex = 26;
@@ -400,7 +389,7 @@
             // 
             // btnRegistrarEnvio
             // 
-            btnRegistrarEnvio.Location = new Point(679, 333);
+            btnRegistrarEnvio.Location = new Point(12, 530);
             btnRegistrarEnvio.Name = "btnRegistrarEnvio";
             btnRegistrarEnvio.Size = new Size(111, 39);
             btnRegistrarEnvio.TabIndex = 38;
@@ -411,7 +400,7 @@
             // lblProvincia
             // 
             lblProvincia.AutoSize = true;
-            lblProvincia.Location = new Point(339, 121);
+            lblProvincia.Location = new Point(680, 122);
             lblProvincia.Name = "lblProvincia";
             lblProvincia.Size = new Size(56, 15);
             lblProvincia.TabIndex = 47;
@@ -419,7 +408,7 @@
             // 
             // txtProvincia
             // 
-            txtProvincia.Location = new Point(401, 118);
+            txtProvincia.Location = new Point(742, 119);
             txtProvincia.Name = "txtProvincia";
             txtProvincia.Size = new Size(128, 23);
             txtProvincia.TabIndex = 46;
@@ -427,7 +416,7 @@
             // lblCP
             // 
             lblCP.AutoSize = true;
-            lblCP.Location = new Point(339, 92);
+            lblCP.Location = new Point(680, 93);
             lblCP.Name = "lblCP";
             lblCP.Size = new Size(22, 15);
             lblCP.TabIndex = 45;
@@ -435,7 +424,7 @@
             // 
             // txtCP
             // 
-            txtCP.Location = new Point(401, 89);
+            txtCP.Location = new Point(742, 90);
             txtCP.Name = "txtCP";
             txtCP.Size = new Size(128, 23);
             txtCP.TabIndex = 44;
@@ -443,7 +432,7 @@
             // lblCiudad
             // 
             lblCiudad.AutoSize = true;
-            lblCiudad.Location = new Point(339, 63);
+            lblCiudad.Location = new Point(680, 64);
             lblCiudad.Name = "lblCiudad";
             lblCiudad.Size = new Size(45, 15);
             lblCiudad.TabIndex = 43;
@@ -451,7 +440,7 @@
             // 
             // txtCiudad
             // 
-            txtCiudad.Location = new Point(401, 60);
+            txtCiudad.Location = new Point(742, 61);
             txtCiudad.Name = "txtCiudad";
             txtCiudad.Size = new Size(128, 23);
             txtCiudad.TabIndex = 42;
@@ -459,7 +448,7 @@
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(339, 34);
+            lblDireccion.Location = new Point(680, 35);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(57, 15);
             lblDireccion.TabIndex = 41;
@@ -467,7 +456,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(401, 31);
+            txtDireccion.Location = new Point(742, 32);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(128, 23);
             txtDireccion.TabIndex = 40;
@@ -475,7 +464,7 @@
             // lblDestino
             // 
             lblDestino.AutoSize = true;
-            lblDestino.Location = new Point(339, 9);
+            lblDestino.Location = new Point(680, 10);
             lblDestino.Name = "lblDestino";
             lblDestino.Size = new Size(54, 15);
             lblDestino.TabIndex = 39;
@@ -519,7 +508,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(1485, 483);
+            btnSalir.Location = new Point(1006, 681);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(111, 39);
             btnSalir.TabIndex = 52;
@@ -530,16 +519,16 @@
             // dataGridViewEnvios
             // 
             dataGridViewEnvios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewEnvios.Location = new Point(679, 31);
+            dataGridViewEnvios.Location = new Point(12, 228);
             dataGridViewEnvios.Name = "dataGridViewEnvios";
-            dataGridViewEnvios.Size = new Size(917, 296);
+            dataGridViewEnvios.Size = new Size(1105, 296);
             dataGridViewEnvios.TabIndex = 53;
             dataGridViewEnvios.SelectionChanged += dataGridViewEnvios_SelectionChanged;
             // 
             // lblTodosLosEnvios
             // 
             lblTodosLosEnvios.AutoSize = true;
-            lblTodosLosEnvios.Location = new Point(679, 9);
+            lblTodosLosEnvios.Location = new Point(12, 206);
             lblTodosLosEnvios.Name = "lblTodosLosEnvios";
             lblTodosLosEnvios.Size = new Size(93, 15);
             lblTodosLosEnvios.TabIndex = 54;
@@ -547,7 +536,7 @@
             // 
             // btnCancelarEnvio
             // 
-            btnCancelarEnvio.Location = new Point(796, 333);
+            btnCancelarEnvio.Location = new Point(129, 530);
             btnCancelarEnvio.Name = "btnCancelarEnvio";
             btnCancelarEnvio.Size = new Size(111, 39);
             btnCancelarEnvio.TabIndex = 55;
@@ -557,7 +546,7 @@
             // 
             // btnModificarEnvio
             // 
-            btnModificarEnvio.Location = new Point(913, 333);
+            btnModificarEnvio.Location = new Point(246, 530);
             btnModificarEnvio.Name = "btnModificarEnvio";
             btnModificarEnvio.Size = new Size(111, 39);
             btnModificarEnvio.TabIndex = 56;
@@ -567,7 +556,7 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.Location = new Point(1368, 333);
+            btnAplicar.Location = new Point(889, 530);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(111, 39);
             btnAplicar.TabIndex = 57;
@@ -577,7 +566,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(1485, 333);
+            btnCancelar.Location = new Point(1006, 530);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(111, 39);
             btnCancelar.TabIndex = 58;
@@ -588,25 +577,25 @@
             // dateTimePickerDesde
             // 
             dateTimePickerDesde.Checked = false;
-            dateTimePickerDesde.Location = new Point(1021, 415);
+            dateTimePickerDesde.Location = new Point(396, 612);
             dateTimePickerDesde.Name = "dateTimePickerDesde";
-            dateTimePickerDesde.Size = new Size(234, 23);
+            dateTimePickerDesde.Size = new Size(258, 23);
             dateTimePickerDesde.TabIndex = 59;
             dateTimePickerDesde.ValueChanged += dateTimePickerDesde_ValueChanged;
             // 
             // dateTimePickerHasta
             // 
             dateTimePickerHasta.Checked = false;
-            dateTimePickerHasta.Location = new Point(1021, 480);
+            dateTimePickerHasta.Location = new Point(396, 677);
             dateTimePickerHasta.Name = "dateTimePickerHasta";
-            dateTimePickerHasta.Size = new Size(234, 23);
+            dateTimePickerHasta.Size = new Size(258, 23);
             dateTimePickerHasta.TabIndex = 60;
             dateTimePickerHasta.ValueChanged += dateTimePickerHasta_ValueChanged;
             // 
             // cboEstado
             // 
             cboEstado.FormattingEnabled = true;
-            cboEstado.Location = new Point(679, 415);
+            cboEstado.Location = new Point(12, 612);
             cboEstado.Name = "cboEstado";
             cboEstado.Size = new Size(134, 23);
             cboEstado.TabIndex = 61;
@@ -615,7 +604,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(679, 397);
+            lblEstado.Location = new Point(12, 594);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(45, 15);
             lblEstado.TabIndex = 62;
@@ -624,7 +613,7 @@
             // lblCodigoSeguimiento
             // 
             lblCodigoSeguimiento.AutoSize = true;
-            lblCodigoSeguimiento.Location = new Point(679, 462);
+            lblCodigoSeguimiento.Location = new Point(12, 659);
             lblCodigoSeguimiento.Name = "lblCodigoSeguimiento";
             lblCodigoSeguimiento.Size = new Size(134, 15);
             lblCodigoSeguimiento.TabIndex = 63;
@@ -632,7 +621,7 @@
             // 
             // txtCodigoSeguimiento
             // 
-            txtCodigoSeguimiento.Location = new Point(717, 480);
+            txtCodigoSeguimiento.Location = new Point(50, 677);
             txtCodigoSeguimiento.Name = "txtCodigoSeguimiento";
             txtCodigoSeguimiento.Size = new Size(96, 23);
             txtCodigoSeguimiento.TabIndex = 64;
@@ -641,7 +630,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(679, 483);
+            label7.Location = new Point(12, 680);
             label7.Name = "label7";
             label7.Size = new Size(37, 15);
             label7.TabIndex = 65;
@@ -650,7 +639,7 @@
             // lblDesde
             // 
             lblDesde.AutoSize = true;
-            lblDesde.Location = new Point(1021, 397);
+            lblDesde.Location = new Point(396, 594);
             lblDesde.Name = "lblDesde";
             lblDesde.Size = new Size(42, 15);
             lblDesde.TabIndex = 66;
@@ -659,7 +648,7 @@
             // lblHasta
             // 
             lblHasta.AutoSize = true;
-            lblHasta.Location = new Point(1021, 462);
+            lblHasta.Location = new Point(396, 659);
             lblHasta.Name = "lblHasta";
             lblHasta.Size = new Size(40, 15);
             lblHasta.TabIndex = 67;
@@ -668,7 +657,7 @@
             // lblDNIRFiltro
             // 
             lblDNIRFiltro.AutoSize = true;
-            lblDNIRFiltro.Location = new Point(852, 397);
+            lblDNIRFiltro.Location = new Point(204, 594);
             lblDNIRFiltro.Name = "lblDNIRFiltro";
             lblDNIRFiltro.Size = new Size(84, 15);
             lblDNIRFiltro.TabIndex = 68;
@@ -677,7 +666,7 @@
             // lblDNIDFiltro
             // 
             lblDNIDFiltro.AutoSize = true;
-            lblDNIDFiltro.Location = new Point(852, 462);
+            lblDNIDFiltro.Location = new Point(204, 659);
             lblDNIDFiltro.Name = "lblDNIDFiltro";
             lblDNIDFiltro.Size = new Size(95, 15);
             lblDNIDFiltro.TabIndex = 69;
@@ -685,7 +674,7 @@
             // 
             // txtDNIRFiltro
             // 
-            txtDNIRFiltro.Location = new Point(852, 415);
+            txtDNIRFiltro.Location = new Point(204, 612);
             txtDNIRFiltro.Name = "txtDNIRFiltro";
             txtDNIRFiltro.Size = new Size(128, 23);
             txtDNIRFiltro.TabIndex = 70;
@@ -693,7 +682,7 @@
             // 
             // txtDNIDFiltro
             // 
-            txtDNIDFiltro.Location = new Point(852, 480);
+            txtDNIDFiltro.Location = new Point(204, 677);
             txtDNIDFiltro.Name = "txtDNIDFiltro";
             txtDNIDFiltro.Size = new Size(128, 23);
             txtDNIDFiltro.TabIndex = 71;
@@ -701,7 +690,7 @@
             // 
             // btnLimpiarFiltros
             // 
-            btnLimpiarFiltros.Location = new Point(1144, 333);
+            btnLimpiarFiltros.Location = new Point(543, 530);
             btnLimpiarFiltros.Name = "btnLimpiarFiltros";
             btnLimpiarFiltros.Size = new Size(111, 39);
             btnLimpiarFiltros.TabIndex = 72;
@@ -713,7 +702,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1608, 534);
+            ClientSize = new Size(1129, 732);
             Controls.Add(btnLimpiarFiltros);
             Controls.Add(txtDNIDFiltro);
             Controls.Add(txtDNIRFiltro);
@@ -749,7 +738,6 @@
             Controls.Add(txtDireccion);
             Controls.Add(lblDestino);
             Controls.Add(btnRegistrarEnvio);
-            Controls.Add(btnBuscarDestinatario);
             Controls.Add(lblTelefonoD);
             Controls.Add(txtTelefonoD);
             Controls.Add(lblEmailD);
@@ -816,7 +804,6 @@
         private Label lblTelefonoR;
         private TextBox txtTelefonoR;
         private Button btnBuscarRemitente;
-        private Button btnBuscarDestinatario;
         private Label lblTelefonoD;
         private TextBox txtTelefonoD;
         private Label lblEmailD;

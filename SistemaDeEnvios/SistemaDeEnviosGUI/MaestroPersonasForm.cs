@@ -16,7 +16,7 @@ namespace SistemaDeEnviosGUI
 {
     public partial class MaestroPersonasForm : Form, IObserverIdioma
     {
-        private PersonaBLL personabll = new PersonaBLL();
+        private ClienteBLL clientebll = new ClienteBLL();
         private ModoFormulario modoactual = ModoFormulario.Consulta;
         private int dniseleccionado;
         public MaestroPersonasForm()
@@ -57,7 +57,7 @@ namespace SistemaDeEnviosGUI
         }
         private void RefrescarGrilla()
         {
-            dataGridViewPersonas.DataSource = personabll.ObtenerPersonas(radioButtonTodos.Checked);
+            dataGridViewPersonas.DataSource = clientebll.ObtenerPersonas(radioButtonTodos.Checked);
             if (!dniInicial.HasValue) CargarDatos();
         }
 
@@ -172,7 +172,7 @@ namespace SistemaDeEnviosGUI
 
             try
             {
-                personabll.BajaPersona(Convert.ToInt32(txtDni.Text));
+                clientebll.BajaPersona(Convert.ToInt32(txtDni.Text));
                 MessageBox.Show(Traducciones.Traducir("baja_persona_exitosa"), "", MessageBoxButtons.OK);
                 LimpiarTextboxes();
                 RefrescarGrilla();
@@ -193,7 +193,7 @@ namespace SistemaDeEnviosGUI
 
             try
             {
-                personabll.ReactivarPersona(Convert.ToInt32(txtDni.Text));
+                clientebll.ReactivarPersona(Convert.ToInt32(txtDni.Text));
                 MessageBox.Show(Traducciones.Traducir("reactivacion_persona_exitosa"), "", MessageBoxButtons.OK);
                 LimpiarTextboxes();
                 RefrescarGrilla();
@@ -211,8 +211,8 @@ namespace SistemaDeEnviosGUI
                 switch (modoactual)
                 {
                     case ModoFormulario.Alta:
-                        PersonaBE nueva = new PersonaBE(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text);
-                        personabll.AltaPersona(nueva);
+                        ClienteBE nueva = new ClienteBE(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text);
+                        clientebll.AltaPersona(nueva);
                         MessageBox.Show(Traducciones.Traducir("alta_persona_exitosa"), "", MessageBoxButtons.OK);
                         if (cerrarDespuesDeAlta)
                         {
@@ -228,8 +228,8 @@ namespace SistemaDeEnviosGUI
                             return;
                         }
 
-                        PersonaBE modificada = new PersonaBE(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text);
-                        personabll.ModificarPersona(modificada);
+                        ClienteBE modificada = new ClienteBE(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text);
+                        clientebll.ModificarPersona(modificada);
                         MessageBox.Show(Traducciones.Traducir("modificacion_persona_exitosa"), "", MessageBoxButtons.OK);
                         break;
                 }

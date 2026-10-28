@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class PersonaBE
+    public class ClienteBE
     {
         public int DNI { get; set; }
         public string Nombre { get; set; }
@@ -14,8 +14,7 @@ namespace BE
         public string Telefono { get; set; }
         public string Email { get; set; }
 
-        public PersonaBE(int dni, string nombre, string apellido,
-            string telefono, string email)
+        public ClienteBE(int dni, string nombre, string apellido, string telefono, string email)
         {
             DNI = dni;
             Nombre = nombre;
@@ -24,6 +23,6 @@ namespace BE
             Email = email;
         }
 
-        public PersonaBE() { }
+        public ClienteBE() { }
     }
 }

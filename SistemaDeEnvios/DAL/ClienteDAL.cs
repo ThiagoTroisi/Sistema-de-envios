@@ -1,21 +1,22 @@
-﻿using BE;
+﻿
+using BE;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 
 namespace DAL
 {
-    public class PersonaDAL
+    public class ClienteDAL
     {
-        public PersonaBE ConsultaPorDNI(int dni)
+        public ClienteBE ConsultaPorDNI(int dni)
         {
-            PersonaBE persona = null;
+            ClienteBE cliente = null;
 
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             {
                 conexion.Open();
 
-                string query = "select dni, nombre, apellido, telefono, email from Persona where dni = @dni";
+                string query = "select dni, nombre, apellido, telefono, email from Cliente where dni = @dni";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -25,7 +26,7 @@ namespace DAL
                     {
                         if (reader.Read())
                         {
-                            persona = new PersonaBE(
+                            cliente = new ClienteBE(
                                 Convert.ToInt32(reader["dni"]),
                                 reader["nombre"].ToString(),
                                 reader["apellido"].ToString(),
@@ -37,7 +38,7 @@ namespace DAL
                 }
             }
 
-            return persona;
+            return cliente;
         }
 
         public bool EstaActiva(int dni)
@@ -46,7 +47,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "select estado from Persona where dni = @dni";
+                string query = "select estado from Cliente where dni = @dni";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -54,24 +55,23 @@ namespace DAL
 
                     object resultado = comando.ExecuteScalar();
 
-                    if (resultado == null) return false;
+                    if (resultado == null || resultado == DBNull.Value)
+                        return false;
 
                     return Convert.ToBoolean(resultado);
                 }
             }
         }
 
-        public List<PersonaBE> ObtenerPersonas(bool todos)
+        public List<ClienteBE> ObtenerPersonas(bool todos)
         {
-            List<PersonaBE> personas = new List<PersonaBE>();
+            List<ClienteBE> clientes = new List<ClienteBE>();
 
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             {
                 conexion.Open();
 
-                string query = todos
-                    ? "select dni, nombre, apellido, telefono, email from Persona"
-                    : "select dni, nombre, apellido, telefono, email from Persona where estado = 1";
+                string query = todos ? "select dni, nombre, apellido, telefono, email from Cliente" : "select dni, nombre, apellido, telefono, email from Cliente where estado = 1";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -79,7 +79,7 @@ namespace DAL
                     {
                         while (reader.Read())
                         {
-                            PersonaBE persona = new PersonaBE(
+                            ClienteBE cliente = new ClienteBE(
                                 Convert.ToInt32(reader["dni"]),
                                 reader["nombre"].ToString(),
                                 reader["apellido"].ToString(),
@@ -87,22 +87,22 @@ namespace DAL
                                 reader["email"].ToString()
                             );
 
-                            personas.Add(persona);
+                            clientes.Add(cliente);
                         }
                     }
                 }
             }
 
-            return personas;
+            return clientes;
         }
 
-        public void AltaPersona(PersonaBE persona)
+        public void AltaPersona(ClienteBE persona)
         {
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             {
                 conexion.Open();
 
-                string query = "insert into Persona (dni, nombre, apellido, telefono, email, estado) values (@dni, @nombre, @apellido, @telefono, @email, 1)";
+                string query = "insert into Cliente (dni, nombre, apellido, telefono, email, estado) values (@dni, @nombre, @apellido, @telefono, @email, 1)";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -117,13 +117,13 @@ namespace DAL
             }
         }
 
-        public void ModificarPersona(PersonaBE persona)
+        public void ModificarPersona(ClienteBE persona)
         {
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             {
                 conexion.Open();
 
-                string query = "update Persona set nombre = @nombre, apellido = @apellido, telefono = @telefono, email = @email where dni = @dni";
+                string query = "update Cliente set nombre = @nombre, apellido = @apellido, telefono = @telefono, email = @email where dni = @dni";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -144,7 +144,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "update Persona set estado = 0 where dni = @dni";
+                string query = "update Cliente set estado = 0 where dni = @dni";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -160,7 +160,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "update Persona set estado = 1 where dni = @dni";
+                string query = "update Cliente set estado = 1 where dni = @dni";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {

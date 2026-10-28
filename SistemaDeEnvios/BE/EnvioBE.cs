@@ -12,9 +12,8 @@ namespace BE
         public int IdPaquete { get; set; }
         public int IdDestino { get; set; }
         public int IdRemitente { get; set; }
-        public int IdDestinatario { get; set; }
 
-        public EnvioBE(int idEnvio, string codigoSeguimiento, string origen, DateTime fechaRegistro, string estado, int idPaquete, int idDestino, int idRemitente, int idDestinatario)
+        public EnvioBE(int idEnvio, string codigoSeguimiento, string origen, DateTime fechaRegistro, string estado, int idPaquete, int idDestino, int idRemitente)
         {
             IdEnvio = idEnvio;
             CodigoSeguimiento = codigoSeguimiento;
@@ -24,16 +23,14 @@ namespace BE
             IdPaquete = idPaquete;
             IdDestino = idDestino;
             IdRemitente = idRemitente;
-            IdDestinatario = idDestinatario;
         }
 
-        public EnvioBE(string origen, int idPaquete, int idDestino, int idRemitente, int idDestinatario)
+        public EnvioBE(string origen, int idPaquete, int idDestino, int idRemitente)
         {
             Origen = origen;
             IdPaquete = idPaquete;
             IdDestino = idDestino;
             IdRemitente = idRemitente;
-            IdDestinatario = idDestinatario;
         }
 
         public EnvioBE() { }

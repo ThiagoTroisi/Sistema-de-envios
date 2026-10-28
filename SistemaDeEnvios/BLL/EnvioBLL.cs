@@ -77,9 +77,6 @@ namespace BLL
 
             if (envio.IdRemitente <= 0)
                 throw new Exception("El remitente seleccionado no es válido.");
-
-            if (envio.IdDestinatario <= 0)
-                throw new Exception("El destinatario seleccionado no es válido.");
         }
 
         public DataTable ObtenerEnvios(string estado, string codigo, string dniRemitente, string dniDestinatario, DateTime? fechaDesde, DateTime? fechaHasta)
