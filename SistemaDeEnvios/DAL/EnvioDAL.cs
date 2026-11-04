@@ -168,50 +168,22 @@ namespace DAL
             }
         }
 
-        public void MarcarComoPagado(int idEnvio)
+        public void MarcarPendienteDistribucion(int idEnvio)
         {
             using (SqlConnection conexion = Conexion.ObtenerConexion())
             {
                 conexion.Open();
 
-                string query = "update Envio set estado = 'Pagado' where id_envio = @id_envio and estado = 'Registrado'";
+                string query = "update Envio set estado = 'Pendiente de distribución' where id_envio = @id_envio and estado = 'Registrado' and exists (select 1 from Factura f inner join Pago p on f.id_pago = p.id_pago where f.id_envio = Envio.id_envio and p.id_envio = Envio.id_envio and p.estado = 'Aprobado')";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.Parameters.AddWithValue("@id_envio", idEnvio);
-                    comando.ExecuteNonQuery();
-                }
-            }
-        }
 
-        public void MarcarComoFacturado(int idEnvio)
-        {
-            using (SqlConnection conexion = Conexion.ObtenerConexion())
-            {
-                conexion.Open();
+                    int filasAfectadas = comando.ExecuteNonQuery();
 
-                string query = "update Envio set estado = 'Facturado' where id_envio = @id_envio";
-
-                using (SqlCommand comando = new SqlCommand(query, conexion))
-                {
-                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
-                    comando.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void AutorizarEnvio(int idEnvio)
-        {
-            using (SqlConnection conexion = Conexion.ObtenerConexion())
-            {
-                conexion.Open();
-
-                string query = "update Envio set estado = 'Autorizado' where id_envio = @id_envio";
-
-                using (SqlCommand comando = new SqlCommand(query, conexion))
-                {
-                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
-                    comando.ExecuteNonQuery();
+                    if (filasAfectadas != 1)
+                        throw new Exception("No se pudo habilitar el envío para distribución. Verifique que tenga una factura y un pago aprobado.");
                 }
             }
         }
@@ -222,7 +194,7 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = @"select e.id_envio, e.codigo_seguimiento, e.origen, e.fecha_registro, e.estado, e.id_remitente, c.nombre + ' ' + c.apellido as remitente, case when exists (select 1 from Factura f where f.id_envio = e.id_envio) then cast(1 as bit) else cast(0 as bit) end as facturado from Envio e inner join Cliente c on e.id_remitente = c.dni where e.estado = 'Pagado' or exists (select 1 from Factura f where f.id_envio = e.id_envio) order by e.id_envio desc";
+                string query = @"select e.id_envio, e.codigo_seguimiento, e.origen, e.fecha_registro, e.estado, e.id_remitente, c.nombre + ' ' + c.apellido as remitente, case when exists (select 1 from Factura f where f.id_envio = e.id_envio) then cast(1 as bit) else cast(0 as bit) end as facturado from Envio e inner join Cliente c on e.id_remitente = c.dni where e.estado = 'Registrado' or exists (select 1 from Factura f where f.id_envio = e.id_envio) order by e.id_envio desc";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 using (SqlDataAdapter adapter = new SqlDataAdapter(comando))

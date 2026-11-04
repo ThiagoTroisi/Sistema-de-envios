@@ -376,7 +376,6 @@
             txtDNID.Name = "txtDNID";
             txtDNID.Size = new Size(128, 23);
             txtDNID.TabIndex = 27;
-            txtDNID.TextChanged += txtDNID_TextChanged;
             // 
             // lblDestinatario
             // 
@@ -416,7 +415,7 @@
             // lblCP
             // 
             lblCP.AutoSize = true;
-            lblCP.Location = new Point(680, 93);
+            lblCP.Location = new Point(654, 93);
             lblCP.Name = "lblCP";
             lblCP.Size = new Size(22, 15);
             lblCP.TabIndex = 45;

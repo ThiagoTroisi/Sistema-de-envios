@@ -4,6 +4,7 @@ using DAL;
 using Servicios;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace BLL
 {
@@ -11,7 +12,6 @@ namespace BLL
     {
         private FacturaDAL dal = new FacturaDAL();
         private EnvioBLL enviobll = new EnvioBLL();
-        private PagoBLL pagobll = new PagoBLL();
         private DestinoBLL destinobll = new DestinoBLL();
         private EventoBLL eventobll = new EventoBLL();
         private DVBLL dvBLL = new DVBLL();
@@ -42,26 +42,21 @@ namespace BLL
             if (envio == null)
                 throw new Exception("El envío no existe.");
 
-            if (envio.Estado != "Pagado")
-                throw new Exception("El envío no se encuentra pendiente de facturación.");
+            if (envio.Estado != "Registrado")
+                throw new Exception("Solo se puede generar una factura para un envío registrado.");
 
-            PagoBE pago = pagobll.ObtenerPagoAprobadoPorEnvio(idEnvio);
-
-            if (pago == null)
-                throw new Exception("No se encontró un pago aprobado para el envío.");
-
-            FacturaBE facturaExistente = dal.ObtenerPorPago(pago.IdPago);
+            FacturaBE facturaExistente = dal.ObtenerPorEnvio(idEnvio);
 
             if (facturaExistente != null)
-                throw new Exception("El pago seleccionado ya posee una factura.");
+                throw new Exception("El envío ya posee una factura generada.");
 
-            FacturaBE factura = new FacturaBE(idEnvio, pago.IdPago, pago.DniCliente, pago.Importe);
+            decimal importe = enviobll.ObtenerImporteEnvio(idEnvio);
+
+            FacturaBE factura = new FacturaBE(idEnvio, null, envio.IdRemitente, importe);
             factura.Fecha = DateTime.Now;
 
             int idFactura = dal.AltaFactura(factura);
             factura.IdFactura = idFactura;
-
-            enviobll.MarcarComoFacturado(idEnvio);
 
             dvBLL.ActualizarDVH("Factura", "id_factura", idFactura);
             dvBLL.ActualizarDVV("Factura");
@@ -90,6 +85,7 @@ namespace BLL
 
             GeneradorPDF.GenerarFactura(factura, envio, destino, abrir);
         }
+
         public void AbrirPdf(int idEnvio)
         {
             FacturaBE factura = ObtenerPorEnvio(idEnvio);

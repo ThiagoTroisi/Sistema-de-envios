@@ -4,6 +4,7 @@ using iTextSharp.text.pdf;
 using Servicios.GestionIdiomas;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -166,6 +167,119 @@ namespace Servicios
                     UseShellExecute = true
                 });
             }
+        }
+
+        public static string GenerarHojaRuta(DataTable datosAsignacion, DataTable envios, bool abrir = true)
+        {
+            if (datosAsignacion == null || datosAsignacion.Rows.Count == 0)
+                throw new Exception("No se recibieron los datos de la asignación.");
+
+            if (envios == null || envios.Rows.Count == 0)
+                throw new Exception("No se recibieron los envíos de la ruta.");
+
+            DataRow asignacion = datosAsignacion.Rows[0];
+
+            int idAsignacion = Convert.ToInt32(asignacion["id_asignacion"]);
+            int idRuta = Convert.ToInt32(asignacion["id_ruta"]);
+
+            string carpeta = Path.Combine(AppContext.BaseDirectory, "HojasDeRuta");
+
+            Directory.CreateDirectory(carpeta);
+
+            string nombreArchivo = $"Ruta_{idRuta:D4}_Asignacion_{idAsignacion:D4}.pdf";
+            string archivo = Path.Combine(carpeta, nombreArchivo);
+
+            iTextSharp.text.Document documento = new iTextSharp.text.Document(PageSize.A4, 40, 40, 40, 40);
+
+            using (FileStream stream = new FileStream(archivo, FileMode.Create))
+            {
+                PdfWriter.GetInstance(documento, stream);
+
+                documento.Open();
+
+                Font titulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                Font subtitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                Font encabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9);
+                Font contenido = FontFactory.GetFont(FontFactory.HELVETICA, 9);
+
+                Paragraph encabezadoDocumento = new Paragraph("HOJA DE RUTA", titulo);
+                encabezadoDocumento.Alignment = Element.ALIGN_CENTER;
+                encabezadoDocumento.SpacingAfter = 20;
+                documento.Add(encabezadoDocumento);
+
+                documento.Add(new Paragraph($"Ruta N.º: {idRuta}", normal));
+                documento.Add(new Paragraph($"Asignación N.º: {idAsignacion}", normal));
+                documento.Add(new Paragraph($"Descripción: {asignacion["descripcion"]}", normal));
+                documento.Add(new Paragraph($"Repartidor: {asignacion["nombre"]} {asignacion["apellido"]}", normal));
+                documento.Add(new Paragraph($"DNI: {asignacion["dni_repartidor"]}", normal));
+                documento.Add(new Paragraph($"Fecha de asignación: {Convert.ToDateTime(asignacion["fecha_asignacion"]):dd/MM/yyyy HH:mm}", normal));
+                documento.Add(new Paragraph(" "));
+
+                Paragraph tituloEnvios = new Paragraph("ENVÍOS A ENTREGAR", subtitulo);
+                tituloEnvios.SpacingAfter = 10;
+                documento.Add(tituloEnvios);
+
+                PdfPTable tabla = new PdfPTable(6);
+                tabla.WidthPercentage = 100;
+                tabla.SetWidths(new float[] { 7, 18, 22, 15, 23, 15 });
+
+                tabla.AddCell(new PdfPCell(new Phrase("Orden", encabezado)));
+                tabla.AddCell(new PdfPCell(new Phrase("Seguimiento", encabezado)));
+                tabla.AddCell(new PdfPCell(new Phrase("Destinatario", encabezado)));
+                tabla.AddCell(new PdfPCell(new Phrase("Teléfono", encabezado)));
+                tabla.AddCell(new PdfPCell(new Phrase("Dirección", encabezado)));
+                tabla.AddCell(new PdfPCell(new Phrase("Localidad", encabezado)));
+
+                foreach (DataRow envio in envios.Rows)
+                {
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["orden_entrega"].ToString(), contenido)));
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["codigo_seguimiento"].ToString(), contenido)));
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["destinatario"].ToString(), contenido)));
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["telefono_destinatario"].ToString(), contenido)));
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["direccion"].ToString(), contenido)));
+                    tabla.AddCell(new PdfPCell(new Phrase(envio["ciudad"].ToString() + ", " + envio["provincia"].ToString(), contenido)));
+                }
+
+                documento.Add(tabla);
+                documento.Add(new Paragraph(" "));
+                documento.Add(new Paragraph("Observaciones:", subtitulo));
+                documento.Add(new Paragraph("____________________________________________________________________________________________", normal));
+                documento.Add(new Paragraph("____________________________________________________________________________________________", normal));
+                documento.Add(new Paragraph("____________________________________________________________________________________________", normal));
+
+                documento.Close();
+            }
+
+            if (abrir)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = archivo,
+                    UseShellExecute = true
+                });
+            }
+
+            return archivo;
+        }
+
+        public static void RenombrarHojaRutaComoCancelada(int idRuta, int idAsignacion)
+        {
+            string carpeta = Path.Combine(AppContext.BaseDirectory, "HojasDeRuta");
+
+            string nombreOriginal = $"Ruta_{idRuta:D4}_Asignacion_{idAsignacion:D4}.pdf";
+            string nombreCancelado = $"Ruta_{idRuta:D4}_Asignacion_{idAsignacion:D4} - Ruta cancelada.pdf";
+
+            string archivoOriginal = Path.Combine(carpeta, nombreOriginal);
+            string archivoCancelado = Path.Combine(carpeta, nombreCancelado);
+
+            if (!File.Exists(archivoOriginal))
+                return;
+
+            if (File.Exists(archivoCancelado))
+                throw new Exception("Ya existe un archivo de hoja de ruta con el nombre de cancelación.");
+
+            File.Move(archivoOriginal, archivoCancelado);
         }
     }
 }

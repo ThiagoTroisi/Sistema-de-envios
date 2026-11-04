@@ -15,14 +15,20 @@ namespace BLL
             "Permiso",
             "Evento",
             "Idioma",
-            "Persona",
+            "Cliente",
             "Paquete",
             "Destino",
             "Envio",
             "Perfil_Permiso",
             "Perfil_Familia",
             "Familia_Permiso",
-            "Familia_Familia"
+            "Familia_Familia",
+            "Factura",
+            "Pago",
+            "Ruta",
+            "Ruta_Envio",
+            "AsignacionRuta",
+            "IntentoEntrega"
         };
         
         public void ActualizarDVH(string tabla, string columnaPK, object valorPK)

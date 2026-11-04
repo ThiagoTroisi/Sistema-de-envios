@@ -17,20 +17,24 @@ namespace BLL
 
         public EnvioBE ConsultaPorId(int idEnvio)
         {
-            if (idEnvio <= 0) throw new Exception("El código del envío no es válido.");
+            if (idEnvio <= 0)
+                throw new Exception("El código del envío no es válido.");
 
             return dal.ConsultaPorId(idEnvio);
         }
+
         public int RegistrarEnvio(PaqueteBE paquete, DestinoBE destino, EnvioBE envio)
         {
-            if (paquete == null) throw new Exception("Los datos del paquete son obligatorios.");
+            if (paquete == null)
+                throw new Exception("Los datos del paquete son obligatorios.");
 
-            if (destino == null) throw new Exception("Los datos del destino son obligatorios.");
+            if (destino == null)
+                throw new Exception("Los datos del destino son obligatorios.");
 
-            if (envio == null) throw new Exception("Los datos del envío son obligatorios.");
+            if (envio == null)
+                throw new Exception("Los datos del envío son obligatorios.");
 
             int idPaquete = paquetebll.AltaPaquete(paquete);
-
             int idDestino = destinobll.AltaDestino(destino);
 
             envio.IdPaquete = idPaquete;
@@ -98,10 +102,8 @@ namespace BLL
             if (envio.IdEnvio <= 0)
                 throw new Exception("El envío seleccionado no es válido.");
 
-            if (envio.Estado != "Registrado" && envio.Estado != "Pagado" && envio.Estado != "Aprobado")
-            {
+            if (envio.Estado != "Registrado")
                 throw new Exception("El envío no puede modificarse en su estado actual.");
-            }
 
             paquete.IdPaquete = envio.IdPaquete;
             destino.IdDestino = envio.IdDestino;
@@ -114,16 +116,16 @@ namespace BLL
 
         public void CancelarEnvio(int idEnvio)
         {
-            if (idEnvio <= 0) throw new Exception("El envío seleccionado no es válido.");
+            if (idEnvio <= 0)
+                throw new Exception("El envío seleccionado no es válido.");
 
             EnvioBE envio = ConsultaPorId(idEnvio);
 
-            if (envio == null) throw new Exception("El envío seleccionado no existe.");
+            if (envio == null)
+                throw new Exception("El envío seleccionado no existe.");
 
-            if (envio.Estado == "En distribución" || envio.Estado == "Entregado" || envio.Estado == "Cancelado")
-            {
+            if (envio.Estado == "En distribución" || envio.Estado == "Entregado" || envio.Estado == "Devuelto" || envio.Estado == "Cancelado")
                 throw new Exception("El envío no puede cancelarse en su estado actual.");
-            }
 
             dal.CancelarEnvio(idEnvio);
 
@@ -132,6 +134,7 @@ namespace BLL
 
             eventobll.RegistrarEvento("envios", "ev_baja_envio", 2);
         }
+
         public decimal ObtenerImporteEnvio(int idEnvio)
         {
             EnvioBE envio = ConsultaPorId(idEnvio);
@@ -140,7 +143,7 @@ namespace BLL
                 throw new Exception("El envío no existe.");
 
             if (envio.Estado != "Registrado")
-                throw new Exception("El envío no se encuentra pendiente de pago.");
+                throw new Exception("El envío no se encuentra pendiente de facturación o cobro.");
 
             PaqueteBE paquete = paquetebll.ConsultaPorId(envio.IdPaquete);
 
@@ -173,8 +176,11 @@ namespace BLL
             return tarifaBase + (paquete.Peso * tarifaPorKg) + recargoDimensiones;
         }
 
-        public void MarcarComoPagado(int idEnvio)
+        public void MarcarPendienteDistribucion(int idEnvio)
         {
+            if (idEnvio <= 0)
+                throw new Exception("El código del envío no es válido.");
+
             EnvioBE envio = ConsultaPorId(idEnvio);
 
             if (envio == null)
@@ -183,44 +189,14 @@ namespace BLL
             if (envio.Estado != "Registrado")
                 throw new Exception("El envío no se encuentra pendiente de pago.");
 
-            dal.MarcarComoPagado(idEnvio);
-            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
-            dvBLL.ActualizarDVV("Envio");
-        }
-
-        public void MarcarComoFacturado(int idEnvio)
-        {
-            EnvioBE envio = ConsultaPorId(idEnvio);
-
-            if (envio == null)
-                throw new Exception("El envío no existe.");
-
-            if (envio.Estado != "Pagado")
-                throw new Exception("El envío no se encuentra pagado.");
-
-            dal.MarcarComoFacturado(idEnvio);
-
-            dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
-            dvBLL.ActualizarDVV("Envio");
-        }
-
-        public void AutorizarEnvio(int idEnvio)
-        {
-            EnvioBE envio = ConsultaPorId(idEnvio);
-
-            if (envio == null)
-                throw new Exception("El envío no existe.");
-
-            if (envio.Estado != "Facturado")
-                throw new Exception("El envío no se encuentra facturado.");
-
-            dal.AutorizarEnvio(idEnvio);
+            dal.MarcarPendienteDistribucion(idEnvio);
 
             dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
             dvBLL.ActualizarDVV("Envio");
 
             eventobll.RegistrarEvento("envios", "ev_autorizacion_envio", 2);
         }
+
         public DataTable ObtenerEnviosParaFacturacion()
         {
             return dal.ObtenerEnviosParaFacturacion();

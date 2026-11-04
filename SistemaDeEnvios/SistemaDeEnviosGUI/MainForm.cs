@@ -130,13 +130,17 @@ namespace SistemaDeEnviosGUI.Formularios
 
             // MAESTRO
             TreeNode maestro = new TreeNode();
-            maestro.Text = "1ra entrega";
-            maestro.Tag = "1ra entrega";
+            maestro.Text = "Responsabilidades";
+            maestro.Tag = "Responsabilidades";
 
             maestro.Nodes.Add(new TreeNode() { Text = "Registro de clientes", Tag = "Registro de clientes" });
             maestro.Nodes.Add(new TreeNode() { Text = "Registro de envíos", Tag = "Registro de envíos" });
             maestro.Nodes.Add(new TreeNode() { Text = "Cobro de envíos", Tag = "Cobro de envíos" });
             maestro.Nodes.Add(new TreeNode() { Text = "Gestión de facturas", Tag = "Gestión de facturas" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Creación de rutas", Tag = "Creación de rutas" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Asignación de rutas", Tag = "Asignación de rutas" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Administración de rutas", Tag = "Administración de rutas" });
+
 
             treeView1.Nodes.Add(maestro);
 
@@ -212,6 +216,9 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "Registro de envíos": return "Registro de envíos";
                 case "Cobro de envíos": return "Cobro de envíos";
                 case "Gestión de facturas": return "Gestión de facturas";
+                case "Creación de rutas": return "Creación de rutas";
+                case "Asignación de rutas": return "Asignación de rutas";
+                case "Administración de rutas": return "Administración de rutas";
                 default: return null;
             }
         }
@@ -265,6 +272,18 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "Gestión de facturas":
                     new GestionFacturasForm().ShowDialog();
+                    break;
+
+                case "Creación de rutas":
+                    new CreacionRutasForm().ShowDialog();
+                    break;
+
+                case "Asignación de rutas":
+                    new AsignacionRutaForm().ShowDialog();
+                    break;
+
+                case "Administración de rutas":
+                    new RepartidorForm().ShowDialog();
                     break;
             }
         }

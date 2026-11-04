@@ -153,8 +153,8 @@ namespace SistemaDeEnviosGUI
 
         private void ActualizarBotones()
         {
-            btnGenerarFactura.Enabled = !facturaSeleccionada && estadoSeleccionado == "Pagado";
-            btnImprimirFactura.Enabled = facturaSeleccionada;
+            btnGenerarFactura.Enabled = idEnvioSeleccionado > 0 && !facturaSeleccionada && estadoSeleccionado == "Registrado";
+            btnImprimirFactura.Enabled = idEnvioSeleccionado > 0 && facturaSeleccionada;
         }
 
         private void LimpiarSeleccion()
@@ -189,8 +189,8 @@ namespace SistemaDeEnviosGUI
                 if (facturaSeleccionada)
                     throw new Exception("El envío seleccionado ya posee una factura.");
 
-                if (estadoSeleccionado != "Pagado")
-                    throw new Exception("Solo se pueden facturar envíos que se encuentren pagados.");
+                if (estadoSeleccionado != "Registrado")
+                    throw new Exception("Solo se pueden facturar envíos que se encuentren registrados.");
 
                 facturabll.GenerarFactura(idEnvioSeleccionado);
                 facturabll.GenerarPdf(idEnvioSeleccionado);

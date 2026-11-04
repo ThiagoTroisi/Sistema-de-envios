@@ -4,10 +4,16 @@
     <_LastSelectedProfileId>C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="AsignacionRutaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="BackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CobroEnviosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CreacionRutasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DatosTarjetaForm.cs">
@@ -44,6 +50,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PerfilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroEntregasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RepartidorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ResolucionEnviosForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

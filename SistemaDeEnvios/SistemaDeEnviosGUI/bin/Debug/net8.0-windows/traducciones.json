@@ -1448,6 +1448,11 @@
     "English": "Sender ID",
     "Português": "CPF do remetente"
   },
+  "DNIDestinatario": {
+    "Español": "DNI destinatario",
+    "English": "Recipient ID",
+    "Português": "CPF do destinatário"
+  },
   "CodigoSeguimiento": {
     "Español": "Código de seguimiento",
     "English": "Tracking code",

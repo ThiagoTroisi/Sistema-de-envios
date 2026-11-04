@@ -12,12 +12,12 @@ namespace DAL
             {
                 conexion.Open();
 
-                string query = "insert into Factura (id_envio, id_pago, dni_cliente, importe, fecha) values (@id_envio, @id_pago, @dni_cliente, @importe, @fecha); select scope_identity();";
+                string query = "insert into Factura (id_envio, id_pago, dni_cliente, importe, fecha) values (@id_envio, @id_pago, @dni_cliente, @importe, @fecha); select cast(scope_identity() as int);";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.Parameters.AddWithValue("@id_envio", factura.IdEnvio);
-                    comando.Parameters.AddWithValue("@id_pago", factura.IdPago);
+                    comando.Parameters.AddWithValue("@id_pago", factura.IdPago.HasValue ? (object)factura.IdPago.Value : DBNull.Value);
                     comando.Parameters.AddWithValue("@dni_cliente", factura.DniCliente);
                     comando.Parameters.AddWithValue("@importe", factura.Importe);
                     comando.Parameters.AddWithValue("@fecha", factura.Fecha);
@@ -47,7 +47,7 @@ namespace DAL
                             {
                                 IdFactura = Convert.ToInt32(reader["id_factura"]),
                                 IdEnvio = Convert.ToInt32(reader["id_envio"]),
-                                IdPago = Convert.ToInt32(reader["id_pago"]),
+                                IdPago = reader["id_pago"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["id_pago"]),
                                 DniCliente = Convert.ToInt32(reader["dni_cliente"]),
                                 Importe = Convert.ToDecimal(reader["importe"]),
                                 Fecha = Convert.ToDateTime(reader["fecha"]),
@@ -81,7 +81,7 @@ namespace DAL
                             {
                                 IdFactura = Convert.ToInt32(reader["id_factura"]),
                                 IdEnvio = Convert.ToInt32(reader["id_envio"]),
-                                IdPago = Convert.ToInt32(reader["id_pago"]),
+                                IdPago = reader["id_pago"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["id_pago"]),
                                 DniCliente = Convert.ToInt32(reader["dni_cliente"]),
                                 Importe = Convert.ToDecimal(reader["importe"]),
                                 Fecha = Convert.ToDateTime(reader["fecha"]),
@@ -93,6 +93,27 @@ namespace DAL
             }
 
             return null;
+        }
+
+        public void AsociarPago(int idEnvio, int idPago)
+        {
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = "update Factura set id_pago = @id_pago where id_envio = @id_envio and id_pago is null";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id_envio", idEnvio);
+                    comando.Parameters.AddWithValue("@id_pago", idPago);
+
+                    int filasAfectadas = comando.ExecuteNonQuery();
+
+                    if (filasAfectadas != 1)
+                        throw new Exception("No se pudo asociar el pago a la factura del envío.");
+                }
+            }
         }
     }
 }

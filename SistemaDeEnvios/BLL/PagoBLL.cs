@@ -1,5 +1,7 @@
 ﻿using BE;
 using DAL;
+using BLL.Otros;
+using Servicios;
 using System;
 using System.Text.RegularExpressions;
 
@@ -8,16 +10,24 @@ namespace BLL
     public class PagoBLL
     {
         private PagoDAL dal = new PagoDAL();
+        private FacturaDAL facturaDal = new FacturaDAL();
         private EnvioBLL enviobll = new EnvioBLL();
         private EventoBLL eventobll = new EventoBLL();
+        private DVBLL dvBLL = new DVBLL();
 
         public PagoBE ConsultaPorId(int idPago)
         {
+            if (idPago <= 0)
+                throw new Exception("El código del pago no es válido.");
+
             return dal.ConsultaPorId(idPago);
         }
 
         public PagoBE ObtenerPagoAprobadoPorEnvio(int idEnvio)
         {
+            if (idEnvio <= 0)
+                throw new Exception("El código del envío no es válido.");
+
             return dal.ObtenerPagoAprobadoPorEnvio(idEnvio);
         }
 
@@ -61,6 +71,15 @@ namespace BLL
 
         public int RegistrarPago(int idEnvio, int dniCliente, decimal importe)
         {
+            if (idEnvio <= 0)
+                throw new Exception("El código del envío no es válido.");
+
+            if (dniCliente <= 0)
+                throw new Exception("El DNI del cliente no es válido.");
+
+            if (importe <= 0)
+                throw new Exception("El importe debe ser mayor a cero.");
+
             EnvioBE envio = enviobll.ConsultaPorId(idEnvio);
 
             if (envio == null)
@@ -69,13 +88,38 @@ namespace BLL
             if (envio.Estado != "Registrado")
                 throw new Exception("El envío no se encuentra pendiente de pago.");
 
+            FacturaBE factura = facturaDal.ObtenerPorEnvio(idEnvio);
+
+            if (factura == null)
+                throw new Exception("Debe generar la factura antes de realizar el cobro.");
+
+            if (factura.IdPago.HasValue)
+                throw new Exception("La factura ya tiene un pago asociado.");
+
+            if (factura.DniCliente != dniCliente)
+                throw new Exception("El DNI ingresado no coincide con el cliente de la factura.");
+
+            if (factura.Importe != importe)
+                throw new Exception("El importe ingresado no coincide con el importe de la factura.");
+
+            PagoBE pagoAprobado = dal.ObtenerPagoAprobadoPorEnvio(idEnvio);
+
+            if (pagoAprobado != null)
+                throw new Exception("El envío ya tiene un pago aprobado registrado.");
+
             PagoBE pago = new PagoBE(idEnvio, dniCliente, importe);
             pago.FechaPago = DateTime.Now;
             pago.Estado = "Aprobado";
 
             int idPago = dal.AltaPago(pago);
+            dvBLL.ActualizarDVH("Pago", "id_pago", idPago);
+            dvBLL.ActualizarDVV("Pago");
+            facturaDal.AsociarPago(idEnvio, idPago);
 
-            enviobll.MarcarComoPagado(idEnvio);
+            dvBLL.ActualizarDVH("Factura", "id_factura", factura.IdFactura);
+            dvBLL.ActualizarDVV("Factura");
+
+            enviobll.MarcarPendienteDistribucion(idEnvio);
 
             eventobll.RegistrarEvento("envios", "ev_pago_envio", 2);
 

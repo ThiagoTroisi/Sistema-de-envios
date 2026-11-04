@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using Servicios.GestionIdiomas;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,6 @@ namespace SistemaDeEnviosGUI
             }
         }
 
-
         private void btnPagar_Click(object sender, EventArgs e)
         {
             bool pagoRegistrado = false;
@@ -86,28 +86,31 @@ namespace SistemaDeEnviosGUI
 
                 pagobll.ValidarDatosTarjeta(txtNombreTarjeta.Text, txtNumeroTarjeta.Text, mes, año, txtCodigoSeguridad.Text);
 
+                FacturaBE factura = facturabll.ObtenerPorEnvio(idEnvio);
+
+                if (factura == null)
+                {
+                    factura = facturabll.GenerarFactura(idEnvio);
+                    facturabll.GenerarPdf(idEnvio, false);
+                }
+
                 DialogResult autorizacion = MessageBox.Show("Importe a cobrar: " + importe.ToString("C2") + "\nTitular de la tarjeta: " + txtNombreTarjeta.Text.Trim() + "\n\n¿El Banco autoriza la operación?", "Autorización bancaria", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (autorizacion != DialogResult.Yes)
                 {
-                    MessageBox.Show("El Banco rechazó la operación. El envío continúa pendiente de pago.", "Pago rechazado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El Banco rechazó la operación. El envío continúa en estado Registrado y la factura queda guardada para un nuevo intento de cobro.", "Pago rechazado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 pagobll.RegistrarPago(idEnvio, dniCliente, importe);
                 pagoRegistrado = true;
 
-                facturabll.GenerarFactura(idEnvio);
-                facturabll.GenerarPdf(idEnvio, false);
+                DialogResult imprimir = MessageBox.Show("El pago fue registrado y el envío quedó pendiente de distribución.\n\n¿Desea abrir la factura para imprimirla ahora?", "Pago aprobado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                DialogResult imprimir = MessageBox.Show("La factura fue generada y guardada correctamente.\n\n¿Desea abrirla para imprimirla ahora?", "Factura generada", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                enviobll.AutorizarEnvio(idEnvio);
-
-                string mensaje = "El pago fue registrado correctamente.\nLa factura fue generada correctamente.\nEl envío fue autorizado correctamente.";
+                string mensaje = "El pago fue registrado correctamente.\nLa factura quedó asociada al pago.\nEl envío está pendiente de distribución.";
 
                 if (imprimir == DialogResult.No)
-                    mensaje += "\n\nPuede imprimir la factura más adelante desde el formulario de facturas.";
+                    mensaje += "\n\nPuede abrir la factura más adelante desde el formulario de facturas.";
 
                 MessageBox.Show(mensaje, "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -122,7 +125,7 @@ namespace SistemaDeEnviosGUI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("El pago, la factura y la autorización se completaron correctamente, pero no se pudo abrir el PDF.\n\nPuede volver a intentarlo desde el formulario de facturas.\n\nDetalle: " + ex.Message, "Abrir factura", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("El pago se completó correctamente, pero no se pudo abrir el PDF.\n\nPuede volver a intentarlo desde el formulario de facturas.\n\nDetalle: " + ex.Message, "Abrir factura", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -130,7 +133,7 @@ namespace SistemaDeEnviosGUI
             {
                 if (pagoRegistrado)
                 {
-                    MessageBox.Show("El pago ya fue registrado, pero ocurrió un error en los pasos posteriores.\n\nNo vuelva a cobrar este envío. Verifique su estado y complete la facturación o autorización desde los formularios correspondientes.\n\nDetalle: " + ex.Message, "Operación incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El pago ya fue registrado, pero ocurrió un error en los pasos posteriores.\n\nNo vuelva a cobrar este envío. Verifique su estado antes de continuar.\n\nDetalle: " + ex.Message, "Operación incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     DialogResult = DialogResult.OK;
                     Close();
@@ -140,7 +143,6 @@ namespace SistemaDeEnviosGUI
                 MessageBox.Show(ex.Message, "Datos de pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

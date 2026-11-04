@@ -155,7 +155,10 @@ VALUES
 ('Registro de clientes', 'JrOoT7UsibQg5kuEFQQA0XOGwjP/PrJrw9S9ny6tW3A='),
 ('Registro de envíos', 'c3hoSqYCVw1Ab7+XqHDTcChHt7WsJXOxEJ+XaBeiapU='),
 ('Cobro de envíos', 'nh/yIWPQQ27I/j1VNBjRkiiN6iNlD3IRXHDG9ax56WA='),
-('Gestión de facturas', 'Fq60AUqQFTa0P1Dwm2xGBs6U7xDHid1OL564GtqqUPw=');
+('Gestión de facturas', 'Fq60AUqQFTa0P1Dwm2xGBs6U7xDHid1OL564GtqqUPw='),
+('Creación de rutas', 'ftL8PxAMyatryk6G8xMtCUM+URynHhpxxDw9544abcY='),
+('Asignación de rutas', 'EMRRFplGjTdiUDGh0G1DJyXI9+nS3bC1Re4IG9fc0ME='),
+('Administración de rutas', '5uXuQdDLZ6oZZFNr9HJdqo4fcbQWnHcK9I9ZhJ3cmTA=');
 
 INSERT INTO DVV(tabla, dvv)
 VALUES
@@ -169,12 +172,16 @@ VALUES
 ('Idioma', '11RGkmmGmKxFdtPT72JnyBSE4qBNhdFZBrTmw8mfZIM='),
 ('Usuario', 'V2cmMqAlpNq0WEf0eoVpn0p90+6Pa/gUqNz9mq2NT7g='),
 ('Evento', ''),
-('Persona', ''),
+('Cliente', ''),
 ('Paquete', ''),
 ('Destino', ''),
 ('Envio', ''),
 ('Pago', ''),
-('Factura', '');
+('Factura', ''),
+('Ruta', ''),
+('Ruta_Envio', ''),
+('AsignacionRuta', ''),
+('IntentoEntrega', '');
 
 -- Administrador base
 INSERT INTO Usuario (dni, nombre, apellido, email, password, id_perfil, dvh) VALUES (12345678, 'Administrador', 'Sistema', 'admin@sistema.com', '$2a$11$lVbVvtP4dYgekTqzbwg2zOpEOIoEKEkyuckdej7hbDo/vvOS69dMO', 1, 'ki7e9KBIii3mEKYZQUf+eoZKHC8n5Kd02xU7O7WHsVI=');
@@ -285,7 +292,7 @@ CREATE TABLE Pago (
 CREATE TABLE Factura (
     id_factura INT IDENTITY(1,1) PRIMARY KEY,
     id_envio INT NOT NULL,
-    id_pago INT NOT NULL,
+    id_pago INT NULL,
     dni_cliente INT NOT NULL,
     importe DECIMAL(10,2) NOT NULL,
     fecha DATETIME NOT NULL,
@@ -324,11 +331,9 @@ CREATE TABLE AsignacionRuta (
     fecha_fin DATETIME NULL,
     estado VARCHAR(20) NOT NULL DEFAULT 'Activa',
     motivo_cancelacion VARCHAR(250) NULL,
-    dni_gestor_cancelacion INT NULL,
     dvh VARCHAR(64) NOT NULL DEFAULT '',
     CONSTRAINT FK_AsignacionRuta_Ruta FOREIGN KEY (id_ruta) REFERENCES Ruta(id_ruta),
     CONSTRAINT FK_AsignacionRuta_Repartidor FOREIGN KEY (dni_repartidor) REFERENCES Usuario(dni),
-    CONSTRAINT FK_AsignacionRuta_Gestor FOREIGN KEY (dni_gestor_cancelacion) REFERENCES Usuario(dni),
     CONSTRAINT CK_AsignacionRuta_Estado CHECK (estado IN ('Activa', 'Finalizada', 'Cancelada'))
 );
 
@@ -344,9 +349,6 @@ CREATE TABLE IntentoEntrega (
     CONSTRAINT CK_IntentoEntrega_Resultado CHECK (resultado IN ('Entregado', 'Fallido'))
 );
 
-INSERT INTO DVV (tabla, dvv)
-VALUES
-('Ruta', ''),
-('Ruta_Envio', ''),
-('AsignacionRuta', ''),
-('IntentoEntrega', '');
+ALTER TABLE Envio
+ADD intentos_fallidos INT NOT NULL
+CONSTRAINT DF_Envio_IntentosFallidos DEFAULT 0;

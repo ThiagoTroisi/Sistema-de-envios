@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,7 +35,6 @@ namespace SistemaDeEnviosGUI
         private EnvioBE envioSeleccionado;
 
         private int? dniRemitenteCargado;
-        private int? dniDestinatarioCargado;
 
         public GestionEnviosForm()
         {
@@ -122,7 +122,10 @@ namespace SistemaDeEnviosGUI
             }
 
             if (dataGridViewEnvios.Columns["estado"] != null)
+            {
                 dataGridViewEnvios.Columns["estado"].HeaderText = "Estado";
+                dataGridViewEnvios.Columns["estado"].Width = 200;
+            }
 
             ActualizarBotonesConsulta();
         }
@@ -243,17 +246,17 @@ namespace SistemaDeEnviosGUI
             btnBuscarRemitente.Enabled = false;
 
             txtDNIR.ReadOnly = true;
-            txtDNID.ReadOnly = true;
+            txtDNID.ReadOnly = false;
 
             txtNombreR.ReadOnly = true;
             txtApellidoR.ReadOnly = true;
             txtTelefonoR.ReadOnly = true;
             txtEmailR.ReadOnly = true;
 
-            txtNombreD.ReadOnly = true;
-            txtApellidoD.ReadOnly = true;
-            txtTelefonoD.ReadOnly = true;
-            txtEmailD.ReadOnly = true;
+            txtNombreD.ReadOnly = false;
+            txtApellidoD.ReadOnly = false;
+            txtTelefonoD.ReadOnly = false;
+            txtEmailD.ReadOnly = false;
 
             btnRegistrarEnvio.Enabled = false;
             btnModificarEnvio.Enabled = false;
@@ -428,7 +431,6 @@ namespace SistemaDeEnviosGUI
             txtEmailD.Text = destino.EmailDestinatario;
 
             dniRemitenteCargado = remitente.DNI;
-            dniDestinatarioCargado = destino.DniDestinatario;
         }
 
         private void btnAplicar_Click(object sender, EventArgs e)
@@ -487,11 +489,26 @@ namespace SistemaDeEnviosGUI
             if (!dniRemitenteCargado.HasValue)
                 throw new Exception("Debe buscar al remitente antes de registrar el envío.");
 
-            if (!dniDestinatarioCargado.HasValue)
-                throw new Exception("Debe ingresar los datos del destinatario antes de registrar el envío.");
+            if (!int.TryParse(txtDNID.Text, out int dniDestinatario) || dniDestinatario <= 0)
+                throw new Exception("Debe ingresar un DNI válido para el destinatario.");
+
+            if (dniDestinatario < 1000000 || dniDestinatario > 99999999) throw new Exception("El DNI debe contener entre 7 y 8 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(txtNombreD.Text))
+                throw new Exception("El nombre del destinatario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtApellidoD.Text))
+                throw new Exception("El apellido del destinatario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtTelefonoD.Text)) throw new Exception("El teléfono es obligatorio.");
+
+            if (!FormatoTelefono(txtTelefonoD.Text)) throw new Exception("El formato del teléfono no es válido. Ingréselo sin espacios ni símbolos especiales");
+
+            if (string.IsNullOrWhiteSpace(txtEmailD.Text)) throw new Exception("El email es obligatorio.");
+
+            if (!FormatoMail(txtEmailD.Text)) throw new Exception("El formato del email no es válido.");
 
             int dniRemitente = dniRemitenteCargado.Value;
-            int dniDestinatario = dniDestinatarioCargado.Value;
 
             PaqueteBE paquete = new PaqueteBE
             {
@@ -535,7 +552,18 @@ namespace SistemaDeEnviosGUI
             CargarEnvios();
             CambiarModo(ModoGestionEnvio.Consulta);
         }
-
+        private bool FormatoMail(string email)
+        {
+            string formato = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            bool valido = Regex.IsMatch(email, formato);
+            return valido;
+        }
+        private bool FormatoTelefono(string telefono)
+        {
+            string formato = @"^(11|15)\d{8}$|^(2224|2225)\d{6}$";
+            bool valido = Regex.IsMatch(telefono, formato);
+            return valido;
+        }
         private void AplicarModificacion()
         {
             if (envioSeleccionado == null)
@@ -568,6 +596,25 @@ namespace SistemaDeEnviosGUI
             if (string.IsNullOrWhiteSpace(txtProvincia.Text))
                 throw new Exception("La provincia es obligatoria.");
 
+            if (!int.TryParse(txtDNID.Text, out int dniDestinatario) || dniDestinatario <= 0)
+                throw new Exception("Debe ingresar un DNI válido para el destinatario.");
+
+            if (dniDestinatario < 1000000 || dniDestinatario > 99999999) throw new Exception("El DNI debe contener entre 7 y 8 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(txtNombreD.Text))
+                throw new Exception("El nombre del destinatario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtApellidoD.Text))
+                throw new Exception("El apellido del destinatario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(txtTelefonoD.Text)) throw new Exception("El teléfono es obligatorio.");
+
+            if (!FormatoTelefono(txtTelefonoD.Text)) throw new Exception("El formato del teléfono no es válido. Ingréselo sin espacios ni símbolos especiales");
+
+            if (string.IsNullOrWhiteSpace(txtEmailD.Text)) throw new Exception("El email es obligatorio.");
+
+            if (!FormatoMail(txtEmailD.Text)) throw new Exception("El formato del email no es válido.");
+
             PaqueteBE paquete = new PaqueteBE
             {
                 IdPaquete = envioSeleccionado.IdPaquete,
@@ -585,7 +632,7 @@ namespace SistemaDeEnviosGUI
                 Ciudad = txtCiudad.Text,
                 CodigoPostal = txtCP.Text,
                 Provincia = txtProvincia.Text,
-                DniDestinatario = Convert.ToInt32(txtDNID.Text),
+                DniDestinatario = dniDestinatario,
                 NombreDestinatario = txtNombreD.Text,
                 ApellidoDestinatario = txtApellidoD.Text,
                 TelefonoDestinatario = txtTelefonoD.Text,
@@ -625,13 +672,6 @@ namespace SistemaDeEnviosGUI
 
         private bool BuscarPersona(int dni, bool remitente)
         {
-            if (!remitente)
-            {
-                txtDNID.Text = dni.ToString();
-                dniDestinatarioCargado = dni;
-                return true;
-            }
-
             ClienteBE persona = clientebll.ConsultaPorDNI(dni);
 
             if (persona == null)
@@ -701,18 +741,6 @@ namespace SistemaDeEnviosGUI
             txtEmailR.Clear();
         }
 
-        private void txtDNID_TextChanged(object sender, EventArgs e)
-        {
-            if (modoactual != ModoGestionEnvio.Alta)
-                return;
-
-            if (dniDestinatarioCargado.HasValue && txtDNID.Text != dniDestinatarioCargado.Value.ToString())
-            {
-                LimpiarDestinatario();
-                dniDestinatarioCargado = null;
-            }
-        }
-
         private void LimpiarDestinatario()
         {
             txtNombreD.Clear();
@@ -748,7 +776,6 @@ namespace SistemaDeEnviosGUI
             txtDireccion.Clear();
 
             dniRemitenteCargado = null;
-            dniDestinatarioCargado = null;
         }
         
         private void txtCodigoSeguimiento_TextChanged(object sender, EventArgs e)
@@ -805,8 +832,8 @@ namespace SistemaDeEnviosGUI
             this.Text = Traducciones.Traducir("GestionEnvios");
 
             lblCodigoSeguimiento.Text = Traducciones.Traducir("Codigo");
-            lblDNIRFiltro.Text = Traducciones.Traducir("DNI");
-            lblDNIDFiltro.Text = Traducciones.Traducir("DNI");
+            lblDNIRFiltro.Text = Traducciones.Traducir("DNIRemitente");
+            lblDNIDFiltro.Text = Traducciones.Traducir("DNIDestinatario");
             lblEstado.Text = Traducciones.Traducir("Estado");
             lblDesde.Text = Traducciones.Traducir("Desde");
             lblHasta.Text = Traducciones.Traducir("Hasta");
