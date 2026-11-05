@@ -274,7 +274,7 @@ namespace DAL
         }
         public void AutorizarNuevoIntento(int idEnvio)
         {
-            string query = "UPDATE Envio SET estado = 'Pendiente de asignación' WHERE id_envio = @id_envio AND estado = 'Pendiente de resolución' AND intentos_fallidos >= 3";
+            string query = "UPDATE Envio SET estado = 'Pendiente de distribución' WHERE id_envio = @id_envio AND estado = 'Pendiente de resolución' AND intentos_fallidos >= 3";
 
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
