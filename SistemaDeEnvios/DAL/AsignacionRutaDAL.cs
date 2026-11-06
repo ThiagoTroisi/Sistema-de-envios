@@ -372,7 +372,7 @@ namespace DAL
 
         public DataTable ObtenerDatosAsignacion(int idAsignacion)
         {
-            string query = "SELECT ar.id_asignacion, ar.id_ruta, ar.fecha_asignacion, ar.fecha_inicio, ar.estado AS estado_asignacion, r.descripcion, r.estado AS estado_ruta FROM AsignacionRuta ar INNER JOIN Ruta r ON ar.id_ruta = r.id_ruta WHERE ar.id_asignacion = @id_asignacion";
+            string query = "SELECT ar.id_asignacion, ar.id_ruta, ar.dni_repartidor, u.nombre AS nombre_repartidor, u.apellido AS apellido_repartidor, ar.fecha_asignacion, ar.fecha_inicio, ar.fecha_fin, ar.estado AS estado_asignacion, r.descripcion, r.estado AS estado_ruta FROM AsignacionRuta ar INNER JOIN Ruta r ON ar.id_ruta = r.id_ruta INNER JOIN Usuario u ON ar.dni_repartidor = u.dni WHERE ar.id_asignacion = @id_asignacion";
 
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
@@ -389,5 +389,27 @@ namespace DAL
                 }
             }
         }
+
+        public DataTable ObtenerHistorialRutas(int dniRepartidor)
+        {
+            string query = "SELECT ar.id_asignacion, ar.id_ruta, r.descripcion, ar.fecha_asignacion, ar.fecha_inicio, ar.fecha_fin FROM AsignacionRuta ar INNER JOIN Ruta r ON ar.id_ruta = r.id_ruta WHERE ar.dni_repartidor = @dni_repartidor AND ar.estado = 'Finalizada' ORDER BY ar.fecha_fin DESC";
+
+            using (SqlConnection cn = Conexion.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cmd.Parameters.AddWithValue("@dni_repartidor", dniRepartidor);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable tabla = new DataTable();
+                        da.Fill(tabla);
+                        return tabla;
+                    }
+                }
+            }
+        }
+
+
     }
 }

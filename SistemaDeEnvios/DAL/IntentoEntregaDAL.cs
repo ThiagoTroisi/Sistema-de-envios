@@ -166,8 +166,7 @@ namespace DAL
 
         public DataTable ObtenerResumenIntentosPorRuta(int idRuta)
         {
-            string query = "SELECT re.id_ruta_envio, e.id_envio, e.codigo_seguimiento, CONCAT(d.nombre_destinatario, ' ', d.apellido_destinatario) AS destinatario, (SELECT TOP 1 ie.resultado FROM IntentoEntrega ie WHERE ie.id_ruta_envio = re.id_ruta_envio ORDER BY ie.fecha_intento DESC, ie.id_intento DESC) AS ultimo_resultado, (SELECT COUNT(*) FROM IntentoEntrega ie WHERE ie.id_ruta_envio = re.id_ruta_envio) AS cantidad_intentos FROM Ruta_Envio re INNER JOIN Envio e ON re.id_envio = e.id_envio INNER JOIN Destino d ON e.id_destino = d.id_destino WHERE re.id_ruta = @id_ruta ORDER BY re.orden_entrega";
-
+            string query = "SELECT re.id_ruta_envio, re.orden_entrega, e.id_envio, e.codigo_seguimiento, CONCAT(d.nombre_destinatario, ' ', d.apellido_destinatario) AS destinatario, (SELECT TOP 1 ie.resultado FROM IntentoEntrega ie WHERE ie.id_ruta_envio = re.id_ruta_envio ORDER BY ie.fecha_intento DESC, ie.id_intento DESC) AS ultimo_resultado, (SELECT COUNT(*) FROM IntentoEntrega ie WHERE ie.id_ruta_envio = re.id_ruta_envio) AS cantidad_intentos FROM Ruta_Envio re INNER JOIN Envio e ON re.id_envio = e.id_envio INNER JOIN Destino d ON e.id_destino = d.id_destino WHERE re.id_ruta = @id_ruta ORDER BY re.orden_entrega";
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 using (SqlCommand cmd = new SqlCommand(query, cn))

@@ -281,5 +281,186 @@ namespace Servicios
 
             File.Move(archivoOriginal, archivoCancelado);
         }
+
+        public static string GenerarInformeFinalizacionRuta(DataTable datosAsignacion, DataTable resumenEnvios, DataTable intentos, bool abrir = true)
+        {
+            if (datosAsignacion == null || datosAsignacion.Rows.Count == 0)
+                throw new Exception("No se recibieron los datos de la asignación.");
+
+            if (resumenEnvios == null || resumenEnvios.Rows.Count == 0)
+                throw new Exception("No se recibieron los resultados de los envíos.");
+
+            if (intentos == null)
+                throw new Exception("No se recibieron los datos de los intentos.");
+
+            DataRow asignacion = datosAsignacion.Rows[0];
+
+            int idAsignacion = Convert.ToInt32(asignacion["id_asignacion"]);
+            int idRuta = Convert.ToInt32(asignacion["id_ruta"]);
+
+            int totalEnvios = resumenEnvios.Rows.Count;
+            int entregados = 0;
+            int fallidos = 0;
+
+            foreach (DataRow envio in resumenEnvios.Rows)
+            {
+                string resultado = envio["ultimo_resultado"].ToString();
+
+                if (resultado == "Entregado")
+                    entregados++;
+                else if (resultado == "Fallido")
+                    fallidos++;
+            }
+
+            string carpeta = Path.Combine(AppContext.BaseDirectory, "InformesFinalizacion");
+            Directory.CreateDirectory(carpeta);
+
+            string nombreArchivo = $"Resultado_Ruta_{idRuta:D4}_Asignacion_{idAsignacion:D4}.pdf";
+            string archivo = Path.Combine(carpeta, nombreArchivo);
+
+            iTextSharp.text.Document documento = new iTextSharp.text.Document(PageSize.A4.Rotate(), 40, 40, 40, 40);
+
+            using (FileStream stream = new FileStream(archivo, FileMode.Create))
+            {
+                PdfWriter.GetInstance(documento, stream);
+
+                documento.Open();
+
+                Font titulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                Font subtitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                Font encabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9);
+                Font contenido = FontFactory.GetFont(FontFactory.HELVETICA, 8);
+
+                Paragraph encabezadoDocumento = new Paragraph("INFORME DE FINALIZACIÓN DE RUTA", titulo);
+                encabezadoDocumento.Alignment = Element.ALIGN_CENTER;
+                encabezadoDocumento.SpacingAfter = 20;
+                documento.Add(encabezadoDocumento);
+
+                documento.Add(new Paragraph($"Ruta N.º: {idRuta}", normal));
+                documento.Add(new Paragraph($"Asignación N.º: {idAsignacion}", normal));
+                documento.Add(new Paragraph($"Descripción: {asignacion["descripcion"]}", normal));
+                documento.Add(new Paragraph($"Repartidor: {asignacion["nombre_repartidor"]} {asignacion["apellido_repartidor"]}", normal));
+                documento.Add(new Paragraph($"DNI: {asignacion["dni_repartidor"]}", normal));
+                documento.Add(new Paragraph($"Fecha de asignación: {Convert.ToDateTime(asignacion["fecha_asignacion"]):dd/MM/yyyy HH:mm}", normal));
+                documento.Add(new Paragraph($"Inicio de ruta: {Convert.ToDateTime(asignacion["fecha_inicio"]):dd/MM/yyyy HH:mm}", normal));
+
+                if (asignacion["fecha_fin"] != DBNull.Value)
+                    documento.Add(new Paragraph($"Finalización de ruta: {Convert.ToDateTime(asignacion["fecha_fin"]):dd/MM/yyyy HH:mm}", normal));
+
+                documento.Add(new Paragraph(" "));
+
+                Paragraph tituloResumen = new Paragraph("RESUMEN DE RESULTADOS", subtitulo);
+                tituloResumen.SpacingAfter = 10;
+                documento.Add(tituloResumen);
+
+                PdfPTable tablaResumen = new PdfPTable(3);
+                tablaResumen.WidthPercentage = 70;
+                tablaResumen.SetWidths(new float[] { 1, 1, 1 });
+
+                tablaResumen.AddCell(new PdfPCell(new Phrase("Total de envíos", encabezado)));
+                tablaResumen.AddCell(new PdfPCell(new Phrase("Entregados", encabezado)));
+                tablaResumen.AddCell(new PdfPCell(new Phrase("Último intento fallido", encabezado)));
+
+                tablaResumen.AddCell(totalEnvios.ToString());
+                tablaResumen.AddCell(entregados.ToString());
+                tablaResumen.AddCell(fallidos.ToString());
+
+                documento.Add(tablaResumen);
+
+                documento.Add(new Paragraph(" "));
+
+                Paragraph tituloEnvios = new Paragraph("RESULTADO POR ENVÍO", subtitulo);
+                tituloEnvios.SpacingAfter = 10;
+                documento.Add(tituloEnvios);
+
+                PdfPTable tablaEnvios = new PdfPTable(5);
+                tablaEnvios.WidthPercentage = 100;
+                tablaEnvios.SetWidths(new float[] { 7, 18, 25, 15, 12 });
+
+                tablaEnvios.AddCell(new PdfPCell(new Phrase("Orden", encabezado)));
+                tablaEnvios.AddCell(new PdfPCell(new Phrase("Seguimiento", encabezado)));
+                tablaEnvios.AddCell(new PdfPCell(new Phrase("Destinatario", encabezado)));
+                tablaEnvios.AddCell(new PdfPCell(new Phrase("Último resultado", encabezado)));
+                tablaEnvios.AddCell(new PdfPCell(new Phrase("Cantidad de intentos", encabezado)));
+
+                foreach (DataRow envio in resumenEnvios.Rows)
+                {
+                    tablaEnvios.AddCell(new PdfPCell(new Phrase(envio["orden_entrega"].ToString(), contenido)));
+                    tablaEnvios.AddCell(new PdfPCell(new Phrase(envio["codigo_seguimiento"].ToString(), contenido)));
+                    tablaEnvios.AddCell(new PdfPCell(new Phrase(envio["destinatario"].ToString(), contenido)));
+                    tablaEnvios.AddCell(new PdfPCell(new Phrase(envio["ultimo_resultado"].ToString(), contenido)));
+                    tablaEnvios.AddCell(new PdfPCell(new Phrase(envio["cantidad_intentos"].ToString(), contenido)));
+                }
+
+                documento.Add(tablaEnvios);
+
+                documento.Add(new Paragraph(" "));
+
+                Paragraph tituloIntentos = new Paragraph("HISTORIAL DE INTENTOS DE ENTREGA", subtitulo);
+                tituloIntentos.SpacingAfter = 10;
+                documento.Add(tituloIntentos);
+
+                PdfPTable tablaIntentos = new PdfPTable(6);
+                tablaIntentos.WidthPercentage = 100;
+                tablaIntentos.SetWidths(new float[] { 18, 20, 15, 18, 25, 30 });
+
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Seguimiento", encabezado)));
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Destinatario", encabezado)));
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Fecha y hora", encabezado)));
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Resultado", encabezado)));
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Inconveniente", encabezado)));
+                tablaIntentos.AddCell(new PdfPCell(new Phrase("Observaciones", encabezado)));
+
+                foreach (DataRow intento in intentos.Rows)
+                {
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(intento["codigo_seguimiento"].ToString(), contenido)));
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(intento["destinatario"].ToString(), contenido)));
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(Convert.ToDateTime(intento["fecha_intento"]).ToString("dd/MM/yyyy HH:mm"), contenido)));
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(intento["resultado"].ToString(), contenido)));
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(intento["tipo_inconveniente"] == DBNull.Value ? "-" : intento["tipo_inconveniente"].ToString(), contenido)));
+                    tablaIntentos.AddCell(new PdfPCell(new Phrase(intento["observaciones"] == DBNull.Value ? "-" : intento["observaciones"].ToString(), contenido)));
+                }
+
+                documento.Add(tablaIntentos);
+
+                documento.Add(new Paragraph(" "));
+                Paragraph pie = new Paragraph("Informe generado por el Sistema de Gestión de Envíos.", contenido);
+                pie.Alignment = Element.ALIGN_CENTER;
+                documento.Add(pie);
+
+                documento.Close();
+            }
+
+            if (abrir)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = archivo,
+                    UseShellExecute = true
+                });
+            }
+
+            return archivo;
+        }
+
+        public static void AbrirInformeFinalizacionRuta(int idRuta, int idAsignacion)
+        {
+            if (idRuta <= 0 || idAsignacion <= 0)
+                throw new Exception("Los identificadores de ruta y asignación no son válidos.");
+
+            string carpeta = Path.Combine(AppContext.BaseDirectory, "InformesFinalizacion");
+            string nombreArchivo = $"Resultado_Ruta_{idRuta:D4}_Asignacion_{idAsignacion:D4}.pdf";
+            string archivo = Path.Combine(carpeta, nombreArchivo);
+
+            if (!File.Exists(archivo))
+                throw new Exception("No se encontró el informe PDF de esta ruta.");
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = archivo,
+                UseShellExecute = true
+            });
+        }
     }
 }

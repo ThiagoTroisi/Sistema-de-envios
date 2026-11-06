@@ -165,5 +165,41 @@ namespace BLL
 
             return dal.ObtenerDatosAsignacion(idAsignacion);
         }
+
+        public string GenerarInformeFinalizacion(int idAsignacion, bool abrir = true)
+        {
+            if (idAsignacion <= 0)
+                throw new Exception("El identificador de asignación no es válido.");
+
+            DataTable datosAsignacion = dal.ObtenerDatosAsignacion(idAsignacion);
+
+            if (datosAsignacion.Rows.Count == 0)
+                throw new Exception("No se encontraron los datos de la asignación.");
+
+            DataRow asignacion = datosAsignacion.Rows[0];
+
+            if (asignacion["estado_asignacion"].ToString() != "Finalizada")
+                throw new Exception("La asignación todavía no se encuentra finalizada.");
+
+            int idRuta = Convert.ToInt32(asignacion["id_ruta"]);
+
+            DataTable resumenEnvios = intentoEntregaBLL.ObtenerResumenIntentosPorRuta(idRuta);
+            DataTable intentos = intentoEntregaBLL.ObtenerIntentosPorRuta(idRuta);
+
+            if (resumenEnvios.Rows.Count == 0)
+                throw new Exception("No se encontraron envíos para generar el informe.");
+
+            return GeneradorPDF.GenerarInformeFinalizacionRuta(datosAsignacion, resumenEnvios, intentos, abrir);
+        }
+
+        public DataTable ObtenerHistorialRutas()
+        {
+            Usuario usuario = SesionUsuario.GetInstancia().UsuarioActual;
+
+            if (usuario == null)
+                throw new Exception("No hay un usuario logueado.");
+
+            return dal.ObtenerHistorialRutas(usuario.DNI);
+        }
     }
 }

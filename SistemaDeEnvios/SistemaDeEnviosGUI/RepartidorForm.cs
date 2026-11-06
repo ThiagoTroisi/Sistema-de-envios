@@ -1,5 +1,6 @@
 ﻿using BE.Entidades;
 using BLL;
+using Servicios;
 using Servicios.Sesión;
 using System;
 using System.Data;
@@ -28,7 +29,7 @@ namespace SistemaDeEnviosGUI
                 ConfigurarGrillas();
                 CargarDatosRepartidor();
                 CargarRutaActual();
-                CargarResumenDiario();
+                CargarHistorialRutas();
             }
             catch (Exception ex)
             {
@@ -89,7 +90,39 @@ namespace SistemaDeEnviosGUI
             CargarEnviosDeLaRuta();
             ActualizarEstadoBotonesRuta();
         }
+        private void CargarHistorialRutas()
+        {
+            DataTable historial = asignacionRutaBLL.ObtenerHistorialRutas();
 
+            dataGridViewHistorial.DataSource = historial;
+
+            if (dataGridViewHistorial.Columns.Contains("id_asignacion"))
+                dataGridViewHistorial.Columns["id_asignacion"].Visible = false;
+
+            if (dataGridViewHistorial.Columns.Contains("id_ruta"))
+                dataGridViewHistorial.Columns["id_ruta"].Visible = false;
+
+            if (dataGridViewHistorial.Columns.Contains("descripcion"))
+                dataGridViewHistorial.Columns["descripcion"].HeaderText = "Descripción";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_asignacion"))
+                dataGridViewHistorial.Columns["fecha_asignacion"].HeaderText = "Fecha de asignación";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_inicio"))
+                dataGridViewHistorial.Columns["fecha_inicio"].HeaderText = "Inicio";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_fin"))
+                dataGridViewHistorial.Columns["fecha_fin"].HeaderText = "Finalización";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_asignacion"))
+                dataGridViewHistorial.Columns["fecha_asignacion"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_inicio"))
+                dataGridViewHistorial.Columns["fecha_inicio"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+            if (dataGridViewHistorial.Columns.Contains("fecha_fin"))
+                dataGridViewHistorial.Columns["fecha_fin"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+        }
         private void MostrarSinRutaAsignada()
         {
             idAsignacionActual = 0;
@@ -187,11 +220,6 @@ namespace SistemaDeEnviosGUI
             btnRegistrarEntregas.Enabled = estadoRuta == "En curso";
         }
 
-        private void CargarResumenDiario()
-        {
-            // Lo completamos en la siguiente etapa.
-        }
-
         private void btnIniciarRuta_Click(object sender, EventArgs e)
         {
             if (idAsignacionActual <= 0)
@@ -212,7 +240,6 @@ namespace SistemaDeEnviosGUI
                 MessageBox.Show("La ruta se inició correctamente.", "Ruta iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 CargarRutaActual();
-                CargarResumenDiario();
             }
             catch (Exception ex)
             {
@@ -285,12 +312,42 @@ namespace SistemaDeEnviosGUI
 
                 MessageBox.Show("La ruta se finalizó correctamente.", "Ruta finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                try
+                {
+                    asignacionRutaBLL.GenerarInformeFinalizacion(idAsignacionActual, true);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("La ruta se finalizó correctamente, pero no se pudo generar el informe PDF.\n\n" + ex.Message, "Error al generar el informe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                CargarHistorialRutas();
                 CargarRutaActual();
-                CargarResumenDiario();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al finalizar la ruta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImprimirInforme_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewHistorial.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar una ruta del historial.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                int idRuta = Convert.ToInt32(dataGridViewHistorial.CurrentRow.Cells["id_ruta"].Value);
+                int idAsignacion = Convert.ToInt32(dataGridViewHistorial.CurrentRow.Cells["id_asignacion"].Value);
+
+                GeneradorPDF.AbrirInformeFinalizacionRuta(idRuta, idAsignacion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir el informe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

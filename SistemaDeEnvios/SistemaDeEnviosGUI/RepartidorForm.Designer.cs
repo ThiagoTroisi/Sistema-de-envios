@@ -30,15 +30,6 @@
         {
             dataGridViewEnviosDeLaRuta = new DataGridView();
             lblBienvenida = new Label();
-            grpResumenDiario = new GroupBox();
-            lblValorIntentosFallidos = new Label();
-            lblValorEntregasRealizadas = new Label();
-            lblValorEnviosPendientes = new Label();
-            lblValorRutasAsignadas = new Label();
-            lblIntentosFallidos = new Label();
-            lblEntregasRealizadas = new Label();
-            lblEnviosPendientes = new Label();
-            lblRutasAsignadas = new Label();
             grpDatosRuta = new GroupBox();
             btnRegistrarEntregas = new Button();
             btnFinalizarRuta = new Button();
@@ -56,8 +47,8 @@
             lblEnviosDeLaRuta = new Label();
             dataGridViewHistorial = new DataGridView();
             lblHistorial = new Label();
+            btnImprimirInforme = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosDeLaRuta).BeginInit();
-            grpResumenDiario.SuspendLayout();
             grpDatosRuta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).BeginInit();
             SuspendLayout();
@@ -78,95 +69,6 @@
             lblBienvenida.Size = new Size(81, 15);
             lblBienvenida.TabIndex = 1;
             lblBienvenida.Text = "Bienvenido, ...";
-            // 
-            // grpResumenDiario
-            // 
-            grpResumenDiario.Controls.Add(lblValorIntentosFallidos);
-            grpResumenDiario.Controls.Add(lblValorEntregasRealizadas);
-            grpResumenDiario.Controls.Add(lblValorEnviosPendientes);
-            grpResumenDiario.Controls.Add(lblValorRutasAsignadas);
-            grpResumenDiario.Controls.Add(lblIntentosFallidos);
-            grpResumenDiario.Controls.Add(lblEntregasRealizadas);
-            grpResumenDiario.Controls.Add(lblEnviosPendientes);
-            grpResumenDiario.Controls.Add(lblRutasAsignadas);
-            grpResumenDiario.Location = new Point(578, 42);
-            grpResumenDiario.Name = "grpResumenDiario";
-            grpResumenDiario.Size = new Size(426, 93);
-            grpResumenDiario.TabIndex = 2;
-            grpResumenDiario.TabStop = false;
-            grpResumenDiario.Text = "Resumen diario";
-            // 
-            // lblValorIntentosFallidos
-            // 
-            lblValorIntentosFallidos.AutoSize = true;
-            lblValorIntentosFallidos.Location = new Point(342, 57);
-            lblValorIntentosFallidos.Name = "lblValorIntentosFallidos";
-            lblValorIntentosFallidos.Size = new Size(13, 15);
-            lblValorIntentosFallidos.TabIndex = 10;
-            lblValorIntentosFallidos.Text = "0";
-            // 
-            // lblValorEntregasRealizadas
-            // 
-            lblValorEntregasRealizadas.AutoSize = true;
-            lblValorEntregasRealizadas.Location = new Point(342, 28);
-            lblValorEntregasRealizadas.Name = "lblValorEntregasRealizadas";
-            lblValorEntregasRealizadas.Size = new Size(13, 15);
-            lblValorEntregasRealizadas.TabIndex = 9;
-            lblValorEntregasRealizadas.Text = "0";
-            // 
-            // lblValorEnviosPendientes
-            // 
-            lblValorEnviosPendientes.AutoSize = true;
-            lblValorEnviosPendientes.Location = new Point(135, 57);
-            lblValorEnviosPendientes.Name = "lblValorEnviosPendientes";
-            lblValorEnviosPendientes.Size = new Size(13, 15);
-            lblValorEnviosPendientes.TabIndex = 8;
-            lblValorEnviosPendientes.Text = "0";
-            // 
-            // lblValorRutasAsignadas
-            // 
-            lblValorRutasAsignadas.AutoSize = true;
-            lblValorRutasAsignadas.Location = new Point(135, 28);
-            lblValorRutasAsignadas.Name = "lblValorRutasAsignadas";
-            lblValorRutasAsignadas.Size = new Size(13, 15);
-            lblValorRutasAsignadas.TabIndex = 7;
-            lblValorRutasAsignadas.Text = "0";
-            // 
-            // lblIntentosFallidos
-            // 
-            lblIntentosFallidos.AutoSize = true;
-            lblIntentosFallidos.Location = new Point(227, 57);
-            lblIntentosFallidos.Name = "lblIntentosFallidos";
-            lblIntentosFallidos.Size = new Size(94, 15);
-            lblIntentosFallidos.TabIndex = 6;
-            lblIntentosFallidos.Text = "Intentos fallidos:";
-            // 
-            // lblEntregasRealizadas
-            // 
-            lblEntregasRealizadas.AutoSize = true;
-            lblEntregasRealizadas.Location = new Point(227, 28);
-            lblEntregasRealizadas.Name = "lblEntregasRealizadas";
-            lblEntregasRealizadas.Size = new Size(109, 15);
-            lblEntregasRealizadas.TabIndex = 5;
-            lblEntregasRealizadas.Text = "Entregas realizadas:";
-            // 
-            // lblEnviosPendientes
-            // 
-            lblEnviosPendientes.AutoSize = true;
-            lblEnviosPendientes.Location = new Point(20, 57);
-            lblEnviosPendientes.Name = "lblEnviosPendientes";
-            lblEnviosPendientes.Size = new Size(105, 15);
-            lblEnviosPendientes.TabIndex = 4;
-            lblEnviosPendientes.Text = "Envíos pendientes:";
-            // 
-            // lblRutasAsignadas
-            // 
-            lblRutasAsignadas.AutoSize = true;
-            lblRutasAsignadas.Location = new Point(20, 28);
-            lblRutasAsignadas.Name = "lblRutasAsignadas";
-            lblRutasAsignadas.Size = new Size(94, 15);
-            lblRutasAsignadas.TabIndex = 3;
-            lblRutasAsignadas.Text = "Rutas asignadas:";
             // 
             // grpDatosRuta
             // 
@@ -321,38 +223,46 @@
             // dataGridViewHistorial
             // 
             dataGridViewHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewHistorial.Location = new Point(578, 183);
+            dataGridViewHistorial.Location = new Point(578, 27);
             dataGridViewHistorial.Name = "dataGridViewHistorial";
-            dataGridViewHistorial.Size = new Size(667, 340);
+            dataGridViewHistorial.Size = new Size(667, 448);
             dataGridViewHistorial.TabIndex = 17;
             // 
             // lblHistorial
             // 
             lblHistorial.AutoSize = true;
-            lblHistorial.Location = new Point(578, 165);
+            lblHistorial.Location = new Point(578, 9);
             lblHistorial.Name = "lblHistorial";
             lblHistorial.Size = new Size(96, 15);
             lblHistorial.TabIndex = 18;
             lblHistorial.Text = "Historial de rutas";
+            // 
+            // btnImprimirInforme
+            // 
+            btnImprimirInforme.Location = new Point(578, 481);
+            btnImprimirInforme.Name = "btnImprimirInforme";
+            btnImprimirInforme.Size = new Size(118, 42);
+            btnImprimirInforme.TabIndex = 17;
+            btnImprimirInforme.Text = "Imprimir informe";
+            btnImprimirInforme.UseVisualStyleBackColor = true;
+            btnImprimirInforme.Click += btnImprimirInforme_Click;
             // 
             // RepartidorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1257, 535);
+            Controls.Add(btnImprimirInforme);
             Controls.Add(lblHistorial);
             Controls.Add(dataGridViewHistorial);
             Controls.Add(lblEnviosDeLaRuta);
             Controls.Add(grpDatosRuta);
-            Controls.Add(grpResumenDiario);
             Controls.Add(lblBienvenida);
             Controls.Add(dataGridViewEnviosDeLaRuta);
             Name = "RepartidorForm";
             Text = "RepartidorForm";
             Load += RepartidorForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosDeLaRuta).EndInit();
-            grpResumenDiario.ResumeLayout(false);
-            grpResumenDiario.PerformLayout();
             grpDatosRuta.ResumeLayout(false);
             grpDatosRuta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).EndInit();
@@ -364,15 +274,6 @@
 
         private DataGridView dataGridViewEnviosDeLaRuta;
         private Label lblBienvenida;
-        private GroupBox grpResumenDiario;
-        private Label lblIntentosFallidos;
-        private Label lblEntregasRealizadas;
-        private Label lblEnviosPendientes;
-        private Label lblRutasAsignadas;
-        private Label lblValorIntentosFallidos;
-        private Label lblValorEntregasRealizadas;
-        private Label lblValorEnviosPendientes;
-        private Label lblValorRutasAsignadas;
         private GroupBox grpDatosRuta;
         private Label lblValorFechaAsignacion;
         private Label lblValorEstadoRuta;
@@ -390,5 +291,6 @@
         private Button btnRegistrarEntregas;
         private DataGridView dataGridViewHistorial;
         private Label lblHistorial;
+        private Button btnImprimirInforme;
     }
 }
