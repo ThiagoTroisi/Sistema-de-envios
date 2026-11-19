@@ -34,7 +34,7 @@ namespace BLL
             return idDestino;
         }
 
-        private void ValidarDestino(DestinoBE destino)
+        public void ValidarDestino(DestinoBE destino)
         {
             if (destino == null)
                 throw new Exception("El destino no puede ser nulo.");

@@ -28,7 +28,8 @@ namespace BLL
             "Ruta",
             "Ruta_Envio",
             "AsignacionRuta",
-            "IntentoEntrega"
+            "IntentoEntrega",
+            "Envio_C"
         };
         
         public void ActualizarDVH(string tabla, string columnaPK, object valorPK)

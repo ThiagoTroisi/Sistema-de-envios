@@ -88,6 +88,7 @@ namespace BLL
             return dal.ObtenerEnvios(estado, codigo, dniRemitente, dniDestinatario, fechaDesde, fechaHasta);
         }
 
+
         public void ModificarEnvio(EnvioBE envio, PaqueteBE paquete, DestinoBE destino)
         {
             if (envio == null)
@@ -108,11 +109,38 @@ namespace BLL
             paquete.IdPaquete = envio.IdPaquete;
             destino.IdDestino = envio.IdDestino;
 
-            paquetebll.ModificarPaquete(paquete);
-            destinobll.ModificarDestino(destino);
+            if (paquete.IdPaquete <= 0)
+                throw new Exception("El paquete seleccionado no es válido.");
+
+            if (string.IsNullOrWhiteSpace(paquete.Descripcion))
+                throw new Exception("La descripción del paquete es obligatoria.");
+
+            if (paquete.Peso <= 0)
+                throw new Exception("El peso debe ser mayor a cero.");
+
+            if (paquete.Alto <= 0)
+                throw new Exception("El alto debe ser mayor a cero.");
+
+            if (paquete.Ancho <= 0)
+                throw new Exception("El ancho debe ser mayor a cero.");
+
+            if (paquete.Largo <= 0)
+                throw new Exception("El largo debe ser mayor a cero.");
+
+            if (destino.IdDestino <= 0)
+                throw new Exception("El destino seleccionado no es válido.");
+
+            destinobll.ValidarDestino(destino);
+
+            dal.ModificarEnvioCompleto(envio, paquete, destino);
+
+            dvBLL.ActualizarTodosLosDVH("Paquete");
+            dvBLL.ActualizarTodosLosDVH("Destino");
+            dvBLL.ActualizarTodosLosDVH("Envio_C");
 
             eventobll.RegistrarEvento("envios", "ev_modificacion_envio", 2);
         }
+
 
         public void CancelarEnvio(int idEnvio)
         {
@@ -131,6 +159,8 @@ namespace BLL
 
             dvBLL.ActualizarDVH("Envio", "id_envio", idEnvio);
             dvBLL.ActualizarDVV("Envio");
+
+            dvBLL.ActualizarTodosLosDVH("Envio_C");
 
             eventobll.RegistrarEvento("envios", "ev_baja_envio", 2);
         }

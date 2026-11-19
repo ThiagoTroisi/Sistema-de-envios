@@ -140,6 +140,7 @@ namespace SistemaDeEnviosGUI.Formularios
             maestro.Nodes.Add(new TreeNode() { Text = "Creación de rutas", Tag = "Creación de rutas" });
             maestro.Nodes.Add(new TreeNode() { Text = "Asignación de rutas", Tag = "Asignación de rutas" });
             maestro.Nodes.Add(new TreeNode() { Text = "Administración de rutas", Tag = "Administración de rutas" });
+            maestro.Nodes.Add(new TreeNode() { Text = "Bitacora de cambios", Tag = "Bitacora de cambios" });
 
 
             treeView1.Nodes.Add(maestro);
@@ -219,6 +220,7 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "Creación de rutas": return "Creación de rutas";
                 case "Asignación de rutas": return "Asignación de rutas";
                 case "Administración de rutas": return "Administración de rutas";
+                case "Bitacora de cambios": return "Bitacora de cambios";
                 default: return null;
             }
         }
@@ -284,6 +286,10 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "Administración de rutas":
                     new RepartidorForm().ShowDialog();
+                    break;
+
+                case "Bitacora de cambios":
+                    new BitacoraCambiosForm().ShowDialog();
                     break;
             }
         }
