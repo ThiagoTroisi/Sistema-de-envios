@@ -1,0 +1,77 @@
+﻿AYUDA - GESTIÓN DE CLIENTES
+
+Este formulario permite administrar los datos personales de los clientes registrados en el sistema. Desde aquí se pueden consultar los clientes existentes, registrar nuevos clientes, modificar sus datos, dar de baja registros y reactivar personas que se encuentren inactivas.
+
+
+MOSTRAR CLIENTES
+
+Permite seleccionar qué clientes se desean visualizar en la grilla.
+
+- Activos: muestra únicamente los clientes que se encuentran activos.
+- Todos: muestra todos los registros, incluyendo los clientes que fueron dadas de baja.
+
+Al seleccionar un cliente de la grilla, sus datos se cargan en los campos correspondientes.
+
+
+GRILLA DE CLIENTES
+
+Muestra los datos de los clientes registrados en el sistema.
+
+Se presentan el DNI, nombre, apellido, teléfono y correo electrónico.
+
+Para realizar operaciones sobre un cliente existente, primero debe seleccionarse el registro correspondiente.
+
+
+ALTA
+
+Permite registrar un nuevo cliente en el sistema.
+
+Al seleccionar esta opción, se habilitan los campos para ingresar:
+
+- DNI: documento identificador del cliente.
+- Nombre: nombre del cliente.
+- Apellido: apellido del cliente.
+- Teléfono: número de contacto.
+- Email: dirección de correo electrónico.
+
+Una vez completados los datos, presione Aplicar para confirmar el registro.
+
+
+BAJA
+
+Permite dar de baja a un cliente seleccionada.
+
+El registro no se elimina físicamente de la base de datos, sino que pasa a estar inactivo y deja de aparecer en la consulta de clientes activos.
+
+
+MODIFICAR
+
+Permite modificar los datos de un cliente seleccionado.
+
+Se pueden actualizar el nombre, apellido, teléfono y correo electrónico.
+
+El DNI no puede modificarse, ya que funciona como identificador del cliente.
+
+Una vez realizados los cambios, presione Aplicar para guardarlos.
+
+
+REACTIVAR
+
+Permite volver a habilitar un cliente que fue dado de baja anteriormente.
+
+Para utilizar esta opción, debe seleccionarse el registro correspondiente en la grilla de todos los registros.
+
+
+APLICAR
+
+Confirma y ejecuta la operación correspondiente al modo actual del formulario: alta o modificación.
+
+
+CANCELAR
+
+Cancela la operación en curso, limpia los campos y vuelve al modo de consulta sin aplicar los cambios.
+
+
+SALIR
+
+Cierra el formulario.

@@ -1,0 +1,45 @@
+﻿AYUDA - ERRORES DE INTEGRIDAD
+
+Este formulario permite consultar las inconsistencias detectadas durante la verificación de integridad de la información almacenada en la base de datos.
+
+
+TABLAS AFECTADAS
+
+En esta sección se muestran las tablas en las que se detectaron errores de integridad.
+
+Al seleccionar una tabla, se visualizan los registros que presentan inconsistencias.
+
+
+REGISTROS CON ERRORES
+
+La grilla muestra información sobre los registros afectados y los valores relacionados con la inconsistencia detectada.
+
+- Tipo: identifica el tipo de error encontrado.
+- Registro: identifica el registro de la tabla en el que se detectó la inconsistencia.
+- Valor guardado: muestra el valor de integridad almacenado en la base de datos.
+- Valor calculado: muestra el valor obtenido durante la verificación actual.
+
+Esta información permite comparar ambos valores y analizar las diferencias detectadas.
+
+
+RECALCULAR DV
+
+Permite actualizar los valores de verificación de integridad de las tablas seleccionadas.
+
+El sistema vuelve a calcular los DVH correspondientes a los registros y actualiza los DVV de las tablas.
+
+Esta operación debe realizarse únicamente después de revisar las inconsistencias detectadas y determinar que corresponde actualizar los valores de integridad.
+
+
+REALIZAR RESTORE
+
+Permite restaurar la base de datos utilizando un archivo de copia de seguridad con extensión .bak.
+
+Al seleccionar esta opción, se debe indicar el archivo que contiene la copia de seguridad que se desea recuperar.
+
+La restauración reemplaza la información actual de la base de datos por la información contenida en la copia seleccionada.
+
+
+SALIR
+
+Cierra el formulario.

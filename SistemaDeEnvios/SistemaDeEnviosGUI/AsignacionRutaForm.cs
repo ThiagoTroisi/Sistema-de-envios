@@ -239,5 +239,17 @@ namespace SistemaDeEnviosGUI
             if (rbRepartidoresTodos.Checked)
                 CargarRepartidores();
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Asignación de rutas", "AsignacionRuta.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

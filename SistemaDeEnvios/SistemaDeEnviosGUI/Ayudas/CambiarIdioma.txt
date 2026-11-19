@@ -1,0 +1,22 @@
+﻿AYUDA - CAMBIAR IDIOMA
+
+Este formulario permite modificar el idioma de visualización de la aplicación.
+
+
+IDIOMA
+
+Muestra una lista con los idiomas disponibles en el sistema.
+
+Seleccione el idioma que desea utilizar. La selección determina el idioma en el que se mostrarán los textos de los formularios y mensajes de la aplicación.
+
+
+APLICAR
+
+Confirma el idioma seleccionado y aplica el cambio en el sistema.
+
+Una vez aplicado, los formularios que admiten traducción actualizarán sus textos al nuevo idioma.
+
+
+CANCELAR
+
+Cierra el formulario sin aplicar ningún cambio.

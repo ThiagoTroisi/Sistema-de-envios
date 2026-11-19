@@ -1,0 +1,49 @@
+﻿AYUDA - DATOS DE TARJETA
+
+Este formulario permite ingresar los datos de una tarjeta para realizar el pago de un envío previamente seleccionado.
+
+
+DATOS DEL ENVÍO
+
+Muestra la información del envío que se desea abonar.
+
+- Código de seguimiento: identifica el envío seleccionado.
+- Importe: muestra el monto total que debe abonarse.
+
+Estos datos son informativos y no pueden modificarse desde este formulario.
+
+
+DATOS DE LA TARJETA
+
+En esta sección deben ingresarse los datos correspondientes a la tarjeta utilizada para realizar el pago.
+
+- Nombre del titular: nombre que figura en la tarjeta.
+- Número de tarjeta: número identificador de la tarjeta.
+- Mes de vencimiento: mes hasta el cual la tarjeta se encuentra vigente.
+- Año de vencimiento: año de vencimiento de la tarjeta.
+- Código de seguridad: código de seguridad asociado a la tarjeta.
+
+El sistema valida los datos ingresados antes de continuar con la operación.
+
+
+PAGAR
+
+Permite iniciar el proceso de cobro del envío.
+
+Una vez ingresados los datos de la tarjeta, el sistema realiza una simulación de autorización bancaria.
+
+Si la operación es autorizada, el pago queda registrado y el envío pasa a estar pendiente de distribución.
+
+Si la operación es rechazada, el pago no se registra y el envío permanece en estado Registrado, permitiendo realizar un nuevo intento de cobro.
+
+
+FACTURA
+
+Luego de realizar correctamente el pago, el sistema permite abrir la factura generada para su consulta e impresión.
+
+La factura también puede consultarse posteriormente desde el formulario de gestión de facturas.
+
+
+CANCELAR
+
+Cierra el formulario sin continuar con el proceso de pago.

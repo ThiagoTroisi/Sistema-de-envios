@@ -97,6 +97,7 @@
             txtDNIRFiltro = new TextBox();
             txtDNIDFiltro = new TextBox();
             btnLimpiarFiltros = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnvios).BeginInit();
             SuspendLayout();
             // 
@@ -697,11 +698,22 @@
             btnLimpiarFiltros.UseVisualStyleBackColor = true;
             btnLimpiarFiltros.Click += btnLimpiarFiltros_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(889, 681);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(111, 39);
+            btnAyuda.TabIndex = 73;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // GestionEnviosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1129, 732);
+            Controls.Add(btnAyuda);
             Controls.Add(btnLimpiarFiltros);
             Controls.Add(txtDNIDFiltro);
             Controls.Add(txtDNIRFiltro);
@@ -849,5 +861,6 @@
         private TextBox txtDNIRFiltro;
         private TextBox txtDNIDFiltro;
         private Button btnLimpiarFiltros;
+        private Button btnAyuda;
     }
 }

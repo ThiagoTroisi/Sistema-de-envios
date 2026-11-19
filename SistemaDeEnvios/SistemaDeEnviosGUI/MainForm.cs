@@ -261,7 +261,7 @@ namespace SistemaDeEnviosGUI.Formularios
                     break;
 
                 case "Registro de clientes":
-                    new MaestroPersonasForm().ShowDialog();
+                    new GestionClientesForm().ShowDialog();
                     break;
 
                 case "Registro de envíos":
@@ -316,6 +316,18 @@ namespace SistemaDeEnviosGUI.Formularios
             MessageBox.Show(Traducciones.Traducir("logout_exitoso"));
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Menú principal", "MainForm.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿AYUDA - BITÁCORA DE CAMBIOS
+
+Este formulario permite consultar el historial de modificaciones de los envíos registrados en el sistema.
+
+La grilla muestra las distintas versiones históricas de los envíos, incluyendo información del envío, del paquete y del destinatario.
+
+
+FILTROS
+
+Los filtros permiten localizar versiones específicas del historial.
+
+- Código de seguimiento: permite seleccionar un envío determinado.
+- Remitente: permite seleccionar un remitente para consultar sus envíos.
+- Desde: establece la fecha inicial del período de búsqueda.
+- Hasta: establece la fecha final del período de búsqueda.
+
+Los filtros pueden combinarse para obtener resultados más específicos.
+
+
+APLICAR
+
+Ejecuta la búsqueda utilizando los filtros seleccionados y actualiza la grilla con los resultados encontrados.
+
+
+LIMPIAR
+
+Restablece los filtros y vuelve a mostrar el historial completo.
+
+
+ACTIVAR
+
+Permite restaurar una versión histórica del envío.
+
+Para utilizar esta opción, debe seleccionarse una versión inactiva de la grilla y confirmar la operación.
+
+La restauración recupera la información histórica del envío, del paquete y del destino. La versión seleccionada pasa a ser la versión activa.
+
+La restauración no recupera el estado operativo anterior del envío. Si el envío se encontraba cancelado, volverá al estado Registrado.
+
+
+REFRESCAR GRILLA
+
+Actualiza la información mostrada consultando nuevamente el historial almacenado en el sistema.
+
+
+SERIALIZAR
+
+Guarda en un archivo XML el contenido que se encuentra actualmente visible en la grilla.
+
+
+DESERIALIZAR
+
+Carga en la grilla la información previamente guardada en el archivo XML.
+
+Esta operación únicamente recupera la información visual de la grilla y no modifica los datos almacenados en la base de datos.
+
+
+SALIR
+
+Cierra el formulario.

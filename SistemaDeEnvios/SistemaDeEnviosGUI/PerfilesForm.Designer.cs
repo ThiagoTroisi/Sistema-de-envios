@@ -45,6 +45,7 @@
             checkedListBoxFamilias = new CheckedListBox();
             lblOrganizacion = new Label();
             btnSalir = new Button();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // lblGestionar
@@ -203,11 +204,22 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(12, 507);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(126, 40);
+            btnAyuda.TabIndex = 17;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // PerfilesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1191, 608);
+            Controls.Add(btnAyuda);
             Controls.Add(btnSalir);
             Controls.Add(lblOrganizacion);
             Controls.Add(lblFamilias);
@@ -250,5 +262,6 @@
         private CheckedListBox checkedListBoxFamilias;
         private Label lblOrganizacion;
         private Button btnSalir;
+        private Button btnAyuda;
     }
 }

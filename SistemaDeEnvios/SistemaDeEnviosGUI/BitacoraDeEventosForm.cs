@@ -187,5 +187,55 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
         }
+        private void btnSerializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SerializadorGrillas.Serializar((DataTable)dataGridView1.DataSource, "BitacoraEventos");
+                MessageBox.Show("La serialización se realizó correctamente.", "Serialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al serializar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeserializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.DataSource = SerializadorGrillas.Deserializar("BitacoraEventos");
+                dataGridView1.Columns["nombre"].Visible = false;
+                dataGridView1.Columns["apellido"].Visible = false;
+                dataGridView1.Columns["Email_Usuario"].Width = 150;
+                dataGridView1.Columns["Evento"].Width = 150;
+
+                TraducirDatosGrilla();
+                MostrarNombreYApellido();
+
+                MessageBox.Show("La deserialización se realizó correctamente.", "Deserialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al deserializar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefrescarGrilla_Click(object sender, EventArgs e)
+        {
+            RefrescarGrilla();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Bítácora de eventos", "BitacoraEventos.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

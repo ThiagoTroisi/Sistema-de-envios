@@ -1,0 +1,84 @@
+﻿AYUDA - GESTIÓN DE USUARIOS
+
+Este formulario permite administrar los usuarios registrados en el sistema. Desde aquí se pueden consultar los usuarios existentes, dar de alta nuevos usuarios, modificar sus datos, activar o desactivar cuentas y desbloquear usuarios que hayan quedado bloqueados.
+
+
+MOSTRAR USUARIOS
+
+Permite seleccionar qué usuarios se desean visualizar en la grilla.
+
+- Activos: muestra únicamente los usuarios que se encuentran activos.
+- Todos: muestra todos los usuarios registrados, incluyendo los que se encuentran desactivados.
+
+Al seleccionar un usuario de la grilla, sus datos se cargan en los campos correspondientes.
+
+
+GRILLA DE USUARIOS
+
+Muestra la información de los usuarios registrados en el sistema.
+
+Se presentan datos como DNI, nombre, apellido, correo electrónico, perfil asignado, estado de actividad y situación de bloqueo.
+
+Para realizar operaciones sobre un usuario existente, primero debe seleccionarse el registro correspondiente.
+
+
+ALTA
+
+Permite registrar un nuevo usuario en el sistema.
+
+Al seleccionar esta opción, se habilitan los campos para ingresar:
+
+- DNI: documento identificador del usuario.
+- Nombre: nombre del usuario.
+- Apellido: apellido del usuario.
+- Email: dirección de correo electrónico.
+- Perfil: perfil que determinará los permisos del usuario.
+
+Una vez completados los datos, presione Aplicar para confirmar el alta.
+
+
+MODIFICAR
+
+Permite modificar los datos de un usuario seleccionado.
+
+Se pueden actualizar el nombre, apellido, correo electrónico y perfil asignado.
+
+El DNI no puede modificarse, ya que funciona como identificador del usuario.
+
+Una vez realizados los cambios, presione Aplicar para guardarlos.
+
+
+ACTIVAR
+
+Permite volver a habilitar un usuario que se encuentra desactivado.
+
+Para utilizar esta opción, debe seleccionarse el usuario correspondiente en la grilla.
+
+
+DESACTIVAR
+
+Permite deshabilitar un usuario activo, impidiendo que pueda utilizar el sistema mientras permanezca desactivado.
+
+Para utilizar esta opción, debe seleccionarse el usuario correspondiente en la grilla.
+
+
+DESBLOQUEAR
+
+Permite quitar el bloqueo de una cuenta de usuario.
+
+Al seleccionar esta opción, el formulario cambia al modo de desbloqueo. Presione Aplicar para ejecutar la operación sobre el usuario seleccionado.
+
+
+APLICAR
+
+Confirma y ejecuta la operación correspondiente al modo actual del formulario: alta, modificación o desbloqueo.
+
+
+CANCELAR
+
+Cancela la operación en curso, limpia los campos y vuelve al modo de consulta sin aplicar los cambios.
+
+
+SALIR
+
+Cierra el formulario.

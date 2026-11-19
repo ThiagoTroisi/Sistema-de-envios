@@ -681,7 +681,7 @@ namespace SistemaDeEnviosGUI
                 if (resultado != DialogResult.Yes)
                     return false;
 
-                MaestroPersonasForm form = new MaestroPersonasForm(ModoFormulario.Alta, dni);
+                GestionClientesForm form = new GestionClientesForm(ModoFormulario.Alta, dni);
                 form.ShowDialog();
 
                 persona = clientebll.ConsultaPorDNI(dni);
@@ -777,7 +777,7 @@ namespace SistemaDeEnviosGUI
 
             dniRemitenteCargado = null;
         }
-        
+
         private void txtCodigoSeguimiento_TextChanged(object sender, EventArgs e)
         {
             if (modoactual == ModoGestionEnvio.Consulta)
@@ -905,6 +905,18 @@ namespace SistemaDeEnviosGUI
         {
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Gestión de envíos", "GestionEnvios.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

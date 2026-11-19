@@ -54,6 +54,7 @@
             checkBoxActivo = new CheckBox();
             lblModoActual = new Label();
             lblModo = new Label();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -302,11 +303,22 @@
             lblModo.Size = new Size(0, 15);
             lblModo.TabIndex = 32;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(484, 510);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(143, 42);
+            btnAyuda.TabIndex = 33;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // GestionUsuariosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(788, 564);
+            Controls.Add(btnAyuda);
             Controls.Add(lblModo);
             Controls.Add(lblModoActual);
             Controls.Add(checkBoxActivo);
@@ -369,5 +381,6 @@
         private CheckBox checkBoxActivo;
         private Label lblModoActual;
         private Label lblModo;
+        private Button btnAyuda;
     }
 }

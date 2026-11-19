@@ -198,5 +198,17 @@ namespace SistemaDeEnviosGUI
         {
             Close();
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Resolución de envíos", "ResolucionEnvios.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

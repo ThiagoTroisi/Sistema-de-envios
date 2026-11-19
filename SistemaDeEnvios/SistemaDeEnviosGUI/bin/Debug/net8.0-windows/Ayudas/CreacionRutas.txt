@@ -1,0 +1,69 @@
+﻿AYUDA - CREACIÓN DE RUTAS
+
+Este formulario permite administrar la creación y composición de rutas de distribución. Desde aquí se pueden consultar los envíos pendientes de distribución, crear nuevas rutas, incorporar o quitar envíos, modificar el orden de entrega y cancelar rutas que todavía no comenzaron.
+
+
+ENVÍOS PENDIENTES DE DISTRIBUCIÓN
+
+En esta sección se muestran los envíos que se encuentran pendientes de ser incorporados a una ruta.
+
+Para realizar una operación, debe seleccionarse uno o varios envíos de la grilla.
+
+
+RUTAS
+
+En esta sección se muestran las rutas que todavía no comenzaron su recorrido.
+
+Al seleccionar una ruta, se pueden consultar los envíos que forman parte de ella y realizar modificaciones sobre su composición.
+
+
+ENVÍOS DE LA RUTA
+
+Muestra los envíos que se encuentran incorporados a la ruta seleccionada, respetando el orden establecido para su distribución.
+
+
+CREAR RUTA
+
+Permite crear una nueva ruta a partir de los envíos seleccionados en la grilla de pendientes de distribución.
+
+Una vez creada, la ruta queda registrada con estado Pendiente y puede modificarse o asignarse posteriormente.
+
+
+AGREGAR ENVÍOS
+
+Permite incorporar los envíos seleccionados a una ruta existente.
+
+Para utilizar esta opción, debe seleccionarse una ruta y uno o varios envíos pendientes de distribución.
+
+
+QUITAR ENVÍOS
+
+Permite quitar los envíos seleccionados de la ruta actual.
+
+El sistema verifica que los envíos puedan retirarse. No se permite quitar envíos de una ruta que ya tenga intentos de entrega registrados.
+
+
+SUBIR ORDEN Y BAJAR ORDEN
+
+Permiten modificar la posición del envío seleccionado dentro de la ruta.
+
+El orden establecido determina la secuencia en la que se organizarán las entregas.
+
+
+CANCELAR RUTA
+
+Permite cancelar una ruta que todavía no comenzó su recorrido.
+
+El sistema solicitará confirmar la operación antes de realizarla. Las rutas que ya se encuentran en curso no pueden cancelarse desde este formulario.
+
+
+ENVÍOS PENDIENTES DE RESOLUCIÓN
+
+El indicador muestra la cantidad de envíos que requieren intervención de un gestor debido a intentos de entrega fallidos.
+
+El botón Resolver envíos permite acceder al formulario correspondiente para revisar estos casos y determinar cómo continuar con su distribución.
+
+
+SALIR
+
+Cierra el formulario.

@@ -106,5 +106,17 @@ namespace SistemaDeEnviosGUI
             dgvRegistros.Columns["ValorGuardado"].HeaderText = Traducciones.Traducir("valorguardado");
             dgvRegistros.Columns["ValorCalculado"].HeaderText = Traducciones.Traducir("valorcalculado");
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Error de integridad", "ErrorIntegridad.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

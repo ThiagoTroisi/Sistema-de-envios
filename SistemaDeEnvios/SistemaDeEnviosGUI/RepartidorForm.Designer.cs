@@ -48,6 +48,8 @@
             dataGridViewHistorial = new DataGridView();
             lblHistorial = new Label();
             btnImprimirInforme = new Button();
+            btnAyuda = new Button();
+            btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosDeLaRuta).BeginInit();
             grpDatosRuta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).BeginInit();
@@ -247,11 +249,33 @@
             btnImprimirInforme.UseVisualStyleBackColor = true;
             btnImprimirInforme.Click += btnImprimirInforme_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(1008, 481);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(118, 42);
+            btnAyuda.TabIndex = 19;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(1132, 481);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(113, 42);
+            btnSalir.TabIndex = 20;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // RepartidorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1257, 535);
+            Controls.Add(btnSalir);
+            Controls.Add(btnAyuda);
             Controls.Add(btnImprimirInforme);
             Controls.Add(lblHistorial);
             Controls.Add(dataGridViewHistorial);
@@ -292,5 +316,7 @@
         private DataGridView dataGridViewHistorial;
         private Label lblHistorial;
         private Button btnImprimirInforme;
+        private Button btnAyuda;
+        private Button btnSalir;
     }
 }

@@ -46,6 +46,7 @@
             lblEnviosResolucion = new Label();
             btnResolverEnvios = new Button();
             lblValorEnviosResolucion = new Label();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosPendientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRutas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosDeRuta).BeginInit();
@@ -217,11 +218,22 @@
             lblValorEnviosResolucion.TabIndex = 19;
             lblValorEnviosResolucion.Text = "0";
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(1575, 472);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(122, 41);
+            btnAyuda.TabIndex = 20;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // CreacionRutasForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1709, 525);
+            Controls.Add(btnAyuda);
             Controls.Add(lblValorEnviosResolucion);
             Controls.Add(btnResolverEnvios);
             Controls.Add(lblEnviosResolucion);
@@ -269,5 +281,6 @@
         private Label lblEnviosResolucion;
         private Button btnResolverEnvios;
         private Label lblValorEnviosResolucion;
+        private Button btnAyuda;
     }
 }

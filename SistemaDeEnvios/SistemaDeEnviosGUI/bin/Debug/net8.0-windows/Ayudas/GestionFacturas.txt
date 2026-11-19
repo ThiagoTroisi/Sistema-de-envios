@@ -1,0 +1,44 @@
+﻿AYUDA - GESTIÓN DE FACTURAS
+
+Este formulario permite consultar las facturas generadas por los envíos registrados en el sistema, identificando cuáles cuentan con una factura asociada y cuáles todavía no fueron facturados.
+
+
+BÚSQUEDA DE ENVÍOS
+
+Permite filtrar los registros disponibles utilizando distintos criterios.
+
+- Código de seguimiento: permite localizar un envío específico.
+- DNI del remitente: permite consultar los envíos asociados a un remitente.
+- Estado del envío: permite filtrar los registros según su estado.
+- Facturado: permite distinguir entre los envíos que cuentan con una factura generada y aquellos que todavía no tienen una asociada.
+
+Los filtros pueden combinarse para limitar los resultados mostrados.
+
+
+GRILLA DE ENVÍOS
+
+Muestra los envíos que coinciden con los criterios de búsqueda establecidos.
+
+Se presenta información como el código de seguimiento, origen, fecha de registro, estado, remitente y situación de facturación.
+
+La columna Facturado permite identificar si el envío cuenta con una factura registrada.
+
+
+TODOS
+
+Permite visualizar los envíos sin limitar los resultados según su situación de facturación.
+
+
+FACTURADOS
+
+Permite mostrar únicamente los envíos que cuentan con una factura generada.
+
+
+NO FACTURADOS
+
+Permite mostrar únicamente los envíos que todavía no cuentan con una factura asociada.
+
+
+SALIR
+
+Cierra el formulario.

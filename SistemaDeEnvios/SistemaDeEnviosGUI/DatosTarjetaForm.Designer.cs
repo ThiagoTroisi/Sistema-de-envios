@@ -43,6 +43,7 @@
             cboAño = new ComboBox();
             btnPagar = new Button();
             btnCancelar = new Button();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // lblEnvioSeleccionado
@@ -172,11 +173,22 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(106, 355);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(101, 41);
+            btnAyuda.TabIndex = 15;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // DatosTarjetaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(312, 363);
+            ClientSize = new Size(312, 408);
+            Controls.Add(btnAyuda);
             Controls.Add(btnCancelar);
             Controls.Add(btnPagar);
             Controls.Add(cboAño);
@@ -216,5 +228,6 @@
         private ComboBox cboAño;
         private Button btnPagar;
         private Button btnCancelar;
+        private Button btnAyuda;
     }
 }

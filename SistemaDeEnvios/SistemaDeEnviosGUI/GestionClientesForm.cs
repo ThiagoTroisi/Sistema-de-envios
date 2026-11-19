@@ -14,19 +14,19 @@ using System.Windows.Forms;
 
 namespace SistemaDeEnviosGUI
 {
-    public partial class MaestroPersonasForm : Form, IObserverIdioma
+    public partial class GestionClientesForm : Form, IObserverIdioma
     {
         private ClienteBLL clientebll = new ClienteBLL();
         private ModoFormulario modoactual = ModoFormulario.Consulta;
         private int dniseleccionado;
-        public MaestroPersonasForm()
+        public GestionClientesForm()
         {
             InitializeComponent();
             GestorIdiomas.Instancia.Registrar(this);
         }
         private int? dniInicial;
         private bool cerrarDespuesDeAlta;
-        public MaestroPersonasForm(ModoFormulario modo, int dni)
+        public GestionClientesForm(ModoFormulario modo, int dni)
         {
             InitializeComponent();
             GestorIdiomas.Instancia.Registrar(this);
@@ -310,5 +310,16 @@ namespace SistemaDeEnviosGUI
             base.OnFormClosed(e);
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Gestión de clientes", "GestionClientes.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

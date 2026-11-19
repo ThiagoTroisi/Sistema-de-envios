@@ -39,6 +39,7 @@
             lblIdioma = new Label();
             comboBoxIdioma = new ComboBox();
             btnAplicar = new Button();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // txtEmail
@@ -139,11 +140,22 @@
             btnAplicar.UseVisualStyleBackColor = true;
             btnAplicar.Click += btnAplicar_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(117, 361);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(186, 32);
+            btnAyuda.TabIndex = 12;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(421, 372);
+            ClientSize = new Size(421, 405);
+            Controls.Add(btnAyuda);
             Controls.Add(btnAplicar);
             Controls.Add(comboBoxIdioma);
             Controls.Add(lblIdioma);
@@ -175,5 +187,6 @@
         private Label lblIdioma;
         private ComboBox comboBoxIdioma;
         private Button btnAplicar;
+        private Button btnAyuda;
     }
 }

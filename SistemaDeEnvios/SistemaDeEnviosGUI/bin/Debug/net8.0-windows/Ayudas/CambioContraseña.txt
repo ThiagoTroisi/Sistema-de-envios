@@ -1,0 +1,32 @@
+﻿AYUDA - CAMBIO DE CONTRASEÑA
+
+Este formulario permite modificar la contraseña de acceso del usuario que inició sesión en el sistema.
+
+
+CONTRASEÑA ACTUAL
+
+Ingrese la contraseña que utiliza actualmente para acceder a la aplicación.
+
+
+NUEVA CONTRASEÑA
+
+Ingrese la contraseña que desea establecer como nueva credencial de acceso.
+
+
+REPITA LA NUEVA CONTRASEÑA
+
+Vuelva a ingresar la nueva contraseña para verificar que ambos valores coincidan.
+
+
+ACEPTAR
+
+Valida los datos ingresados e intenta realizar el cambio de contraseña.
+
+El sistema verifica que la contraseña actual sea correcta y que las dos entradas de la nueva contraseña coincidan, además de aplicar las reglas de seguridad correspondientes.
+
+Si la operación se realiza correctamente, se mostrará un mensaje de confirmación y el formulario se cerrará.
+
+
+CANCELAR
+
+Cierra el formulario sin modificar la contraseña.

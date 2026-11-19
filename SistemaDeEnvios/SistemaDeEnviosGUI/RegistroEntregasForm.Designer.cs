@@ -39,7 +39,8 @@
             txtObservaciones = new TextBox();
             btnRegistrarIntento = new Button();
             btnLimpiar = new Button();
-            btnCerrar = new Button();
+            btnSalir = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosDeLaRuta).BeginInit();
             SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             // 
             // btnRegistrarIntento
             // 
-            btnRegistrarIntento.Location = new Point(137, 462);
+            btnRegistrarIntento.Location = new Point(12, 462);
             btnRegistrarIntento.Name = "btnRegistrarIntento";
             btnRegistrarIntento.Size = new Size(114, 42);
             btnRegistrarIntento.TabIndex = 26;
@@ -134,7 +135,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(316, 462);
+            btnLimpiar.Location = new Point(132, 462);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(114, 42);
             btnLimpiar.TabIndex = 27;
@@ -142,22 +143,33 @@
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // btnCerrar
+            // btnSalir
             // 
-            btnCerrar.Location = new Point(495, 462);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(114, 42);
-            btnCerrar.TabIndex = 28;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
+            btnSalir.Location = new Point(621, 462);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(114, 42);
+            btnSalir.TabIndex = 28;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnCerrar_Click;
+            // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(502, 462);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(113, 42);
+            btnAyuda.TabIndex = 29;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
             // 
             // RegistroEntregasForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(747, 516);
-            Controls.Add(btnCerrar);
+            Controls.Add(btnAyuda);
+            Controls.Add(btnSalir);
             Controls.Add(btnLimpiar);
             Controls.Add(btnRegistrarIntento);
             Controls.Add(txtObservaciones);
@@ -190,6 +202,7 @@
         private TextBox txtObservaciones;
         private Button btnRegistrarIntento;
         private Button btnLimpiar;
-        private Button btnCerrar;
+        private Button btnSalir;
+        private Button btnAyuda;
     }
 }

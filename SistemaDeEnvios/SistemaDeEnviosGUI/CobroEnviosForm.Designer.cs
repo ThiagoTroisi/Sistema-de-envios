@@ -40,6 +40,7 @@
             label7 = new Label();
             txtCodigoSeguimiento = new TextBox();
             lblCodigoSeguimiento = new Label();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnvios).BeginInit();
             SuspendLayout();
             // 
@@ -149,11 +150,22 @@
             lblCodigoSeguimiento.TabIndex = 66;
             lblCodigoSeguimiento.Text = "Código de seguimiento:";
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(406, 343);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(121, 44);
+            btnAyuda.TabIndex = 69;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // CobroEnviosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(793, 399);
+            Controls.Add(btnAyuda);
             Controls.Add(label7);
             Controls.Add(txtCodigoSeguimiento);
             Controls.Add(lblCodigoSeguimiento);
@@ -188,5 +200,6 @@
         private Label label7;
         private TextBox txtCodigoSeguimiento;
         private Label lblCodigoSeguimiento;
+        private Button btnAyuda;
     }
 }

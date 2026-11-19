@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeEnviosGUI
 {
-    partial class MaestroPersonasForm
+    partial class GestionClientesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             radioButtonActivos = new RadioButton();
             lblMostrar = new Label();
             radioButtonTodos = new RadioButton();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPersonas).BeginInit();
             SuspendLayout();
             // 
@@ -266,11 +267,22 @@
             radioButtonTodos.UseVisualStyleBackColor = true;
             radioButtonTodos.CheckedChanged += radioButtonTodos_CheckedChanged;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(543, 439);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(143, 42);
+            btnAyuda.TabIndex = 67;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // MaestroPersonasForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(847, 497);
+            Controls.Add(btnAyuda);
             Controls.Add(lblModo);
             Controls.Add(lblModoActual);
             Controls.Add(radioButtonActivos);
@@ -326,5 +338,6 @@
         private RadioButton radioButtonActivos;
         private Label lblMostrar;
         private RadioButton radioButtonTodos;
+        private Button btnAyuda;
     }
 }

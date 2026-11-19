@@ -32,6 +32,7 @@
             lblIdioma = new Label();
             btnAplicar = new Button();
             btnCancelar = new Button();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // comboBoxIdioma
@@ -71,11 +72,22 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(71, 156);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(98, 34);
+            btnAyuda.TabIndex = 14;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // CambiarIdiomaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(240, 166);
+            ClientSize = new Size(240, 202);
+            Controls.Add(btnAyuda);
             Controls.Add(btnCancelar);
             Controls.Add(btnAplicar);
             Controls.Add(comboBoxIdioma);
@@ -92,5 +104,6 @@
         private Label lblIdioma;
         private Button btnAplicar;
         private Button btnCancelar;
+        private Button btnAyuda;
     }
 }

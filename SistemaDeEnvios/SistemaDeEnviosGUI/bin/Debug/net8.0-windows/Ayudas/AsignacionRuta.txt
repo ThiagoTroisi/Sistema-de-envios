@@ -1,0 +1,53 @@
+﻿AYUDA - ASIGNACIÓN DE RUTAS
+
+Este formulario permite administrar la asignación de rutas de distribución a los repartidores disponibles. Desde aquí se pueden consultar las rutas existentes, seleccionar un repartidor, realizar asignaciones y quitar asignaciones anteriores.
+
+
+RUTAS
+
+En esta sección se muestran las rutas registradas en el sistema.
+
+- Rutas pendientes: muestra únicamente las rutas que se encuentran pendientes de asignación.
+- Todas las rutas: muestra todas las rutas registradas, independientemente de su estado.
+
+Para realizar una asignación, primero debe seleccionarse una ruta de la grilla.
+
+
+REPARTIDORES
+
+En esta sección se muestran los repartidores registrados.
+
+- Repartidores sin ruta: muestra los repartidores que se encuentran disponibles para recibir una asignación.
+- Todos los repartidores: muestra todos los repartidores registrados, incluyendo aquellos que ya tienen una ruta asignada.
+
+Para realizar una asignación, debe seleccionarse un repartidor de la grilla.
+
+
+ASIGNAR RUTA
+
+Permite asignar la ruta seleccionada al repartidor seleccionado.
+
+El sistema solicitará confirmar la operación. Una vez realizada, la ruta quedará asignada al repartidor y este dejará de estar disponible para recibir otra ruta mientras mantenga la asignación activa.
+
+Luego se consultará si desea generar e imprimir la hoja de ruta.
+
+Si acepta, se generará la hoja de ruta correspondiente. Si no, el repartidor podrá generarla desde su propio formulario.
+
+
+QUITAR ASIGNACIÓN
+
+Permite quitar la asignación activa de un repartidor.
+
+Para utilizar esta opción, debe seleccionarse un repartidor que tenga una ruta asignada. El sistema solicitará ingresar el motivo de la desasignación y confirmar la operación.
+
+Una vez realizada, el repartidor volverá a estar disponible y la ruta regresará al estado pendiente de asignación.
+
+
+HISTORIAL DE ASIGNACIONES
+
+Muestra los registros de asignaciones realizadas, permitiendo consultar los antecedentes de la distribución.
+
+
+SALIR
+
+Cierra el formulario.

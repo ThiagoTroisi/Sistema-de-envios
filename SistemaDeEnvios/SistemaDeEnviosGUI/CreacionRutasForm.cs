@@ -388,5 +388,17 @@ namespace SistemaDeEnviosGUI
             ActualizarIndicadorEnviosResolucion();
             CargarEnviosPendientes();
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Creación de rutas", "CreacionRutas.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

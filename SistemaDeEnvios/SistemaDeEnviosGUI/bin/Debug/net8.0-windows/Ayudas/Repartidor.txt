@@ -1,0 +1,92 @@
+﻿AYUDA - REPARTIDOR
+
+Este formulario permite al repartidor consultar la ruta que tiene asignada, gestionar su recorrido de distribución y registrar los resultados de las entregas.
+
+También permite consultar el historial de rutas realizadas y acceder a los informes de finalización correspondientes.
+
+
+DATOS DEL REPARTIDOR
+
+Muestra el nombre y apellido del usuario que inició sesión en el sistema.
+
+
+RUTA ACTUAL
+
+En esta sección se muestra la información de la asignación activa del repartidor.
+
+- Número de ruta: identifica la ruta asignada.
+- Estado: indica la situación actual de la ruta.
+- Fecha de asignación: muestra cuándo se realizó la asignación.
+
+Si el repartidor no tiene una ruta asignada, se indicará esta situación y las operaciones relacionadas con la ruta permanecerán deshabilitadas.
+
+
+ENVÍOS DE LA RUTA
+
+Muestra los envíos que forman parte de la ruta actual, incluyendo su orden de entrega y los datos necesarios para realizar la distribución.
+
+
+PROGRESO
+
+Indica la cantidad de envíos de la ruta que ya cuentan con al menos un intento de entrega registrado, en relación con el total de envíos asignados.
+
+La barra de progreso representa visualmente esta información.
+
+
+INICIAR RUTA
+
+Permite iniciar la ruta asignada.
+
+Para utilizar esta opción, debe existir una asignación activa y la ruta debe encontrarse en estado "Asignada".
+
+El sistema solicitará confirmar la operación. Una vez iniciada, la ruta pasará al estado "En curso" y se habilitará el registro de entregas.
+
+
+IMPRIMIR HOJA DE RUTA
+
+Permite generar y abrir la hoja de ruta correspondiente a la asignación actual.
+
+La hoja contiene la información necesaria para realizar el recorrido de distribución.
+
+Esta opción está disponible cuando la ruta se encuentra asignada o en curso.
+
+
+REGISTRAR ENTREGAS
+
+Abre el formulario de registro de entregas.
+
+Desde allí se puede seleccionar cada envío de la ruta, indicar el resultado del intento y registrar el motivo y las observaciones correspondientes cuando la entrega no pudo concretarse.
+
+Esta opción está disponible únicamente cuando la ruta se encuentra en curso.
+
+Al cerrar el formulario, se actualiza la información de los envíos y el progreso de la ruta.
+
+
+FINALIZAR RUTA
+
+Permite finalizar la ruta de distribución.
+
+Para utilizar esta opción, la ruta debe encontrarse en curso. El sistema solicitará confirmar la operación antes de continuar.
+
+Una vez finalizada, se actualizará el estado de la ruta y se intentará generar automáticamente el informe PDF de finalización.
+
+Si no se puede generar el informe, la finalización de la ruta igualmente se habrá realizado correctamente y se informará el inconveniente.
+
+
+HISTORIAL DE RUTAS
+
+Muestra las rutas anteriormente asignadas al repartidor, junto con sus fechas de asignación, inicio y finalización.
+
+Permite consultar los antecedentes de las tareas de distribución realizadas.
+
+
+IMPRIMIR INFORME
+
+Permite abrir el informe de finalización de la ruta seleccionada en el historial.
+
+Para utilizar esta opción, debe seleccionarse una ruta de la grilla que cuente con un informe generado.
+
+
+SALIR
+
+Cierra el formulario.

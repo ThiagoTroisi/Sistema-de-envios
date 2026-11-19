@@ -169,5 +169,17 @@ namespace SistemaDeEnviosGUI
             btnPagar.Text = Traducciones.Traducir("Pagar");
             btnCancelar.Text = Traducciones.Traducir("Cancelar");
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Datos de tarjeta", "DatosTarjeta.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

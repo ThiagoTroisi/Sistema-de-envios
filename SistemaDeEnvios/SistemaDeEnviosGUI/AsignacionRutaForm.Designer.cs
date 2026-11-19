@@ -43,6 +43,7 @@
             groupBox2 = new GroupBox();
             rbRepartidoresSinRuta = new RadioButton();
             rbRepartidoresTodos = new RadioButton();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRutasPendientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRepartidores).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvHistorialAsignaciones).BeginInit();
@@ -199,11 +200,22 @@
             rbRepartidoresTodos.UseVisualStyleBackColor = true;
             rbRepartidoresTodos.CheckedChanged += rbRepartidoresTodos_CheckedChanged;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(1380, 462);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(113, 46);
+            btnAyuda.TabIndex = 11;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // AsignacionRutaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1624, 520);
+            Controls.Add(btnAyuda);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnQuitarAsignacion);
@@ -245,5 +257,6 @@
         private GroupBox groupBox2;
         private RadioButton rbRepartidoresSinRuta;
         private RadioButton rbRepartidoresTodos;
+        private Button btnAyuda;
     }
 }

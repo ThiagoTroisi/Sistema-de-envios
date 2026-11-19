@@ -56,5 +56,17 @@ namespace SistemaDeEnviosGUI.Formularios
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Cambio de contraseña", "CambioContraseña.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

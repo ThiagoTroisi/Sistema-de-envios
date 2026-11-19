@@ -31,6 +31,7 @@
             btnCrearBackup = new Button();
             btnRealizarRestore = new Button();
             btnSalir = new Button();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // btnCrearBackup
@@ -55,7 +56,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(108, 106);
+            btnSalir.Location = new Point(148, 106);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 37);
             btnSalir.TabIndex = 2;
@@ -63,11 +64,22 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(67, 106);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(75, 37);
+            btnAyuda.TabIndex = 12;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // BackupForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(290, 155);
+            Controls.Add(btnAyuda);
             Controls.Add(btnSalir);
             Controls.Add(btnRealizarRestore);
             Controls.Add(btnCrearBackup);
@@ -81,5 +93,6 @@
         private Button btnCrearBackup;
         private Button btnRealizarRestore;
         private Button btnSalir;
+        private Button btnAyuda;
     }
 }

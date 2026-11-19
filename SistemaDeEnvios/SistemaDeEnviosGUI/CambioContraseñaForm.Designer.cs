@@ -37,6 +37,7 @@
             lblNueva2 = new Label();
             btnCancelar = new Button();
             lblError = new Label();
+            btnAyuda = new Button();
             SuspendLayout();
             // 
             // lblActual
@@ -115,11 +116,22 @@
             lblError.Size = new Size(0, 15);
             lblError.TabIndex = 8;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(108, 261);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(97, 32);
+            btnAyuda.TabIndex = 12;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // CambioContraseñaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(312, 277);
+            ClientSize = new Size(312, 305);
+            Controls.Add(btnAyuda);
             Controls.Add(lblError);
             Controls.Add(btnCancelar);
             Controls.Add(txtNueva2);
@@ -146,5 +158,6 @@
         private Label lblNueva2;
         private Button btnCancelar;
         private Label lblError;
+        private Button btnAyuda;
     }
 }

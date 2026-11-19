@@ -1,4 +1,5 @@
-﻿using Servicios.BLLs;
+﻿using Servicios;
+using Servicios.BLLs;
 using Servicios.GestionIdiomas;
 using System;
 using System.Collections.Generic;
@@ -187,5 +188,50 @@ namespace SistemaDeEnviosGUI
             }
         }
 
+        private void btnSerializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SerializadorGrillas.Serializar((DataTable)dataGridViewHistorial.DataSource, "BitacoraCambios");
+                MessageBox.Show("La serialización se realizó correctamente.", "Serialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al serializar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeserializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewHistorial.DataSource = SerializadorGrillas.Deserializar("BitacoraCambios");
+                ConfigurarColumnas();
+                ActualizarEstadoBotonActivar();
+
+                MessageBox.Show("La deserialización se realizó correctamente.", "Deserialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al deserializar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefrescarGrilla_Click(object sender, EventArgs e)
+        {
+            RefrescarGrilla();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Bitácora de cambios", "BitacoraCambios.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

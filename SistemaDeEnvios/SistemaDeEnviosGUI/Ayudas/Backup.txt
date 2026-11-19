@@ -1,0 +1,30 @@
+﻿AYUDA - GESTIÓN DE BACKUP
+
+Este formulario permite realizar copias de seguridad de la base de datos y restaurar una copia previamente generada.
+
+
+CREAR BACKUP
+
+Permite generar una copia de seguridad de la base de datos actual.
+
+Al presionar el botón, se abrirá una ventana para seleccionar la ubicación donde se guardará el archivo.
+
+El archivo generado tendrá la extensión .bak y se propondrá un nombre que incluye la fecha y hora de creación.
+
+Se recomienda realizar copias de seguridad periódicamente para prevenir la pérdida de información.
+
+
+REALIZAR RESTORE
+
+Permite restaurar la base de datos utilizando un archivo de backup existente.
+
+Al presionar el botón, se abrirá una ventana para seleccionar el archivo .bak que se desea utilizar.
+
+IMPORTANTE: la restauración reemplaza el estado actual de la base de datos por el contenido de la copia seleccionada. Por este motivo, se debe verificar cuidadosamente que el archivo elegido sea el correcto y contar con una copia de seguridad reciente antes de realizar la operación.
+
+Una vez finalizada la restauración, la aplicación se reiniciará para volver a conectarse a la base de datos restaurada.
+
+
+SALIR
+
+Cierra el formulario.

@@ -43,6 +43,7 @@
             lblMostrar = new Label();
             rbSinFactura = new RadioButton();
             rbConFactura = new RadioButton();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnvios).BeginInit();
             SuspendLayout();
             // 
@@ -74,9 +75,9 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(661, 348);
+            btnSalir.Location = new Point(690, 348);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(121, 36);
+            btnSalir.Size = new Size(92, 36);
             btnSalir.TabIndex = 75;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@
             // 
             // btnGenerarFactura
             // 
-            btnGenerarFactura.Location = new Point(407, 348);
+            btnGenerarFactura.Location = new Point(337, 348);
             btnGenerarFactura.Name = "btnGenerarFactura";
             btnGenerarFactura.Size = new Size(121, 36);
             btnGenerarFactura.TabIndex = 74;
@@ -136,7 +137,7 @@
             // 
             // btnImprimirFactura
             // 
-            btnImprimirFactura.Location = new Point(534, 348);
+            btnImprimirFactura.Location = new Point(464, 348);
             btnImprimirFactura.Name = "btnImprimirFactura";
             btnImprimirFactura.Size = new Size(121, 36);
             btnImprimirFactura.TabIndex = 79;
@@ -186,11 +187,22 @@
             rbConFactura.UseVisualStyleBackColor = true;
             rbConFactura.CheckedChanged += rbConFactura_CheckedChanged;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(592, 348);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(92, 36);
+            btnAyuda.TabIndex = 84;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // GestionFacturasForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 396);
+            Controls.Add(btnAyuda);
             Controls.Add(rbConFactura);
             Controls.Add(rbSinFactura);
             Controls.Add(lblMostrar);
@@ -231,5 +243,6 @@
         private Label lblMostrar;
         private RadioButton rbSinFactura;
         private RadioButton rbConFactura;
+        private Button btnAyuda;
     }
 }

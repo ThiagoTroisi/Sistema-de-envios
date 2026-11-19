@@ -42,6 +42,10 @@
             btnLimpiar = new Button();
             btnSalir = new Button();
             btnActivar = new Button();
+            btnDeserializar = new Button();
+            btnSerializar = new Button();
+            btnRefrescarGrilla = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).BeginInit();
             SuspendLayout();
             // 
@@ -156,7 +160,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(1636, 513);
+            btnSalir.Location = new Point(1636, 516);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(116, 45);
             btnSalir.TabIndex = 45;
@@ -167,7 +171,7 @@
             // btnActivar
             // 
             btnActivar.Enabled = false;
-            btnActivar.Location = new Point(1636, 451);
+            btnActivar.Location = new Point(795, 454);
             btnActivar.Name = "btnActivar";
             btnActivar.Size = new Size(116, 45);
             btnActivar.TabIndex = 44;
@@ -175,11 +179,55 @@
             btnActivar.UseVisualStyleBackColor = true;
             btnActivar.Click += btnActivar_Click;
             // 
+            // btnDeserializar
+            // 
+            btnDeserializar.Location = new Point(1502, 454);
+            btnDeserializar.Name = "btnDeserializar";
+            btnDeserializar.Size = new Size(116, 45);
+            btnDeserializar.TabIndex = 46;
+            btnDeserializar.Text = "Deserializar";
+            btnDeserializar.UseVisualStyleBackColor = true;
+            btnDeserializar.Click += btnDeserializar_Click;
+            // 
+            // btnSerializar
+            // 
+            btnSerializar.Location = new Point(1363, 454);
+            btnSerializar.Name = "btnSerializar";
+            btnSerializar.Size = new Size(116, 45);
+            btnSerializar.TabIndex = 47;
+            btnSerializar.Text = "Serializar";
+            btnSerializar.UseVisualStyleBackColor = true;
+            btnSerializar.Click += btnSerializar_Click;
+            // 
+            // btnRefrescarGrilla
+            // 
+            btnRefrescarGrilla.Location = new Point(1636, 454);
+            btnRefrescarGrilla.Name = "btnRefrescarGrilla";
+            btnRefrescarGrilla.Size = new Size(116, 45);
+            btnRefrescarGrilla.TabIndex = 51;
+            btnRefrescarGrilla.Text = "Refrescar grilla";
+            btnRefrescarGrilla.UseVisualStyleBackColor = true;
+            btnRefrescarGrilla.Click += btnRefrescarGrilla_Click;
+            // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(1502, 516);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(116, 45);
+            btnAyuda.TabIndex = 52;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // BitacoraCambiosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1764, 573);
+            Controls.Add(btnAyuda);
+            Controls.Add(btnRefrescarGrilla);
+            Controls.Add(btnSerializar);
+            Controls.Add(btnDeserializar);
             Controls.Add(btnSalir);
             Controls.Add(btnActivar);
             Controls.Add(btnLimpiar);
@@ -218,5 +266,9 @@
         private Button btnLimpiar;
         private Button btnSalir;
         private Button btnActivar;
+        private Button btnDeserializar;
+        private Button btnSerializar;
+        private Button btnRefrescarGrilla;
+        private Button btnAyuda;
     }
 }

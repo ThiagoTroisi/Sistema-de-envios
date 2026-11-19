@@ -350,5 +350,22 @@ namespace SistemaDeEnviosGUI
                 MessageBox.Show(ex.Message, "Error al abrir el informe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Repartidor", "Repartidor.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -1,0 +1,87 @@
+﻿AYUDA - GESTIÓN DE PERFILES
+
+Este formulario permite administrar los perfiles y las familias de permisos del sistema. Desde aquí se pueden crear, modificar y eliminar perfiles o familias, así como definir los permisos y las familias que componen cada uno.
+
+
+TIPO
+
+Permite seleccionar qué tipo de elemento se desea administrar.
+
+- Perfiles: muestra los perfiles registrados en el sistema.
+- Familias: muestra las familias de permisos existentes.
+
+La selección determina qué elementos se muestran y qué operaciones se realizan.
+
+
+ELEMENTOS REGISTRADOS
+
+En esta sección se muestra una lista de los perfiles o familias existentes, según el tipo seleccionado.
+
+Al seleccionar un elemento, se cargan su nombre, los permisos asociados, las familias incluidas y su estructura organizativa.
+
+
+NOMBRE
+
+Permite consultar o modificar el nombre del perfil o familia seleccionado.
+
+Al crear un elemento nuevo, debe ingresarse el nombre que lo identificará.
+
+
+PERMISOS
+
+Muestra los permisos disponibles en el sistema.
+
+Se pueden seleccionar uno o varios permisos para incorporarlos al perfil o familia que se está creando o modificando.
+
+Los permisos determinan qué funcionalidades estarán habilitadas para los usuarios que tengan asignado el perfil correspondiente.
+
+
+FAMILIAS
+
+Muestra las familias de permisos registradas en el sistema.
+
+Permite seleccionar una o varias familias para incorporarlas al perfil o familia actual.
+
+Al incluir una familia, también se incorporan los permisos y las subfamilias que forman parte de su estructura.
+
+
+ORGANIZACIÓN
+
+Muestra la composición del perfil o familia seleccionado mediante una estructura jerárquica.
+
+- Los elementos de color azul representan permisos.
+- Los elementos de color naranja representan familias.
+
+Esta visualización permite consultar cómo se organizan los permisos y las familias que componen cada elemento.
+
+
+AGREGAR
+
+Permite crear un nuevo perfil o familia, según el tipo seleccionado.
+
+Para realizar esta operación, debe ingresarse un nombre y seleccionar los permisos y familias que se desean incorporar.
+
+Una vez presionado el botón, el sistema registra el nuevo elemento y actualiza la lista.
+
+
+ACTUALIZAR
+
+Permite modificar el perfil o familia seleccionado.
+
+Se pueden cambiar su nombre, los permisos asociados y las familias incluidas.
+
+Una vez realizados los cambios, presione Actualizar para guardar la nueva configuración.
+
+
+ELIMINAR
+
+Permite eliminar el perfil o familia seleccionado.
+
+El sistema solicita confirmar la operación antes de realizarla.
+
+La eliminación está sujeta a las validaciones correspondientes para evitar inconsistencias en las asignaciones existentes.
+
+
+SALIR
+
+Cierra el formulario.

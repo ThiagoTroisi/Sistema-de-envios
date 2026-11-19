@@ -296,5 +296,17 @@ namespace SistemaDeEnviosGUI
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Gestión de facturas", "GestionFacturas.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

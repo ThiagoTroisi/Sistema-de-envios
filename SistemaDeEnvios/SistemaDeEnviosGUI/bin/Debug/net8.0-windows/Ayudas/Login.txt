@@ -1,0 +1,45 @@
+﻿AYUDA - INICIO DE SESIÓN
+
+Este formulario permite ingresar al sistema mediante las credenciales de un usuario registrado. También permite seleccionar el idioma de visualización de la aplicación.
+
+
+EMAIL
+
+Ingrese la dirección de correo electrónico asociada a la cuenta del usuario.
+
+
+CONTRASEÑA
+
+Ingrese la contraseña correspondiente a la cuenta.
+
+El sistema utiliza estos datos para validar la identidad del usuario y determinar si puede acceder a la aplicación.
+
+
+IDIOMA
+
+Permite seleccionar el idioma en el que se visualizarán los textos de la aplicación.
+
+Luego de seleccionar el idioma deseado, presione Aplicar para confirmar el cambio.
+
+Durante una sesión de reingreso, esta opción permanece deshabilitada.
+
+
+LOGIN
+
+Permite iniciar el proceso de autenticación utilizando el correo electrónico y la contraseña ingresados.
+
+Si las credenciales son correctas, el sistema verifica la integridad de la información antes de permitir el acceso.
+
+Si se detectan errores de integridad, se informa la situación y se deriva al procedimiento correspondiente según los permisos del usuario.
+
+Una vez superadas las verificaciones, se inicia la sesión y se muestra el menú principal.
+
+
+REGISTRARSE
+
+Esta opción se encuentra deshabilitada actualmente.
+
+
+SALIR
+
+Cierra el formulario.

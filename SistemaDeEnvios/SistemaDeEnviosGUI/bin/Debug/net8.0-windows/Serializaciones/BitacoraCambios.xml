@@ -1,0 +1,415 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="BitacoraCambios" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="BitacoraCambios">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id_version" type="xs:int" minOccurs="0" />
+                <xs:element name="id_envio" type="xs:int" minOccurs="0" />
+                <xs:element name="Codigo" type="xs:string" minOccurs="0" />
+                <xs:element name="Fecha" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Hora" type="xs:duration" minOccurs="0" />
+                <xs:element name="Origen" type="xs:string" minOccurs="0" />
+                <xs:element name="Remitente" type="xs:string" minOccurs="0" />
+                <xs:element name="Intentos_Fallidos" type="xs:int" minOccurs="0" />
+                <xs:element name="DescripcionPaquete" type="xs:string" minOccurs="0" />
+                <xs:element name="Peso" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Alto" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Ancho" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Largo" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Direccion" type="xs:string" minOccurs="0" />
+                <xs:element name="Ciudad" type="xs:string" minOccurs="0" />
+                <xs:element name="CodigoPostal" type="xs:string" minOccurs="0" />
+                <xs:element name="Provincia" type="xs:string" minOccurs="0" />
+                <xs:element name="DniDestinatario" type="xs:int" minOccurs="0" />
+                <xs:element name="NombreDestinatario" type="xs:string" minOccurs="0" />
+                <xs:element name="ApellidoDestinatario" type="xs:string" minOccurs="0" />
+                <xs:element name="TelefonoDestinatario" type="xs:string" minOccurs="0" />
+                <xs:element name="EmailDestinatario" type="xs:string" minOccurs="0" />
+                <xs:element name="Act" type="xs:boolean" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <BitacoraCambios>
+    <id_version>22</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H42M1S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>prueba</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>rivadavia</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>.</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>21</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H37M15S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>pruebaaa de modificacion</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>rivadavia 17</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>muy copado</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>20</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H37M15S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>pruebaaa de modificacion</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>rivadavia 17</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>muy copado</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>19</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H37M15S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>pruebaaa de modificacion</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 252</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>alguien</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>18</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H21M40S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>algo...</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 3456785368</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>alguien</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>17</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H21M40S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>algo...</DescripcionPaquete>
+    <Peso>3.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 252</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>alguien</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>16</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H7M41S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>algo un poco pesado</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 253</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>conocido</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>15</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT17H7M41S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>algo un poco pesado</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 252</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>alguien</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>14</id_version>
+    <id_envio>1005</id_envio>
+    <Codigo>ENV-001005</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT16H31M56S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>algo no tan pesado</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 252</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>alguien</ApellidoDestinatario>
+    <TelefonoDestinatario>1145674673</TelefonoDestinatario>
+    <EmailDestinatario>a@g.c</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>13</id_version>
+    <id_envio>1</id_envio>
+    <Codigo>ENV-000001</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT14H59M56S</Hora>
+    <Origen>Sucursal Norte</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>vinilo</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>a</Direccion>
+    <Ciudad>a</Ciudad>
+    <CodigoPostal>a</CodigoPostal>
+    <Provincia>a</Provincia>
+    <DniDestinatario>12312312</DniDestinatario>
+    <NombreDestinatario>t</NombreDestinatario>
+    <ApellidoDestinatario>t</ApellidoDestinatario>
+    <TelefonoDestinatario>1112331233</TelefonoDestinatario>
+    <EmailDestinatario>t@g.com</EmailDestinatario>
+    <Act>false</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>6</id_version>
+    <id_envio>1</id_envio>
+    <Codigo>ENV-000001</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT38M9S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>vinilo</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>a</Direccion>
+    <Ciudad>a</Ciudad>
+    <CodigoPostal>a</CodigoPostal>
+    <Provincia>a</Provincia>
+    <DniDestinatario>12312312</DniDestinatario>
+    <NombreDestinatario>t</NombreDestinatario>
+    <ApellidoDestinatario>t</ApellidoDestinatario>
+    <TelefonoDestinatario>1112331233</TelefonoDestinatario>
+    <EmailDestinatario>t@g.com</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>7</id_version>
+    <id_envio>2</id_envio>
+    <Codigo>ENV-000002</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT38M9S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>e</DescripcionPaquete>
+    <Peso>2.00</Peso>
+    <Alto>2.00</Alto>
+    <Ancho>2.00</Ancho>
+    <Largo>2.00</Largo>
+    <Direccion>r</Direccion>
+    <Ciudad>r</Ciudad>
+    <CodigoPostal>r</CodigoPostal>
+    <Provincia>r</Provincia>
+    <DniDestinatario>46347065</DniDestinatario>
+    <NombreDestinatario>t</NombreDestinatario>
+    <ApellidoDestinatario>t</ApellidoDestinatario>
+    <TelefonoDestinatario>1112341234</TelefonoDestinatario>
+    <EmailDestinatario>t@g.c</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>8</id_version>
+    <id_envio>3</id_envio>
+    <Codigo>ENV-000003</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT38M9S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>maria antonieta</Remitente>
+    <Intentos_Fallidos>4</Intentos_Fallidos>
+    <DescripcionPaquete>vinilo</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>las bases 252</Direccion>
+    <Ciudad>san vicente</Ciudad>
+    <CodigoPostal>1865</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>45678978</DniDestinatario>
+    <NombreDestinatario>alguien</NombreDestinatario>
+    <ApellidoDestinatario>random</ApellidoDestinatario>
+    <TelefonoDestinatario>1189765784</TelefonoDestinatario>
+    <EmailDestinatario>t@t.c</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>9</id_version>
+    <id_envio>1003</id_envio>
+    <Codigo>ENV-001003</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT38M9S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>2</DescripcionPaquete>
+    <Peso>2.00</Peso>
+    <Alto>2.00</Alto>
+    <Ancho>2.00</Ancho>
+    <Largo>2.00</Largo>
+    <Direccion>aaaa 123</Direccion>
+    <Ciudad>e</Ciudad>
+    <CodigoPostal>e</CodigoPostal>
+    <Provincia>e</Provincia>
+    <DniDestinatario>12345678</DniDestinatario>
+    <NombreDestinatario>qwertyu</NombreDestinatario>
+    <ApellidoDestinatario>asdfgh</ApellidoDestinatario>
+    <TelefonoDestinatario>1112312312</TelefonoDestinatario>
+    <EmailDestinatario>q@q.q</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+  <BitacoraCambios>
+    <id_version>10</id_version>
+    <id_envio>1004</id_envio>
+    <Codigo>ENV-001004</Codigo>
+    <Fecha>2026-11-17T00:00:00-03:00</Fecha>
+    <Hora>PT38M9S</Hora>
+    <Origen>Sucursal Central</Origen>
+    <Remitente>thiago troisi</Remitente>
+    <Intentos_Fallidos>0</Intentos_Fallidos>
+    <DescripcionPaquete>vinilo 2LP</DescripcionPaquete>
+    <Peso>1.00</Peso>
+    <Alto>1.00</Alto>
+    <Ancho>1.00</Ancho>
+    <Largo>1.00</Largo>
+    <Direccion>su casa</Direccion>
+    <Ciudad>alejandro korn</Ciudad>
+    <CodigoPostal>1864</CodigoPostal>
+    <Provincia>buenos aires</Provincia>
+    <DniDestinatario>56456345</DniDestinatario>
+    <NombreDestinatario>gerardo</NombreDestinatario>
+    <ApellidoDestinatario>gonzalez</ApellidoDestinatario>
+    <TelefonoDestinatario>1156784567</TelefonoDestinatario>
+    <EmailDestinatario>g@gmail.com</EmailDestinatario>
+    <Act>true</Act>
+  </BitacoraCambios>
+</NewDataSet>

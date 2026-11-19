@@ -1,0 +1,46 @@
+﻿AYUDA - GESTIÓN DE COBROS
+
+Este formulario permite consultar los envíos pendientes de pago y realizar el cobro correspondiente.
+
+
+BÚSQUEDA DE ENVÍOS
+
+La grilla muestra los envíos que se encuentran en estado Registrado y que todavía no fueron pagados.
+
+Se dispone de dos campos para localizar los envíos:
+
+- DNI del remitente: permite filtrar los envíos utilizando el documento del remitente.
+- Código de seguimiento: permite buscar un envío específico mediante su código identificador.
+
+La búsqueda se actualiza automáticamente a medida que se ingresan o modifican los valores de estos campos.
+
+
+GRILLA DE ENVÍOS
+
+Muestra los resultados de la búsqueda, incluyendo el código de seguimiento, la fecha de registro, el remitente, el destinatario, el destino y el estado del envío.
+
+Para consultar el importe y realizar el cobro, debe seleccionarse un envío de la grilla.
+
+
+ENVÍO SELECCIONADO
+
+Muestra el código de seguimiento correspondiente al envío seleccionado.
+
+
+IMPORTE A ABONAR
+
+Muestra el importe calculado que debe abonarse por el envío seleccionado.
+
+
+COBRAR
+
+Permite iniciar el proceso de pago del envío seleccionado.
+
+Al presionar el botón, se abrirá un formulario donde deberán ingresarse los datos necesarios para realizar el pago con tarjeta.
+
+Una vez completado el proceso correctamente, el envío dejará de aparecer entre los pendientes de pago.
+
+
+SALIR
+
+Cierra el formulario.

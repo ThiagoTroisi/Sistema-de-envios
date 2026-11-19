@@ -215,5 +215,17 @@ namespace SistemaDeEnviosGUI
                     dataGridViewEnvios.Columns["estado"].HeaderText = Traducciones.Traducir("Estado");
             }
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Cobro de envíos", "CobroEnvios.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -150,7 +150,7 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         {
             CambiarModo(ModoFormulario.Alta);
         }
-        
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             CambiarModo(ModoFormulario.Modificar);
@@ -286,6 +286,18 @@ namespace SistemaDeEnviosGUI.Formularios.Administrador
         {
             GestorIdiomas.Instancia.Desregistrar(this);
             base.OnFormClosed(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Gestión de usuarios", "GestionUsuarios.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

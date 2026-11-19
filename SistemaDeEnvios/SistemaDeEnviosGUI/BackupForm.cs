@@ -73,5 +73,17 @@ namespace SistemaDeEnviosGUI
             btnRealizarRestore.Text = Traducciones.Traducir("realizarrestore");
             btnSalir.Text = Traducciones.Traducir("Salir");
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AyudaForm("Ayuda - Backup", "Backup.txt").ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al abrir la ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

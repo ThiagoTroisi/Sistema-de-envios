@@ -9,10 +9,89 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Ayudas\AsignacionRuta.txt" />
+    <None Remove="Ayudas\Backup.txt" />
+    <None Remove="Ayudas\BitacoraCambios.txt" />
+    <None Remove="Ayudas\BitacoraEventos.txt" />
+    <None Remove="Ayudas\CambiarIdioma.txt" />
+    <None Remove="Ayudas\CambioContraseña.txt" />
+    <None Remove="Ayudas\CobroEnvios.txt" />
+    <None Remove="Ayudas\CreacionRutas.txt" />
+    <None Remove="Ayudas\DatosTarjeta.txt" />
+    <None Remove="Ayudas\ErrorIntegridad.txt" />
+    <None Remove="Ayudas\GestionEnvios.txt" />
+    <None Remove="Ayudas\GestionFacturas.txt" />
+    <None Remove="Ayudas\GestionUsuarios.txt" />
+    <None Remove="Ayudas\Login.txt" />
+    <None Remove="Ayudas\MainForm.txt" />
+    <None Remove="Ayudas\Perfiles.txt" />
+    <None Remove="Ayudas\RegistroEntregas.txt" />
+    <None Remove="Ayudas\Repartidor.txt" />
+    <None Remove="Ayudas\ResolucionEnvios.txt" />
     <None Remove="traducciones.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Ayudas\AsignacionRuta.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\Backup.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\BitacoraCambios.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\BitacoraEventos.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\CambiarIdioma.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\CambioContraseña.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\CobroEnvios.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\CreacionRutas.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\DatosTarjeta.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\ErrorIntegridad.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\GestionEnvios.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\GestionFacturas.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\GestionUsuarios.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\Login.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\GestionClientes.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\MainForm.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\Perfiles.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\RegistroEntregas.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\Repartidor.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\ResolucionEnvios.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="traducciones.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

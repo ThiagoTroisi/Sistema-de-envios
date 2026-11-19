@@ -49,6 +49,10 @@
             comboBoxModulo = new ComboBox();
             comboBoxEvento = new ComboBox();
             comboBoxCriticidad = new ComboBox();
+            btnSerializar = new Button();
+            btnDeserializar = new Button();
+            btnRefrescarGrilla = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -172,7 +176,7 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.Location = new Point(12, 481);
+            btnAplicar.Location = new Point(12, 483);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(119, 41);
             btnAplicar.TabIndex = 23;
@@ -182,7 +186,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(137, 481);
+            btnLimpiar.Location = new Point(137, 483);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(119, 41);
             btnLimpiar.TabIndex = 24;
@@ -192,7 +196,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(262, 481);
+            btnImprimir.Location = new Point(262, 483);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(119, 41);
             btnImprimir.TabIndex = 25;
@@ -202,7 +206,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(689, 481);
+            btnSalir.Location = new Point(689, 530);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(119, 41);
             btnSalir.TabIndex = 26;
@@ -242,11 +246,55 @@
             comboBoxCriticidad.Size = new Size(229, 23);
             comboBoxCriticidad.TabIndex = 30;
             // 
+            // btnSerializar
+            // 
+            btnSerializar.Location = new Point(445, 483);
+            btnSerializar.Name = "btnSerializar";
+            btnSerializar.Size = new Size(116, 41);
+            btnSerializar.TabIndex = 49;
+            btnSerializar.Text = "Serializar";
+            btnSerializar.UseVisualStyleBackColor = true;
+            btnSerializar.Click += btnSerializar_Click;
+            // 
+            // btnDeserializar
+            // 
+            btnDeserializar.Location = new Point(567, 483);
+            btnDeserializar.Name = "btnDeserializar";
+            btnDeserializar.Size = new Size(116, 41);
+            btnDeserializar.TabIndex = 48;
+            btnDeserializar.Text = "Deserializar";
+            btnDeserializar.UseVisualStyleBackColor = true;
+            btnDeserializar.Click += btnDeserializar_Click;
+            // 
+            // btnRefrescarGrilla
+            // 
+            btnRefrescarGrilla.Location = new Point(689, 483);
+            btnRefrescarGrilla.Name = "btnRefrescarGrilla";
+            btnRefrescarGrilla.Size = new Size(119, 41);
+            btnRefrescarGrilla.TabIndex = 50;
+            btnRefrescarGrilla.Text = "Refrescar grilla";
+            btnRefrescarGrilla.UseVisualStyleBackColor = true;
+            btnRefrescarGrilla.Click += btnRefrescarGrilla_Click;
+            // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(567, 530);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(113, 41);
+            btnAyuda.TabIndex = 51;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // BitacoraDeEventosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 543);
+            ClientSize = new Size(820, 583);
+            Controls.Add(btnAyuda);
+            Controls.Add(btnRefrescarGrilla);
+            Controls.Add(btnSerializar);
+            Controls.Add(btnDeserializar);
             Controls.Add(comboBoxCriticidad);
             Controls.Add(comboBoxEvento);
             Controls.Add(comboBoxModulo);
@@ -299,5 +347,9 @@
         private ComboBox comboBoxModulo;
         private ComboBox comboBoxEvento;
         private ComboBox comboBoxCriticidad;
+        private Button btnSerializar;
+        private Button btnDeserializar;
+        private Button btnRefrescarGrilla;
+        private Button btnAyuda;
     }
 }

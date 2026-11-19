@@ -35,6 +35,7 @@
             btnAutorizarNuevoIntento = new Button();
             btnCancelarEnvio = new Button();
             btnSalir = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEnviosPendientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorialIntentos).BeginInit();
             SuspendLayout();
@@ -104,11 +105,22 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(323, 583);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(111, 48);
+            btnAyuda.TabIndex = 12;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // ResolucionEnviosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(563, 643);
+            Controls.Add(btnAyuda);
             Controls.Add(btnSalir);
             Controls.Add(btnCancelarEnvio);
             Controls.Add(btnAutorizarNuevoIntento);
@@ -133,5 +145,6 @@
         private Button btnAutorizarNuevoIntento;
         private Button btnCancelarEnvio;
         private Button btnSalir;
+        private Button btnAyuda;
     }
 }

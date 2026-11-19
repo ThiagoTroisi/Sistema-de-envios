@@ -36,6 +36,7 @@
             lblTablasAfectadas = new Label();
             lblRegistrosAfectados = new Label();
             btnSalir = new Button();
+            btnAyuda = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -114,11 +115,22 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Location = new Point(417, 254);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(95, 50);
+            btnAyuda.TabIndex = 12;
+            btnAyuda.Text = "Ayuda";
+            btnAyuda.UseVisualStyleBackColor = true;
+            btnAyuda.Click += btnAyuda_Click;
+            // 
             // ErrorIntegridadForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(625, 316);
+            Controls.Add(btnAyuda);
             Controls.Add(btnSalir);
             Controls.Add(lblRegistrosAfectados);
             Controls.Add(lblTablasAfectadas);
@@ -145,5 +157,6 @@
         private Label lblTablasAfectadas;
         private Label lblRegistrosAfectados;
         private Button btnSalir;
+        private Button btnAyuda;
     }
 }
