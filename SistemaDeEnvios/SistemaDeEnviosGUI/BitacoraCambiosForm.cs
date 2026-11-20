@@ -188,12 +188,13 @@ namespace SistemaDeEnviosGUI
             }
         }
 
+
         private void btnSerializar_Click(object sender, EventArgs e)
         {
             try
             {
-                SerializadorGrillas.Serializar((DataTable)dataGridViewHistorial.DataSource, "BitacoraCambios");
-                MessageBox.Show("La serialización se realizó correctamente.", "Serialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Serializar((DataTable)dataGridViewHistorial.DataSource, "BitacoraCambios"))
+                    MessageBox.Show("La serialización se realizó correctamente.", "Serialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -201,11 +202,52 @@ namespace SistemaDeEnviosGUI
             }
         }
 
+        private static readonly string carpetaSerializaciones = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SerializacionesCambios");
+
+        public static bool Serializar(DataTable datos, string nombreFormulario)
+        {
+            if (datos == null)
+                throw new Exception("No hay datos para serializar.");
+
+            if (string.IsNullOrWhiteSpace(nombreFormulario))
+                throw new Exception("El nombre del formulario no es válido.");
+
+            if (datos.Columns.Count == 0)
+                throw new Exception("La grilla no contiene columnas para serializar.");
+
+            Directory.CreateDirectory(carpetaSerializaciones);
+
+            using (SaveFileDialog dialogo = new SaveFileDialog())
+            {
+                dialogo.Title = "Guardar serialización";
+                dialogo.InitialDirectory = carpetaSerializaciones;
+                dialogo.FileName = nombreFormulario + ".xml";
+                dialogo.Filter = "Archivos XML (*.xml)|*.xml";
+                dialogo.DefaultExt = "xml";
+                dialogo.AddExtension = true;
+                dialogo.OverwritePrompt = true;
+
+                if (dialogo.ShowDialog() != DialogResult.OK)
+                    return false;
+
+                DataTable copia = datos.Copy();
+                copia.TableName = nombreFormulario;
+                copia.WriteXml(dialogo.FileName, XmlWriteMode.WriteSchema);
+
+                return true;
+            }
+        }
+
         private void btnDeserializar_Click(object sender, EventArgs e)
         {
             try
             {
-                dataGridViewHistorial.DataSource = SerializadorGrillas.Deserializar("BitacoraCambios");
+                DataTable xml = Deserializar("BitacoraCambios");
+
+                if (xml == null)
+                    return;
+
+                dataGridViewHistorial.DataSource = xml;
                 ConfigurarColumnas();
                 ActualizarEstadoBotonActivar();
 
@@ -216,6 +258,33 @@ namespace SistemaDeEnviosGUI
                 MessageBox.Show(ex.Message, "Error al deserializar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static DataTable Deserializar(string nombreFormulario)
+        {
+            if (string.IsNullOrWhiteSpace(nombreFormulario))
+                throw new Exception("El nombre del formulario no es válido.");
+
+            Directory.CreateDirectory(carpetaSerializaciones);
+
+            using (OpenFileDialog dialogo = new OpenFileDialog())
+            {
+                dialogo.Title = "Abrir serialización";
+                dialogo.InitialDirectory = carpetaSerializaciones;
+                dialogo.Filter = "Archivos XML (*.xml)|*.xml";
+                dialogo.DefaultExt = "xml";
+                dialogo.CheckFileExists = true;
+                dialogo.Multiselect = false;
+
+                if (dialogo.ShowDialog() != DialogResult.OK)
+                    return null;
+
+                DataTable datos = new DataTable();
+                datos.ReadXml(dialogo.FileName);
+
+                return datos;
+            }
+        }
+
 
         private void btnRefrescarGrilla_Click(object sender, EventArgs e)
         {

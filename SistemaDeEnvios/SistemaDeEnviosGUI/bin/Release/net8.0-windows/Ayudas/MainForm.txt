@@ -1,0 +1,47 @@
+﻿AYUDA - MENÚ PRINCIPAL
+
+Este formulario constituye el menú principal del sistema. Desde aquí se accede a las distintas funcionalidades disponibles, organizadas por áreas de trabajo.
+
+Las opciones visibles dependen de los permisos asignados al perfil del usuario que inició sesión.
+
+
+USUARIO
+
+Contiene las opciones relacionadas con la cuenta personal del usuario.
+
+- Cambiar contraseña: permite modificar la contraseña de acceso.
+- Cambiar idioma: permite seleccionar otro idioma para la aplicación.
+
+
+ADMINISTRACIÓN
+
+Agrupa las funcionalidades destinadas a la administración del sistema.
+
+- Gestión de usuarios: permite administrar las cuentas de usuario.
+- Bitácora de eventos: permite consultar los eventos registrados durante el funcionamiento del sistema.
+- Gestión de perfiles: permite administrar perfiles, familias y permisos.
+- Gestión de backup: permite gestionar las copias de seguridad de la base de datos.
+- Bitácora de cambios: permite consultar el historial de modificaciones de los envíos.
+
+
+RESPONSABILIDADES
+
+Agrupa accesos directos a funcionalidades de gestión según las responsabilidades operativas del usuario.
+
+- Registro de clientes: permite administrar los datos de las personas.
+- Registro de envíos: permite administrar los envíos.
+- Cobro de envíos: permite consultar los envíos pendientes de pago y realizar sus cobros.
+- Gestión de facturas: permite consultar las facturas generadas.
+- Creación de rutas: permite crear rutas y administrar los envíos que las componen.
+- Asignación de rutas: permite asignar rutas a repartidores.
+- Administración de rutas: permite acceder a las funcionalidades disponibles para los repartidores.
+
+
+CERRAR SESIÓN
+
+Permite cerrar la sesión actual y regresar al formulario de inicio de sesión.
+
+
+RELOGIN
+
+Permite volver a mostrar el formulario de inicio de sesión para realizar un nuevo ingreso al sistema.

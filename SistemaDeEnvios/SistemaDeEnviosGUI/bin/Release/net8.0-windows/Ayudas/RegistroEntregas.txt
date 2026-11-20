@@ -1,0 +1,65 @@
+﻿AYUDA - REGISTRO DE ENTREGAS
+
+Este formulario permite registrar el resultado de los intentos de entrega de los envíos incluidos en una ruta que se encuentra en curso.
+
+Desde aquí, el repartidor puede consultar los datos de cada envío, indicar si pudo realizar la entrega y registrar los inconvenientes cuando no fue posible completarla.
+
+
+ENVÍOS DE LA RUTA
+
+En esta sección se muestran los envíos que forman parte de la ruta actual, junto con su orden de entrega y los datos del destinatario.
+
+Para registrar un intento, primero debe seleccionarse el envío correspondiente de la grilla.
+
+Al seleccionar un envío, se mostrará su código de seguimiento en la sección de envío seleccionado.
+
+
+RESULTADO
+
+Permite indicar el resultado del intento de entrega.
+
+- Entregado: indica que el envío pudo entregarse correctamente al destinatario.
+- No entregado: indica que no fue posible completar la entrega.
+
+Si se selecciona "No entregado", será obligatorio indicar el motivo del inconveniente.
+
+
+MOTIVO
+
+Se habilita cuando el resultado seleccionado es "No entregado".
+
+Permite especificar la causa por la cual no pudo concretarse la entrega:
+
+- Destinatario ausente.
+- Dirección incorrecta o inexistente.
+- Destinatario rechazó el envío.
+- Problemas de acceso.
+- Otro.
+
+
+OBSERVACIONES
+
+Permite ingresar información adicional relacionada con el intento de entrega.
+
+Este campo es opcional y puede utilizarse para aclarar circunstancias que ayuden a comprender lo sucedido.
+
+
+REGISTRAR INTENTO
+
+Registra el resultado del intento de entrega para el envío seleccionado.
+
+El sistema valida que se haya seleccionado un envío y un resultado. Si la entrega fue fallida, también exige indicar el motivo.
+
+Cuando el resultado es "Entregado", el envío queda registrado como entregado y deja de formar parte de los envíos pendientes de la ruta.
+
+Cuando el resultado es "No entregado", se registra el intento fallido y el envío vuelve a quedar pendiente de distribución para una futura asignación. Al alcanzar tres intentos fallidos, el envío queda pendiente de resolución por parte del gestor.
+
+
+LIMPIAR
+
+Restablece los campos del formulario, permitiendo registrar otro intento sin conservar los datos ingresados anteriormente.
+
+
+SALIR
+
+Cierra el formulario.

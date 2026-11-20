@@ -1,0 +1,58 @@
+﻿AYUDA - GESTIÓN DE ENVÍOS
+
+Este formulario permite administrar los envíos registrados en el sistema. Desde aquí se pueden consultar los envíos existentes, aplicar filtros de búsqueda, registrar nuevos envíos, modificar su información y cancelar aquellos que todavía se encuentran habilitados para dicha operación.
+
+
+BÚSQUEDA DE ENVÍOS
+
+Permite localizar envíos mediante distintos criterios de búsqueda.
+
+- Código de seguimiento: permite buscar un envío específico utilizando su identificador.
+- DNI del remitente: permite filtrar los envíos según el documento del remitente.
+- DNI del destinatario: permite filtrar los envíos según el documento del destinatario.
+- Estado: permite mostrar los envíos que se encuentran en un estado determinado.
+- Fecha desde y fecha hasta: permiten limitar los resultados según el período de registro.
+
+Los filtros pueden combinarse para obtener resultados más específicos.
+
+
+GRILLA DE ENVÍOS
+
+Muestra los envíos registrados que coinciden con los criterios de búsqueda establecidos.
+
+Al seleccionar un registro, se puede consultar su información y acceder a las operaciones disponibles según el estado del envío.
+
+
+REGISTRAR ENVÍO
+
+Permite dar de alta un nuevo envío en el sistema, ingresando la información correspondiente al remitente, destinatario, paquete y destino.
+
+Una vez registrado, el sistema genera un código de seguimiento que permite identificar y consultar el envío.
+
+
+MODIFICAR ENVÍO
+
+Permite modificar la información de un envío existente.
+
+Esta operación solamente está disponible para los envíos que se encuentran en los estados habilitados para su modificación.
+
+El sistema registra los cambios realizados para conservar el historial de modificaciones del envío.
+
+
+CANCELAR ENVÍO
+
+Permite cancelar un envío seleccionado cuando su estado permite realizar esta operación.
+
+El sistema solicita confirmar la cancelación antes de ejecutarla.
+
+Los envíos que ya se encuentran en distribución o que fueron entregados no pueden cancelarse desde este formulario.
+
+
+LIMPIAR FILTROS
+
+Restablece los criterios de búsqueda para volver a consultar los envíos sin aplicar los filtros anteriores.
+
+
+SALIR
+
+Cierra el formulario.

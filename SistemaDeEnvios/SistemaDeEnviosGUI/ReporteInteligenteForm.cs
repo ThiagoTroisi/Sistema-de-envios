@@ -41,8 +41,6 @@ namespace SistemaDeEnviosGUI
             btnGenerarPDF.Click += btnGenerarPDF_Click;
             btnPrepararCorreo.Click += btnPrepararCorreo_Click;
             btnSalir.Click += btnSalir_Click;
-
-            rbClientesMasFieles.Checked = true;
         }
 
         private void ConfigurarFormulario()

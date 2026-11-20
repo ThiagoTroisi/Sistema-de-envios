@@ -1,0 +1,58 @@
+﻿AYUDA - BITÁCORA DE EVENTOS
+
+Este formulario permite consultar los eventos registrados por el sistema, incluyendo las operaciones realizadas por los usuarios y las acciones que se producen durante su utilización.
+
+La grilla muestra información sobre el usuario, la fecha, la hora, el módulo, el evento y su nivel de criticidad.
+
+Al seleccionar un registro, se muestran el nombre y apellido del usuario asociado.
+
+
+FILTROS
+
+Los filtros permiten localizar eventos específicos.
+
+- Email: permite seleccionar un usuario para consultar sus eventos.
+- Desde: establece la fecha inicial del período de búsqueda.
+- Hasta: establece la fecha final del período de búsqueda.
+- Módulo: permite seleccionar el módulo del sistema en el que se produjo el evento.
+- Evento: permite seleccionar el tipo de operación o acción registrada.
+- Criticidad: permite seleccionar un nivel de criticidad del 1 al 5.
+
+Los filtros pueden combinarse para limitar los resultados.
+
+
+APLICAR
+
+Ejecuta la búsqueda utilizando los filtros seleccionados y actualiza la grilla.
+
+
+LIMPIAR
+
+Restablece los filtros y vuelve a mostrar todos los eventos registrados.
+
+
+IMPRIMIR
+
+Genera un documento PDF con los registros que se encuentran actualmente en la grilla.
+
+
+REFRESCAR GRILLA
+
+Actualiza la información consultando nuevamente los eventos almacenados en el sistema.
+
+
+SERIALIZAR
+
+Guarda en un archivo XML el contenido actual de la grilla.
+
+
+DESERIALIZAR
+
+Recupera el contenido de una serialización anterior y lo muestra en la grilla.
+
+Esta operación no modifica los registros originales de la base de datos.
+
+
+SALIR
+
+Cierra el formulario.

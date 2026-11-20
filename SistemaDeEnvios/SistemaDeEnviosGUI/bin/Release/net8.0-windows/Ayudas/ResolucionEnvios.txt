@@ -1,0 +1,48 @@
+﻿AYUDA - RESOLUCIÓN DE ENVÍOS
+
+Este formulario permite al gestor administrar los envíos que requieren una resolución debido a que alcanzaron el límite de intentos de entrega fallidos.
+
+Desde aquí se puede consultar el historial de intentos de cada envío y decidir si se autoriza un nuevo intento de entrega o si se cancela el envío.
+
+
+ENVÍOS PENDIENTES DE RESOLUCIÓN
+
+En esta sección se muestran los envíos que alcanzaron tres o más intentos de entrega fallidos y requieren la intervención del gestor.
+
+La grilla presenta información del envío, incluyendo su código de seguimiento, fecha de registro, cantidad de intentos fallidos y datos del destinatario.
+
+Para consultar el historial o realizar una operación, primero debe seleccionarse un envío de la grilla.
+
+
+HISTORIAL DE INTENTOS
+
+Muestra los intentos de entrega registrados para el envío seleccionado.
+
+Incluye la fecha y hora de cada intento, su resultado, el inconveniente informado y las observaciones registradas por el repartidor.
+
+Esta información permite analizar los antecedentes antes de decidir cómo proceder.
+
+
+AUTORIZAR NUEVO INTENTO
+
+Permite autorizar otro intento de entrega para el envío seleccionado.
+
+El sistema solicitará confirmar la operación.
+
+Una vez autorizada, el envío volverá a quedar pendiente de distribución y podrá incluirse en una nueva ruta.
+
+Los intentos fallidos anteriores se conservan en el historial. Si el nuevo intento también resulta fallido y se alcanza nuevamente el límite establecido, el envío volverá a requerir una resolución del gestor.
+
+
+CANCELAR ENVÍO
+
+Permite cancelar el envío seleccionado cuando se determina que no corresponde continuar intentando su entrega.
+
+El sistema solicitará confirmar la operación antes de realizar la cancelación.
+
+Una vez cancelado, el envío dejará de estar disponible para futuras asignaciones y no podrá continuar con el proceso de distribución.
+
+
+SALIR
+
+Cierra el formulario.
