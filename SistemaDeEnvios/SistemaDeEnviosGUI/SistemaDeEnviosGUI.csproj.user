@@ -64,6 +64,9 @@
     <Compile Update="RepartidorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ReporteInteligenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ResolucionEnviosForm.cs">
       <SubType>Form</SubType>
     </Compile>

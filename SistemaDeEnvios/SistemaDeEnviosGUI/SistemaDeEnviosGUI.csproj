@@ -27,6 +27,7 @@
     <None Remove="Ayudas\Perfiles.txt" />
     <None Remove="Ayudas\RegistroEntregas.txt" />
     <None Remove="Ayudas\Repartidor.txt" />
+    <None Remove="Ayudas\ReporteInteligente.txt" />
     <None Remove="Ayudas\ResolucionEnvios.txt" />
     <None Remove="traducciones.json" />
   </ItemGroup>
@@ -87,6 +88,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Ayudas\Repartidor.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayudas\ReporteInteligente.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Ayudas\ResolucionEnvios.txt">

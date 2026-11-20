@@ -272,5 +272,105 @@ namespace DAL
                 }
             }
         }
+
+        public DataTable ObtenerClientesMasFrecuentes(DateTime fechaReferencia)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = @"SELECT TOP 5
+                            c.dni,
+                            c.nombre,
+                            c.apellido,
+                            c.email,
+                            COUNT(e.id_envio) AS cantidad_envios
+                         FROM Cliente c
+                         INNER JOIN Envio e ON e.id_remitente = c.dni
+                         WHERE e.fecha_registro >= DATEADD(DAY, -90, @fechaReferencia)
+                            AND e.fecha_registro < @fechaReferencia
+                            AND e.estado <> 'Cancelado'
+                         GROUP BY c.dni, c.nombre, c.apellido, c.email
+                         ORDER BY cantidad_envios DESC, c.apellido, c.nombre";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.Add("@fechaReferencia", SqlDbType.DateTime).Value = fechaReferencia;
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        adapter.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable ObtenerClientesConMayorDisminucion(DateTime fechaReferencia)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                conexion.Open();
+
+                string query = @"WITH CantidadEnvios AS
+                         (
+                             SELECT
+                                 c.dni,
+                                 c.nombre,
+                                 c.apellido,
+                                 c.email,
+                                 SUM(CASE
+                                     WHEN e.fecha_registro >= DATEADD(DAY, -180, @fechaReferencia)
+                                         AND e.fecha_registro < DATEADD(DAY, -90, @fechaReferencia)
+                                     THEN 1 ELSE 0
+                                 END) AS envios_periodo_anterior,
+                                 SUM(CASE
+                                     WHEN e.fecha_registro >= DATEADD(DAY, -90, @fechaReferencia)
+                                         AND e.fecha_registro < @fechaReferencia
+                                     THEN 1 ELSE 0
+                                 END) AS envios_periodo_actual
+                             FROM Cliente c
+                             INNER JOIN Envio e ON e.id_remitente = c.dni
+                             WHERE e.fecha_registro >= DATEADD(DAY, -180, @fechaReferencia)
+                                 AND e.fecha_registro < @fechaReferencia
+                                 AND e.estado <> 'Cancelado'
+                             GROUP BY c.dni, c.nombre, c.apellido, c.email
+                         )
+                         SELECT TOP 5
+                             dni,
+                             nombre,
+                             apellido,
+                             email,
+                             envios_periodo_anterior,
+                             envios_periodo_actual,
+                             envios_periodo_anterior - envios_periodo_actual AS envios_perdidos,
+                             CAST(
+                                 (envios_periodo_anterior - envios_periodo_actual) * 100.0
+                                 / envios_periodo_anterior
+                                 AS DECIMAL(5,2)
+                             ) AS porcentaje_disminucion
+                         FROM CantidadEnvios
+                         WHERE envios_periodo_anterior >= 5
+                             AND envios_periodo_actual < envios_periodo_anterior
+                         ORDER BY porcentaje_disminucion DESC, envios_perdidos DESC";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.Add("@fechaReferencia", SqlDbType.DateTime).Value = fechaReferencia;
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        adapter.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
     }
 }

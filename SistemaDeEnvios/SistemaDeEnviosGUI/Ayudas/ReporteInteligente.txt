@@ -1,0 +1,65 @@
+﻿AYUDA - REPORTE INTELIGENTE
+
+Este formulario permite generar reportes estadísticos sobre el comportamiento de los clientes que realizan envíos. Su objetivo es identificar a los clientes más frecuentes y detectar aquellos que han reducido su actividad, facilitando la toma de decisiones comerciales y la aplicación de beneficios promocionales.
+
+El formulario ofrece dos tipos de reportes, permite consultar la información individual de cada cliente, generar un documento PDF y preparar correos electrónicos con propuestas comerciales.
+
+
+CLIENTES MÁS FIELES
+
+Permite identificar a los cinco clientes que realizaron la mayor cantidad de envíos durante los últimos 90 días.
+
+La grilla muestra los datos de cada cliente, incluyendo DNI, nombre, apellido, correo electrónico y cantidad de envíos registrados en el período analizado.
+
+Esta información permite reconocer a los clientes más frecuentes y ofrecerles beneficios como reconocimiento a su fidelidad.
+
+
+CLIENTES CON MAYOR DISMINUCIÓN DE ENVÍOS
+
+Permite identificar a los cinco clientes que presentaron una mayor disminución en su actividad.
+
+Para realizar la comparación, se consideran dos períodos:
+
+- Período anterior: los 90 días inmediatamente anteriores al período actual.
+- Período actual: los últimos 90 días.
+
+La grilla muestra los datos de cada cliente, la cantidad de envíos de ambos períodos, los envíos perdidos y el porcentaje de disminución.
+
+Se consideran únicamente los clientes que realizaron al menos cinco envíos en el período anterior y que redujeron su cantidad de envíos en el período actual.
+
+Esta información permite detectar clientes que podrían haber perdido interés en el servicio y ofrecerles promociones para incentivar que vuelvan a utilizarlo.
+
+
+INFORMACIÓN DEL CLIENTE
+
+Al seleccionar un cliente de la grilla, el panel de información muestra sus datos principales y las estadísticas correspondientes al reporte seleccionado.
+
+La información presentada se actualiza automáticamente al seleccionar otro cliente o cambiar el tipo de reporte.
+
+
+PREPARAR CORREO
+
+Permite preparar un correo electrónico dirigido al cliente seleccionado.
+
+El sistema completa automáticamente la dirección de correo electrónico, el asunto y un mensaje sugerido según el tipo de reporte:
+
+- Clientes más fieles: agradece la preferencia del cliente y propone un beneficio por su fidelidad.
+- Clientes con mayor disminución de envíos: invita al cliente a volver a utilizar el servicio y ofrece un beneficio promocional.
+
+El mensaje puede modificarse desde el cuadro de texto antes de preparar el correo.
+
+Al seleccionar esta opción, se abrirá la aplicación de correo electrónico configurada en el equipo para continuar con el envío.
+
+
+GENERAR PDF
+
+Permite generar un documento PDF con la información completa de los clientes incluidos en el reporte seleccionado.
+
+El documento contiene la fecha de generación, el tipo de reporte y los datos estadísticos correspondientes a cada cliente.
+
+El archivo se guarda automáticamente en la carpeta ReportesInteligentes, dentro del directorio de instalación del sistema, y se abre para su consulta.
+
+
+SALIR
+
+Cierra el formulario.

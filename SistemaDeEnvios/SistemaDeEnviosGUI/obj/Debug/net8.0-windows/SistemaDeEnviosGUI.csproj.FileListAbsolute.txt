@@ -117,3 +117,5 @@ C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\Sist
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.AyudaForm.resources
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\Ayudas\GestionClientes.txt
 C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.GestionClientesForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\obj\Debug\net8.0-windows\SistemaDeEnviosGUI.ReporteInteligenteForm.resources
+C:\Users\trois\OneDrive\Documentos\GitHub\Sistema-de-envios\SistemaDeEnvios\SistemaDeEnviosGUI\bin\Debug\net8.0-windows\Ayudas\ReporteInteligente.txt

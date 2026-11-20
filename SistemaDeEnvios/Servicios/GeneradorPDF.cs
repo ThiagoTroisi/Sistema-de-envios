@@ -462,5 +462,113 @@ namespace Servicios
                 UseShellExecute = true
             });
         }
+
+        public static string GenerarReporteInteligente(DataTable clientes, bool reporteClientesFieles, bool abrir = true)
+        {
+            if (clientes == null || clientes.Rows.Count == 0)
+                throw new Exception("No hay clientes para generar el reporte.");
+
+            string carpeta = Path.Combine(AppContext.BaseDirectory, "ReportesInteligentes");
+            Directory.CreateDirectory(carpeta);
+
+            string tipoReporte = reporteClientesFieles ? "ClientesMasFieles" : "ClientesConMayorDisminucion";
+            string archivo = Path.Combine(carpeta, $"Reporte_{tipoReporte}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf");
+
+            iTextSharp.text.Document documento = new iTextSharp.text.Document(PageSize.A4.Rotate(), 40, 40, 40, 40);
+
+            using (FileStream stream = new FileStream(archivo, FileMode.Create))
+            {
+                PdfWriter.GetInstance(documento, stream);
+
+                documento.Open();
+
+                Font titulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                Font subtitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                Font encabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9);
+                Font contenido = FontFactory.GetFont(FontFactory.HELVETICA, 9);
+
+                string nombreReporte = reporteClientesFieles ? "CLIENTES MÁS FIELES" : "CLIENTES CON MAYOR DISMINUCIÓN DE ENVÍOS";
+
+                Paragraph encabezadoDocumento = new Paragraph("REPORTE INTELIGENTE DE CLIENTES", titulo);
+                encabezadoDocumento.Alignment = Element.ALIGN_CENTER;
+                encabezadoDocumento.SpacingAfter = 10;
+                documento.Add(encabezadoDocumento);
+
+                Paragraph subtituloDocumento = new Paragraph(nombreReporte, subtitulo);
+                subtituloDocumento.Alignment = Element.ALIGN_CENTER;
+                subtituloDocumento.SpacingAfter = 15;
+                documento.Add(subtituloDocumento);
+
+                documento.Add(new Paragraph($"Fecha de generación: {DateTime.Now:dd/MM/yyyy HH:mm:ss}", normal));
+                documento.Add(new Paragraph(reporteClientesFieles ? "Período analizado: últimos 90 días." : "Períodos comparados: últimos 90 días y los 90 días inmediatamente anteriores.", normal));
+                documento.Add(new Paragraph(" "));
+
+                int cantidadColumnas = reporteClientesFieles ? 4 : 7;
+                PdfPTable tabla = new PdfPTable(cantidadColumnas);
+                tabla.WidthPercentage = 100;
+
+                if (reporteClientesFieles)
+                {
+                    tabla.SetWidths(new float[] { 12, 25, 43, 20 });
+
+                    tabla.AddCell(new PdfPCell(new Phrase("DNI", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Cliente", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Correo electrónico", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Cantidad de envíos", encabezado)));
+
+                    foreach (DataRow cliente in clientes.Rows)
+                    {
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["dni"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["nombre"] + " " + cliente["apellido"], contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["email"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["cantidad_envios"].ToString(), contenido)));
+                    }
+                }
+                else
+                {
+                    tabla.SetWidths(new float[] { 10, 22, 32, 12, 10, 10, 14 });
+
+                    tabla.AddCell(new PdfPCell(new Phrase("DNI", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Cliente", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Correo electrónico", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Período anterior", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Período actual", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Envíos perdidos", encabezado)));
+                    tabla.AddCell(new PdfPCell(new Phrase("Disminución", encabezado)));
+
+                    foreach (DataRow cliente in clientes.Rows)
+                    {
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["dni"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["nombre"] + " " + cliente["apellido"], contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["email"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["envios_periodo_anterior"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["envios_periodo_actual"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(cliente["envios_perdidos"].ToString(), contenido)));
+                        tabla.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(cliente["porcentaje_disminucion"]).ToString("0.00") + "%", contenido)));
+                    }
+                }
+
+                documento.Add(tabla);
+                documento.Add(new Paragraph(" "));
+
+                Paragraph pie = new Paragraph("Informe generado por el Sistema de Gestión de Envíos.", normal);
+                pie.Alignment = Element.ALIGN_CENTER;
+                documento.Add(pie);
+
+                documento.Close();
+            }
+
+            if (abrir)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = archivo,
+                    UseShellExecute = true
+                });
+            }
+
+            return archivo;
+        }
     }
 }

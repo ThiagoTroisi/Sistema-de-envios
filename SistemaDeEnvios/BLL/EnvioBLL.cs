@@ -231,5 +231,15 @@ namespace BLL
         {
             return dal.ObtenerEnviosParaFacturacion();
         }
+
+        public DataTable ObtenerClientesMasFrecuentes()
+        {
+            return dal.ObtenerClientesMasFrecuentes(DateTime.Now);
+        }
+
+        public DataTable ObtenerClientesConMayorDisminucion()
+        {
+            return dal.ObtenerClientesConMayorDisminucion(DateTime.Now);
+        }
     }
 }

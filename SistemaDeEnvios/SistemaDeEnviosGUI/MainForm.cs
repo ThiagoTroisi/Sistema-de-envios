@@ -49,101 +49,27 @@ namespace SistemaDeEnviosGUI.Formularios
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_bitacora"), Tag = "Bitacora" });
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_perfiles"), Tag = "GestionPerfiles" });
             admin.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_gestion_backup"), Tag = "GestionBackup" });
+            admin.Nodes.Add(new TreeNode() { Text = "Bitacora de cambios", Tag = "Bitacora de cambios" });
+            admin.Nodes.Add(new TreeNode() { Text = "Reporte inteligente", Tag = "Reporte inteligente" });
 
 
             treeView1.Nodes.Add(admin);
 
+            // RESPONSABILIDADES DE CADA USUARIO
+            TreeNode resp = new TreeNode();
+            resp.Text = "Responsabilidades";
+            resp.Tag = "Responsabilidades";
 
-            // ENVÍO
-            TreeNode envio = new TreeNode();
-            envio.Text = Traducciones.Traducir("node_envio");
-            envio.Tag = "envio";
-
-            envio.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_solicitar_envio"), Tag = "SolicitarEnvio" });
-            envio.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_registrar_envio"), Tag = "RegistrarEnvio" });
-            envio.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_consultar_estado"), Tag = "ConsultarEstado" });
-            envio.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_modificar_destino"), Tag = "ModificarDestino" });
-            envio.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_cancelar_envio"), Tag = "CancelarEnvio" });
-
-            treeView1.Nodes.Add(envio);
-
-
-            // PAGO
-            TreeNode pago = new TreeNode();
-            pago.Text = Traducciones.Traducir("node_pago");
-            pago.Tag = "pago";
-
-            pago.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_registrar_pago"), Tag = "RegistrarPago" });
-            pago.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_consultar_comprobantes"), Tag = "ConsultarComprobantes" });
-
-            treeView1.Nodes.Add(pago);
+            resp.Nodes.Add(new TreeNode() { Text = "Registro de clientes", Tag = "Registro de clientes" });
+            resp.Nodes.Add(new TreeNode() { Text = "Registro de envíos", Tag = "Registro de envíos" });
+            resp.Nodes.Add(new TreeNode() { Text = "Cobro de envíos", Tag = "Cobro de envíos" });
+            resp.Nodes.Add(new TreeNode() { Text = "Gestión de facturas", Tag = "Gestión de facturas" });
+            resp.Nodes.Add(new TreeNode() { Text = "Creación de rutas", Tag = "Creación de rutas" });
+            resp.Nodes.Add(new TreeNode() { Text = "Asignación de rutas", Tag = "Asignación de rutas" });
+            resp.Nodes.Add(new TreeNode() { Text = "Administración de rutas", Tag = "Administración de rutas" });
 
 
-            // LOGÍSTICA
-            TreeNode logistica = new TreeNode();
-            logistica.Text = Traducciones.Traducir("node_logistica");
-            logistica.Tag = "logistica";
-
-            logistica.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_generar_rutas"), Tag = "GenerarRutas" });
-            logistica.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_asignar_rutas"), Tag = "AsignarRutas" });
-            logistica.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_consultar_rutas"), Tag = "ConsultarRutas" });
-
-            treeView1.Nodes.Add(logistica);
-
-
-            // ENTREGA
-            TreeNode entrega = new TreeNode();
-            entrega.Text = Traducciones.Traducir("node_entrega");
-            entrega.Tag = "entrega";
-
-            entrega.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_registrar_entrega"), Tag = "RegistrarEntrega" });
-            entrega.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_solicitar_devolucion"), Tag = "SolicitarDevolucion" });
-            entrega.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_calificar_repartidor"), Tag = "CalificarRepartidor" });
-
-            treeView1.Nodes.Add(entrega);
-
-
-            // INCONVENIENTES
-            TreeNode inc = new TreeNode();
-            inc.Text = Traducciones.Traducir("node_inconveniente");
-            inc.Tag = "inconveniente";
-
-            inc.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reportar_inconveniente"), Tag = "ReportarInconveniente" });
-
-            treeView1.Nodes.Add(inc);
-
-
-            // REPORTES
-            TreeNode rep = new TreeNode();
-            rep.Text = Traducciones.Traducir("node_reporte");
-            rep.Tag = "reporte";
-
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_envios"), Tag = "ReporteEnvios" });
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_entregas"), Tag = "ReporteEntregas" });
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_inconvenientes"), Tag = "ReporteInconvenientes" });
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_repartidores"), Tag = "ReporteRepartidores" });
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_pagos"), Tag = "ReportePagos" });
-            rep.Nodes.Add(new TreeNode() { Text = Traducciones.Traducir("node_reporte_analiticas"), Tag = "ReporteAnaliticas" });
-
-            treeView1.Nodes.Add(rep);
-
-
-            // MAESTRO
-            TreeNode maestro = new TreeNode();
-            maestro.Text = "Responsabilidades";
-            maestro.Tag = "Responsabilidades";
-
-            maestro.Nodes.Add(new TreeNode() { Text = "Registro de clientes", Tag = "Registro de clientes" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Registro de envíos", Tag = "Registro de envíos" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Cobro de envíos", Tag = "Cobro de envíos" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Gestión de facturas", Tag = "Gestión de facturas" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Creación de rutas", Tag = "Creación de rutas" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Asignación de rutas", Tag = "Asignación de rutas" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Administración de rutas", Tag = "Administración de rutas" });
-            maestro.Nodes.Add(new TreeNode() { Text = "Bitacora de cambios", Tag = "Bitacora de cambios" });
-
-
-            treeView1.Nodes.Add(maestro);
+            treeView1.Nodes.Add(resp);
 
             treeView1.EndUpdate();
 
@@ -193,26 +119,6 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "Bitacora": return "Bitácora de eventos";
                 case "GestionPerfiles": return "Gestión de perfiles";
                 case "GestionBackup": return "Gestión de backup";
-                case "SolicitarEnvio": return "Solicitar envío";
-                case "RegistrarEnvio": return "Registrar envío";
-                case "ConsultarEstado": return "Consultar estado";
-                case "ModificarDestino": return "Modificar destino";
-                case "CancelarEnvio": return "Cancelar envío";
-                case "RegistrarPago": return "Registrar pago";
-                case "ConsultarComprobantes": return "Consultar comprobantes";
-                case "GenerarRutas": return "Generar rutas";
-                case "AsignarRutas": return "Asignar rutas";
-                case "ConsultarRutas": return "Consultar rutas";
-                case "RegistrarEntrega": return "Registrar entrega";
-                case "SolicitarDevolucion": return "Solicitar devolución";
-                case "CalificarRepartidor": return "Calificar repartidor";
-                case "ReportarInconveniente": return "Reportar inconveniente";
-                case "ReporteEnvios": return "Reporte de envíos";
-                case "ReporteEntregas": return "Reporte de entregas";
-                case "ReporteInconvenientes": return "Reporte de inconvenientes";
-                case "ReporteRepartidores": return "Reporte de repartidores";
-                case "ReportePagos": return "Reporte de pagos";
-                case "ReporteAnaliticas": return "Reporte de analíticas operativas";
                 case "Registro de clientes": return "Registro de clientes";
                 case "Registro de envíos": return "Registro de envíos";
                 case "Cobro de envíos": return "Cobro de envíos";
@@ -221,6 +127,7 @@ namespace SistemaDeEnviosGUI.Formularios
                 case "Asignación de rutas": return "Asignación de rutas";
                 case "Administración de rutas": return "Administración de rutas";
                 case "Bitacora de cambios": return "Bitacora de cambios";
+                case "Reporte inteligente": return "Reporte inteligente";
                 default: return null;
             }
         }
@@ -290,6 +197,10 @@ namespace SistemaDeEnviosGUI.Formularios
 
                 case "Bitacora de cambios":
                     new BitacoraCambiosForm().ShowDialog();
+                    break;
+
+                case "Reporte inteligente":
+                    new ReporteInteligenteForm().ShowDialog();
                     break;
             }
         }

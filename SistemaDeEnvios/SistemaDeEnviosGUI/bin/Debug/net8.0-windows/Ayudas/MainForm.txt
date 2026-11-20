@@ -21,6 +21,7 @@ Agrupa las funcionalidades destinadas a la administración del sistema.
 - Bitácora de eventos: permite consultar los eventos registrados durante el funcionamiento del sistema.
 - Gestión de perfiles: permite administrar perfiles, familias y permisos.
 - Gestión de backup: permite gestionar las copias de seguridad de la base de datos.
+- Bitácora de cambios: permite consultar el historial de modificaciones de los envíos.
 
 
 RESPONSABILIDADES
@@ -34,7 +35,6 @@ Agrupa accesos directos a funcionalidades de gestión según las responsabilidad
 - Creación de rutas: permite crear rutas y administrar los envíos que las componen.
 - Asignación de rutas: permite asignar rutas a repartidores.
 - Administración de rutas: permite acceder a las funcionalidades disponibles para los repartidores.
-- Bitácora de cambios: permite consultar el historial de modificaciones de los envíos.
 
 
 CERRAR SESIÓN
